@@ -19,8 +19,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.release>17</maven.compiler.release>
 		<!-- FIXME - set to app's main class' -->
-		<main.module>inf112.skeleton.app</main.module>
-		<main.class>inf112.skeleton.app.Main</main.class>
+		<main.module>src</main.module>
+		<main.class>src.main.Main</main.class>
 	</properties>
 
 	<dependencies>
