@@ -3,12 +3,14 @@
 **Roller**
 
 **Proggy Gonzales**
+
 Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest, og må rekke butikken før ølsalget stenger. Han har donert alle pengene sine til unicef og må løpe gjennom Bergen sentrum og samle penger for å få råd, og han må unngå gateselgere som ikke gir seg uansett hvor hardt han sier at han allerede er fadder. 
 Aspekter:
 Scrolles horisontalt, power-up gjør han raskere, munnbind og caps gjør han usynlig, flere levels
 
 
 **Brukerhistorier**
+
 Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden, og det bør være en tydelig nedtelling/klokke på skjermen.
 Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
 Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken.
@@ -21,6 +23,7 @@ Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil 
 Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over
 
 **Prioritert liste over brukerhistorier til første iterasjon**
+
 Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
 Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
 
