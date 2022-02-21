@@ -1,5 +1,3 @@
-# Deloppgave 1
-
 **Roller**
 
 **Proggy Gonzales**
@@ -22,10 +20,12 @@ Som spiller ønsker jeg en gøy og engasjerende grunn til å spille, derfor bør
 Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
 Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over
 
+
 **Prioritert liste over brukerhistorier til første iterasjon**
 
 Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
 Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
+
 
 
 **Oppsummering:**
@@ -41,11 +41,3 @@ Det var litt vanskelig å sette i gang med å få bruke repo-et, også ønsker v
 
 Til neste iterasjon ønsker vi å ha et spillbrett med et gatenivå som man kan løpe bortover og hoppe og gode tester som hjelper oss med å videreutvikle spillet
 
-
-# Deloppgave 2
-
-# Deloppgave 3
-
-# Deloppgave 4
-
-# Deloppgave 5
