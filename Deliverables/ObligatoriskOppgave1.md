@@ -49,22 +49,24 @@ Scrolles horisontalt, power-up gjør han raskere, munnbind og caps gjør han usy
 
 ## Brukerhistorier
 
-Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden, og det bør være en tydelig nedtelling/klokke på skjermen.
-Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
-Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken.
-Som spiller er det viktig å vite hvordan jeg kan tape spillet, slik at jeg kan holde seg unna farene/fiender.
-Som spiller trenger jeg å vite hvordan fiender ser ut slik at jeg kan lettere unngå dem.
-Som spiller er jeg avhengig av vite hvordan målet ser ut, slik at jeg kan klare å finne fram.
-Som spiller må jeg vite hvilken vei jeg skal gå for å nå fram til målet.
-Som spiller ønsker jeg en gøy og engasjerende grunn til å spille, derfor bør det være et mål man skal oppnå og/eller en score-funksjon
-Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
-Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over
+- Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden, og det bør være en tydelig nedtelling/klokke på skjermen.
+- Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
+- Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken.
+- Som spiller er det viktig å vite hvordan jeg kan tape spillet, slik at jeg kan holde seg unna farene/fiender.
+- Som spiller trenger jeg å vite hvordan fiender ser ut slik at jeg kan lettere unngå dem.
+- Som spiller er jeg avhengig av vite hvordan målet ser ut, slik at jeg kan klare å finne fram.
+- Som spiller må jeg vite hvilken vei jeg skal gå for å nå fram til målet.
+- Som spiller ønsker jeg en gøy og engasjerende grunn til å spille, derfor bør det være et mål man skal oppnå og/eller en score-funksjon
+- Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
+- Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over
+
 
 
 **Prioritert liste over brukerhistorier til første iterasjon**
 
-Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
-Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
+- Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå
+- Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå og vil ha enkle kontroller og grafikk som er intuitive
+
 
 
 
