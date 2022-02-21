@@ -1,5 +1,4 @@
-
-##Organisering av teamet
+#Organisering av teamet
 En av de viktigste oppgavene i starten av et nytt prosjekt er å organisere teamet. Det er ønskelig å sette klare forventninger til hverandre og skape en tentativ plan og arbeidsfordeling. I løpet av de første ukene har vi derfor brukt mye tid på å bli kjent gjennom å kartlegge kompetanse, etablere roller samt fastsette en prosjektmetodikk. I tillegg til å drøfte dette generelt før vi startet med det tekniske arbeidet, ønsket vi å utarbeide en teamkontrakt som gjorde tankene mer håndfast. Vi innlemmet momenter fra Deloppgave 1 og 2, samt introduserte egne momenter vi følte var viktige for vår gruppe. 
 
 Sammen ble vi enige om kjøreregler for prosjektarbeidet videre. Momenter vi tok opp i teamkontrakter var følgende: 
