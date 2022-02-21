@@ -9,11 +9,11 @@ Sammen ble vi enige om kjøreregler for prosjektarbeidet videre. Momenter vi tok
 **Roller**
 Basert på fremlagt kompetanse og personlighetstrekk har vi utarbeidet tentative lagroller.
  
--	Leder: Hannah. Hannah ble et naturlig valg som leder ettersom hun evner å se hele gruppen, samt har gode tekniske ferdigheter i Java som gir henne en god oversikt.
--	Nestleder: Erik H. Erik H har studert lenge, og bacheloren i økonomi og administrasjon fra Handelshøyskolen gjør han til en god rådgiver for Hannah.
--	Kundekontakt: Chantal. Chantal er svært serviceinnstilt med internasjonal erfaring, og vi mener hennes imøtekommenhet er en viktig egenskap i kontakt med kunden.
--	IT-ansvarlig: Erik I. Erik I har god teknisk kompetanse også utenfor Java fra sin jobb som IT-ansvarlig på realfagsbygget. Han har god erfaring med å sette seg inn i, og forklare ulike tekniske plattformer
--	Miljø/HR-Ansvarlig: Alexander. For å bekjempe konformitet i en gruppe er det viktig at vi alle blir bedre kjent. Alexander ble umiddelbart ansett som en som klarte å skape godt samhold i gruppen, og få folk til å åpne seg. 
+-	**Leder: Hannah.** Hannah ble et naturlig valg som leder ettersom hun evner å se hele gruppen, samt har gode tekniske ferdigheter i Java som gir henne en god oversikt.
+-	**Nestleder: Erik H.** Erik H har studert lenge, og bacheloren i økonomi og administrasjon fra Handelshøyskolen gjør han til en god rådgiver for Hannah.
+-	**Kundekontakt: Chantal.** Chantal er svært serviceinnstilt med internasjonal erfaring, og vi mener hennes imøtekommenhet er en viktig egenskap i kontakt med kunden.
+-	**IT-ansvarlig: Erik I.** Erik I har god teknisk kompetanse også utenfor Java fra sin jobb som IT-ansvarlig på realfagsbygget. Han har god erfaring med å sette seg inn i, og forklare ulike tekniske plattformer
+-	**Miljø/HR-Ansvarlig: Alexander.** For å bekjempe konformitet i en gruppe er det viktig at vi alle blir bedre kjent. Alexander ble umiddelbart ansett som en som klarte å skape godt samhold i gruppen, og få folk til å åpne seg. 
 
 **Kommunikasjon og plattformer**
 Ettersom vi er et team på kun fem personer, ønsker vi å holde oss til så få som mulig kommunikasjonsplattformer for å ha best mulig oversikt. Vi bruker Messenger som viktigste kommunikasjonskanal ettersom responstiden er kortest. Trello blir brukt for å holde oversikt over prosjektprogresjon. Generelt tekstarbeid blir samlet i felles Google Docs, mens kode blir pushet til et felles Git repository.
