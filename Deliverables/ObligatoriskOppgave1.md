@@ -30,7 +30,6 @@ Det første nye momentet i teamkontrakten vår var hvilke forventninger vi ønsk
 Vi ønsket også å være enige på forhånd om spilleregler når vi har møter som er utenfor gruppetimene. Vi ønsker å begrense mobilbruk til et minimum når vi jobber sammen, og heller ta pauser når det trengs. Videre er man travel som student, og vi ønsker å verdsette hverandres tid ved å ikke komme for sent, og som minimum gi beskjed dersom noe uforutsett har dukket opp som gjør at man ikke kommer tidsnok. Det vil skape grunnlag for mer effektive møter. Vi er og enige om å være fleksible for at alle ikke kan møtes fysisk til hvert møte, og har discord som et alternativ dersom noen ikke er til stede.
 
 **Miljø i teamet**
-
 Det er viktig å reflektere rundt normer som skal gjelde i teamet for å skape et teammiljø der gruppemedlemmene tørr å si sin mening og komme med viktige innspill. 
 - **Tilbakemeldinger:** Vi er enige om at konstruktiv kritikk alltid skal komme sammen med positive tilbakemeldinger. Kritikken skal heller ikke være belærende. 
 - **Innspill fra teammedlemmer:** For å sikre at alle teammedlemmer får sagt sin mening er det viktig at leder tar ansvar og delegerer ordet til alle rundt bordet på viktige temaer, samt jevnlig spør om noen har innspill. Ved individuell brainstorming før diskusjoner er vi enige om at alle må si alle sine forslag, der ingen forslag er dumme. 
