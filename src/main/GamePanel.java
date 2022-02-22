@@ -29,10 +29,10 @@ public class GamePanel extends JPanel implements Runnable{
     Player player = new Player(this, keyH);
     
     // Set players default position
-    int playerX = 100;
-    int playerY = 100;
-    
-    int playerSpeed = 4;
+    // DETTE GJØR INGENTING ATM
+    int playerX = 200;
+    int playerY = 200;
+    int playerSpeed = 8;
     
     
     public GamePanel() {
@@ -108,6 +108,10 @@ public class GamePanel extends JPanel implements Runnable{
                 update();
                 // 2: draw the screen with the updated information
                 repaint();
+                
+                jump();
+                repaint();
+
                 delta--;
                 drawCount++;
             }
@@ -125,8 +129,12 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void update() {
         player.update();
-            
     }
+    
+    public void jump() {
+    	player.jump();
+    }
+    
     public void paintComponent(Graphics g) {
         
         super.paintComponent(g);
