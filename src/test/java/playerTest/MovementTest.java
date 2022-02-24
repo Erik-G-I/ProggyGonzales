@@ -1,6 +1,7 @@
 package playerTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import org.junit.jupiter.api.Test;
 
@@ -38,6 +39,20 @@ public class MovementTest {
 		p.update();
 		
 		assertEquals(startPos-p.speed, p.x);
+	}
+	
+	@Test
+	public void testSpeedBoost() {
+		//TODO:
+		//fullfør testen når vi implementerer gullsko
+		assertFalse(true);
+	}
+	
+	@Test
+	public void testInvisible() {
+		//TODO:
+		//fullfør testen når vi implementerer munnbind
+		assertFalse(true);
 	}
 	
 	
