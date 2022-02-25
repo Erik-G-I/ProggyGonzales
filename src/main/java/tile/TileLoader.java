@@ -38,7 +38,8 @@ public class TileLoader {
 				String line = reader.readLine();
 				System.out.println("read a line");
 				while(col < gp.maxScreenCol) {
-					loadedMap[row][col] = tiles[Integer.parseInt(line.split(" ")[col])];
+					loadedMap[col][row] = tiles[Integer.parseInt(line.split(" ")[col])];
+					col++;
 				}
 				
 				row++;
