@@ -10,19 +10,20 @@ import javax.imageio.ImageIO;
 
 import core.GamePanel;
 
-public class TileLoader extends Tile{
+public class TileLoader {
 
 	GamePanel gp;
 	Tile[] tiles;
 	Tile[][] loadedMap;
 	int numOfTiles = 2; //må oppdateres til antall tiles i spillet + transparent tile
 	
-	public TileLoader() {
-		
+	public TileLoader(GamePanel gp) {
+		this.gp = gp;
 		this.tiles = new Tile[numOfTiles];
 		this.loadedMap = new Tile[gp.maxScreenRow][gp.maxScreenCol];
 		
 		getTileImage();
+		loadMap();
 	}
 
 	private void loadMap() {
@@ -31,9 +32,18 @@ public class TileLoader extends Tile{
 		try {
 			
 			reader = new BufferedReader(new InputStreamReader(is));
-			
-			String line = reader.readLine();
-			
+			int row = 0;
+			int col = 0;
+			while(row < gp.maxScreenRow) {
+				String line = reader.readLine();
+				System.out.println("read a line");
+				while(col < gp.maxScreenCol) {
+					loadedMap[row][col] = tiles[Integer.parseInt(line.split(" ")[col])];
+				}
+				
+				row++;
+			}
+			reader.close();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -45,8 +55,9 @@ public class TileLoader extends Tile{
 	public void getTileImage() {
 		
 		try {
-			
+			tiles[0] = new Tile();
 			tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/transparent.png"));
+			tiles[1] = new Tile();
 			tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
 			
 			
