@@ -14,8 +14,8 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
     private float weight, jumpStrength;
-    public static int height = 300;
-    public static int floorHeight = height-20;
+    public static int height = 532;
+    public static int floorHeight = height-20; //512 px ned
     
     
     
