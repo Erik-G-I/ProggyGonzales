@@ -11,9 +11,8 @@ public class Tile {
 	public int x, y;
 	
 	
-	public Tile(GamePanel gp) {
+	public Tile() {
 		BufferedImage image = this.image;
-		this.gp = gp;
 		
 	}
 	
