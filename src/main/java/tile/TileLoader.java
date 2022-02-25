@@ -36,12 +36,12 @@ public class TileLoader {
 			int col = 0;
 			while(row < gp.maxScreenRow) {
 				String line = reader.readLine();
-				System.out.println("read a line");
+				String[] lineArr = line.split(" ");
 				while(col < gp.maxScreenCol) {
-					loadedMap[col][row] = tiles[Integer.parseInt(line.split(" ")[col])];
+					loadedMap[row][col] = tiles[Integer.parseInt(lineArr[col])];
 					col++;
 				}
-				
+				col=0;
 				row++;
 			}
 			reader.close();
