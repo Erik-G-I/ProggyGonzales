@@ -12,7 +12,7 @@ import entity.Player;
 public class GamePanel extends JPanel implements Runnable{
 
     // Screen settings
-    final int originalTileSize = 32; // 16x16 tiles
+    final int originalTileSize = 32; // 32x32 tiles
     final int scale = 2;
     
     public final int tileSize = originalTileSize * scale; // 64
@@ -28,11 +28,6 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     Player player = new Player(this, keyH);
     
-    // Set players default position
-    // DETTE GJØR INGENTING ATM
-    int playerX = 200;
-    int playerY = 200;
-    int playerSpeed = 8;
     
     
     public GamePanel() {

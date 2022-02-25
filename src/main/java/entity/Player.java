@@ -93,6 +93,7 @@ public class Player extends Entity{
 	                x+= speed;
 	            }
 	            
+				// oppdaterer bilde som blir brukt til player
 	            spriteCounter++;
 	            if(spriteCounter>15) {
 	                if(spriteNum == 1) {
