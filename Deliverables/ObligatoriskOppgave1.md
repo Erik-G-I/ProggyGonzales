@@ -19,7 +19,7 @@ Basert på fremlagt kompetanse og personlighetstrekk har vi utarbeidet tentative
 Ettersom vi er et team på kun fem personer, ønsker vi å holde oss til så få som mulig kommunikasjonsplattformer for å ha best mulig oversikt. Vi bruker Messenger som viktigste kommunikasjonskanal ettersom responstiden er kortest. Trello blir brukt for å holde oversikt over prosjektprogresjon. Generelt tekstarbeid blir samlet i felles Google Docs, mens kode blir pushet til et felles Git repository.
 
 **Arbeidsfordeling og oppfølging**
-Ettersom dette er et skoleprosjekt ønsker vi at alle skal få så mye som mulig utbytte av arbeidet og ønsker en jevn fordeling av alt arbeid. Dette betyr ikke at vi forstår at vi må spille på hverandres styrker heller enn svakheter. (Vi ønsker derfor at en persons styrke kan brukes i opplæring av andre og at man dermed arbeider mye sammen.).
+Ettersom dette er et skoleprosjekt ønsker vi at alle skal få så mye som mulig utbytte av arbeidet og ønsker en jevn fordeling av alt arbeid. Dette betyr ikke at vi ikke forstår at vi må spille på hverandres styrker heller enn svakheter. (Vi ønsker derfor at en persons styrke kan brukes i opplæring av andre og at man dermed arbeider mye sammen.).
 
 Videre ønsker vi å starte hvert møte med en brief av hva vi har gjort siden forrige møte. Der presenterer en hva man fikk til, og hva man har strevet med å prøve å få til. I teamkontrakten ble vi enige om å være svært mottakelig for konstruktiv kritikk, og briefen er et typisk sted vi er var på at dette skal komme. Det vil gjøre oss enda mer åpen for å motta kritikken, og bruke den til å forbedre prosjektet vårt. 
 
