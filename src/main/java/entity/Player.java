@@ -60,7 +60,7 @@ public class Player extends Entity{
             right1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-2.png"));
 
-            
+            bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
             
             
         }catch(IOException e) {
@@ -86,11 +86,11 @@ public class Player extends Entity{
 	            }
 	            else if(keyH.leftPressed == true) {
 	                direction = "left";
-	                x-= speed;
+	                //x-= speed;
 	            }
 	            else if(keyH.rightPressed == true) {
 	                direction = "right";
-	                x+= speed;
+	                //x+= speed;
 	            }
 	            
 				// oppdaterer bilde som blir brukt til player
@@ -124,6 +124,8 @@ public class Player extends Entity{
     public void draw(Graphics2D g2) {
 //        g2.setColor(Color.white);
 //        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
+
+        //g2.drawImage(bakgrunn, 0,0, 1000, 700, null);
         
         BufferedImage image = null;
         switch(direction) {

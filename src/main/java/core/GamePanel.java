@@ -1,12 +1,13 @@
 package core;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
+import entity.Background;
 import entity.Player;
 import tile.TileLoader;
 
@@ -28,14 +29,14 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this, keyH);
+    Background bg = new Background(this, keyH);
     TileLoader loader = new TileLoader(this);
     
-    
-    
+
     public GamePanel() {
         
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.DARK_GRAY);
+        //this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
@@ -125,18 +126,22 @@ public class GamePanel extends JPanel implements Runnable{
     
     
     public void update() {
+        bg.update();
         player.update();
     }
     
     public void jump() {
     	player.jump();
     }
+
     
     public void paintComponent(Graphics g) {
-        
+
         super.paintComponent(g);
         
         Graphics2D g2 = (Graphics2D)g;
+
+        bg.draw(g2);
         
         loader.draw(g2);
         player.draw(g2);
