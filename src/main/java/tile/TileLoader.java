@@ -100,8 +100,8 @@ public class TileLoader {
 			
 			int WorldX = worldCol * gp.tileSize;
 			int WorldY = worldRow * gp.tileSize;
-			int screenX = WorldX - gp.player.worldX + gp.player.screenX;
-			int screenY = WorldY - gp.player.worldY + gp.player.screenY;
+			int screenX = WorldX - gp.player.worldX + gp.player.playerX;
+			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
 			
 			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			

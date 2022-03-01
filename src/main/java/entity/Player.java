@@ -23,8 +23,8 @@ public class Player extends Entity{
         this.gp = gp;
         this.keyH = keyH;
 
-        screenX = 480;
-        screenY = 515;
+        playerX = 480;
+        playerY = 515;
 
         
         setDefaultValues();
@@ -167,7 +167,7 @@ public class Player extends Entity{
             break;
         }
         
-        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, playerX, playerY, gp.tileSize, gp.tileSize, null);
     }
         
     
