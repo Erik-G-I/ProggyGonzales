@@ -61,9 +61,9 @@ public class TileLoader {
 			tiles[1] = new Tile();
 			tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
 			tiles[2] = new Tile();
-			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
+			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_red.png"));
 			tiles[3] = new Tile();
-			tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
+			tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
 			tiles[4] = new Tile();
 			tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dirt.png"));
 			
