@@ -14,14 +14,18 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
     private float weight, jumpStrength;
-    public static int height = 532;
-    public static int floorHeight = height-20; //512 px ned
+    public static int floorHeight = 515; //512 px ned
     
     
+
     
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
+
+        screenX = 480;
+        screenY = 515;
+
         
         setDefaultValues();
         getPlayerImage();
@@ -29,12 +33,12 @@ public class Player extends Entity{
     }
     
     public void setDefaultValues() {
-        x = 0;
+    	worldX = 0;
         //jo mindre y, jo høyere opp
-        y = floorHeight;
-        speed = 6;
+    	worldY = floorHeight;
+        speed = 5;
         direction = "down";
-        weight = 4;
+        weight = 3;
 
     }
     
@@ -60,7 +64,7 @@ public class Player extends Entity{
             right1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-2.png"));
 
-            
+           // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
             
             
         }catch(IOException e) {
@@ -72,25 +76,25 @@ public class Player extends Entity{
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
             
       	            
-				if(keyH.upPressed == true && y >= floorHeight) {
+				if(keyH.upPressed == true && worldY >= floorHeight) {
 					direction = "up";
 					jumpStrength = 36; // Hvor høyt proggy hopper
-		    	    y -= jumpStrength; // Beveger spiller på y-aksen basert på hoppens styrke
+					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppens styrke
 		    	    jumpStrength -= weight;
-	                y-= speed;
+		    	    worldY -= speed;
 	
 	            }
 	            else if(keyH.downPressed == true) {
 	                direction = "down";
-	                y+= speed;
+	                worldY += speed;
 	            }
 	            else if(keyH.leftPressed == true) {
 	                direction = "left";
-	                x-= speed;
+	                worldX -= speed;
 	            }
 	            else if(keyH.rightPressed == true) {
 	                direction = "right";
-	                x+= speed;
+	                worldX += speed;
 	            }
 	            
 				// oppdaterer bilde som blir brukt til player
@@ -110,13 +114,13 @@ public class Player extends Entity{
     }
     
     public void jump() {
-    	if (keyH.upPressed == true && y >= floorHeight) // Må være på bakken for å hoppe
+    	if (keyH.upPressed == true && worldY >= floorHeight) // Må være på bakken for å hoppe
     	      jumpStrength = 36; 
-    		  y -= jumpStrength; 
+    		  worldY -= jumpStrength; 
     		  jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
         
-    		if (y >= floorHeight) { 
-    			y = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
+    		if (worldY >= floorHeight) { 
+    			worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
     		}
     }
     
@@ -124,6 +128,8 @@ public class Player extends Entity{
     public void draw(Graphics2D g2) {
 //        g2.setColor(Color.white);
 //        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
+
+        //g2.drawImage(bakgrunn, 0,0, 1000, 700, null);
         
         BufferedImage image = null;
         switch(direction) {
@@ -161,7 +167,7 @@ public class Player extends Entity{
             break;
         }
         
-        g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
         
     

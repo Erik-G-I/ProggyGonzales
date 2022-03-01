@@ -20,11 +20,11 @@ public class MovementTest {
 		
 		
 		p.setDefaultValues();
-		int startPos = p.x;
+		int startPos = p.worldX;
 		keyH.rightPressed = true;
 		p.update();
 		
-		assertEquals(startPos+p.speed, p.x);
+		assertEquals(startPos+p.speed, p.worldX);
 	}
 	
 	
@@ -34,11 +34,11 @@ public class MovementTest {
 		
 		
 		p.setDefaultValues();
-		int startPos = p.x;
+		int startPos = p.worldX;
 		keyH.leftPressed = true;
 		p.update();
 		
-		assertEquals(startPos-p.speed, p.x);
+		assertEquals(startPos-p.speed, p.worldX);
 	}
 	
 	@Test
