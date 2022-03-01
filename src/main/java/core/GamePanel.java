@@ -1,12 +1,13 @@
 package core;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-import javax.swing.JPanel;
+import javax.imageio.ImageIO;
+import javax.swing.*;
 
+import entity.Background;
 import entity.Player;
 import tile.TileLoader;
 
@@ -18,35 +19,42 @@ public class GamePanel extends JPanel implements Runnable{
     
     public final int tileSize = originalTileSize * scale; // 64
     public final int maxScreenCol = 16;
-    public final int maxScreenRow = 12;
-    public final int screenWidth = tileSize * maxScreenCol;     // 1024px
-    public final int screenHeight = tileSize * maxScreenRow;    // 768px
+    public final int maxScreenRow = 50;
+    public final int screenWidth = tileSize * maxScreenCol;     // ...px
+    public final int screenHeight = tileSize * maxScreenRow;    // ...px
+    
+    //World settings
+    public final int maxWorldCol = 16;
+    public final int maxWorldRow = 50;
+    public final int worldWidth = tileSize * maxWorldCol;
+    public final int worldHeight = tileSize * maxWorldRow;
+    
+    
+    
     
     // FPS
     int FPS = 60;
     
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
-    Player player = new Player(this, keyH);
+    public Player player = new Player(this, keyH);
+  //  public Background bg = new Background(this, keyH);
     TileLoader loader = new TileLoader(this);
-    
-    
-    
+
+
     public GamePanel() {
-        
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        this.setBackground(Color.DARK_GRAY);
+        //this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
     }
 
-    public void startGameThread() {
-        
+    public void startGameThread() {  
         gameThread = new Thread(this);
         gameThread.start();
     }
-     
+
 
 //    @Override
 //    public void run() {
@@ -101,13 +109,14 @@ public class GamePanel extends JPanel implements Runnable{
             lastTime = currentTime;
             
             if(delta >= 1) {
-                // 1: update information, such as the characters position
+                // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
-                // 2: draw the screen with the updated information
+                // 2: tegner skjermen på nytt med oppdatert informasjon
                 repaint();
                 
                 jump();
                 repaint();
+
 
                 delta--;
                 drawCount++;
@@ -124,19 +133,24 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     
-    public void update() {
+    
+	public void update() {
+       // bg.update();
         player.update();
     }
     
     public void jump() {
     	player.jump();
     }
+
     
     public void paintComponent(Graphics g) {
-        
+
         super.paintComponent(g);
         
         Graphics2D g2 = (Graphics2D)g;
+
+        //bg.draw(g2);
         
         loader.draw(g2);
         player.draw(g2);
@@ -145,4 +159,3 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
 }
-
