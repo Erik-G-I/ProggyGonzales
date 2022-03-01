@@ -15,7 +15,7 @@ public class TileLoader {
 	GamePanel gp;
 	Tile[] tiles;
 	Tile[][] loadedMap;
-	int numOfTiles = 2; //må oppdateres til antall tiles i spillet + transparent tile
+	int numOfTiles = 5; //må oppdateres til antall tiles i spillet + transparent tile
 	
 	public TileLoader(GamePanel gp) {
 		this.gp = gp;
@@ -60,6 +60,12 @@ public class TileLoader {
 			tiles[0].image = ImageIO.read(getClass().getResourceAsStream("/tiles/transparent.png"));
 			tiles[1] = new Tile();
 			tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
+			tiles[2] = new Tile();
+			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_red.png"));
+			tiles[3] = new Tile();
+			tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
+			tiles[4] = new Tile();
+			tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dirt.png"));
 			
 			
 		} catch (IOException e) {
