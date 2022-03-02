@@ -15,8 +15,6 @@ public class Player extends Entity{
     KeyHandler keyH;
     private float weight, jumpStrength;
     public static int floorHeight = 515; //512 px ned
-    
-    
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -79,7 +77,7 @@ public class Player extends Entity{
 				if(keyH.upPressed == true && worldY >= floorHeight) {
 					direction = "up";
 					jumpStrength = 36; // Hvor høyt proggy hopper
-					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppens styrke
+					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
 		    	    jumpStrength -= weight;
 		    	    worldY -= speed;
 	
@@ -108,20 +106,20 @@ public class Player extends Entity{
 	                }
 	                spriteCounter = 0;
 	            }
-            
-        } 
-        
+        }
     }
     
     public void jump() {
-    	if (keyH.upPressed == true && worldY >= floorHeight) // Må være på bakken for å hoppe
-    	      jumpStrength = 36; 
-    		  worldY -= jumpStrength; 
-    		  jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
-        
-    		if (worldY >= floorHeight) { 
-    			worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
-    		}
+    	if (keyH.upPressed == true && worldY >= floorHeight) { // Må være på bakken for å hoppe
+            jumpStrength = 36;
+        }
+
+    	worldY -= jumpStrength;
+    	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
+
+        if (worldY >= floorHeight) {
+            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
+        }
     }
     
     

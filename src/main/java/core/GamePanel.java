@@ -3,6 +3,7 @@ package core;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -28,10 +29,10 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 50;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
-    
-    
-    
-    
+
+    //Map
+    public final InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
+
     // FPS
     int FPS = 60;
     
@@ -39,7 +40,7 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
-    TileLoader loader = new TileLoader(this);
+    TileLoader loader = new TileLoader(this, is);
 
 
     public GamePanel() {
