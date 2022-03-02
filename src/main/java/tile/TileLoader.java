@@ -18,24 +18,26 @@ public class TileLoader {
 	GamePanel gp;
 	Tile[] tiles;
 	Tile[][] loadedMap;
-	int numOfTiles[][];
+	public int numOfTiles[][];
+	InputStream is;
 	
 	
-	public TileLoader(GamePanel gp) {
+	public TileLoader(GamePanel gp, InputStream is) {
 		
 		this.gp = gp;
 		this.tiles = new Tile[20];
 		this.numOfTiles = new int[gp.maxWorldCol][gp.maxWorldRow];
+		this.is = is;
 		
 		getTileImage();
-		loadMap();	
+		loadMap();
 	}
 
 
 
 	public void loadMap() {
 		BufferedReader reader;
-		InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
+		//InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
 
 		try {
 			
@@ -112,8 +114,6 @@ public class TileLoader {
 				worldRow  ++;
 			}
 		}
-		
 	}
-
 
 }
