@@ -1,16 +1,15 @@
 package core;
 
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.io.InputStream;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.JPanel;
 
-import entity.Background;
 import entity.Player;
 import tile.TileLoader;
+import timer.TimerDisplay;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -41,6 +40,10 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
     TileLoader loader = new TileLoader(this, is);
+    
+    
+    //Timer
+    TimerDisplay timerDisplay = new TimerDisplay(this);
 
 
     public GamePanel() {
@@ -101,6 +104,9 @@ public class GamePanel extends JPanel implements Runnable{
         long timer = 0;
         int drawCount = 0;
         
+        //start the timer
+        timerDisplay.startTime();
+        
         while(gameThread != null) {
             
             currentTime = System.nanoTime();
@@ -138,6 +144,7 @@ public class GamePanel extends JPanel implements Runnable{
 	public void update() {
        // bg.update();
         player.update();
+        timerDisplay.update();
     }
     
     public void jump() {
@@ -155,6 +162,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2);
         player.draw(g2);
+        timerDisplay.draw(g2);
         
         g2.dispose();
     }
