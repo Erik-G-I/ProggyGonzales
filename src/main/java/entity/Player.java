@@ -8,6 +8,7 @@ import javax.imageio.ImageIO;
 
 import core.GamePanel;
 import core.KeyHandler;
+import java.awt.Rectangle;
 
 public class Player extends Entity{
 
@@ -23,6 +24,10 @@ public class Player extends Entity{
 
         playerX = 480;
         playerY = 515;
+
+        /* specifying where on the character it will collide with tiles. 
+        We set this to the whole character since it only scrolls vertically */
+        playerSolid = new Rectangle(0,0,gp.tileSize, gp.tileSize);
 
         
         setDefaultValues();
@@ -79,22 +84,47 @@ public class Player extends Entity{
 					jumpStrength = 36; // Hvor høyt proggy hopper
 					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
 		    	    jumpStrength -= weight;
-		    	    worldY -= speed;
+
 	
 	            }
 	            else if(keyH.downPressed == true) {
 	                direction = "down";
-	                worldY += speed;
+
 	            }
 	            else if(keyH.leftPressed == true) {
 	                direction = "left";
-	                worldX -= speed;
+
 	            }
 	            else if(keyH.rightPressed == true) {
 	                direction = "right";
-	                worldX += speed;
+
 	            }
-	            
+                
+                
+                // ER tilen man er på en tile som kolliderer? I utgangspunktet ikke 
+	            colliding = false;
+                
+                //blir oppdatert til å være det dersom den treffer en solid brikke
+                gp.collisionChecker.checkTile(this);
+
+                // IF collision is false, player moves. else: direction stops. 
+                if (colliding == false) {
+                    switch(direction) {
+                    case "up":
+                    worldY -= speed;
+                        break;
+                    case "down":
+                    worldY += speed;
+                        break;
+                    case "right":
+                    worldX += speed;
+                        break;
+                    case "left":
+                    worldX -= speed; 
+                        break;
+                    }
+                }
+
 				// oppdaterer bilde som blir brukt til player
 	            spriteCounter++;
 	            if(spriteCounter>15) {
