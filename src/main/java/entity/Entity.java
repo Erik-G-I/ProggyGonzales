@@ -18,6 +18,8 @@ public class Entity {
     
     public Rectangle playerSolid;
     public boolean colliding = false;
+    // public boolean jumping = false; 
+    //public long jumpingTime = 200;
 
 
     //brukes til å skape animasjon på spiller og fiender

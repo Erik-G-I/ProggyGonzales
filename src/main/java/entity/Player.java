@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
@@ -15,7 +16,7 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
     private float weight, jumpStrength;
-    public static int floorHeight = 515; //512 px ned
+    public static int floorHeight = 511; //512 px ned
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -42,6 +43,7 @@ public class Player extends Entity{
         speed = 5;
         direction = "down";
         weight = 3;
+
 
     }
     
@@ -80,7 +82,9 @@ public class Player extends Entity{
             
       	            
 				if(keyH.upPressed == true && worldY >= floorHeight) {
-					direction = "up";
+					// jumping = true;
+                    // new Thread(new thread()).start()
+                    direction = "up";
 					jumpStrength = 36; // Hvor høyt proggy hopper
 					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
 		    	    jumpStrength -= weight;
@@ -147,7 +151,7 @@ public class Player extends Entity{
     	worldY -= jumpStrength;
     	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
 
-        if (worldY >= floorHeight) {
+        if (worldY >= floorHeight) { // && colliding == false) {
             worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
         }
     }
