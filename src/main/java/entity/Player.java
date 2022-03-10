@@ -37,7 +37,7 @@ public class Player extends Entity{
     }
     
     public void setDefaultValues() {
-    	worldX = 0;
+    	worldX = 64;
         //jo mindre y, jo høyere opp
     	worldY = 512;
         speed = 5;
