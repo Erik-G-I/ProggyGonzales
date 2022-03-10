@@ -11,7 +11,7 @@ public class CollisionCheck {
 
     public void checkTile(Entity entity) {
         int entityLeftWorldX = entity.worldX + entity.playerSolid.x;
-        int entityRightWorldX = entity.worldX - entity.playerSolid.x + entity.playerSolid.width;
+        int entityRightWorldX = entity.worldX + entity.playerSolid.width;
         int entityTopWorldY = entity.worldY + entity.playerSolid.y;
         int entityBottomWorldY = entity.worldY - entity.playerSolid.y + entity.playerSolid.height;
 

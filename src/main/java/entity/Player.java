@@ -17,7 +17,6 @@ public class Player extends Entity{
     KeyHandler keyH;
     private int weight;
     private int gravity;
-    public static int floorHeight = 511; //512 px ned
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -29,7 +28,7 @@ public class Player extends Entity{
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
-        playerSolid = new Rectangle(12,1,gp.tileSize-12, gp.tileSize-2);
+        playerSolid = new Rectangle(12 ,1,gp.tileSize-12, gp.tileSize-1);
 
         
         setDefaultValues();
