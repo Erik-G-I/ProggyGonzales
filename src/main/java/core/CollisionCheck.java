@@ -29,6 +29,8 @@ public class CollisionCheck {
                 tileNum2 = gp.loader.numOfTiles[entityRightCol][entityTopRow];
                 if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
                     entity.colliding = true;
+                    entity.hitHead = true;
+                    
                 }
                 break;
             case "down":
@@ -37,6 +39,7 @@ public class CollisionCheck {
                 tileNum2 = gp.loader.numOfTiles[entityRightCol][entityBottomRow];
                 if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
                     entity.colliding = true;
+                    entity.onGround = true;
                 }
                 break;
             case "left":

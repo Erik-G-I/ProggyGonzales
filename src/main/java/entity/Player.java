@@ -27,7 +27,7 @@ public class Player extends Entity{
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
-        playerSolid = new Rectangle(0,0,gp.tileSize, gp.tileSize);
+        playerSolid = new Rectangle(12,1,gp.tileSize-12, gp.tileSize-2);
 
         
         setDefaultValues();
@@ -38,7 +38,7 @@ public class Player extends Entity{
     public void setDefaultValues() {
     	worldX = 0;
         //jo mindre y, jo høyere opp
-    	worldY = floorHeight;
+    	worldY = 512;
         speed = 5;
         direction = "down";
         weight = 3;
@@ -79,11 +79,11 @@ public class Player extends Entity{
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
             
       	            
-				if(keyH.upPressed == true && worldY >= floorHeight) {
+				if(keyH.upPressed == true ) {
 					direction = "up";
-					jumpStrength = 36; // Hvor høyt proggy hopper
-					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
-		    	    jumpStrength -= weight;
+//					jumpStrength = 36; // Hvor høyt proggy hopper
+//					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
+//		    	    jumpStrength -= weight;
 
 	
 	            }
@@ -103,6 +103,7 @@ public class Player extends Entity{
                 
                 // ER tilen man er på en tile som kolliderer? I utgangspunktet ikke 
 	            colliding = false;
+	            onGround = true;
                 
                 //blir oppdatert til å være det dersom den treffer en solid brikke
                 gp.collisionChecker.checkTile(this);
@@ -111,7 +112,9 @@ public class Player extends Entity{
                 if (colliding == false) {
                     switch(direction) {
                     case "up":
-                    worldY -= speed;
+                    jump();
+                    //jumpPossible = false;
+//                    worldY -= speed;
                         break;
                     case "down":
                     worldY += speed;
@@ -138,18 +141,36 @@ public class Player extends Entity{
 	            }
         }
     }
-    
+    int deltaY = 0;
+    		
     public void jump() {
-    	if (keyH.upPressed == true && worldY >= floorHeight) { // Må være på bakken for å hoppe
-            jumpStrength = 36;
+//    	gp.collisionChecker.checkTile(this);
+    	if (jumpPossible == true && keyH.upPressed == true) { // Må være på bakken for å hoppe
+            jumpStrength = 1;
         }
-
-    	worldY -= jumpStrength;
-    	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
-
-        if (worldY >= floorHeight) {
-            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
+    	if (deltaY<135 && colliding == false) {
+    		worldY -= jumpStrength;
+    		deltaY++;
+    		gp.collisionChecker.checkTile(this);
+    	}
+    	
+    	if(onGround == false && (deltaY >= 135 || hitHead == true)) {
+    		
+        	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
+        	if(jumpStrength < 0) {
+        		direction = "down";
+        	}
+        gp.collisionChecker.checkTile(this);
+        if(onGround == true) {
+        	deltaY = 0;
+        	jumpPossible = true;
+        	
         }
+    	}
+    	
+//        if (worldY >= floorHeight) {
+//            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
+//        }
     }
     
     
