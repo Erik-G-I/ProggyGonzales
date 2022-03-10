@@ -120,6 +120,7 @@ public class Player extends Entity{
                     switch(direction) {
                     case "up":
                     jump();
+                    
                     //jumpPossible = false;
 //                    worldY -= speed;
                         break;
@@ -156,7 +157,7 @@ public class Player extends Entity{
     		
     public void jump() {
     	if(onGround == true && keyH.upPressed == true) {
-    		jumpStrength = 36;
+    		jumpStrength = 30;
     		gravity = weight;
     	}
     	if(direction == "up") {
@@ -187,7 +188,7 @@ public class Player extends Entity{
     	String originalDir = direction;
     	direction = "down";
     	gp.collisionChecker.checkTile(this);
-    	if(colliding == false) {
+    	if(colliding == false || onGround == false) {
     		direction = originalDir;
     		worldY += gravity;
     		gravity += 1;
