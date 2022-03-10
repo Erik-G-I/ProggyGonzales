@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
@@ -15,7 +16,7 @@ public class Player extends Entity{
     GamePanel gp;
     KeyHandler keyH;
     private float weight, jumpStrength;
-    public static int floorHeight = 515; //512 px ned
+    public static int floorHeight = 511; //512 px ned
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -42,6 +43,7 @@ public class Player extends Entity{
         speed = 5;
         direction = "down";
         weight = 3;
+
 
     }
     
@@ -79,11 +81,14 @@ public class Player extends Entity{
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
             
       	            
+
 				if(keyH.upPressed == true ) {
 					direction = "up";
 //					jumpStrength = 36; // Hvor høyt proggy hopper
 //					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
 //		    	    jumpStrength -= weight;
+
+
 
 	
 	            }
@@ -148,6 +153,7 @@ public class Player extends Entity{
     	if (jumpPossible == true && keyH.upPressed == true) { // Må være på bakken for å hoppe
             jumpStrength = 1;
         }
+<<<<<<< HEAD
     	if (deltaY<135 && colliding == false) {
     		worldY -= jumpStrength;
     		deltaY++;
@@ -165,6 +171,14 @@ public class Player extends Entity{
         	deltaY = 0;
         	jumpPossible = true;
         	
+=======
+
+    	worldY -= jumpStrength;
+    	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
+
+        if (worldY >= floorHeight) { // && colliding == false) {
+            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
+>>>>>>> b6a72117bc0738134884791aac6fcf82b7a8e3a2
         }
     	}
     	

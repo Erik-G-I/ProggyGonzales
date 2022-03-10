@@ -18,9 +18,12 @@ public class Entity {
     
     public Rectangle playerSolid;
     public boolean colliding = false;
+
     public boolean onGround = true;
     public boolean jumpPossible = true;
     public boolean hitHead = false;
+
+
 
 
     //brukes til å skape animasjon på spiller og fiender
