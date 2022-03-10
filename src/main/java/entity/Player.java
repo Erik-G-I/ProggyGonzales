@@ -15,7 +15,8 @@ public class Player extends Entity{
 
     GamePanel gp;
     KeyHandler keyH;
-    private float weight, jumpStrength;
+    private int weight;
+    private int gravity;
     public static int floorHeight = 511; //512 px ned
 
     
@@ -43,7 +44,8 @@ public class Player extends Entity{
         speed = 5;
         direction = "down";
         weight = 3;
-
+        jumpStrength = 0;
+        gravity = weight;
 
     }
     
@@ -108,7 +110,7 @@ public class Player extends Entity{
                 
                 // ER tilen man er på en tile som kolliderer? I utgangspunktet ikke 
 	            colliding = false;
-	            onGround = true;
+//	            onGround = true;
                 
                 //blir oppdatert til å være det dersom den treffer en solid brikke
                 gp.collisionChecker.checkTile(this);
@@ -122,13 +124,17 @@ public class Player extends Entity{
 //                    worldY -= speed;
                         break;
                     case "down":
-                    worldY += speed;
+                    fall();
                         break;
                     case "right":
                     worldX += speed;
+                    jump();
+                    
                         break;
                     case "left":
                     worldX -= speed; 
+                    jump();
+                    
                         break;
                     }
                 }
@@ -146,45 +152,53 @@ public class Player extends Entity{
 	            }
         }
     }
-    int deltaY = 0;
+    
     		
     public void jump() {
-//    	gp.collisionChecker.checkTile(this);
-    	if (jumpPossible == true && keyH.upPressed == true) { // Må være på bakken for å hoppe
-            jumpStrength = 1;
-        }
-<<<<<<< HEAD
-    	if (deltaY<135 && colliding == false) {
-    		worldY -= jumpStrength;
-    		deltaY++;
+    	if(onGround == true && keyH.upPressed == true) {
+    		jumpStrength = 36;
+    		gravity = weight;
+    	}
+    	if(direction == "up") {
     		gp.collisionChecker.checkTile(this);
-    	}
-    	
-    	if(onGround == false && (deltaY >= 135 || hitHead == true)) {
-    		
-        	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
-        	if(jumpStrength < 0) {
-        		direction = "down";
+        	if(colliding == false) {
+        		onGround = false;
+        		worldY -= jumpStrength;
+        		jumpStrength -= 1;
+        		gp.collisionChecker.checkTile(this);
+        		if(jumpStrength <=0 || colliding == true) {
+        			direction = "down";
+        			
+        		}
         	}
-        gp.collisionChecker.checkTile(this);
-        if(onGround == true) {
-        	deltaY = 0;
-        	jumpPossible = true;
+        	else {
+        		fall();
+        	}
         	
-=======
-
-    	worldY -= jumpStrength;
-    	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
-
-        if (worldY >= floorHeight) { // && colliding == false) {
-            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
->>>>>>> b6a72117bc0738134884791aac6fcf82b7a8e3a2
-        }
+    	}
+    	if(direction == "down") {
+    		fall();
     	}
     	
-//        if (worldY >= floorHeight) {
-//            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
-//        }
+
+    }
+    
+    public void fall() {
+    	String originalDir = direction;
+    	direction = "down";
+    	gp.collisionChecker.checkTile(this);
+    	if(colliding == false) {
+    		direction = originalDir;
+    		worldY += gravity;
+    		gravity += 1;
+    	}
+    	else {
+    		onGround = true;
+    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
+    		direction = originalDir;
+    		gravity = weight;
+    		
+    	}
     }
     
     

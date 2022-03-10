@@ -123,10 +123,11 @@ public class GamePanel extends JPanel implements Runnable{
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
                 repaint();
-                
+                fall();
+                repaint();
                 jump();
                 repaint();
-
+                
 
                 delta--;
                 drawCount++;
@@ -153,7 +154,9 @@ public class GamePanel extends JPanel implements Runnable{
     public void jump() {
     	player.jump();
     }
-
+    public void fall() {
+    	player.fall();
+    }
     
     public void paintComponent(Graphics g) {
 

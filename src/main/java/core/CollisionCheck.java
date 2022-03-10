@@ -11,9 +11,9 @@ public class CollisionCheck {
 
     public void checkTile(Entity entity) {
         int entityLeftWorldX = entity.worldX + entity.playerSolid.x;
-        int entityRightWorldX = entity.worldX + entity.playerSolid.x + entity.playerSolid.width;
+        int entityRightWorldX = entity.worldX - entity.playerSolid.x + entity.playerSolid.width;
         int entityTopWorldY = entity.worldY + entity.playerSolid.y;
-        int entityBottomWorldY = entity.worldY + entity.playerSolid.y + entity.playerSolid.height;
+        int entityBottomWorldY = entity.worldY - entity.playerSolid.y + entity.playerSolid.height;
 
         int entityLeftCol = entityLeftWorldX / gp.tileSize;
         int entityRightCol = entityRightWorldX / gp.tileSize;
@@ -29,12 +29,12 @@ public class CollisionCheck {
                 tileNum2 = gp.loader.numOfTiles[entityRightCol][entityTopRow];
                 if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
                     entity.colliding = true;
-                    entity.hitHead = true;
+//                    entity.hitHead = true;
                     
                 }
                 break;
             case "down":
-                entityBottomRow = (entityBottomWorldY - entity.speed) / gp.tileSize;
+                entityBottomRow = (entityBottomWorldY + entity.speed) / gp.tileSize;
                 tileNum1 = gp.loader.numOfTiles[entityLeftCol][entityBottomRow];
                 tileNum2 = gp.loader.numOfTiles[entityRightCol][entityBottomRow];
                 if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
