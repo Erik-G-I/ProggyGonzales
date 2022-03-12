@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import core.CollisionCheck;
+//import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
@@ -52,14 +52,6 @@ public class Player extends Entity{
         
         try {
             
-//            up1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_1.png"));
-//            up2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_2.png"));
-//            down1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_1.png"));
-//            down2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_2.png"));
-//            left1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_1.png"));
-//            left2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_2.png"));
-//            right1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_1.png"));
-//            right2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_2.png"));
         	
         	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-2.png"));
@@ -107,12 +99,12 @@ public class Player extends Entity{
 	            }
                 
                 
-                // ER tilen man er på en tile som kolliderer? I utgangspunktet ikke 
+                // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
 //	            onGround = true;
                 
-                //blir oppdatert til å være det dersom den treffer en solid brikke
-                gp.collisionChecker.checkTile(this);
+                // updates to be true if Proggy collides with a solid tile
+                gp.collisionChecker.checkCollisionOnTile(this);
 
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
@@ -164,7 +156,7 @@ public class Player extends Entity{
     	}
         // Needs to check collision on the way up
     	if(direction == "up") {
-    		gp.collisionChecker.checkTile(this);
+    		gp.collisionChecker.checkCollisionOnTile(this);
             // will continue to jump as long as Proggy is not colliding with his head
         	if(colliding == false) {
         		onGround = false;
@@ -172,7 +164,7 @@ public class Player extends Entity{
         		worldY -= jumpStrength;
         		jumpStrength -= 1;
                 // if proggy collides, the direction must change and he will fall down towards the ground
-        		gp.collisionChecker.checkTile(this);
+        		gp.collisionChecker.checkCollisionOnTile(this);
         		if(jumpStrength <=0 || colliding == true) {
         			direction = "down";
         			
@@ -191,10 +183,11 @@ public class Player extends Entity{
 
     }
     
+
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
-    	gp.collisionChecker.checkTile(this);
+    	gp.collisionChecker.checkCollisionOnTile(this);
     	if(colliding == false || onGround == false) {
     		direction = originalDir;
     		worldY += gravity;

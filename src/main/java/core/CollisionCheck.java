@@ -9,53 +9,62 @@ public class CollisionCheck {
         this.gp = gp;
     }
 
-    public void checkTile(Entity entity) {
-        int entityLeftWorldX = entity.worldX + entity.playerSolid.x;
-        int entityRightWorldX = entity.worldX + entity.playerSolid.width;
-        int entityTopWorldY = entity.worldY + entity.playerSolid.y;
-        int entityBottomWorldY = entity.worldY - entity.playerSolid.y + entity.playerSolid.height;
+    
+    public void checkCollisionOnTile(Entity unit) {
+        // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
+        int unitLeftSide = unit.playerSolid.x + unit.worldX;
+        int unitRightSide =  unit.playerSolid.width + unit.worldX;
+        int unitTopSide = unit.playerSolid.y + unit.worldY;
+        int unitBottomSide = unit.worldY - unit.playerSolid.y + unit.playerSolid.height;
 
-        int entityLeftCol = entityLeftWorldX / gp.tileSize;
-        int entityRightCol = entityRightWorldX / gp.tileSize;
-        int entityTopRow = entityTopWorldY / gp.tileSize;
-        int entityBottomRow = entityBottomWorldY / gp.tileSize;
+        // This must be adjusted for tilesize to find the columns and rows they are at
+        int unitLeftCol = unitLeftSide / gp.tileSize;
+        int unitRightCol = unitRightSide / gp.tileSize;
+        int unitTopRow = unitTopSide / gp.tileSize;
+        int unitBottomRow = unitBottomSide / gp.tileSize;
 
-        int tileNum1, tileNum2;
+        // The two corners of proggy to be checked for collision for each case
+        int cornerOne, cornerTwo;
 
-        switch(entity.direction) {
+        switch(unit.direction) {
             case "up":
-                entityTopRow = (entityTopWorldY - entity.speed) / gp.tileSize;
-                tileNum1 = gp.loader.numOfTiles[entityLeftCol][entityTopRow];
-                tileNum2 = gp.loader.numOfTiles[entityRightCol][entityTopRow];
-                if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
-                    entity.colliding = true;
+            //If Proggy moves in an upwards direction, the two corners that needs to be checked is top right and left corners
+                unitTopRow = (unitTopSide - unit.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                cornerOne = gp.loader.numOfTiles[unitLeftCol][unitTopRow]; // Top left corner
+                cornerTwo = gp.loader.numOfTiles[unitRightCol][unitTopRow]; // Top right corner
+                if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
+                    // if one of these corners collide, collision is true
+                    unit.colliding = true;
 //                    entity.hitHead = true;
                     
                 }
                 break;
             case "down":
-                entityBottomRow = (entityBottomWorldY + entity.speed) / gp.tileSize;
-                tileNum1 = gp.loader.numOfTiles[entityLeftCol][entityBottomRow];
-                tileNum2 = gp.loader.numOfTiles[entityRightCol][entityBottomRow];
-                if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
-                    entity.colliding = true;
-                    entity.onGround = true;
+            //If Proggy moves in an downwards direction, the two corners that needs to be checked is bottom right and left corners
+                unitBottomRow = (unitBottomSide + unit.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                cornerOne = gp.loader.numOfTiles[unitLeftCol][unitBottomRow]; // Bottom left corner
+                cornerTwo = gp.loader.numOfTiles[unitRightCol][unitBottomRow]; // Bottom right corner
+                if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
+                    unit.colliding = true;
+                    // We also introduce a boolean to check if Proggy is colliding with the ground. 
+                    // This is used to check if porggy is allowed to jump again.
+                    unit.onGround = true;
                 }
                 break;
             case "left":
-                entityLeftCol = (entityLeftWorldX - entity.speed) / gp.tileSize;
-                tileNum1 = gp.loader.numOfTiles[entityLeftCol][entityTopRow];
-                tileNum2 = gp.loader.numOfTiles[entityLeftCol][entityBottomRow];
-                if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
-                    entity.colliding = true;
+                unitLeftCol = (unitLeftSide - unit.speed) / gp.tileSize;
+                cornerOne = gp.loader.numOfTiles[unitLeftCol][unitTopRow];
+                cornerTwo = gp.loader.numOfTiles[unitLeftCol][unitBottomRow];
+                if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
+                    unit.colliding = true;
                 }
                 break;
             case "right":
-                entityRightCol = (entityRightWorldX - entity.speed) / gp.tileSize;
-                tileNum1 = gp.loader.numOfTiles[entityRightCol][entityTopRow];
-                tileNum2 = gp.loader.numOfTiles[entityRightCol][entityBottomRow];
-                if (gp.loader.tiles[tileNum1].collission == true || gp.loader.tiles[tileNum2].collission == true) {
-                    entity.colliding = true;
+                unitRightCol = (unitRightSide - unit.speed) / gp.tileSize;
+                cornerOne = gp.loader.numOfTiles[unitRightCol][unitTopRow];
+                cornerTwo = gp.loader.numOfTiles[unitRightCol][unitBottomRow];
+                if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
+                    unit.colliding = true;
                 }
                 break;
         }
