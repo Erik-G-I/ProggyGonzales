@@ -102,8 +102,8 @@ public class TileLoader {
 	
 	public void draw(Graphics2D g2, int x) {
 		
-		int worldCol = x/gp.maxWorldCol;
-		int bufferCol = worldCol + 16;
+		int worldCol = 0; //x/gp.maxWorldCol;
+		int bufferCol = 64;//worldCol + 16;
 		
 		int worldRow = 0;
 		

@@ -153,24 +153,32 @@ public class Player extends Entity{
         }
     }
     
-    		
+    // jump function that makes proggy collide also when jumping	
     public void jump() {
+        // Proggy needs to be on the ground while button is pressed in order to jump
     	if(onGround == true && keyH.upPressed == true) {
-    		jumpStrength = 30;
+    		// How fast the jump is upwards
+            jumpStrength = 30;
+            // how fast Proggy falls after hitting the maximum height
     		gravity = weight;
     	}
+        // Needs to check collision on the way up
     	if(direction == "up") {
     		gp.collisionChecker.checkTile(this);
+            // will continue to jump as long as Proggy is not colliding with his head
         	if(colliding == false) {
         		onGround = false;
+                // moves Proggy the amount of pixels up specified by jumpstrength
         		worldY -= jumpStrength;
         		jumpStrength -= 1;
+                // if proggy collides, the direction must change and he will fall down towards the ground
         		gp.collisionChecker.checkTile(this);
         		if(jumpStrength <=0 || colliding == true) {
         			direction = "down";
         			
         		}
         	}
+            //if Proggy is already colliding, he will be affected by the fall
         	else {
         		fall();
         	}
