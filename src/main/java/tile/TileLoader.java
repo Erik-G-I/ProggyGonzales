@@ -16,17 +16,21 @@ import core.GamePanel;
 public class TileLoader {
 	
 	GamePanel gp;
-	Tile[] tiles;
+	public Tile[] tiles;
 	Tile[][] loadedMap;
 	public int numOfTiles[][];
 	InputStream is;
+	int mapCols;
+	int mapRows;
 	
 	
 	public TileLoader(GamePanel gp, InputStream is) {
-		
+		// lag variabler som tar utgangspunkt i input stream sin size
+		this.mapCols = 64;
+		this.mapRows = 12;
 		this.gp = gp;
 		this.tiles = new Tile[20];
-		this.numOfTiles = new int[gp.maxWorldCol][gp.maxWorldRow];
+		this.numOfTiles = new int[64][12];
 		this.is = is;
 		
 		getTileImage();
@@ -45,11 +49,11 @@ public class TileLoader {
 			int col = 0;
 			int row = 0;
 			
-			while(row < gp.maxWorldRow) {
+			while(row < mapRows) {
 				String line = reader.readLine();
 				String[] lineArr = line.split(" ");
 
-				while(col < gp.maxWorldCol) {
+				while(col < mapCols) {
 					int num = Integer.parseInt(lineArr[col]);
 					numOfTiles[col][row] = num;
 					col++;
@@ -75,29 +79,42 @@ public class TileLoader {
 			
 			tiles[1] = new Tile();
 			tiles[1].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_gray.png"));
+			// We want gray bricks to be categorized as a solid block
+			tiles[1].collission = true;
 			
 			tiles[2] = new Tile();
 			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_red.png"));
-			
+			// We want red bricks to be categorized as a solid block
+
+			tiles[2].collission = true;
+
 			tiles[3] = new Tile();
 			tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
-			
+			// We want grass to be categorized as a solid block
+
+			tiles[3].collission = true;
+
+
 			tiles[4] = new Tile();
 			tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dirt.png"));
-			
+			// We want dirt to be categorized as a solid block
+			tiles[4].collission = true;
+
 			
 		} catch (Exception e) {
 		}
 	}
 	
 	
-	public void draw(Graphics2D g2) {
+	public void draw(Graphics2D g2, int x) {
 		
-		int worldCol = 0;
+		int worldCol = 0; //x/gp.maxWorldCol;
+		int bufferCol = 64;//worldCol + 16;
+		
 		int worldRow = 0;
 		
 		
-		while(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
+		while(worldCol < bufferCol && worldRow < gp.maxWorldRow) {
 			int tileNum = numOfTiles[worldCol][worldRow];
 			
 			int WorldX = worldCol * gp.tileSize;
@@ -109,10 +126,17 @@ public class TileLoader {
 			
 			worldCol ++;
 			
-			if(worldCol == gp.maxWorldCol) {
+			
+			
+			if(worldCol == bufferCol) {
 				worldCol = 0;
+				bufferCol ++;
+				if(bufferCol >= 63) {
+					bufferCol = 63;
+				}
 				worldRow  ++;
 			}
+			
 		}
 	}
 

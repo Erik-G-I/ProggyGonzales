@@ -6,15 +6,17 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+//import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
+import java.awt.Rectangle;
 
 public class Player extends Entity{
 
     GamePanel gp;
     KeyHandler keyH;
-    private float weight, jumpStrength;
-    public static int floorHeight = 515; //512 px ned
+    private int weight;
+    private int gravity;
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -24,6 +26,10 @@ public class Player extends Entity{
         playerX = 480;
         playerY = 515;
 
+        /* specifying where on the character it will collide with tiles. 
+        We set this to the whole character since it only scrolls vertically */
+        playerSolid = new Rectangle(12 ,1,gp.tileSize-12, gp.tileSize-1);
+
         
         setDefaultValues();
         getPlayerImage();
@@ -31,12 +37,14 @@ public class Player extends Entity{
     }
     
     public void setDefaultValues() {
-    	worldX = 0;
+    	worldX = 64;
         //jo mindre y, jo høyere opp
-    	worldY = floorHeight;
+    	worldY = 512;
         speed = 5;
         direction = "down";
         weight = 3;
+        jumpStrength = 0;
+        gravity = weight;
 
     }
     
@@ -44,14 +52,6 @@ public class Player extends Entity{
         
         try {
             
-//            up1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_1.png"));
-//            up2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_up_2.png"));
-//            down1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_1.png"));
-//            down2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_down_2.png"));
-//            left1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_1.png"));
-//            left2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_left_2.png"));
-//            right1 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_1.png"));
-//            right2 = ImageIO.read(getClass().getResourceAsStream("/player/boy_right_2.png"));
         	
         	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-2.png"));
@@ -74,27 +74,63 @@ public class Player extends Entity{
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
             
       	            
-				if(keyH.upPressed == true && worldY >= floorHeight) {
+
+				if(keyH.upPressed == true ) {
 					direction = "up";
-					jumpStrength = 36; // Hvor høyt proggy hopper
-					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
-		    	    jumpStrength -= weight;
-		    	    worldY -= speed;
+//					jumpStrength = 36; // Hvor høyt proggy hopper
+//					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
+//		    	    jumpStrength -= weight;
+
+
+
 	
 	            }
 	            else if(keyH.downPressed == true) {
 	                direction = "down";
-	                worldY += speed;
+
 	            }
 	            else if(keyH.leftPressed == true) {
 	                direction = "left";
-	                worldX -= speed;
+
 	            }
 	            else if(keyH.rightPressed == true) {
 	                direction = "right";
-	                worldX += speed;
+
 	            }
-	            
+                
+                
+                // Is the tile Proggy is located in solid? default setting is false
+	            colliding = false;
+//	            onGround = true;
+                
+                // updates to be true if Proggy collides with a solid tile
+                gp.collisionChecker.checkCollisionOnTile(this);
+
+                // IF collision is false, player moves. else: direction stops. 
+                if (colliding == false) {
+                    switch(direction) {
+                    case "up":
+                    jump();
+                    
+                    //jumpPossible = false;
+//                    worldY -= speed;
+                        break;
+                    case "down":
+                    fall();
+                        break;
+                    case "right":
+                    worldX += speed;
+                    jump();
+                    
+                        break;
+                    case "left":
+                    worldX -= speed; 
+                    jump();
+                    
+                        break;
+                    }
+                }
+
 				// oppdaterer bilde som blir brukt til player
 	            spriteCounter++;
 	            if(spriteCounter>15) {
@@ -109,17 +145,61 @@ public class Player extends Entity{
         }
     }
     
+    // jump function that makes proggy collide also when jumping	
     public void jump() {
-    	if (keyH.upPressed == true && worldY >= floorHeight) { // Må være på bakken for å hoppe
-            jumpStrength = 36;
-        }
+        // Proggy needs to be on the ground while button is pressed in order to jump
+    	if(onGround == true && keyH.upPressed == true) {
+    		// How fast the jump is upwards
+            jumpStrength = 30;
+            // how fast Proggy falls after hitting the maximum height
+    		gravity = weight;
+    	}
+        // Needs to check collision on the way up
+    	if(direction == "up") {
+    		gp.collisionChecker.checkCollisionOnTile(this);
+            // will continue to jump as long as Proggy is not colliding with his head
+        	if(colliding == false) {
+        		onGround = false;
+                // moves Proggy the amount of pixels up specified by jumpstrength
+        		worldY -= jumpStrength;
+        		jumpStrength -= 1;
+                // if proggy collides, the direction must change and he will fall down towards the ground
+        		gp.collisionChecker.checkCollisionOnTile(this);
+        		if(jumpStrength <=0 || colliding == true) {
+        			direction = "down";
+        			
+        		}
+        	}
+            //if Proggy is already colliding, he will be affected by the fall
+        	else {
+        		fall();
+        	}
+        	
+    	}
+    	if(direction == "down") {
+    		fall();
+    	}
+    	
 
-    	worldY -= jumpStrength;
-    	jumpStrength -= weight; // Gradvis tar av styrken på hoppet basert på vekten
+    }
+    
 
-        if (worldY >= floorHeight) {
-            worldY = floorHeight; // Passer på at ikke proggy faller gjennom bakken.
-        }
+    public void fall() {
+    	String originalDir = direction;
+    	direction = "down";
+    	gp.collisionChecker.checkCollisionOnTile(this);
+    	if(colliding == false || onGround == false) {
+    		direction = originalDir;
+    		worldY += gravity;
+    		gravity += 1;
+    	}
+    	else {
+    		onGround = true;
+    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
+    		direction = originalDir;
+    		gravity = weight;
+    		
+    	}
     }
     
     

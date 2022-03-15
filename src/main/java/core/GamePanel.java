@@ -19,13 +19,13 @@ public class GamePanel extends JPanel implements Runnable{
     
     public final int tileSize = originalTileSize * scale; // 64
     public final int maxScreenCol = 16;
-    public final int maxScreenRow = 50;
+    public final int maxScreenRow = 12;
     public final int screenWidth = tileSize * maxScreenCol;     // ...px
     public final int screenHeight = tileSize * maxScreenRow;    // ...px
     
     //World settings
     public final int maxWorldCol = 16;
-    public final int maxWorldRow = 50;
+    public final int maxWorldRow = 12;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
@@ -34,12 +34,15 @@ public class GamePanel extends JPanel implements Runnable{
 
     // FPS
     int FPS = 60;
-    
+
+    //CollisionCheck 
+    public CollisionCheck collisionChecker = new CollisionCheck(this);
+
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
-    TileLoader loader = new TileLoader(this, is);
+    public TileLoader loader = new TileLoader(this, is);
     
     
     //Timer
@@ -120,10 +123,11 @@ public class GamePanel extends JPanel implements Runnable{
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
                 repaint();
-                
+                fall();
+                repaint();
                 jump();
                 repaint();
-
+                
 
                 delta--;
                 drawCount++;
@@ -131,7 +135,7 @@ public class GamePanel extends JPanel implements Runnable{
             
             //display FPS in console
             if(timer >= 1000000000) {
-                System.out.println("FPS:"+drawCount);
+//                System.out.println("FPS:"+drawCount);
                 drawCount = 0;
                 timer = 0;
             }
@@ -150,7 +154,9 @@ public class GamePanel extends JPanel implements Runnable{
     public void jump() {
     	player.jump();
     }
-
+    public void fall() {
+    	player.fall();
+    }
     
     public void paintComponent(Graphics g) {
 
@@ -160,7 +166,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         //bg.draw(g2);
         
-        loader.draw(g2);
+        loader.draw(g2, player.worldX);
         player.draw(g2);
         timerDisplay.draw(g2);
         
