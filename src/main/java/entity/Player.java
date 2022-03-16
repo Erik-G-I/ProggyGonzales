@@ -153,34 +153,32 @@ public class Player extends Entity{
             jumpStrength = 30;
             // how fast Proggy falls after hitting the maximum height
     		gravity = weight;
+    		gp.collisionChecker.checkCollisionOnTile(this);
+    		if(colliding == false) {
+    			worldY -= jumpStrength;
+    			onGround = false;
+    		}
+    		
     	}
         // Needs to check collision on the way up
-    	if(direction == "up") {
+    	if(onGround == false && jumpStrength > 0) {
     		gp.collisionChecker.checkCollisionOnTile(this);
             // will continue to jump as long as Proggy is not colliding with his head
         	if(colliding == false) {
-        		onGround = false;
                 // moves Proggy the amount of pixels up specified by jumpstrength
         		worldY -= jumpStrength;
         		jumpStrength -= 1;
                 // if proggy collides, the direction must change and he will fall down towards the ground
-        		gp.collisionChecker.checkCollisionOnTile(this);
-        		if(jumpStrength <=0 || colliding == true) {
-        			direction = "down";
-        			
-        		}
+        		
         	}
             //if Proggy is already colliding, he will be affected by the fall
-        	else {
-        		fall();
-        	}
+        	gp.collisionChecker.checkCollisionOnTile(this);
+    		if(jumpStrength <=0 || colliding == true) {
+//    			direction = "down";
+    			fall();
+    		}
         	
     	}
-    	if(direction == "down") {
-    		fall();
-    	}
-    	
-
     }
     
 
@@ -189,12 +187,14 @@ public class Player extends Entity{
     	direction = "down";
     	gp.collisionChecker.checkCollisionOnTile(this);
     	if(colliding == false || onGround == false) {
+    		onGround = false;
     		direction = originalDir;
     		worldY += gravity;
     		gravity += 1;
     	}
     	else {
     		onGround = true;
+    		jumpStrength = 0;
     		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
     		direction = originalDir;
     		gravity = weight;
