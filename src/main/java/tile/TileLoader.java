@@ -4,6 +4,7 @@ package tile;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.awt.image.BufferedImageOp;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -99,6 +100,10 @@ public class TileLoader {
 			tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dirt.png"));
 			// We want dirt to be categorized as a solid block
 			tiles[4].collission = true;
+			
+			tiles[5] = new Tile();
+			tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/coin.png"));
+			tiles[5].collission = true;
 
 			
 		} catch (Exception e) {
@@ -123,10 +128,15 @@ public class TileLoader {
 			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
 			
 			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+			if(gp.player.playerX == tiles[5].x) {
+				if(gp.player.playerY == tiles[5].y) {
+					tiles[5] = tiles[0];
+				}
+				
+			}
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 			worldCol ++;
-			
-			
 			
 			if(worldCol == bufferCol) {
 				worldCol = 0;

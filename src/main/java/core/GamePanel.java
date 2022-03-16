@@ -8,6 +8,7 @@ import java.io.InputStream;
 import javax.swing.JPanel;
 
 import entity.Player;
+import entity.Score;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -30,7 +31,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
     //Map
-    public final InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
+    public final InputStream is = getClass().getResourceAsStream("/maps/RealMap.txt");
 
     // FPS
     int FPS = 60;
@@ -43,10 +44,12 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
+
     
     
     //Timer
     TimerDisplay timerDisplay = new TimerDisplay(this);
+    Score score = new Score(this);
 
 
     public GamePanel() {
@@ -61,43 +64,6 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-
-//    @Override
-//    public void run() {
-//        
-//        while(gameThread != null) {
-//            
-//            double drawInterval = 1000000000/FPS; // draws the screen every 0.01666 seconds
-//            double nextDrawTime = System.nanoTime() + drawInterval;
-//            
-//            // 1: update information, such as the characters position
-//            update();
-//            
-//            // 2: draw the screen with the updated information
-//            repaint();
-//            
-//            
-//            try {
-//                double remainingTime = nextDrawTime - System.nanoTime();
-//                remainingTime = remainingTime/1000000; // convert nanotime to milliseconds for Thread.sleep
-//                
-//                if(remainingTime <0) {
-//                    remainingTime = 0;
-//                }
-//                
-//                Thread.sleep((long) remainingTime);
-//                
-//                nextDrawTime += drawInterval;
-//                
-//                
-//            } catch (InterruptedException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
-//        }
-//        
-//    }
     
     public void run() {
         double drawInterval = 1000000000/FPS;
@@ -147,8 +113,10 @@ public class GamePanel extends JPanel implements Runnable{
     
 	public void update() {
        // bg.update();
+        score.update();
         player.update();
         timerDisplay.update();
+        
     }
     
     public void jump() {
@@ -165,10 +133,10 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g;
 
         //bg.draw(g2);
-        
         loader.draw(g2, player.worldX);
         player.draw(g2);
         timerDisplay.draw(g2);
+        score.draw(g2);
         
         g2.dispose();
     }

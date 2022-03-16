@@ -42,6 +42,6 @@ public class TimerDisplay {
 	public void draw(Graphics g2) {
 		g2.setFont(timeFont);
 		g2.setColor(Color.BLACK);
-		g2.drawString(showTime, widthOfScreen/2,54);
+		g2.drawString(showTime, widthOfScreen-80,54);
 	}
 }

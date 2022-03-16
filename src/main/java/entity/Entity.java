@@ -24,8 +24,6 @@ public class Entity {
 //    public boolean hitHead = false;
 
 
-
-
     //brukes til å skape animasjon på spiller og fiender
     public int spriteCounter = 0;
     public int spriteNum = 1;
