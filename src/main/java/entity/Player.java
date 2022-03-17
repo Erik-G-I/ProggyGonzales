@@ -17,6 +17,7 @@ public class Player extends Entity{
     KeyHandler keyH;
     private int weight;
     private int gravity;
+    private BufferedImage jumpImg = null;
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -41,7 +42,7 @@ public class Player extends Entity{
         //jo mindre y, jo høyere opp
     	worldY = 512;
         speed = 5;
-        direction = "down";
+        direction = "right";
         previousDirection = direction;
         weight = 3;
         jumpStrength = 0;
@@ -54,8 +55,8 @@ public class Player extends Entity{
         try {
             
         	
-        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
+        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
             down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
             left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
@@ -154,6 +155,14 @@ public class Player extends Entity{
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
     	if(onGround == true && keyH.upPressed == true) {
+    		//jump is initialized and depending on the previous direction we need different image sprites
+    		if(previousDirection == "right") {
+    			jumpImg = up1;
+    		}
+    		if(previousDirection == "left"){
+    			jumpImg = up2;
+    		}
+    		
     		// How fast the jump is upwards
             jumpStrength = 30;
             // how fast Proggy falls after hitting the maximum height
@@ -217,22 +226,7 @@ public class Player extends Entity{
         BufferedImage image = null;
         switch(direction) {
         case "up":
-        	if(previousDirection == "right") {
-        		if(spriteNum == 1) {
-                    image = up1;
-                }
-                if(spriteNum == 2) {
-                    image = up1;
-                }
-        	}
-        	else {
-        		if(spriteNum == 1) {
-                    image = up2;
-                }
-                if(spriteNum == 2) {
-                    image = up2;
-                }
-        	}
+        	image = jumpImg;
             break;
         case "down":
         	if(previousDirection == "right") {
