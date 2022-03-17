@@ -29,7 +29,7 @@ public class Player extends Entity{
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
-        playerSolid = new Rectangle(12 ,1,gp.tileSize-12, gp.tileSize-1);
+        playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
 
         
         setDefaultValues();
@@ -154,7 +154,7 @@ public class Player extends Entity{
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
-    	if(onGround == true && keyH.upPressed == true) {
+    	if(keyH.upPressed == true || (jumpStrength > 0 && !onGround)) {
     		//jump is initialized and depending on the previous direction we need different image sprites
     		if(previousDirection == "right") {
     			jumpImg = up1;
@@ -162,37 +162,37 @@ public class Player extends Entity{
     		if(previousDirection == "left"){
     			jumpImg = up2;
     		}
-    		
-    		// How fast the jump is upwards
-            jumpStrength = 30;
-            // how fast Proggy falls after hitting the maximum height
-    		gravity = weight;
     		gp.collisionChecker.checkCollisionOnTile(this);
     		if(colliding == false) {
-    			worldY -= jumpStrength;
-    			onGround = false;
+    			if(onGround == true) {
+    				// How fast the jump is upwards
+        			jumpStrength = 27;
+        			worldY -= jumpStrength;
+        			onGround = false;
+        		}
+    			else if(onGround == false && jumpStrength > 0) {
+    				
+    	        	worldY -= jumpStrength;
+    	        	jumpStrength *= 0.99;
+    	        	
+    			}
+    			gp.collisionChecker.checkCollisionOnTile(this);
+        		if(jumpStrength <=0 || colliding == true) {
+        			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
+        			jumpStrength = 0;
+        			
+        			// how fast Proggy falls after hitting the maximum height
+        			gravity = weight;
+        			fall();
+        		}
     		}
     		
+            
+    		
+    		
+    		
     	}
-        // Needs to check collision on the way up
-    	if(onGround == false && jumpStrength > 0) {
-    		gp.collisionChecker.checkCollisionOnTile(this);
-            // will continue to jump as long as Proggy is not colliding with his head
-        	if(colliding == false) {
-                // moves Proggy the amount of pixels up specified by jumpstrength
-        		worldY -= jumpStrength;
-        		jumpStrength -= 1;
-                // if proggy collides, the direction must change and he will fall down towards the ground
-        		
-        	}
-            //if Proggy is already colliding, he will be affected by the fall
-        	gp.collisionChecker.checkCollisionOnTile(this);
-    		if(jumpStrength <=0 || colliding == true) {
-//    			direction = "down";
-    			fall();
-    		}
-        	
-    	}
+        
     }
     
 
@@ -204,7 +204,11 @@ public class Player extends Entity{
     		onGround = false;
     		direction = originalDir;
     		worldY += gravity;
-    		gravity += 1;
+    		if(gravity < 15) {
+    			gravity += 1; 
+    		}
+    		
+    		
     	}
     	else {
     		onGround = true;
