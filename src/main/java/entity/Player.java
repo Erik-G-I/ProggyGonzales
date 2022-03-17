@@ -42,6 +42,7 @@ public class Player extends Entity{
     	worldY = 512;
         speed = 5;
         direction = "down";
+        previousDirection = direction;
         weight = 3;
         jumpStrength = 0;
         gravity = weight;
@@ -53,14 +54,14 @@ public class Player extends Entity{
         try {
             
         	
-        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_down-1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_down-2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_left-1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_left-2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-2.png"));
+        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
 
            // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
             
@@ -76,6 +77,7 @@ public class Player extends Entity{
       	            
 
 				if(keyH.upPressed == true ) {
+					previousDirection = direction;
 					direction = "up";
 //					jumpStrength = 36; // Hvor høyt proggy hopper
 //					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
@@ -86,14 +88,17 @@ public class Player extends Entity{
 	
 	            }
 	            else if(keyH.downPressed == true) {
+	            	previousDirection = direction;
 	                direction = "down";
 
 	            }
 	            else if(keyH.leftPressed == true) {
+	            	previousDirection = direction;
 	                direction = "left";
 
 	            }
 	            else if(keyH.rightPressed == true) {
+	            	previousDirection = direction;
 	                direction = "right";
 
 	            }
@@ -212,20 +217,40 @@ public class Player extends Entity{
         BufferedImage image = null;
         switch(direction) {
         case "up":
-            if(spriteNum == 1) {
-                image = up1;
-            }
-            if(spriteNum == 2) {
-                image = up2;
-            }
+        	if(previousDirection == "right") {
+        		if(spriteNum == 1) {
+                    image = up1;
+                }
+                if(spriteNum == 2) {
+                    image = up1;
+                }
+        	}
+        	else {
+        		if(spriteNum == 1) {
+                    image = up2;
+                }
+                if(spriteNum == 2) {
+                    image = up2;
+                }
+        	}
             break;
         case "down":
-            if(spriteNum == 1) {
-                image = down1;
-            }
-            if(spriteNum == 2) {
-                image = down2;
-            }
+        	if(previousDirection == "right") {
+        		if(spriteNum == 1) {
+                    image = down1;
+                }
+                if(spriteNum == 2) {
+                    image = down1;
+                }
+        	}
+        	else {
+        		if(spriteNum == 1) {
+                    image = down2;
+                }
+                if(spriteNum == 2) {
+                    image = down2;
+                }
+        	}
             break;
         case "left":
             if(spriteNum == 1) {
