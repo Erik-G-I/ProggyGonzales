@@ -117,16 +117,13 @@ public class Player extends Entity{
                     switch(direction) {
                     case "up":
                     jump();
-                    
-                    //jumpPossible = false;
-//                    worldY -= speed;
                         break;
                     case "down":
                     fall();
                         break;
                     case "right":
                     worldX += speed;
-                    jump();
+                    jump();		//jump instead of fall seems to give better results currently
                     
                         break;
                     case "left":
@@ -154,7 +151,7 @@ public class Player extends Entity{
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
-    	if(keyH.upPressed == true || (jumpStrength > 0 && !onGround)) {
+    	if(keyH.upPressed == true || (jumpStrength <= 0 && !onGround)) {
     		//jump is initialized and depending on the previous direction we need different image sprites
     		if(previousDirection == "right") {
     			jumpImg = up1;
@@ -162,20 +159,24 @@ public class Player extends Entity{
     		if(previousDirection == "left"){
     			jumpImg = up2;
     		}
+    		
     		gp.collisionChecker.checkCollisionOnTile(this);
     		if(colliding == false) {
     			if(onGround == true) {
     				// How fast the jump is upwards
-        			jumpStrength = 27;
+        			jumpStrength = 15;
         			worldY -= jumpStrength;
+        			jumpStrength +=12;
         			onGround = false;
+        			moveWhileJumping();
         		}
     			else if(onGround == false && jumpStrength > 0) {
     				
     	        	worldY -= jumpStrength;
-    	        	jumpStrength *= 0.99;
-    	        	
+    	        	jumpStrength -=1;
+    	        	moveWhileJumping();
     			}
+    			
     			gp.collisionChecker.checkCollisionOnTile(this);
         		if(jumpStrength <=0 || colliding == true) {
         			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
@@ -184,6 +185,7 @@ public class Player extends Entity{
         			// how fast Proggy falls after hitting the maximum height
         			gravity = weight;
         			fall();
+        			
         		}
     		}
     		
@@ -204,7 +206,7 @@ public class Player extends Entity{
     		onGround = false;
     		direction = originalDir;
     		worldY += gravity;
-    		if(gravity < 15) {
+    		if(gravity < 18) {
     			gravity += 1; 
     		}
     		
@@ -218,6 +220,28 @@ public class Player extends Entity{
     		gravity = weight;
     		
     	}
+    }
+    
+    private void moveWhileJumping () {
+    	String originalDir = previousDirection;
+    	int moveInAir = 0;
+    	if(keyH.leftPressed == true || keyH.rightPressed == true) {
+			if(keyH.leftPressed == true ) {
+				originalDir = direction;
+				direction = "left";
+				moveInAir = -speed/2;
+			}
+			if(keyH.rightPressed == true ) {
+				originalDir = direction;
+				direction = "right";
+				moveInAir = speed/2;
+			}
+			gp.collisionChecker.checkCollisionOnTile(this);
+			if(colliding == false) {
+				worldX += moveInAir;
+			}
+		}
+    	direction = originalDir;
     }
     
     
