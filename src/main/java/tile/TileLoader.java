@@ -47,19 +47,19 @@ public class TileLoader {
 		try {
 			
 			reader = new BufferedReader(new InputStreamReader(is));
-			int col = 0;
+			//int col = 0;
 			int row = 0;
 			
 			while(row < mapRows) {
 				String line = reader.readLine();
 				String[] lineArr = line.split(" ");
 
-				while(col < mapCols) {
+				for (int col = 0; col < lineArr.length; col++) {
 					int num = Integer.parseInt(lineArr[col]);
 					numOfTiles[col][row] = num;
-					col++;
+					//col++;
 				}
-					col = 0;
+					//col = 0;
 					row++;
 				
 			}

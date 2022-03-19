@@ -1,7 +1,9 @@
 package tileTest;
 
+import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
+import entity.Entity;
 import entity.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +13,7 @@ import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LoaderTest {
+public class ScoreTest {
 
     GamePanel gp = new GamePanel();
     TileLoader loader;
@@ -24,22 +26,21 @@ public class LoaderTest {
     }
 
     @Test
-    public void testLoadTile() {
-        assertTrue(loader.numOfTiles[0][7] == 1);
-    }
-
-    @Test
-    public void testPlayerCannotGoThroughTile() {
+    void testMoneyDisappears() {
+        CollisionCheck check = new CollisionCheck(gp);
         KeyHandler keyH = new KeyHandler();
+        Entity entity = new Entity();
 
         Player p = new Player(gp, keyH);
         p.setDefaultValues();
 
-        int startPos = p.worldY;
-        keyH.upPressed = true;
-        p.update();
-        p.jump();
+        int coinPos = p.worldX + 4*gp.tileSize;
+        while (p.worldX < 512) {
+            keyH.rightPressed = true;
+            p.direction = "right";
+            p.update();
+        }
 
-        assertFalse(p.worldY < (startPos-gp.tileSize), "Proggy should not be able to go through tiles");
+        assertEquals( 50, check.coins, "Coin did not disappear when Proggy tried to pick it up");
     }
 }

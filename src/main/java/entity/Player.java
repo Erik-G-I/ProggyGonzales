@@ -47,12 +47,14 @@ public class Player extends Entity{
         gravity = weight;
 
     }
+
+    public int[] getPosition() {
+        int row;
+        return null;
+    }
     
     public void getPlayerImage() {
-        
         try {
-            
-        	
         	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_down-1.png"));
@@ -63,8 +65,6 @@ public class Player extends Entity{
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-2.png"));
 
            // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
-            
-            
         }catch(IOException e) {
             e.printStackTrace();
         }
@@ -72,39 +72,28 @@ public class Player extends Entity{
     
     public void update() {
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
-            
-      	            
 
 				if(keyH.upPressed == true ) {
 					direction = "up";
 //					jumpStrength = 36; // Hvor høyt proggy hopper
 //					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
 //		    	    jumpStrength -= weight;
-
-
-
-	
 	            }
 	            else if(keyH.downPressed == true) {
 	                direction = "down";
-
 	            }
 	            else if(keyH.leftPressed == true) {
 	                direction = "left";
-
 	            }
 	            else if(keyH.rightPressed == true) {
 	                direction = "right";
-
 	            }
-                
-                
+
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
 //	            onGround = true;
                 
-                // updates to be true if Proggy collides with a solid tile
-                gp.collisionChecker.checkCollisionOnTile(this);
+
 
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
@@ -130,6 +119,9 @@ public class Player extends Entity{
                         break;
                     }
                 }
+
+                // updates to be true if Proggy collides with a solid tile
+                gp.collisionChecker.checkCollisionOnTile(this);
 
 				// oppdaterer bilde som blir brukt til player
 	            spriteCounter++;
@@ -179,8 +171,6 @@ public class Player extends Entity{
     	if(direction == "down") {
     		fall();
     	}
-    	
-
     }
     
 

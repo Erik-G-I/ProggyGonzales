@@ -1,5 +1,6 @@
 package entityTest;
 
+import entity.Score;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,7 @@ public class PlayerMovementTest {
 	KeyHandler keyH = new KeyHandler();
 	Player p;
 	int startPos;
-	TileLoader loader;
+	Score score;
 
 	@BeforeEach
 	void beforeEach() {
@@ -77,7 +78,14 @@ public class PlayerMovementTest {
 
 	@Test
 	public void testPlayerCanPickUpMoney() {
-		//TODO: implementer når penger er lagt til i spillet
+		score = new Score(gp);
+		keyH.rightPressed = true;
+		p.update();
+		int money = gp.collisionChecker.coins;
+		int newScore = money + 50;
+
+		assertTrue(gp.loader.numOfTiles[8][1] == 0);
+		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test

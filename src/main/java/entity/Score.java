@@ -30,7 +30,7 @@ import timer.Time;
 public class Score {
 
 	private Font timeFont;
-	private int coins;
+	//public int coins;
 	private String showScore;
     GamePanel gp;
 
@@ -38,15 +38,15 @@ public class Score {
     public Score(GamePanel gp) {
 		this.gp = gp;
 		timeFont = new Font("Times New Roman",Font.BOLD,40);
-		coins = 0; 
+		//coins = 0;
 		showScore = new String();
 	}
     
     public void update() {
-    	if(gp.loader.tiles[5].collission == false) {
+    	/*if(!gp.loader.tiles[5].collission) {
 			coins = 50;
-		}
-    	showScore = "Proggys ølpenger: " + coins;
+		}*/
+    	showScore = "Proggys ølpenger: " + gp.collisionChecker.coins;
 	}
     
     public void draw(Graphics g2) {

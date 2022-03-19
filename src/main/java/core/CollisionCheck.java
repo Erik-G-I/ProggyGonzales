@@ -4,6 +4,7 @@ import java.awt.Font;
 
 import entity.Entity;
 import entity.Player;
+import entity.Score;
 import tile.Tile;
 import timer.Time;
 
@@ -21,6 +22,10 @@ public class CollisionCheck extends Entity {
     ArrayList<Tile> GjørOm = new ArrayList<Tile>();
 
     int index = 0;
+    public int coins;
+
+    // The two corners of proggy to be checked for collision for each case
+    int cornerOne, cornerTwo;
     
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -31,10 +36,26 @@ public class CollisionCheck extends Entity {
     	}*/
     }
 
+    public void pickUpMoney(int x1, int y1, int x2, int y2) {
+        //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5]) {
+            if (gp.loader.tiles[5].collission == true) {
+                gp.loader.numOfTiles[x1][y1] = 0;
+                coins += 50;
+            }
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
+            if (gp.loader.tiles[5].collission == true) {
+                gp.loader.numOfTiles[x2][y2] = 0;
+                coins += 50;
+            }
+        }
+    }
+
     
     public void checkCollisionOnTile(Entity unit) {
     	// Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
-        int unitLeftSide = unit.playerSolid.x + unit.worldX;
+        int unitLeftSide = unit.playerSolid.x + unit.worldX; //
         int unitRightSide =  unit.playerSolid.width + unit.worldX;
         int unitTopSide = unit.playerSolid.y + unit.worldY;
         int unitBottomSide = unit.worldY - unit.playerSolid.y + unit.playerSolid.height;
@@ -45,11 +66,7 @@ public class CollisionCheck extends Entity {
         int unitRightCol = unitRightSide / gp.tileSize;
         int unitTopRow = unitTopSide / gp.tileSize;
         int unitBottomRow = unitBottomSide / gp.tileSize;
-        
-      
 
-        // The two corners of proggy to be checked for collision for each case
-        int cornerOne, cornerTwo;
 
         switch(unit.direction) {
             case "up":
@@ -64,20 +81,12 @@ public class CollisionCheck extends Entity {
                     // if one of these corners collide, collision is true
                     unit.colliding = true; 
                 }
-                
-                //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
-                if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5] || gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
-                	
-                	if(gp.loader.tiles[5].collission == true ) {
-                        	gp.loader.tiles[5] = gp.loader.tiles[0];
-                		
-         		
+
+                this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+
                 	//	GjørOm = fjernFørste[index];
                     	//fjernFørste.remove(index);
             //        	gp.loader.tiles[5].collission = false;
-     
-                	}
-                }
                 
                     //entity.hitHead = true;
                 // int neutralizedSpeed = unitTopSide - unit.speed;
@@ -97,16 +106,7 @@ public class CollisionCheck extends Entity {
                     unit.onGround = true;
 
                 }
-                
-                if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5] || gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
-                	
-                	if(gp.loader.tiles[5].collission == true ) {
-                    	gp.loader.tiles[5] = gp.loader.tiles[0];
-            //        	gp.loader.tiles[5].collission = false;
-
-                	}
-                }
-                
+                this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
                 
                 // int neutralizedSpeed2 = unitBottomSide + unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);    
@@ -123,17 +123,8 @@ public class CollisionCheck extends Entity {
                     unit.colliding = true;
 
                 }
-                
-                if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5] || gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
-                	
-                	if(gp.loader.tiles[5].collission == true ) {
-                    	gp.loader.tiles[5] = gp.loader.tiles[0];
-                 //   	gp.loader.tiles[5].collission = false;
+                this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
 
-                	}
-                }
-                
-                	
                 // int neutralizedSpeed3 = unitLeftSide - unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed3, unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);    
 
@@ -148,22 +139,12 @@ public class CollisionCheck extends Entity {
                     unit.colliding = true;    
 
                }
+                this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
 
-                if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5] || gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
-                	
-                	if(gp.loader.tiles[5].collission == true ) {
-                    	gp.loader.tiles[5] = gp.loader.tiles[0];
-                    //	gp.loader.tiles[5].collission = false;
-
-                	}
-                }
-                
                 // int neutralizedSpeed4 = unitRightSide + unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed4, unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
-
-       
     }
     // The following is a method to try to avoid using code repedeatly
 
