@@ -30,7 +30,6 @@ public class Player extends Entity{
         We set this to the whole character since it only scrolls vertically */
         playerSolid = new Rectangle(12 ,1,gp.tileSize-12, gp.tileSize-1);
 
-        
         setDefaultValues();
         getPlayerImage();
     
@@ -46,11 +45,6 @@ public class Player extends Entity{
         jumpStrength = 0;
         gravity = weight;
 
-    }
-
-    public int[] getPosition() {
-        int row;
-        return null;
     }
     
     public void getPlayerImage() {
@@ -92,36 +86,35 @@ public class Player extends Entity{
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
 //	            onGround = true;
-                
+
+                // updates to be true if Proggy collides with a solid tile
+                gp.collisionChecker.checkCollisionOnTile(this);
 
 
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
                     switch(direction) {
-                    case "up":
-                    jump();
-                    
-                    //jumpPossible = false;
-//                    worldY -= speed;
-                        break;
-                    case "down":
-                    fall();
-                        break;
-                    case "right":
-                    worldX += speed;
-                    jump();
-                    
-                        break;
-                    case "left":
-                    worldX -= speed; 
-                    jump();
-                    
-                        break;
+                        case "up":
+                            jump();
+                            //jumpPossible = false;
+                            //worldY -= speed;
+                            break;
+
+                        case "down":
+                            fall();
+                            break;
+
+                        case "right":
+                            worldX += speed;
+                            jump();
+                            break;
+
+                        case "left":
+                            worldX -= speed;
+                            jump();
+                            break;
                     }
                 }
-
-                // updates to be true if Proggy collides with a solid tile
-                gp.collisionChecker.checkCollisionOnTile(this);
 
 				// oppdaterer bilde som blir brukt til player
 	            spriteCounter++;

@@ -42,7 +42,7 @@ public class Score {
 		showScore = new String();
 	}
     
-    public void update() {
+    public void showScore() {
     	/*if(!gp.loader.tiles[5].collission) {
 			coins = 50;
 		}*/

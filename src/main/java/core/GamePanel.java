@@ -7,6 +7,7 @@ import java.io.InputStream;
 
 import javax.swing.JPanel;
 
+import entity.Enemy;
 import entity.Player;
 import entity.Score;
 import tile.TileLoader;
@@ -33,7 +34,6 @@ public class GamePanel extends JPanel implements Runnable{
     //Map
     public final InputStream is = getClass().getResourceAsStream("/maps/RealMap.txt");
 
-
     // FPS
     int FPS = 60;
 
@@ -43,10 +43,8 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public Player player = new Player(this, keyH);
-  //  public Background bg = new Background(this, keyH);
+    //public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
-
-    
     
     //Timer
     TimerDisplay timerDisplay = new TimerDisplay(this);
@@ -94,7 +92,6 @@ public class GamePanel extends JPanel implements Runnable{
                 repaint();
                 jump();
                 repaint();
-                
 
                 delta--;
                 drawCount++;
@@ -106,16 +103,15 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount = 0;
                 timer = 0;
             }
-            
         }
     }
     
-    
-    
+
 	public void update() {
        // bg.update();
-        score.update();
+        score.showScore();
         player.update();
+
         timerDisplay.update();
         
     }
