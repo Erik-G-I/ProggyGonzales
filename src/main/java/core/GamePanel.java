@@ -7,7 +7,6 @@ import java.io.InputStream;
 
 import javax.swing.JPanel;
 
-import entity.Enemy;
 import entity.Player;
 import entity.Score;
 import tile.TileLoader;
