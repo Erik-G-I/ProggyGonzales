@@ -222,6 +222,7 @@ public class Player extends Entity{
     	String originalDir = previousDirection;
     	int moveInAir = 0;
     	if(keyH.leftPressed == true || keyH.rightPressed == true) {
+    		
 			if(keyH.leftPressed == true ) {
 				originalDir = direction;
 				direction = "left";
