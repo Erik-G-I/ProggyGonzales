@@ -80,13 +80,7 @@ public class Player extends Entity{
 				if(keyH.upPressed == true ) {
 					previousDirection = direction;
 					direction = "up";
-//					jumpStrength = 36; // Hvor høyt proggy hopper
-//					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
-//		    	    jumpStrength -= weight;
 
-
-
-	
 	            }
 	            else if(keyH.downPressed == true) {
 	            	previousDirection = direction;
@@ -168,7 +162,7 @@ public class Player extends Entity{
         			worldY -= jumpStrength;
         			jumpStrength +=12;
         			onGround = false;
-        			moveWhileJumping();
+        			
         		}
     			else if(onGround == false && jumpStrength > 0) {
     				
@@ -185,6 +179,7 @@ public class Player extends Entity{
         			// how fast Proggy falls after hitting the maximum height
         			gravity = weight;
         			fall();
+        			moveWhileJumping();
         			
         		}
     		}
@@ -206,6 +201,7 @@ public class Player extends Entity{
     		onGround = false;
     		direction = originalDir;
     		worldY += gravity;
+    		
     		if(gravity < 18) {
     			gravity += 1; 
     		}
