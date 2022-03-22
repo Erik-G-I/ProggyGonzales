@@ -17,6 +17,7 @@ public class Player extends Entity{
     KeyHandler keyH;
     private int weight;
     private int gravity;
+    private BufferedImage jumpImg = null;
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -28,7 +29,7 @@ public class Player extends Entity{
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
-        playerSolid = new Rectangle(12 ,1,gp.tileSize-12, gp.tileSize-1);
+        playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
 
         
         setDefaultValues();
@@ -41,7 +42,8 @@ public class Player extends Entity{
         //jo mindre y, jo høyere opp
     	worldY = 512;
         speed = 5;
-        direction = "down";
+        direction = "right";
+        previousDirection = direction;
         weight = 3;
         jumpStrength = 0;
         gravity = weight;
@@ -53,14 +55,14 @@ public class Player extends Entity{
         try {
             
         	
-        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_up-2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_down-1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_down-2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_left-1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_left-2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Guy_right-2.png"));
+        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
 
            // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
             
@@ -76,24 +78,22 @@ public class Player extends Entity{
       	            
 
 				if(keyH.upPressed == true ) {
+					previousDirection = direction;
 					direction = "up";
-//					jumpStrength = 36; // Hvor høyt proggy hopper
-//					worldY -= jumpStrength; // Beveger spiller på y-aksen basert på hoppets styrke
-//		    	    jumpStrength -= weight;
 
-
-
-	
 	            }
 	            else if(keyH.downPressed == true) {
+	            	previousDirection = direction;
 	                direction = "down";
 
 	            }
 	            else if(keyH.leftPressed == true) {
+	            	previousDirection = direction;
 	                direction = "left";
 
 	            }
 	            else if(keyH.rightPressed == true) {
+	            	previousDirection = direction;
 	                direction = "right";
 
 	            }
@@ -111,16 +111,13 @@ public class Player extends Entity{
                     switch(direction) {
                     case "up":
                     jump();
-                    
-                    //jumpPossible = false;
-//                    worldY -= speed;
                         break;
                     case "down":
                     fall();
                         break;
                     case "right":
                     worldX += speed;
-                    jump();
+                    jump();		//jump instead of fall seems to give better results currently
                     
                         break;
                     case "left":
@@ -148,39 +145,51 @@ public class Player extends Entity{
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
-    	if(onGround == true && keyH.upPressed == true) {
-    		// How fast the jump is upwards
-            jumpStrength = 30;
-            // how fast Proggy falls after hitting the maximum height
-    		gravity = weight;
-    	}
-        // Needs to check collision on the way up
-    	if(direction == "up") {
+    	if(keyH.upPressed == true || (jumpStrength <= 0 && !onGround)) {
+    		//jump is initialized and depending on the previous direction we need different image sprites
+    		if(previousDirection == "right") {
+    			jumpImg = up1;
+    		}
+    		if(previousDirection == "left"){
+    			jumpImg = up2;
+    		}
+    		
     		gp.collisionChecker.checkCollisionOnTile(this);
-            // will continue to jump as long as Proggy is not colliding with his head
-        	if(colliding == false) {
-        		onGround = false;
-                // moves Proggy the amount of pixels up specified by jumpstrength
-        		worldY -= jumpStrength;
-        		jumpStrength -= 1;
-                // if proggy collides, the direction must change and he will fall down towards the ground
-        		gp.collisionChecker.checkCollisionOnTile(this);
-        		if(jumpStrength <=0 || colliding == true) {
-        			direction = "down";
+    		if(colliding == false) {
+    			if(onGround == true) {
+    				// How fast the jump is upwards
+        			jumpStrength = 15;
+        			worldY -= jumpStrength;
+        			jumpStrength +=12;
+        			onGround = false;
         			
         		}
-        	}
-            //if Proggy is already colliding, he will be affected by the fall
-        	else {
-        		fall();
-        	}
-        	
+    			else if(onGround == false && jumpStrength > 0) {
+    				
+    	        	worldY -= jumpStrength;
+    	        	jumpStrength -=1;
+    	        	moveWhileJumping();
+    			}
+    			
+    			gp.collisionChecker.checkCollisionOnTile(this);
+        		if(jumpStrength <=0 || colliding == true) {
+        			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
+        			jumpStrength = 0;
+        			
+        			// how fast Proggy falls after hitting the maximum height
+        			gravity = weight;
+        			fall();
+        			moveWhileJumping();
+        			
+        		}
+    		}
+    		
+            
+    		
+    		
+    		
     	}
-    	if(direction == "down") {
-    		fall();
-    	}
-    	
-
+        
     }
     
 
@@ -189,17 +198,47 @@ public class Player extends Entity{
     	direction = "down";
     	gp.collisionChecker.checkCollisionOnTile(this);
     	if(colliding == false || onGround == false) {
+    		onGround = false;
     		direction = originalDir;
     		worldY += gravity;
-    		gravity += 1;
+    		
+    		if(gravity < 18) {
+    			gravity += 1; 
+    		}
+    		
+    		
     	}
     	else {
     		onGround = true;
+    		jumpStrength = 0;
     		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
     		direction = originalDir;
     		gravity = weight;
     		
     	}
+    }
+    
+    private void moveWhileJumping () {
+    	String originalDir = previousDirection;
+    	int moveInAir = 0;
+    	if(keyH.leftPressed == true || keyH.rightPressed == true) {
+    		
+			if(keyH.leftPressed == true ) {
+				originalDir = direction;
+				direction = "left";
+				moveInAir = -speed/2;
+			}
+			if(keyH.rightPressed == true ) {
+				originalDir = direction;
+				direction = "right";
+				moveInAir = speed/2;
+			}
+			gp.collisionChecker.checkCollisionOnTile(this);
+			if(colliding == false) {
+				worldX += moveInAir;
+			}
+		}
+    	direction = originalDir;
     }
     
     
@@ -212,20 +251,25 @@ public class Player extends Entity{
         BufferedImage image = null;
         switch(direction) {
         case "up":
-            if(spriteNum == 1) {
-                image = up1;
-            }
-            if(spriteNum == 2) {
-                image = up2;
-            }
+        	image = jumpImg;
             break;
         case "down":
-            if(spriteNum == 1) {
-                image = down1;
-            }
-            if(spriteNum == 2) {
-                image = down2;
-            }
+        	if(previousDirection == "right") {
+        		if(spriteNum == 1) {
+                    image = down1;
+                }
+                if(spriteNum == 2) {
+                    image = down1;
+                }
+        	}
+        	else {
+        		if(spriteNum == 1) {
+                    image = down2;
+                }
+                if(spriteNum == 2) {
+                    image = down2;
+                }
+        	}
             break;
         case "left":
             if(spriteNum == 1) {
