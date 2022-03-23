@@ -8,6 +8,7 @@ import java.io.InputStream;
 import javax.swing.JPanel;
 
 import entity.Player;
+import entity.Score;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -47,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Timer
     TimerDisplay timerDisplay = new TimerDisplay(this);
-
+    Score score = new Score(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -147,6 +148,7 @@ public class GamePanel extends JPanel implements Runnable{
     
 	public void update() {
        // bg.update();
+        score.showScore();
         player.update();
         timerDisplay.update();
     }
@@ -169,6 +171,7 @@ public class GamePanel extends JPanel implements Runnable{
         loader.draw(g2, player.worldX);
         player.draw(g2);
         timerDisplay.draw(g2);
+        score.draw(g2);
         
         g2.dispose();
     }
