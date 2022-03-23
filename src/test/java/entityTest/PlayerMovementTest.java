@@ -1,5 +1,6 @@
 package entityTest;
 
+import entity.Score;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,7 +19,7 @@ public class PlayerMovementTest {
 	KeyHandler keyH = new KeyHandler();
 	Player p;
 	int startPos;
-	TileLoader loader;
+	Score score;
 
 	@BeforeEach
 	void beforeEach() {
@@ -31,17 +32,17 @@ public class PlayerMovementTest {
 		startPos = p.worldX;
 		keyH.rightPressed = true;
 		p.update();
-		
+
 		assertEquals(startPos+p.speed, p.worldX);
 	}
-	
-	
+
+
 	@Test
 	public void testMoveLeft() {
 		startPos = p.worldX;
 		keyH.leftPressed = true;
 		p.update();
-		
+
 		assertEquals(startPos-p.speed, p.worldX);
 	}
 
@@ -55,14 +56,14 @@ public class PlayerMovementTest {
 		assertTrue(p.worldY < startPos, "Proggy did not jump");
 		assertTrue(p.worldY > 0, "Proggy jumped out of the frame");
 	}
-	
+
 	@Test
 	public void testSpeedBoost() {
 		//TODO:
 		//fullfør testen når vi implementerer gullsko
 		assertTrue(false);
 	}
-	
+
 	@Test
 	public void testInvisible() {
 		//TODO:
@@ -77,7 +78,14 @@ public class PlayerMovementTest {
 
 	@Test
 	public void testPlayerCanPickUpMoney() {
-		//TODO: implementer når penger er lagt til i spillet
+		score = new Score(gp);
+		keyH.rightPressed = true;
+		p.update();
+		int money = gp.collisionChecker.coins;
+		int newScore = money + 50;
+
+		assertTrue(gp.loader.numOfTiles[8][1] == 0);
+		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test

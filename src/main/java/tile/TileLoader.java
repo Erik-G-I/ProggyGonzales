@@ -44,26 +44,27 @@ public class TileLoader {
 		//InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
 
 		try {
-			
+
 			reader = new BufferedReader(new InputStreamReader(is));
-			int col = 0;
+			//int col = 0;
 			int row = 0;
-			
+
 			while(row < mapRows) {
 				String line = reader.readLine();
 				String[] lineArr = line.split(" ");
 
-				while(col < mapCols) {
+				for (int col = 0; col < lineArr.length; col++) {
 					int num = Integer.parseInt(lineArr[col]);
 					numOfTiles[col][row] = num;
-					col++;
+					//col++;
 				}
-					col = 0;
-					row++;
-				
+				//col = 0;
+				row++;
+
 			}
 			reader.close();
-		
+
+
 		} catch(Exception e) {
 			
 		}
@@ -109,6 +110,10 @@ public class TileLoader {
 			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
 			tiles[6].collission = true;
 
+			tiles[7] = new Tile();
+			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/coin.png"));
+			//tiles[7].collission = true;
+
 			
 		} catch (Exception e) {
 		}
@@ -132,11 +137,15 @@ public class TileLoader {
 			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
 			
 			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-			
+			if(gp.player.playerX == tiles[5].x) {
+				if(gp.player.playerY == tiles[5].y) {
+					tiles[5] = tiles[0];
+				}
+			}
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+
 			worldCol ++;
-			
-			
-			
+
 			if(worldCol == bufferCol) {
 				worldCol = 0;
 				bufferCol ++;
@@ -145,7 +154,6 @@ public class TileLoader {
 				}
 				worldRow  ++;
 			}
-			
 		}
 	}
 
