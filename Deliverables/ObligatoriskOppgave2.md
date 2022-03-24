@@ -78,6 +78,17 @@ Til stede: Hannah, Erik I, Erik H, Chantal (Discord), Alexander (Discord).
 
 Jobbet med tekstarbeidet til innleveringen. Erik I viste fram at han hadde fikset buggen med hoppingen. Fordelte arbeid for å kunne levere dagen etter.
 
+### Roller
+Som nevnt i møtereferatene er den eneste endringen i roller at Chantal har tatt ansvar for det visuelle. Her bidrar og Erik I med noen grafiske elementer. Vi synes rollene har fungert svært godt, og gjør at hvert enkelt medlem har meningsfulle ansvarsoppgaver og at alle medlemmer naturlig må bidra for å dekke sitt område. Dette har bidratt til generell god harmoni i teamet. 
+
+### Prosjektmetodikk og retroperspektiv
+Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette fortsatt er riktig prosjektmetodikken. Vi har derimot et par forbedringspotensialer. Frem til nå har koden vært oversiktlig med ikke alt for mange momenter som gjør at det har vært lett å følge progresjonen for hvert enkelt medlem. Dette har ført til at vi ofte har følt at vi ikke trenger å legge inn alt av oppgaver i Trello. Videre vet vi at koden blir mer kompleks, og store arbeidsoppgaver kommer til å gjennomføres parallellt. Det er derfor viktig fremover at vi i større grad oppdaterer Trello, og bruker funksjonene den tilbyr i mye større grad, ved å legge seg selv inn som deltaker på oppgaver og skrive kommentarer. 
+Vi har i tillegg valgt å innføre momenter fra Scrum der vi gjør oss ferdig med små funksjonelle oppgaver raskere slik at disse funksjonene kan brukes videre i andre deler av prosjektet. Vi føler derimot ikke at XP som prosjektmetodikk i stor grad er relevant for oss da vi har god kontroll på hvor vi ønsker å nå, og vi har få muligheter for negative ytre påvirkninger. 
+
+### Kommunikasjon og samarbeid
+Det er en konsensus blant gruppemedlemmene at vi jobber godt sammen og jevnt. Vi mener alle bidrar bra til teamet på forskjellige måter. Vi har styrker på forskjellige fagområder der noen gruppemedlemmer er svært god på den tekniske kodebiten, mens andre er gode på visuelt grafisk arbeib eller overordnet prosjektgjennomføring og akrivearbeid. Vi prøver likevel å inkludere alle i de ulike oppgavene for å få best mulig utbytte. Gjennom parprogrammering har kodesterke medlemmer viktigheten av flere perspektiver vist seg nyttig til å løse større problemer. Vi slet bl.a mye med en jump-funksjon som vi etterhvert fikk fikset. Gjennom parprogrammering har det ført til forskjeller i antall commits, og den generelle commit-policien blant gruppemedlemmene har vært forskjellig. Mens noen committer større endringer, har andre mange små. Vi har konkludert med at arbeidsmengden på hvert gruppemedlem har vært relativ jevn. 
+
+
 
 # Deloppgave 2
 
