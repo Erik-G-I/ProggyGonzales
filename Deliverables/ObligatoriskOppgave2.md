@@ -22,7 +22,7 @@ Til stede: Hannah, Erik I, Chantal, Alexander, Erik H (Discord).
 Erik I hadde laget utgangspunktet for koden og introdusert for måten vi skal arbeide på git med branches og commits. 
 
 **Tilleggsmøte 19. februar 16.00**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
+Til stede: Hannah, Erik I, Chantal, Alexander, Erik H (Discord).
 Startet å skrive på MD-filen som skulle leveres, brukerhistorier. Chantal begynte å lage litt visuelt med bybane, buss, bryggen, RFB.
 Erik I lagde et par tester har blitt laget i mellomtiden. Fordelte arbeidsoppgaver til ferdigstilling av innleveringen.
  
