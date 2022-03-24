@@ -47,32 +47,23 @@ Hannah presenterer at bakgrunnen scroller. Vi reflekterte hvordan vi hadde arbei
 **Gruppetime 1. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-I dette møtet har vi planlagt veien videre. Vi gikk gjennom MVPene og fordelte oppgaver for tiden framover. Det første kravet vi ønsket å få på plass var at Proggy responderte på terrenget rundt seg så bra som mulig. Ettersom det kom til å påvirke mye av resten av koden fant vi ut at Chantal kunne 
+I dette møtet har vi planlagt veien videre. Vi gikk gjennom MVPene og fordelte oppgaver for tiden framover. Det første kravet vi ønsket å få på plass var at Proggy responderte på terrenget rundt seg så bra som mulig. Ettersom det kom til å påvirke mye av resten av koden fant vi ut at Chantal kunne lage en timer ettersom det ikke kom til å interagere i stor grad med resten av det arbeidet. 
  
 Erik I lager design til litt power ups og penger "utenfor" gruppetimene.
- 
- 
-**Parprogrammering Alexander og Erik H 3. mars 12.30**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Parprogrammering Erik H og Alexander for å fikse terreng.
-Ny kode for terreng medfører samtidig problemer for hoppingen.
  
 
 **Gruppetime 8. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-Viste frem collision, presenterte problemet det medførte for hoppingen. Drøftet hvordan vi skulle løse problemet, fordelte arbeidsoppgaver der Erik I og Erik H skulle prøve å ta seg av hoppingen. 
-Chantal viste fram timer og hvordan den kunne utvikles videre når fiender etterhvert ble lagt til. 
+Erik H og Alexander hadde hatt en parprogrammeringsøkt og viste frem collision, presenterte problemet det medførte for hoppingen. Erik I hadde laget design til litt power ups og penger "utenfor" gruppetimene, og presenterte dette. Vi drøftet hvordan vi skulle løse problemet med hoppingen, og fordelte arbeidsoppgaver der Erik I og Erik H skulle prøve å løse problemet. 
 
-**Parprogrammering Erik I og Erik H 10. mars 12.00**
-Jobber med å få proggy til å hoppe med den nye koden som er lagt til grunne.
+Chantal viste fram timer og hvordan den kunne utvikles videre når fiender etterhvert ble lagt til. 
  
  
 **Gruppetime 15. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-Gruppetimen er digital så vi møtes på et booket grupperom. Blir enige om at Erik I jobber med å fortsette å fikse hoppingen og Hannah + Alexander jobber med å legge til et scoresystem som samarbeider med penger i spillet. Chantal skal lage Game Over når tiden går ut.
+Gruppetimen er digital så vi møtes på et booket grupperom. Erik I og Erik H har hatt en parprogrammeringsøkt siden forrige møte, og presenterer hvordan hoppingen er for øyeblikket. Blir enige om at Erik I jobber videre med å fikse problemene tilknyttet hoppingen og Hannah + Alexander jobber med å legge til et scoresystem som samarbeider med penger i spillet. Chantal skal lage Game Over når tiden går ut. Erik H skal starte med tekstarbeidet til innleveringen.
  
  
 **Gruppetime 22. mars 08.15**
@@ -80,3 +71,9 @@ Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
 Alexander og Hannah presenterer hvordan scoresystemet funker og hvordan det er implementert.
 Samme uke som innlevering. Vi jobber med å gjøre koden kjørbar til neste innlevering. Vi fordeler oppgaver vi skal gjøre fram mot neste møte. Vi har fått tilbake første innlevering og vet at det er en del vi må jobbe med.
+
+**Tilleggsmøte 24. Mars 12.30**
+Til stede: Hannah, Erik I, Erik H, Chantal (Discord), Alexander (Discord).
+
+Jobbet med tekstarbeidet til innleveringen. Erik I viste fram at han hadde fikset buggen med hoppingen. Fordelte arbeid for å kunne levere dagen etter.
+
