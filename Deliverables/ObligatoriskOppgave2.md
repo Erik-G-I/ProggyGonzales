@@ -1,4 +1,6 @@
-# Møtereferater
+
+# Deloppgave 1
+### Møtereferater
 
 **Gruppetime 25. januar 08.15**
 Til stede: Hannah, Erik I, Chantal, Erik H.
@@ -76,4 +78,16 @@ Samme uke som innlevering. Vi jobber med å gjøre koden kjørbar til neste innl
 Til stede: Hannah, Erik I, Erik H, Chantal (Discord), Alexander (Discord).
 
 Jobbet med tekstarbeidet til innleveringen. Erik I viste fram at han hadde fikset buggen med hoppingen. Fordelte arbeid for å kunne levere dagen etter.
+
+
+# Deloppgave 2
+
+### Stretch-goal
+Vi har et mål om å kunne spille Proggy Gonzales med to spillere på samme maskin. Når det spilles som multiplayer vil det da være en konkurranse mellom spillerne, der den som kommer fram til mål med nok penger først vinner spillet. Vi ser for oss å dele skjermen vertikalt, og at spillerne spiller på hver sin del av skjermen.
+
+### Brukerhistorier
+| Brukerhistorier | Akseptansekriterier | Arbeidsoppgaver |
+| --------------- | ------------------- | --------------- |
+| cell | cell |
+| cell | cell |
 
