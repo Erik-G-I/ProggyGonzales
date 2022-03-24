@@ -7,7 +7,6 @@ import java.awt.Rectangle;
 
 public class Entity {
 
-    
     public int worldX, worldY;
     public int playerX, playerY;
     public int speed;
@@ -21,13 +20,8 @@ public class Entity {
     public boolean colliding = false;
 
     public boolean onGround = true;
-//    public boolean jumpPossible = true;
-//    public boolean hitHead = false;
 
-
-
-
-    //brukes til å skape animasjon på spiller og fiender
+    // sprites are used to create animation on the player and enemies
     public int spriteCounter = 0;
     public int spriteNum = 1;
     

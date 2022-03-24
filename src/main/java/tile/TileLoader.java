@@ -2,10 +2,7 @@ package tile;
 
 
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -25,8 +22,8 @@ public class TileLoader {
 	
 	
 	public TileLoader(GamePanel gp, InputStream is) {
-		// lag variabler som tar utgangspunkt i input stream sin size
-		this.mapCols = 64;
+		// TODO: lag variabler som tar utgangspunkt i input stream sin size
+		//this.mapCols = 64;
 		this.mapRows = 12;
 		this.gp = gp;
 		this.tiles = new Tile[20];
@@ -37,16 +34,12 @@ public class TileLoader {
 		loadMap();
 	}
 
-
-
 	public void loadMap() {
 		BufferedReader reader;
-		//InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
 
 		try {
 
 			reader = new BufferedReader(new InputStreamReader(is));
-			//int col = 0;
 			int row = 0;
 
 			while(row < mapRows) {
@@ -56,19 +49,14 @@ public class TileLoader {
 				for (int col = 0; col < lineArr.length; col++) {
 					int num = Integer.parseInt(lineArr[col]);
 					numOfTiles[col][row] = num;
-					//col++;
 				}
-				//col = 0;
 				row++;
-
 			}
 			reader.close();
-
 
 		} catch(Exception e) {
 			
 		}
-		
 	}
 	
 	
@@ -86,15 +74,12 @@ public class TileLoader {
 			tiles[2] = new Tile();
 			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_red.png"));
 			// We want red bricks to be categorized as a solid block
-
 			tiles[2].collission = true;
 
 			tiles[3] = new Tile();
 			tiles[3].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass.png"));
 			// We want grass to be categorized as a solid block
-
 			tiles[3].collission = true;
-
 
 			tiles[4] = new Tile();
 			tiles[4].image = ImageIO.read(getClass().getResourceAsStream("/tiles/dirt.png"));
@@ -112,9 +97,7 @@ public class TileLoader {
 
 			tiles[7] = new Tile();
 			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/coin.png"));
-			//tiles[7].collission = true;
 
-			
 		} catch (Exception e) {
 		}
 	}
@@ -122,8 +105,8 @@ public class TileLoader {
 	
 	public void draw(Graphics2D g2, int x) {
 		
-		int worldCol = 0; //x/gp.maxWorldCol;
-		int bufferCol = 64;//worldCol + 16;
+		int worldCol = 0;
+		int bufferCol = 64;
 		
 		int worldRow = 0;
 		

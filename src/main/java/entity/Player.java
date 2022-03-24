@@ -19,7 +19,7 @@ public class Player extends Entity{
     private int gravity;
     private BufferedImage jumpImg = null;
 
-    
+
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
@@ -27,11 +27,10 @@ public class Player extends Entity{
         playerX = 480;
         playerY = 515;
 
-        /* specifying where on the character it will collide with tiles. 
-        We set this to the whole character since it only scrolls vertically */
+        // specifying where on the character it will collide with tiles.
+        // We set this to the whole character since it only scrolls vertically
         playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
 
-        
         setDefaultValues();
         getPlayerImage();
     
@@ -39,7 +38,6 @@ public class Player extends Entity{
     
     public void setDefaultValues() {
     	worldX = 64;
-        //jo mindre y, jo høyere opp
     	worldY = 512;
         speed = 5;
         direction = "right";
@@ -53,8 +51,7 @@ public class Player extends Entity{
     public void getPlayerImage() {
         
         try {
-            
-        	
+
         	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
@@ -64,71 +61,61 @@ public class Player extends Entity{
             right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
             right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
 
-           // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
-            
-            
-        }catch(IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
     
     public void update() {
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
-            
-      	            
 
 				if(keyH.upPressed == true ) {
 					previousDirection = direction;
 					direction = "up";
-
 	            }
+
 	            else if(keyH.downPressed == true) {
 	            	previousDirection = direction;
 	                direction = "down";
-
 	            }
+
 	            else if(keyH.leftPressed == true) {
 	            	previousDirection = direction;
 	                direction = "left";
-
 	            }
+
 	            else if(keyH.rightPressed == true) {
 	            	previousDirection = direction;
 	                direction = "right";
-
 	            }
-                
-                
+
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
-//	            onGround = true;
                 
                 // updates to be true if Proggy collides with a solid tile
                 gp.collisionChecker.checkCollisionOnTile(this);
 
-                // IF collision is false, player moves. else: direction stops. 
+                // If collision is false, player moves. else: direction stops.
                 if (colliding == false) {
                     switch(direction) {
                     case "up":
-                    jump();
+                    	jump();
                         break;
                     case "down":
-                    fall();
+                    	fall();
                         break;
                     case "right":
-                    worldX += speed;
-                    jump();		//jump instead of fall seems to give better results currently
-                    
+                    	worldX += speed;
+                    	jump();	//jump instead of fall seems to give better results currently
                         break;
                     case "left":
-                    worldX -= speed; 
-                    jump();
-                    
+                    	worldX -= speed;
+                    	jump();
                         break;
                     }
                 }
 
-				// oppdaterer bilde som blir brukt til player
+				// updates which picture is used for player
 	            spriteCounter++;
 	            if(spriteCounter>15) {
 	                if(spriteNum == 1) {
@@ -237,16 +224,12 @@ public class Player extends Entity{
     
     
     public void draw(Graphics2D g2) {
-//        g2.setColor(Color.white);
-//        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
-
-        //g2.drawImage(bakgrunn, 0,0, 1000, 700, null);
-        
         BufferedImage image = null;
         switch(direction) {
         case "up":
         	image = jumpImg;
             break;
+
         case "down":
         	if(previousDirection == "right") {
         		if(spriteNum == 1) {
@@ -265,6 +248,7 @@ public class Player extends Entity{
                 }
         	}
             break;
+
         case "left":
             if(spriteNum == 1) {
                 image = left1;
@@ -273,6 +257,7 @@ public class Player extends Entity{
                 image = left2;
             }
             break;
+
         case "right":
             if(spriteNum == 1) {
                 image = right1;
