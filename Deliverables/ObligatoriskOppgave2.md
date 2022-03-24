@@ -39,26 +39,19 @@ Gikk over, ferdigstilte og leverte innlevering 1.
 **Gruppetime 22. februar 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 Vi reflekterte hvordan vi hadde arbeidet med første innlevering og hvordan det hadde gått. Vi var enige om at arbeidet på Trello hadde forbedringspotensiale. Vi ble enige om å oppdatere oftere og følge mer med for å vite progresjonen nå som mange flere momenter skulle med i oppgaven. Frem til nå hadde det ikke vært så veldig kodeteknisk, men vi ble enige om å skulle gjøre mer parprogrammering fram mot neste innlevering for å kunne diskutere mer.
-
-**Tilleggsmøte 28. februar 12.00**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. Vi reflektere mer rundt hvordan arbeidet med forrige innlevering hadde gått, og ville ikke fordele mer arbeidsoppgaver siden vi forventet å få utlevert Oblig 2 dagen etter. I dette møtet diskuterte vi hvordan prosjektmetodikken vi hadde gått for fungerte. Vi hadde i utgangspunktet 
  
 **Gruppetime 1. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-I dette møtet har vi planlagt veien videre. Vi gikk gjennom MVPene og fordelte oppgaver for tiden framover. Det første kravet vi ønsket å få på plass var at Proggy responderte på terrenget rundt seg så bra som mulig. Ettersom det kom til å påvirke mye av resten av koden fant vi ut at Chantal kunne lage en timer ettersom det ikke kom til å interagere i stor grad med resten av det arbeidet. 
- 
-Erik I lager design til litt power ups og penger "utenfor" gruppetimene.
+Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. I dette møtet har vi planlagt veien videre. Vi gikk gjennom MVPene og fordelte oppgaver for tiden framover. Det første kravet vi ønsket å få på plass var at Proggy responderte på terrenget rundt seg så bra som mulig. Ettersom det kom til å påvirke mye av resten av koden fant vi ut at Chantal kunne lage en timer ettersom det ikke kom til å interagere i stor grad med resten av det arbeidet. 
  
 
 **Gruppetime 8. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-Erik H og Alexander hadde hatt en parprogrammeringsøkt og viste frem collision, presenterte problemet det medførte for hoppingen. Erik I hadde laget design til litt power ups og penger "utenfor" gruppetimene, og presenterte dette. Vi drøftet hvordan vi skulle løse problemet med hoppingen, og fordelte arbeidsoppgaver der Erik I og Erik H skulle prøve å løse problemet. 
+Erik H og Alexander hadde hatt en parprogrammeringsøkt og viste frem collision, presenterte problemet det medførte for hoppingen. Erik I hadde laget design til litt power ups og penger, og presenterte dette. Vi drøftet hvordan vi skulle løse problemet med hoppingen, og fordelte arbeidsoppgaver der Erik I og Erik H skulle prøve å løse problemet. 
 
-Chantal viste fram timer og hvordan den kunne utvikles videre når fiender etterhvert ble lagt til. 
+Chantal viste fram timer og hvordan den kunne utvikles videre når fiender etterhvert ble lagt til. Hun skal arbeide videre med å gjøre at timeren avslutter spillet med game over. 
  
  
 **Gruppetime 15. mars 08.15**
