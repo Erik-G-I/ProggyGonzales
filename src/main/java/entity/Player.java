@@ -111,6 +111,7 @@ public class Player extends Entity{
                     switch(direction) {
                     case "up":
                     jump();
+                    moveWhileJumping();
                         break;
                     case "down":
                     fall();
@@ -168,7 +169,6 @@ public class Player extends Entity{
     				
     	        	worldY -= jumpStrength;
     	        	jumpStrength -=1;
-    	        	moveWhileJumping();
     			}
     			
     			gp.collisionChecker.checkCollisionOnTile(this);
@@ -179,7 +179,7 @@ public class Player extends Entity{
         			// how fast Proggy falls after hitting the maximum height
         			gravity = weight;
         			fall();
-        			moveWhileJumping();
+        			
         			
         		}
     		}
@@ -220,12 +220,12 @@ public class Player extends Entity{
 			if(keyH.leftPressed == true ) {
 				originalDir = direction;
 				direction = "left";
-				moveInAir = -speed/2;
+				moveInAir = -speed;
 			}
 			if(keyH.rightPressed == true ) {
 				originalDir = direction;
 				direction = "right";
-				moveInAir = speed/2;
+				moveInAir = speed;
 			}
 			gp.collisionChecker.checkCollisionOnTile(this);
 			if(colliding == false) {
