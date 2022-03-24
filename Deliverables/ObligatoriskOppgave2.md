@@ -36,13 +36,13 @@ Gikk over, ferdigstilte og leverte innlevering 1.
 
 **Gruppetime 22. februar 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-Reflekterte over hvordan innleveringen hadde gått.
+Vi reflekterte hvordan vi hadde arbeidet med første innlevering og hvordan det hadde gått. Vi var enige om at arbeidet på Trello hadde forbedringspotensiale. Vi ble enige om å oppdatere oftere og følge mer med for å vite progresjonen nå som mange flere momenter skulle med i oppgaven. Frem til nå hadde det ikke vært så veldig kodeteknisk, men vi ble enige om å skulle gjøre mer parprogrammering fram mot neste innlevering for å kunne diskutere mer.
 Alexander skrev kode for å få hopping til å fungere senere på kvelden
 
 **Tilleggsmøte 28. februar 12.00**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-Hannah presenterer at bakgrunnen scroller. Vi reflekterte hvordan vi hadde arbeidet med første innlevering og hvordan det hadde gått. Vi var enige om at arbeidet på Trello hadde forbedringspotensiale. Vi ble enige om å oppdatere oftere og følge mer med for å vite progresjonen nå som mange flere momenter skulle med i oppgaven. Frem til nå hadde det ikke vært så veldig kodeteknisk, men vi ble enige om å skulle gjøre mer parprogrammering fram mot neste innlevering for å kunne diskutere mer.
+Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. Vi reflektere mer rundt hvordan arbeidet med forrige innlevering hadde gått, og ville ikke fordele mer arbeidsoppgaver siden vi forventet å få utlevert Oblig 2 dagen etter.
  
 **Gruppetime 1. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
