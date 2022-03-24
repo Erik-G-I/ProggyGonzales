@@ -1,6 +1,6 @@
-
 # Deloppgave 1
 ### Møtereferater
+Ettersom møtereferater ikke var inkludert i vår forrige innlevering velger vi nå å inkludere møtereferatene fra alle møtene våre.
 
 **Gruppetime 25. januar 08.15**
 Til stede: Hannah, Erik I, Chantal, Erik H.
@@ -25,7 +25,7 @@ Erik I hadde laget utgangspunktet for koden og introdusert for måten vi skal ar
 
 **Tilleggsmøte 19. februar 16.00**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H (Discord).
-Startet å skrive på MD-filen som skulle leveres, brukerhistorier. Chantal begynte å lage litt visuelt med bybane, buss, bryggen, RFB.
+Startet å skrive på MD-filen som skulle leveres, brukerhistorier. Vi ønsket å tilpasse spillet vårt til Bergen sentrum, og med det kommer vi til å trenge mye visuelt. Fram til nå har ikke arbeidet som kundekontakt krevet mye, så Chantal tok på seg rollen som "Visuell ansvarlig" Chantal begynte å lage litt visuelt med bybane, buss, bryggen, RFB.
 Erik I lagde et par tester har blitt laget i mellomtiden. Fordelte arbeidsoppgaver til ferdigstilling av innleveringen.
  
 
@@ -39,12 +39,11 @@ Gikk over, ferdigstilte og leverte innlevering 1.
 **Gruppetime 22. februar 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 Vi reflekterte hvordan vi hadde arbeidet med første innlevering og hvordan det hadde gått. Vi var enige om at arbeidet på Trello hadde forbedringspotensiale. Vi ble enige om å oppdatere oftere og følge mer med for å vite progresjonen nå som mange flere momenter skulle med i oppgaven. Frem til nå hadde det ikke vært så veldig kodeteknisk, men vi ble enige om å skulle gjøre mer parprogrammering fram mot neste innlevering for å kunne diskutere mer.
-Alexander skrev kode for å få hopping til å fungere senere på kvelden
 
 **Tilleggsmøte 28. februar 12.00**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
-Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. Vi reflektere mer rundt hvordan arbeidet med forrige innlevering hadde gått, og ville ikke fordele mer arbeidsoppgaver siden vi forventet å få utlevert Oblig 2 dagen etter.
+Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. Vi reflektere mer rundt hvordan arbeidet med forrige innlevering hadde gått, og ville ikke fordele mer arbeidsoppgaver siden vi forventet å få utlevert Oblig 2 dagen etter. I dette møtet diskuterte vi hvordan prosjektmetodikken vi hadde gått for fungerte. Vi hadde i utgangspunktet 
  
 **Gruppetime 1. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
