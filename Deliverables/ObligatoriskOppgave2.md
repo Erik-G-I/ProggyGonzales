@@ -100,9 +100,54 @@ Det er en konsensus blant gruppemedlemmene at vi jobber godt sammen og jevnt. Vi
 ### Stretch-goal
 Vi har et mål om å kunne spille Proggy Gonzales med to spillere på samme maskin. Når det spilles som multiplayer vil det da være en konkurranse mellom spillerne, der den som kommer fram til mål med nok penger først vinner spillet. Vi ser for oss å dele skjermen vertikalt, og at spillerne spiller på hver sin del av skjermen.
 
-### Brukerhistorier
-| Brukerhistorier | Akseptansekriterier | Arbeidsoppgaver |
-| --------------- | ------------------- | --------------- |
-| cell | cell |
-| cell | cell |
+### MVP-krav
+
+1. Vise et spillebrett
+2. Vise spiller på spillebrett
+3. Flytte spiller (vha taster e.l.)
+4. Spiller interagerer med terreng
+5. Spiller har poeng og interagerer med poenggjenstander
+6. Vise fiender/monstre; de skal interagere med terreng og spiller
+7. Spiller kan tape (når tiden går ut)
+8. Mål for spillbrett (butikken når spiller har nok penger)
+9. Nytt spillbrett når forrige er ferdig
+10. Start-skjerm ved oppstart / game over
+11. Støtte flere spillere (enten på samme maskin eller over nettverk)
+
+| Brukerhistorier | Akseptansekriterier | Arbeidsoppgaver | MVP-krav |
+| --------------- | ------------------- | --------------- | -------- |
+| Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden slik at man lettere kan nå butikken i tide. | Tiden skal tydelig vises på skjermen i form av nedtelling, og eventuelt bli mer tydelig når den er i ferd med å renne ut. | | 7
+Som spiller trenger jeg å vite/forstå hvordan fiender ser ut slik at jeg kan lettere unngå dem. | Spillregler og historie skal vises med oversikt over fiender og farer på en startside før spillet er i gang. Fiendene skal også ha god nok grafikk slik at det ikke er noe spørsmål om hvilken rolle de har. | | 10, 6
+Som spiller ønsker jeg et spillbrett som tydelig viser meg som spiller, samt hvor jeg kan og ikke kan gå | Spiller skal ikke kunne gå, falle eller hoppe gjennom plattformer og vegger. Vedkommende må også stå på bakken for å kunne hoppe | | 2, 4
+Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken. | En poenggjenstand blir borte når en spiller går på den, og poengscoren økes. Poengoversikten skal vises tydelig på skjermen. | | 5
+Som spiller bør det være tydelig hva som er mål, slik at jeg kan klare å finne fram raskest mulig. | Butikken/målet skal ha et dominerende utseende med god grafikk. Er også viktig at spiller blir informert om hva som er målet med spillet, slik at vedkommende vet hva de skal se etter. | | 8, 10
+Som spiller ønsker jeg en gøy og engasjerende grunn til å spille | Et velfungerende spill med et mål man skal oppnå og en score-funksjon som gir spiller motivasjon til å spille. | | 8, 5
+Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå | Spillet må ha enkle kontroller og grafikk som er intuitive. | | Alle
+Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over | Spillet skal ha en startside som forsvinner når spillet er i gang og en tydelig game-over-side når spiller har tapt. | | 10
+Som spiller trenger jeg å se meg selv på skjermen hele tiden for å holde oversikt over hvor jeg er i spillverdenen, og vite hvor jeg skal gå videre. | Skjermen må følge med spilleren, slik at spiller alltid er i sentrum. | | 4, 1
+Som spiller vil jeg ha muligheten til å spille mot og med andre. | Spillet skal være mulig å spille med to spillere som konkurerer mot hverandre der skjermen blir delt i to, og hver spiller får hver sin del av skjermen. | | 11 
+
+**Prioritert liste over brukerhistorier til andre iterasjon**
+- Som spiller trenger jeg å se meg selv på skjermen hele tiden for å holde oversikt over hvor jeg er i spillverdenen, og vite hvor jeg skal gå videre.
+- Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå
+- Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken.
+- Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden slik at man lettere kan nå butikken i tide.
+
+**Liste over brukerhistorier prioritert videre**
+- Som spiller trenger jeg å vite/forstå hvordan fiender ser ut slik at jeg kan lettere unngå dem.
+- Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over.
+- Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden slik at man lettere kan nå butikken i tide.
+- Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over.
+
+
+
+**MVP-krav oppfylt** 
+
+MVP-kravene vi har fokusert på siden forrige innlevering er krav 4 og 5. Det var omfattende å få spiller til å interagere med terrenget, så mye tid gikk til dette. Etter at krav 4 var oppnådd, var det enkelt å implementere mynter i spillet som en egen type tile som forsvinner når spilleren kolliderer med den. Noe annet vi brukte mye tid på var hoppefunksjonen til spilleren. Dette fikk vi til relativt raskt, men utfordringen var å få hoppingen til å fungere med terrenget og å gjøre det mulig å bruke de andre piltastene mens man fortsatt var i lufta. Dette har vi nå fått til, men ser for oss at vi vil prøve gjøre enda bedre i fremtiden. I tilegg har vi klart å få nedtelling på skjermen. Foreløpig er den nedtellingen satt fra et minutt uten at noe skjer når tiden har gått ut, så vi har litt å jobbe med videre her.
+
+
+
+**MVP-krav prioritert videre**
+
+De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å implementere gateselgere/fiender så snart som mulig, samt power-up gjenstander. Som allerede nevnt, har vi klart å vise nedtelling på skjermen, så det som gjenstår for å oppnå krav 7 er å få spillet til å ta slutt og vise at spiller har tapt når tiden har rent ut. Når krav 7 er oppfylt, vil vi begynne å jobbe mot å oppfylle krav 10 slik at når spiller har tapt, vil en game-over-skjerm dukke opp.
 
