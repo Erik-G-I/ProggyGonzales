@@ -86,6 +86,7 @@ Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette
 Vi har i tillegg valgt å innføre momenter fra Scrum der vi gjør oss ferdig med små funksjonelle oppgaver raskere slik at disse funksjonene kan brukes videre i andre deler av prosjektet. Vi føler derimot ikke at XP som prosjektmetodikk i stor grad er relevant for oss da vi har god kontroll på hvor vi ønsker å nå, og vi har få muligheter for negative ytre påvirkninger. 
 Vi har derfor sett oss ut spesielt to forbedringsområder vi øsnker å jobbe med fram mot neste innlevering:
 - Oppdatere Trello i større grad
+-- https://trello.com/invite/b/Ar2twdkF/2578d5c9c7cbb0249909c3e82a326c30/inf112
 - Arbeide mer i par eller team på tre for å få bedre overblikk over koden
 
 
