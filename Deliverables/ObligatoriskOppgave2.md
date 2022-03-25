@@ -145,7 +145,7 @@ MVP-kravene vi har fokusert på siden forrige innlevering er krav 4 og 5. Det va
 De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å implementere gateselgere/fiender så snart som mulig, samt power-up gjenstander. Som allerede nevnt, har vi klart å vise nedtelling på skjermen, så det som gjenstår for å oppnå krav 7 er å få spillet til å ta slutt og vise at spiller har tapt når tiden har rent ut. Når krav 7 er oppfylt, vil vi begynne å jobbe mot å oppfylle krav 10 slik at når spiller har tapt, vil en game-over-skjerm dukke opp.
 
 
-# Deloppgave 2
+# Deloppgave 3
 
 **Utbedring av feil siden sist**
 
