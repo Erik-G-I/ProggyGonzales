@@ -125,6 +125,7 @@ Som spiller vil jeg ha muligheten til å spille mot og med andre. | Spillet skal
 - Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå
 - Som spiller har jeg behov for en oversikt over hvor mye penger jeg har samlet inn slik at jeg vet jeg har råd til øl når jeg når butikken.
 - Som spiller er det viktig å ha god oversikt over hvordan man ligger an med tiden slik at man lettere kan nå butikken i tide.
+- Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over.
 
 **Liste over brukerhistorier prioritert videre**
 - Som spiller trenger jeg å vite/forstå hvordan fiender ser ut slik at jeg kan lettere unngå dem.
@@ -136,13 +137,13 @@ Som spiller vil jeg ha muligheten til å spille mot og med andre. | Spillet skal
 
 **MVP-krav oppfylt** 
 
-MVP-kravene vi har fokusert på siden forrige innlevering er krav 4 og 5. Det var omfattende å få spiller til å interagere med terrenget, så mye tid gikk til dette. Etter at krav 4 var oppnådd, var det enkelt å implementere mynter i spillet som en egen type tile som forsvinner når spilleren kolliderer med den. Noe annet vi brukte mye tid på var hoppefunksjonen til spilleren. Dette fikk vi til relativt raskt, men utfordringen var å få hoppingen til å fungere med terrenget og å gjøre det mulig å bruke de andre piltastene mens man fortsatt var i lufta. Dette har vi nå fått til, men ser for oss at vi vil prøve gjøre enda bedre i fremtiden. I tilegg har vi klart å få nedtelling på skjermen. Foreløpig er den nedtellingen satt fra et minutt uten at noe skjer når tiden har gått ut, så vi har litt å jobbe med videre her.
+MVP-kravene vi har fokusert på siden forrige innlevering er krav 4 og 5. Det var omfattende å få spiller til å interagere med terrenget, så mye tid gikk til dette. Etter at krav 4 var oppnådd, var det enkelt å implementere mynter i spillet som en egen type tile som forsvinner når spilleren kolliderer med den. Noe annet vi brukte mye tid på var hoppefunksjonen til spilleren. Dette fikk vi til relativt raskt, men utfordringen var å få hoppingen til å fungere med terrenget og å gjøre det mulig å bruke de andre piltastene mens man fortsatt var i lufta. Dette har vi nå fått til, men ser for oss at vi vil prøve gjøre enda bedre i fremtiden. I tilegg har vi klart å få nedtelling på skjermen. Foreløpig er den nedtellingen satt fra ett minutt, men vi planlegger å gi spiller bedre tid. Når tiden har gått er det ikke mulig å flytte spiller mer, og det kommer en game-over-skjerm som forteller at spillet er tapt.
 
 
 
 **MVP-krav prioritert videre**
 
-De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å implementere gateselgere/fiender så snart som mulig, samt power-up gjenstander. Som allerede nevnt, har vi klart å vise nedtelling på skjermen, så det som gjenstår for å oppnå krav 7 er å få spillet til å ta slutt og vise at spiller har tapt når tiden har rent ut. Når krav 7 er oppfylt, vil vi begynne å jobbe mot å oppfylle krav 10 slik at når spiller har tapt, vil en game-over-skjerm dukke opp.
+De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å implementere gateselgere/fiender så snart som mulig, samt power-up gjenstander. Som allerede nevnt, har vi klart å vise nedtelling på skjermen, samt en game-over-skjerm. Videre vil vi gjøre det mulig for spiller å spille på nytt om man har tapt. 
 
 
 # Deloppgave 3
