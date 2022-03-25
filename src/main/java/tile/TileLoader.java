@@ -111,10 +111,14 @@ public class TileLoader {
 			tiles[6].collission = true;
 
 			tiles[7] = new Tile();
-			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/coin.png"));
+			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/graphics/100kr.png"));
+
+			tiles[8] = new Tile();
+			tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/graphics/200kr.png"));
 
 
-			
+
+
 		} catch (Exception e) {
 		}
 	}
