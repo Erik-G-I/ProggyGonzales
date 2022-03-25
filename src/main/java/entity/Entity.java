@@ -21,8 +21,6 @@ public class Entity {
     public boolean colliding = false;
 
     public boolean onGround = true;
-//    public boolean jumpPossible = true;
-//    public boolean hitHead = false;
 
 
 

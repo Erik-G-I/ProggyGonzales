@@ -22,9 +22,6 @@ public class KeyHandler implements KeyListener{
         if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
           upPressed = true;
         }
-//        if (code == KeyEvent.VK_DOWN) {
-//        	downPressed = true;
-//        }
         // left-arrow is pressed 
         if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
             leftPressed = true;
@@ -46,9 +43,7 @@ public class KeyHandler implements KeyListener{
         if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
             upPressed = false;
         }
-//        if (code == KeyEvent.VK_DOWN) {
-//            downPressed = false;
-//        }
+        
         // left arrow is released
         if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
             leftPressed = false;
