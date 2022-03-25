@@ -75,12 +75,12 @@ Jobbet med tekstarbeidet til innleveringen. Erik I viste fram at han hadde fikse
 Som nevnt i møtereferatene er den eneste endringen i roller at Chantal har tatt ansvar for det visuelle. Her bidrar og Erik I med noen grafiske elementer. Vi synes rollene har fungert svært godt, og gjør at hvert enkelt medlem har meningsfulle ansvarsoppgaver og at alle medlemmer naturlig må bidra for å dekke sitt område. Dette har bidratt til generell god harmoni i teamet. 
 
 ### Prosjektmetodikk og retroperspektiv
-Vi hadde i utgangspunktet ikke valgt en prosjektmetodikk, men ønsket å bruke Trello i så stor grad som mulig. Ettersom vi ikke hadde bestemt oss for en prosjektmetodikk, ble bruken av Trello relativt begrenset. Videre ønsker vi å følge prosjektmetodikken **Kanban** mye tettere.  Frem til nå har koden vært oversiktlig med ikke alt for mange momenter som gjør at det har vært lett å følge progresjonen for hvert enkelt medlem. Dette har ført til at vi ofte har følt at vi ikke trenger å legge inn alt av oppgaver i Trello for å ha oversikt. Videre vet vi at koden blir mer kompleks, og store arbeidsoppgaver kommer til å gjennomføres parallellt. Det er derfor viktig fremover at vi i større grad oppdaterer Trello, og bruker funksjonene den tilbyr i mye større grad, ved å legge seg selv inn som deltaker på oppgaver og skrive kommentarer. 
-Vi har i tillegg valgt å innføre momenter fra Scrum der vi gjør oss ferdig med små funksjonelle oppgaver raskere slik at disse funksjonene kan brukes videre i andre deler av prosjektet. Dette ønsker vi ved å ha flere klare sprints med klare delmål. Vi føler derimot ikke at XP som prosjektmetodikk i stor grad er relevant for oss da vi har god kontroll på hvor vi ønsker å nå, og vi har få muligheter for negative ytre påvirkninger. 
+Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette fortsatt er riktig prosjektmetodikken. Vi har derimot et par forbedringspotensialer. Frem til nå har koden vært oversiktlig med ikke alt for mange momenter som gjør at det har vært lett å følge progresjonen for hvert enkelt medlem. Dette har ført til at vi ofte har følt at vi ikke trenger å legge inn alt av oppgaver i Trello. Videre vet vi at koden blir mer kompleks, og store arbeidsoppgaver kommer til å gjennomføres parallellt. Det er derfor viktig fremover at vi i større grad oppdaterer Trello, og bruker funksjonene den tilbyr i mye større grad, ved å legge seg selv inn som deltaker på oppgaver og skrive kommentarer. 
+Vi har i tillegg valgt å innføre momenter fra Scrum der vi gjør oss ferdig med små funksjonelle oppgaver raskere slik at disse funksjonene kan brukes videre i andre deler av prosjektet. Vi føler derimot ikke at XP som prosjektmetodikk i stor grad er relevant for oss da vi har god kontroll på hvor vi ønsker å nå, og vi har få muligheter for negative ytre påvirkninger. 
 Vi har derfor sett oss ut spesielt to forbedringsområder vi øsnker å jobbe med fram mot neste innlevering:
 - Oppdatere Trello i større grad
 -- https://trello.com/invite/b/Ar2twdkF/2578d5c9c7cbb0249909c3e82a326c30/inf112
-- Arbeide mer i par eller team på tre for å få bedre overblikk over koden, og gjennomføre delmål kjappere.
+- Arbeide mer i par eller team på tre for å få bedre overblikk over koden
 
 
 ### Kommunikasjon og samarbeid
@@ -143,4 +143,16 @@ MVP-kravene vi har fokusert på siden forrige innlevering er krav 4 og 5. Det va
 **MVP-krav prioritert videre**
 
 De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å implementere gateselgere/fiender så snart som mulig, samt power-up gjenstander. Som allerede nevnt, har vi klart å vise nedtelling på skjermen, så det som gjenstår for å oppnå krav 7 er å få spillet til å ta slutt og vise at spiller har tapt når tiden har rent ut. Når krav 7 er oppfylt, vil vi begynne å jobbe mot å oppfylle krav 10 slik at når spiller har tapt, vil en game-over-skjerm dukke opp.
+
+
+# Deloppgave 2
+
+**Utbedring av feil siden sist**
+
+- Main: På forrige innlevering fikk vi tilbakemelding om at det ikke var mulig å kjøre main-metoden vår, og dermed ikke mulig å prøve spillet. Dette var fordi mappestrukturen ikke automatisk gjenkjente resources-mappen vår som en source-mappe. Vi flyttet derfor resources inn i main-mappen ( src/main/java) og main-metoden skal nå fungere å kjøre. 
+- Vi har lagt en større vekt på prosjektmetodikken vi skal bruke fremover. 
+- Lagt til link til trello-boardet.
+- Koblet sammen nye brukerhistorier til kommende MVP krav og laget akseptansekriterier til hver av de. 
+- Nye arbeidsoppgaver er fordelt, men også fått en oversikt over hver enkeltes tidligere arbeidsoppgaver, slik at det blir enklere å vite hvem som har lettest for å løse fremtidige problemer. 
+
 
