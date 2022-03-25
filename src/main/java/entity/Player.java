@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-//import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
@@ -101,7 +100,6 @@ public class Player extends Entity{
                 
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
-//	            onGround = true;
                 
                 // updates to be true if Proggy collides with a solid tile
                 gp.collisionChecker.checkCollisionOnTile(this);

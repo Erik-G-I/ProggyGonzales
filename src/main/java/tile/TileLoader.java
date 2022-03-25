@@ -41,12 +41,12 @@ public class TileLoader {
 
 	public void loadMap() {
 		BufferedReader reader;
-		//InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
+		
 
 		try {
 
 			reader = new BufferedReader(new InputStreamReader(is));
-			//int col = 0;
+			
 			int row = 0;
 
 			while(row < mapRows) {
@@ -56,9 +56,9 @@ public class TileLoader {
 				for (int col = 0; col < lineArr.length; col++) {
 					int num = Integer.parseInt(lineArr[col]);
 					numOfTiles[col][row] = num;
-					//col++;
+					
 				}
-				//col = 0;
+				
 				row++;
 
 			}
@@ -112,7 +112,7 @@ public class TileLoader {
 
 			tiles[7] = new Tile();
 			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/tiles/coin.png"));
-			//tiles[7].collission = true;
+
 
 			
 		} catch (Exception e) {

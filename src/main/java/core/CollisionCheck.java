@@ -107,16 +107,7 @@ public class CollisionCheck {
     }
     // The following is a method to try to avoid using code repedeatly
 
-    // boolean directionColliding(Entity unit, int facingColRow, int facingSideSpeed, int corner1X, int corner1Y, int corner2X, int corner2Y) {
-    //     facingColRow = facingSideSpeed / gp.tileSize; //predictiong which tile Proggy tries to go into
-    //     int cornerOne = gp.loader.numOfTiles[corner1X][corner1Y]; // Bottom left corner
-    //     int cornerTwo = gp.loader.numOfTiles[corner2X][corner2Y]; // Bottom right corner
-    //     if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
-    //         unit.colliding = true;
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }}
+
 
 }
 
