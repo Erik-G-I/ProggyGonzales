@@ -10,6 +10,7 @@ public class Time implements ActionListener{
 	private int minutes;
 	private String showTime; //timer will be a String
 	private Timer timer;
+	private boolean gameOver;
 	
 	public Time(int seconds, int minutes, String showTime) {
 		this.seconds=seconds;
@@ -28,20 +29,28 @@ public class Time implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		seconds--;
-		this.showTime=minutes+":"+seconds;
-		if(seconds==0) {
-			if(minutes>0) {
-				seconds=60; //reset seconds then descrease minutes
+		if(seconds < 10) {
+			this.showTime = minutes + ":0"+seconds;
+		}
+		else {
+			this.showTime = minutes + ":" + seconds;
+		}
+		if(seconds == 0) {
+			if(minutes > 0) {
+				seconds = 60; //reset seconds then descrease minutes
 				minutes--;
 			}
 			else {
 				//when both minutes and seconds are 0
 				timer.stop();
+				gameOver = true;
 			}
 		}
 	}
 	
 	
-	
+	public boolean getGameOver() {
+		return gameOver;
+	}
 	
 }

@@ -44,4 +44,8 @@ public class TimerDisplay {
 		g2.setColor(Color.BLACK);
 		g2.drawString(showTime, widthOfScreen/2,54);
 	}
+	
+	public Time getTime() {
+		return time;
+	}
 }

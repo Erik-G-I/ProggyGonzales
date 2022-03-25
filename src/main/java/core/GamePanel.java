@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import entity.Player;
 import entity.Score;
+import gameOver.GameOver;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -40,15 +41,28 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionCheck collisionChecker = new CollisionCheck(this);
 
     KeyHandler keyH = new KeyHandler();
-    Thread gameThread;
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
     
+    //Game Thread
+    private Thread gameThread;
+    
+    public void setGameThread(Thread gameThread) {
+    	this.gameThread = gameThread;
+    }
     
     //Timer
     TimerDisplay timerDisplay = new TimerDisplay(this);
+    public TimerDisplay getTimerDisplay() {
+    	return timerDisplay;
+    }
+    
+    //Score
     Score score = new Score(this);
+    
+    //Game Over if there is no time left
+    GameOver gO = new GameOver(this);
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -104,6 +118,7 @@ public class GamePanel extends JPanel implements Runnable{
                 drawCount = 0;
                 timer = 0;
             }
+            gO.isGameDone();
             
         }
     }
@@ -115,6 +130,7 @@ public class GamePanel extends JPanel implements Runnable{
         score.showScore();
         player.update();
         timerDisplay.update();
+        gO.update();
     }
     
     public void jump() {
@@ -136,7 +152,7 @@ public class GamePanel extends JPanel implements Runnable{
         player.draw(g2);
         timerDisplay.draw(g2);
         score.draw(g2);
-        
+        gO.draw(g2);
         g2.dispose();
     }
     
