@@ -156,3 +156,6 @@ De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å
 - Nye arbeidsoppgaver er fordelt, men også fått en oversikt over hver enkeltes tidligere arbeidsoppgaver, slik at det blir enklere å vite hvem som har lettest for å løse fremtidige problemer. 
 
 
+**Klassediagram er lagt til under bilder**
+
+
