@@ -64,7 +64,7 @@ Gruppetimen er digital så vi møtes på et booket grupperom. Erik I og Erik H h
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
 
 Alexander og Hannah presenterer hvordan scoresystemet funker og hvordan det er implementert.
-Samme uke som innlevering. Vi jobber med å gjøre koden kjørbar til neste innlevering. Vi fordeler oppgaver vi skal gjøre fram mot neste møte. Vi har fått tilbake første innlevering og vet at det er en del vi må jobbe med.
+Samme uke som innlevering. Vi jobber med å gjøre koden kjørbar til neste innlevering. Vi fordeler oppgaver vi skal gjøre fram mot neste møte. Vi har fått tilbake første innlevering og fordeler det vi har manglet til forrige innlevering. Vi skal drøfte retroperspektiver og rollefordeling, oppdatere klassediagram, oppdatere brukerhistorier til MVP med akseptansekrav og arbeidsoppgaver. I tillegg skal vi drøfte utbedringer av feil siden sist.
 
 **Tilleggsmøte 24. Mars 12.30**
 Til stede: Hannah, Erik I, Erik H, Chantal (Discord), Alexander (Discord).
