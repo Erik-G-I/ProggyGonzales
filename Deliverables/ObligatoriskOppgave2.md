@@ -150,7 +150,7 @@ De neste kravene vi vil fokusere på å oppnå er krav 6 og 7. Vi vil få til å
 **Utbedring av feil siden sist**
 
 - Main: På forrige innlevering fikk vi tilbakemelding om at det ikke var mulig å kjøre main-metoden vår, og dermed ikke mulig å prøve spillet. Dette var fordi mappestrukturen ikke automatisk gjenkjente resources-mappen vår som en source-mappe. Vi flyttet derfor resources inn i main-mappen ( src/main/java) og main-metoden skal nå fungere å kjøre. 
-- Vi har lagt en større vekt på prosjektmetodikken vi skal bruke fremover. 
+- Vi har sett nærmere på prosjektmetodikk vi har brukt, og blitt enige om hvordan det best kan brukes fremover. 
 - Lagt til link til trello-boardet.
 - Koblet sammen nye brukerhistorier til kommende MVP krav og laget akseptansekriterier til hver av de. 
 - Nye arbeidsoppgaver er fordelt, men også fått en oversikt over hver enkeltes tidligere arbeidsoppgaver, slik at det blir enklere å vite hvem som har lettest for å løse fremtidige problemer. 
