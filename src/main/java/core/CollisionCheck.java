@@ -62,9 +62,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
-                //entity.hitHead = true;
-                // int neutralizedSpeed = unitTopSide - unit.speed;
-                // directionColliding(unit, unitTopRow, neutralizedSpeed, unitLeftCol, unitTopRow, unitRightCol, unitTopRow);
+            
                 break;
 
 
@@ -81,11 +79,7 @@ public class CollisionCheck {
                 }
 
                 this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
-                // int neutralizedSpeed2 = unitBottomSide + unit.speed;
-                // directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);
-                // if (directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow)){
-                //     unit.onGround = true;
-                // }
+
                 break;
             case "left":
                 unitLeftCol = (unitLeftSide - unit.speed) / gp.tileSize;
@@ -95,8 +89,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-                // int neutralizedSpeed3 = unitLeftSide - unit.speed;
-                // directionColliding(unit, unitBottomRow, neutralizedSpeed3, unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);
+              
 
                 break;
             case "right":
@@ -107,16 +100,8 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
-                // int neutralizedSpeed4 = unitRightSide + unit.speed;
-                // directionColliding(unit, unitBottomRow, neutralizedSpeed4, unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
-
-
     }
-    // The following is a method to try to avoid using code repedeatly
-
-
-
 }
 
