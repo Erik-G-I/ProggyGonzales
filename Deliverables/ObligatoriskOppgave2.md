@@ -117,8 +117,8 @@ Som spiller bør det være tydelig hva som er mål, slik at jeg kan klare å fin
 Som spiller ønsker jeg en gøy og engasjerende grunn til å spille | Et velfungerende spill med et mål man skal oppnå og en score-funksjon som gir spiller motivasjon til å spille. | | 8, 5
 Som ny og uerfaren spiller ønsker jeg et spill som er enkelt å forstå | Spillet må ha enkle kontroller og grafikk som er intuitive. | | Alle
 Som spiller bør jeg vite når spillet har startet og når målet er oppnådd / spillet er over | Spillet skal ha en startside som forsvinner når spillet er i gang og en tydelig game-over-side når spiller har tapt. | | 10
-Som spiller trenger jeg å se meg selv på skjermen hele tiden for å holde oversikt over hvor jeg er i spillverdenen, og vite hvor jeg skal gå videre. | Skjermen må følge med spilleren, slik at spiller alltid er i sentrum. | | 4, 1
-Som spiller vil jeg ha muligheten til å spille mot og med andre. | Spillet skal være mulig å spille med to spillere som konkurerer mot hverandre der skjermen blir delt i to, og hver spiller får hver sin del av skjermen. | | 11 
+Som spiller trenger jeg å se meg selv på skjermen hele tiden for å holde oversikt over hvor jeg er i spillverdenen, og vite hvor jeg skal gå videre. | Skjermen må følge med spilleren, slik at spiller alltid er i sentrum. |  | 4, 1
+Som spiller vil jeg ha muligheten til å spille mot og med andre. | Spillet skal være mulig å spille med to spillere som konkurerer mot hverandre der skjermen blir delt i to, og hver spiller får hver sin del av skjermen. | Main-metoden må endres slik at den kan tegne to skjermer ved siden av hverandre om multiplayer er valgt. Legge til muligheten til å kjøre to spill samtidig, og lage metoder som bestemmer hvem som er vinner/taper. | 11 
 
 **Prioritert liste over brukerhistorier til andre iterasjon**
 - Som spiller trenger jeg å se meg selv på skjermen hele tiden for å holde oversikt over hvor jeg er i spillverdenen, og vite hvor jeg skal gå videre.
