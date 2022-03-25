@@ -17,12 +17,21 @@ public class CollisionCheck {
         //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[7]) {
             gp.loader.numOfTiles[x1][y1] = 0;
-            coins += 50;
+            coins += 100;
         }
         else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[7]) {
             gp.loader.numOfTiles[x2][y2] = 0;
-            coins += 50;
+            coins += 100;
         }
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[8]) {
+            gp.loader.numOfTiles[x1][y1] = 0;
+            coins += 200;
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[8]) {
+            gp.loader.numOfTiles[x2][y2] = 0;
+            coins += 200;
+        }
+
     }
 
 
