@@ -16,7 +16,7 @@ Begynner med brainstorming av navn og historie, og fordeler roller i teamet. Vi 
  
 **Tilleggsmøte 10. februar 16.00**
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-Første møte med Alexander på teamet. Han presenterte seg, og fikk tildelt rolle som miljøansvarlig og assisterende kundekontakt. Alle presenterte ideene sine, og vi bestemte oss for navn og historie. Det ble også laget en teamkontrakt, og vi ble enige om å alle lese over til neste gang vi møttes. Videre ønsker vi å lage et rammeverk for koden.
+Første møte med nytt medlem Alexander på teamet. Han presenterte seg, og fikk tildelt rolle som miljøansvarlig og assisterende kundekontakt. Alle presenterte ideene sine, og vi bestemte oss for navn og historie. Det ble også laget en teamkontrakt, og vi ble enige om å alle lese over til neste gang vi møttes. Videre ønsker vi å lage et rammeverk for koden.
 
  
 **Gruppetime 15. februar 08.15**
