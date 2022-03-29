@@ -31,10 +31,21 @@ public class CollisionCheck {
             gp.loader.numOfTiles[x2][y2] = 0;
             coins += 200;
         }
+        
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+            gp.loader.numOfTiles[x1][y1] = 10;
+            coins -= 100;
+
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
+            gp.loader.numOfTiles[x2][y2] = 10;
+            coins -= 100;
+        }
 
     }
 
-
+    
+    
 
     public void checkCollisionOnTile(Entity unit) {
         // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
@@ -76,7 +87,7 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                     // We also introduce a boolean to check if Proggy is colliding with the ground.
-                    // This is used to check if porggy is allowed to jump again.
+                    // This is used to check if Proggy is allowed to jump again.
                     unit.onGround = true;
                 }
 
@@ -114,7 +125,6 @@ public class CollisionCheck {
 
 
     }
-    // The following is a method to try to avoid using code repedeatly
 
 
 

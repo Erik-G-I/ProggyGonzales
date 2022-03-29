@@ -3,10 +3,13 @@ package core;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.IOException;
 import java.io.InputStream;
 
 import javax.swing.JPanel;
 
+import entity.Background;
+import entity.Enemy;
 import entity.Player;
 import entity.Score;
 import gameOver.GameOver;
@@ -14,8 +17,12 @@ import tile.TileLoader;
 import timer.TimerDisplay;
 
 public class GamePanel extends JPanel implements Runnable{
-
-    // Screen settings
+	
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Screen settings
     final int originalTileSize = 32; // 32x32 tiles
     final int scale = 2;
     
@@ -30,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 12;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
-
+    
     //Map
     public final InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
 
@@ -42,7 +49,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
-  //  public Background bg = new Background(this, keyH);
+    
+  //  public Enemy enemy = new Enemy(this, keyH);
+    public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
     
     //Game Thread
@@ -126,9 +135,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     
 	public void update() {
-       // bg.update();
+        bg.update();
         score.showScore();
         player.update();
+       // enemy.update();
         timerDisplay.update();
         gO.update();
     }
@@ -138,6 +148,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
+    //	enemy.fall();
     }
     
     public void paintComponent(Graphics g) {
@@ -146,10 +157,11 @@ public class GamePanel extends JPanel implements Runnable{
         
         Graphics2D g2 = (Graphics2D)g;
 
-        //bg.draw(g2);
+        bg.draw(g2);
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
+     //   enemy.draw(g2);
         timerDisplay.draw(g2);
         score.draw(g2);
         gO.draw(g2);

@@ -41,7 +41,7 @@ public class GameOver {
 	public void draw(Graphics2D g2) {
 		g2.setFont(font);
 		if(isGameOver==true) {
-			g2.drawImage(img, widthOfScreen/3, 150, 500,500,null);
+			g2.drawImage(img, widthOfScreen/3, 150, 380,500,null);
 		}
 	}
 	

@@ -10,10 +10,10 @@ import java.io.IOException;
 import core.GamePanel;
 
 public class Background extends Entity {
-/**
+
     GamePanel gp;
     KeyHandler keyH;
-
+    BufferedImage realfag, bakgrunn;
 
     public Background(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -21,7 +21,6 @@ public class Background extends Entity {
 
         setDefaultValues();
         getImage();
-
     }
 
     public void setDefaultValues() {
@@ -34,7 +33,8 @@ public class Background extends Entity {
     public void getImage() {
 
         try {
-            bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/City2_pale.png"));
+        	realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbyggetåpen.png"));
+            bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bryggen1.png"));
 
         }catch(IOException e) {
             e.printStackTrace();
@@ -60,25 +60,28 @@ public class Background extends Entity {
     		int worldCol = 0;
     		int worldRow = 0;
     		
-    		
     		if(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
     			
     			int worldX = worldCol * gp.tileSize;
     			int worldY = worldRow * gp.tileSize;
-    			int screenX = worldX - gp.player.worldX + gp.player.screenX;
-    			int screenY = worldY - gp.player.worldY + gp.player.screenY;
+    			int screenX = worldX - gp.player.worldX + gp.player.playerX + 63;
+    			int screenY = worldY - gp.player.worldY + gp.player.playerY;
     			
-    			g2.drawImage(bakgrunn, screenX, screenY, 1100, 680, null);
-    			
-    			worldCol ++;
-    			
-    			if(worldCol == gp.maxWorldCol) {
-    				worldCol = 0;
-    				worldRow  ++;
+    			g2.drawImage(realfag, screenX, screenY, 600, 800, null);
+    			screenX += 750;
+
+    			while(worldCol < gp.maxWorldRow) {
+    				g2.drawImage(bakgrunn, screenX, screenY, 1000, 880, null);
+        			screenX += 1050;
+        			worldCol ++;
+        			
     			}
+    			
+    			
+    			
     		}
     		
-    	}*/
+    	}
     
 
 }
