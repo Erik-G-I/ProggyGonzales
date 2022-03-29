@@ -31,7 +31,11 @@ public class CollisionCheck {
             gp.loader.numOfTiles[x2][y2] = 0;
             coins += 200;
         }
-        
+
+    }
+
+    
+    public void looseMoney(int x1, int y1, int x2, int y2) {
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
             gp.loader.numOfTiles[x1][y1] = 10;
             coins -= 100;
@@ -43,8 +47,6 @@ public class CollisionCheck {
         }
 
     }
-
-    
     
 
     public void checkCollisionOnTile(Entity unit) {
@@ -73,6 +75,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                this.looseMoney(unitLeftCol, unitTopRow, unitRightCol, unitTopRow);
                 //entity.hitHead = true;
                 // int neutralizedSpeed = unitTopSide - unit.speed;
                 // directionColliding(unit, unitTopRow, neutralizedSpeed, unitLeftCol, unitTopRow, unitRightCol, unitTopRow);
@@ -92,6 +95,7 @@ public class CollisionCheck {
                 }
 
                 this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.looseMoney(unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);
                 // int neutralizedSpeed2 = unitBottomSide + unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);
                 // if (directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow)){
@@ -106,6 +110,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.looseMoney(unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);
                 // int neutralizedSpeed3 = unitLeftSide - unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed3, unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);
 
@@ -118,6 +123,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                this.looseMoney(unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
                 // int neutralizedSpeed4 = unitRightSide + unit.speed;
                 // directionColliding(unit, unitBottomRow, neutralizedSpeed4, unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
                 break;
