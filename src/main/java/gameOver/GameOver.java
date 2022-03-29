@@ -26,7 +26,7 @@ public class GameOver {
 		timerDisplay = gp.getTimerDisplay();
 		time = timerDisplay.getTime();
 		widthOfScreen = gp.screenWidth;
-		font = new Font("Times New Roman",Font.BOLD,80);
+		//font = new Font("Times New Roman",Font.BOLD,80);
 		try {
 			img = ImageIO.read(getClass().getResourceAsStream("/graphics/gameover.png"));
 		} catch (IOException e) {
@@ -39,7 +39,7 @@ public class GameOver {
 	}
 	
 	public void draw(Graphics2D g2) {
-		g2.setFont(font);
+		//g2.setFont(font);
 		if(isGameOver==true) {
 			g2.drawImage(img, widthOfScreen/3, 150, 500,500,null);
 		}
