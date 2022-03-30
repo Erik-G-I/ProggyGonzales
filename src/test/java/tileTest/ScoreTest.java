@@ -39,7 +39,23 @@ public class ScoreTest {
         }
 
         assertEquals(0, loader.numOfTiles[1][8]);
-        assertEquals( 50, check.coins, "Coin did not disappear when Proggy tried to pick it up");
+        assertEquals( 100, check.coins, "Coin did not disappear when Proggy tried to pick it up");
+    }
+    
+    
+    @Test
+    void testScoreIncreases() {
+    	CollisionCheck check = new CollisionCheck(gp);
+        KeyHandler keyH = new KeyHandler();
+
+        Player p = new Player(gp, keyH);
+        p.setDefaultValues();
+        
+        while (p.worldX < 192) {
+            keyH.rightPressed = true;
+            p.update();
+        }
+        assertEquals( 100, check.coins);
     }
 }
 
