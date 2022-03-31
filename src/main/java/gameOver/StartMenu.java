@@ -13,7 +13,7 @@ public class StartMenu implements ActionListener {
 
     GamePanel gp;
     Font font;
-    Boolean gameStarted = false;
+    public Boolean gameStarted = false;
     BufferedImage img;
 
     private final JButton playGame;
@@ -21,45 +21,53 @@ public class StartMenu implements ActionListener {
     private final JFrame frame;
 
 
-    public StartMenu(GamePanel gp) {
-        this.gp = gp;
-
-        frame = new JFrame();
-        frame.setTitle("Game menu");
+    public StartMenu(JFrame frame) {
+        this.frame = frame;
 
         JPanel buttons = new JPanel();
         buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
-        playGame = addButton(buttons, "Play Proggy Gonzales");
-        instructions = addButton(buttons, "Instructions");
 
+        this.playGame = addButton(buttons, "PLay");
+        this.instructions = addButton(buttons, "How to play");
+
+        frame.setSize(1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(buttons);
-        frame.setMinimumSize(new Dimension(400, 400));
-        frame.setPreferredSize(new Dimension(1000, 1000));
+        //frame.setMinimumSize(new Dimension(400, 400));
+        //frame.setPreferredSize(new Dimension(1000, 1000));
         frame.setVisible(true);
+        frame.setLayout(null);
+
+
     }
 
     JButton addButton(JPanel buttons, String name) {
-        JButton button = new JButton();
-        button.setText(name);
-        button.setFont(new Font("Times new roman", Font.BOLD, 40));
+        JButton button = new JButton(name);
+        button.setBounds(50, 100, 95, 30);
         button.addActionListener(this);
         button.setAlignmentX(Component.CENTER_ALIGNMENT);
-        button.setBorder(new BevelBorder(10));
 
         buttons.add(Box.createRigidArea(new Dimension(20, 20)));
         buttons.add(button);
         return button;
     }
 
-    public void draw(Graphics g) {
-        while (!gameStarted) {
-
-        }
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (!gameStarted) {
+            if (e.getSource() == playGame) {
+                GamePanel gamePanel = new GamePanel();
+                frame.add(gamePanel);
 
+                this.frame.pack();
+
+                this.frame.setLocationRelativeTo(null);
+                this.frame.setVisible(true);
+
+                gamePanel.startGameThread();
+                gameStarted = true;
+            }
+        }
     }
 }

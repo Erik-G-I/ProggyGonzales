@@ -7,21 +7,32 @@ import javax.swing.JFrame;
 public class Main {
 
 	public static void main(String[] args) {
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setResizable(false);
-        window.setTitle("Proggy Gonzales");
-        
-        GamePanel gamePanel = new GamePanel();
-            StartMenu menu = new StartMenu(gamePanel);
-        window.add(gamePanel);
-        
-        window.pack();
-        
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
-         
-        gamePanel.startGameThread();
+
+		JFrame window = new JFrame();
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setResizable(false);
+		window.setTitle("Proggy Gonzales");
+
+		StartMenu menu = new StartMenu(window);
+
+
+
+        /*if (menu.gameStarted) {
+                JFrame window = new JFrame();
+                window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                window.setResizable(false);
+                window.setTitle("Proggy Gonzales");
+
+                GamePanel gamePanel = new GamePanel();
+                window.add(gamePanel);
+
+                window.pack();
+
+                window.setLocationRelativeTo(null);
+                window.setVisible(true);
+
+                gamePanel.startGameThread();
+        }*/
         
     }
 
