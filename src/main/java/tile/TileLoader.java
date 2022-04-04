@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import entity.Player;
 
 import javax.imageio.ImageIO;
 
@@ -19,6 +20,7 @@ public class TileLoader {
 	public Tile[] tiles;
 	Tile[][] loadedMap;
 	public int numOfTiles[][];
+
 	InputStream is;
 	int mapCols;
 	int mapRows;
@@ -38,15 +40,12 @@ public class TileLoader {
 	}
 
 
-
 	public void loadMap() {
 		BufferedReader reader;
 		
-
 		try {
 
 			reader = new BufferedReader(new InputStreamReader(is));
-			
 			int row = 0;
 
 			while(row < mapRows) {
@@ -58,17 +57,13 @@ public class TileLoader {
 					numOfTiles[col][row] = num;
 					
 				}
-				
 				row++;
-
 			}
 			reader.close();
-
 
 		} catch(Exception e) {
 			
 		}
-		
 	}
 	
 	
@@ -115,8 +110,21 @@ public class TileLoader {
 
 			tiles[8] = new Tile();
 			tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/graphics/200kr.png"));
-
-
+			
+			tiles[9] = new Tile();
+			tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Attack.png"));
+			
+			tiles[10] = new Tile();
+			tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Dead.png"));
+			
+			tiles[11] = new Tile();
+			tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
+			
+			tiles[12] = new Tile();
+			tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
+			
+			tiles[13] = new Tile();
+			tiles[13].image = ImageIO.read(getClass().getResourceAsStream("/graphics/start flagg.png"));
 
 
 		} catch (Exception e) {
@@ -140,21 +148,15 @@ public class TileLoader {
 			int screenX = WorldX - gp.player.worldX + gp.player.playerX;
 			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
 			
-			int fullScreenBuffer = gp.tileSize;
 			
-			if(WorldX + fullScreenBuffer> gp.player.worldX - gp.player.playerX &&
-			   WorldX - fullScreenBuffer< gp.player.worldX + gp.player.playerX &&
-			   WorldY + fullScreenBuffer> gp.player.worldY - gp.player.playerY &&
-			   WorldY - fullScreenBuffer< gp.player.worldY + gp.player.playerY) {
-				g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-				if(gp.player.playerX == tiles[5].x) {
-					if(gp.player.playerY == tiles[5].y) {
-						tiles[5] = tiles[0];
-					}
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+			if(gp.player.playerX == tiles[5].x) {
+				if(gp.player.playerY == tiles[5].y) {
+					tiles[5] = tiles[0];
 				}
-				g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			}
-
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+			
 			worldCol ++;
 
 			if(worldCol == bufferCol) {
