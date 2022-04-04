@@ -105,8 +105,12 @@ public class TileLoader {
 			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
 			tiles[6].collission = true;
 
+			tiles[11] = new Tile();
+			tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
+
 			tiles[12] = new Tile();
 			tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
+
 
 			tiles[7] = new Tile();
 			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/graphics/100kr.png"));
@@ -119,9 +123,6 @@ public class TileLoader {
 			
 			tiles[10] = new Tile();
 			tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Dead.png"));
-			
-			tiles[11] = new Tile();
-			tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
 			
 
 			tiles[13] = new Tile();

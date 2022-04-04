@@ -1,10 +1,12 @@
 package core;
 
 import entity.Entity;
+import entity.Player;
 import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
+
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -41,12 +43,19 @@ public class CollisionCheck {
         }
 
 
-    public void pickUpPowerUp(int x1, int y1, int x2, int y2) {
-        if (pickUp(x1, y1, x2, y2, 6)) {
+    public void pickUpMask(int x1, int y1, int x2, int y2) {
+        if (pickUp(x1, y1, x2, y2, 12)) {
             gp.playerState = PlayerState.INVISIBLE;
         }
-        
     }
+    public void pickUpShoes(int x1, int y1, int x2, int y2) {
+        if (pickUp(x1, y1, x2, y2, 11)) {
+            gp.playerState = PlayerState.FASTER;
+            System.out.println("Now the player has picked up shoes and should become faster");
+        }
+    }
+
+
 
 
 
@@ -66,7 +75,6 @@ public class CollisionCheck {
 
         switch(unit.direction) {
             case "up":
-
                 //If Proggy moves in an upwards direction, the two corners that needs to be checked is top right and left corners
                 unitTopRow = (unitTopSide - unit.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
                 cornerOne = gp.loader.numOfTiles[unitLeftCol][unitTopRow]; // Top left corner
@@ -76,7 +84,9 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
-                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.pickUpMask(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                this.pickUpShoes(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+
             
                 break;
 
@@ -94,7 +104,8 @@ public class CollisionCheck {
                 }
 
                 this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
-                this.pickUpPowerUp(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.pickUpMask(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.pickUpShoes(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
 
                 break;
             case "left":
@@ -105,7 +116,8 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.pickUpMask(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.pickUpShoes(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
 
                 break;
             case "right":
@@ -116,7 +128,8 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
-                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.pickUpMask(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                this.pickUpShoes(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
     }
