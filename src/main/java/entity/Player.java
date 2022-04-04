@@ -36,6 +36,7 @@ public class Player extends Entity{
     
     }
     
+
     public void setDefaultValues() {
     	worldX = 64;
         //jo mindre y, jo høyere opp

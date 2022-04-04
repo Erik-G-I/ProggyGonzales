@@ -1,6 +1,7 @@
 package core;
 
 import entity.Entity;
+import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
@@ -13,25 +14,38 @@ public class CollisionCheck {
     int cornerOne, cornerTwo;
     public int coins = 0;
 
+
+    public boolean pickUp(int x1, int y1, int x2, int y2, int tilenum) {
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[tilenum]) {
+            gp.loader.numOfTiles[x1][y1] = 0;
+            return true;
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[tilenum]) {
+            gp.loader.numOfTiles[x2][y2] = 0;
+            return true;
+
+    }
+    return false;
+}
+
+
+
     public void pickUpMoney(int x1, int y1, int x2, int y2) {
         //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
-        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[7]) {
-            gp.loader.numOfTiles[x1][y1] = 0;
+        if (pickUp(x1, y1, x2, y2, 7)) {
             coins += 100;
         }
-        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[7]) {
-            gp.loader.numOfTiles[x2][y2] = 0;
-            coins += 100;
-        }
-        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[8]) {
-            gp.loader.numOfTiles[x1][y1] = 0;
-            coins += 200;
-        }
-        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[8]) {
-            gp.loader.numOfTiles[x2][y2] = 0;
+        
+        if (pickUp(x1, y1, x2, y2, 8))
             coins += 200;
         }
 
+
+    public void pickUpPowerUp(int x1, int y1, int x2, int y2) {
+        if (pickUp(x1, y1, x2, y2, 6)) {
+            gp.playerState = PlayerState.INVISIBLE;
+        }
+        
     }
 
 
@@ -62,6 +76,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
             
                 break;
 
@@ -79,6 +94,7 @@ public class CollisionCheck {
                 }
 
                 this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.pickUpPowerUp(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
 
                 break;
             case "left":
@@ -89,7 +105,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-              
+                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
 
                 break;
             case "right":
@@ -100,6 +116,7 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                this.pickUpPowerUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
                 break;
         }
     }
