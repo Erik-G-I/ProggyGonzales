@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     KeyHandler keyH = new KeyHandler();
     public Player player = new Player(this, keyH);
     
-  //  public Enemy enemy = new Enemy(this, keyH);
+    //public Enemy enemy = new Enemy(this, is);
     public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
     
@@ -138,7 +138,6 @@ public class GamePanel extends JPanel implements Runnable{
         bg.update();
         score.showScore();
         player.update();
-       // enemy.update();
         timerDisplay.update();
         gO.update();
     }
@@ -148,7 +147,6 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
-    //	enemy.fall();
     }
     
     public void paintComponent(Graphics g) {
@@ -161,7 +159,6 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
-     //   enemy.draw(g2);
         timerDisplay.draw(g2);
         score.draw(g2);
         gO.draw(g2);
