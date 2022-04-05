@@ -10,6 +10,7 @@ import core.GamePanel;
 import core.KeyHandler;
 import entity.Player;
 import entity.Score;
+import timer.Time;
 
 public class PlayerItemsTest {
 
@@ -70,5 +71,11 @@ public class PlayerItemsTest {
 	@Test
 	public void testPlayerLosesTime() {
 		//TODO: lage når vi implementerer fiender og tid
+		Time time = new Time(10, 0, "");
+		//timer.getTime trenger en metode i timer
+		int originalTime = 0;
+		//player.loseTime / enemy.attackPlayer
+		int newTime = 0;
+		assertTrue(originalTime > newTime);
 	}
 }
