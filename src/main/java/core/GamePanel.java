@@ -48,7 +48,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //CollisionCheck 
-    public CollisionCheck collisionChecker;;
+    public CollisionCheck collisionChecker;
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
@@ -94,7 +94,6 @@ public class GamePanel extends JPanel implements Runnable{
     	score =  new Score(this);
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
-    	gameState = GameState.START_MENU;
         collisionChecker = new CollisionCheck(this);
     }
 
@@ -104,6 +103,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        gameState = GameState.START_MENU;
         setGame();
     }
 
