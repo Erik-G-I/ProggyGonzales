@@ -65,8 +65,9 @@ public class KeyHandler implements KeyListener{
         			gp.getGameOverObj().cmd = 2;
         		}
         	}
-            if (gp.getGameOverObj().cmd==1 && code == KeyEvent.VK_ENTER) {
+            if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
             	gp.getGameOverObj().restart();
+            	gp.startTimer();
             }
             if (gp.getGameOverObj().cmd == 2 && code == KeyEvent.VK_ENTER) {
                 gp.setGame();
