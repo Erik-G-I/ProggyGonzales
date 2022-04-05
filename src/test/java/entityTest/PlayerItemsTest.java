@@ -50,19 +50,25 @@ public class PlayerItemsTest {
 		keyH.rightPressed = true;
 		p.update();
 		int money = gp.collisionChecker.coins;
-		int newScore = money + 50;
+		int newScore = money + 100;
 
 		assertTrue(gp.loader.numOfTiles[8][1] == 0);
 		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test
-	public void testPlayerLoosesMoney() {
+	public void testPlayerLosesMoney() {
 		//TODO: lage når vi implementerer fiender
+		gp.collisionChecker.coins = 100;
+		int money = gp.collisionChecker.coins;
+		int newScore = money - 100;
+		//player.loseMoney / enemy.attackPlayer
+		
+		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test
-	public void testPlayerLoosesTime() {
+	public void testPlayerLosesTime() {
 		//TODO: lage når vi implementerer fiender og tid
 	}
 }
