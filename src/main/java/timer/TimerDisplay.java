@@ -1,17 +1,16 @@
 package timer;
 
-import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.Timer;
 
+import core.DisplayText;
 import core.GamePanel;
 import java.awt.Color;
 
-public class TimerDisplay {
+public class TimerDisplay extends DisplayText{
 	
 	private GamePanel gp;
-	private Font timeFont;
 	private int widthOfScreen;
 	private int seconds;
 	private int minutes;
@@ -21,7 +20,6 @@ public class TimerDisplay {
 	
 	public TimerDisplay(GamePanel gp) {
 		this.gp=gp;
-		timeFont=new Font("Times New Roman",Font.BOLD,40);
 		seconds=60; //change later to wanted time
 		minutes=0; //change later to wanted time
 		widthOfScreen=gp.screenWidth;
@@ -40,8 +38,9 @@ public class TimerDisplay {
 	}
 	
 	public void draw(Graphics g2) {
-		g2.setFont(timeFont);
+		this.setGraphics(g2);
 		g2.setColor(Color.BLACK);
+		this.draw(50);
 		g2.drawString(showTime, widthOfScreen/2,54);
 	}
 	
