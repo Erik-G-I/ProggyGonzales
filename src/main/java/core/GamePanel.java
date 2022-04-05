@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 
 import entity.Background;
 import entity.Player;
+import entity.PlayerState;
 import entity.Score;
 import gameOver.GameOver;
 import tile.TileLoader;
@@ -35,6 +36,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxWorldRow = 12;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
+
+    public PlayerState playerState = PlayerState.NORMAL;
 
     //Map
     public final InputStream is = getClass().getResourceAsStream("/maps/testmap.txt");
@@ -82,7 +85,10 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
-    
+    public PlayerState getPlayerState() {
+        return this.playerState;
+
+    }
     public void run() {
         double drawInterval = 1000000000/FPS;
         double delta = 0;
