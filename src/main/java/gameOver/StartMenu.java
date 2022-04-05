@@ -2,34 +2,32 @@ package gameOver;
 
 import core.GamePanel;
 
+import javax.imageio.IIOException;
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
+import java.io.IOException;
 
-public class StartMenu implements ActionListener {
+public class StartMenu extends JComponent {
 
     GamePanel gp;
     Font font;
-    public Boolean gameStarted = false;
     BufferedImage img;
 
-    private final JButton playGame;
-    private final JButton instructions;
-    private final JFrame frame;
+    public int commandNum = 0;
 
 
-    public StartMenu(JFrame frame) {
-        this.frame = frame;
 
-        JPanel buttons = new JPanel();
-        buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
+    public StartMenu(GamePanel gp) {
+        this.gp = gp;
 
-        this.playGame = addButton(buttons, "PLay");
-        this.instructions = addButton(buttons, "How to play");
-
+        /*
         frame.setSize(1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(buttons);
@@ -37,37 +35,45 @@ public class StartMenu implements ActionListener {
         //frame.setPreferredSize(new Dimension(1000, 1000));
         frame.setVisible(true);
         frame.setLayout(null);
-
-
-    }
-
-    JButton addButton(JPanel buttons, String name) {
-        JButton button = new JButton(name);
-        button.setBounds(50, 100, 95, 30);
-        button.addActionListener(this);
-        button.setAlignmentX(Component.CENTER_ALIGNMENT);
-
-        buttons.add(Box.createRigidArea(new Dimension(20, 20)));
-        buttons.add(button);
-        return button;
+         */
     }
 
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (!gameStarted) {
-            if (e.getSource() == playGame) {
-                GamePanel gamePanel = new GamePanel();
-                frame.add(gamePanel);
+    public void draw(Graphics g) {
+        Color transparentRed = new Color(0, 0, 0, 0x80); // fourth argument is transparency - try out different values 0x00 - 0xff
+        g.setColor(transparentRed);
+        g.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 
-                this.frame.pack();
 
-                this.frame.setLocationRelativeTo(null);
-                this.frame.setVisible(true);
+        // Title
+        Font titleFont = new Font("Times New Roman",Font.BOLD,90);
+        g.setFont(titleFont);
+        g.setColor(Color.BLACK);
+        g.drawString("Proggy Gonzales", gp.screenWidth/5-5,gp.tileSize*4);
+        g.setColor(Color.WHITE);
+        g.drawString("Proggy Gonzales", gp.screenWidth/5,gp.tileSize*4);
 
-                gamePanel.startGameThread();
-                gameStarted = true;
-            }
+        // Menu
+        Font menuFont = new Font("Times New Roman",Font.PLAIN,50);
+        g.setFont(menuFont);
+        g.setColor(Color.WHITE);
+        g.drawString("Play game", gp.screenWidth/5,gp.tileSize*6);
+        if (commandNum == 0) {
+            g.drawString(">", gp.screenWidth/5-gp.tileSize,gp.tileSize*6);
         }
+
+        g.drawString("About", gp.screenWidth/5,gp.tileSize*7);
+        if (commandNum == 1) {
+            g.drawString(">", gp.screenWidth/5-gp.tileSize,gp.tileSize*7);
+        }
+
+        g.drawString("Quit", gp.screenWidth/5,gp.tileSize*8);
+        if (commandNum == 2) {
+            g.drawString(">", gp.screenWidth/5-gp.tileSize,gp.tileSize*8);
+        }
+
+
+
     }
+
 }

@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import entity.Player;
 import entity.Score;
 import gameOver.GameOver;
+import gameOver.StartMenu;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -40,13 +41,20 @@ public class GamePanel extends JPanel implements Runnable{
     //CollisionCheck 
     public CollisionCheck collisionChecker = new CollisionCheck(this);
 
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     public Player player = new Player(this, keyH);
   //  public Background bg = new Background(this, keyH);
     public TileLoader loader = new TileLoader(this, is);
+
+    public StartMenu menu = new StartMenu(this);
     
     //Game Thread
     private Thread gameThread;
+
+    public int gameState;
+    public final int startMenu = 0;
+    public final int runningGame = 1;
+    public final int gameOver = 2;
     
     public void setGameThread(Thread gameThread) {
     	this.gameThread = gameThread;
@@ -70,6 +78,9 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        this.add(menu);
+
+        gameState = startMenu;
     }
 
     public void startGameThread() {  
@@ -79,25 +90,26 @@ public class GamePanel extends JPanel implements Runnable{
 
     
     public void run() {
+
         double drawInterval = 1000000000/FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
         long timer = 0;
         int drawCount = 0;
-        
+
         //start the timer
         timerDisplay.startTime();
-        
+
         while(gameThread != null) {
-            
+
             currentTime = System.nanoTime();
-            
+
             delta += (currentTime - lastTime) / drawInterval;
             timer += (currentTime - lastTime);
             lastTime = currentTime;
-            
-            if(delta >= 1) {
+
+            if (delta >= 1) {
                 // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
@@ -106,12 +118,13 @@ public class GamePanel extends JPanel implements Runnable{
                 repaint();
                 jump();
                 repaint();
-                
+
 
                 delta--;
                 drawCount++;
             }
-            
+        }
+
             //display FPS in console
             if(timer >= 1000000000) {
 //                System.out.println("FPS:"+drawCount);
@@ -120,10 +133,10 @@ public class GamePanel extends JPanel implements Runnable{
             }
             gO.isGameDone();
             
-        }
+
     }
-    
-    
+
+
     
 	public void update() {
        // bg.update();
@@ -143,16 +156,22 @@ public class GamePanel extends JPanel implements Runnable{
     public void paintComponent(Graphics g) {
 
         super.paintComponent(g);
-        
+
         Graphics2D g2 = (Graphics2D)g;
 
         //bg.draw(g2);
-        
         loader.draw(g2, player.worldX);
         player.draw(g2);
-        timerDisplay.draw(g2);
-        score.draw(g2);
-        gO.draw(g2);
+
+        if(gameState == startMenu) {
+            menu.draw(g2);
+
+        } else {
+            timerDisplay.draw(g2);
+            score.draw(g2);
+            gO.draw(g2);
+        }
+
         g2.dispose();
     }
     
