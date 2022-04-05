@@ -16,9 +16,7 @@ import timer.TimerDisplay;
 
 public class GamePanel extends JPanel implements Runnable{
 	
-    /**
-	 * 
-	 */
+    
 	private static final long serialVersionUID = 1L;
 	// Screen settings
     final int originalTileSize = 32; // 32x32 tiles
