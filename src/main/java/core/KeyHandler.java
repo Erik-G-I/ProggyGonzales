@@ -1,5 +1,7 @@
 package core;
 
+import gameState.GameState;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -21,6 +23,31 @@ public class KeyHandler implements KeyListener{
     public void keyPressed(KeyEvent e) {
         
         int code = e.getKeyCode();
+
+        if (gp.gameState == GameState.START_MENU) {
+            if (code == KeyEvent.VK_DOWN) {
+                gp.menu.commandNum++;
+                if (gp.menu.commandNum > 2)
+                    gp.menu.commandNum = 0;
+            }
+            if (code == KeyEvent.VK_UP) {
+                gp.menu.commandNum--;
+                if (gp.menu.commandNum < 0)
+                    gp.menu.commandNum = 2;
+            }
+            if (code == KeyEvent.VK_ENTER) {
+                if (gp.menu.commandNum == 0) {
+                    gp.gameState = GameState.RUNNING_GAME;
+                    gp.timerDisplay.startTime();
+                }
+
+                if (gp.menu.commandNum == 1)
+                    // TODO:
+                    if (gp.menu.commandNum == 2) {
+                        System.exit(0);
+                    }
+            }
+        }
         
         if(gp.getGameOver()==true) {
         	if(code==KeyEvent.VK_LEFT) {
@@ -41,19 +68,21 @@ public class KeyHandler implements KeyListener{
             	gp.gOO().restart();
             }
         }
-        
-        // Up-arrow or space-button is pressed
-        if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
-          upPressed = true;
-        }
-        // left-arrow is pressed 
-        if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
-            leftPressed = true;
-            
-        }
-        // right-arrow is pressed 
-        if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
-            rightPressed = true;
+
+        if (gp.gameState == GameState.RUNNING_GAME) {
+            // Up-arrow or space-button is pressed
+            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
+                upPressed = true;
+            }
+            // left-arrow is pressed
+            if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
+                leftPressed = true;
+
+            }
+            // right-arrow is pressed
+            if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
+                rightPressed = true;
+            }
         }
     }
 

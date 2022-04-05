@@ -1,4 +1,4 @@
-package gameOver;
+package gameState;
 
 import java.awt.Color;
 import java.awt.Font;

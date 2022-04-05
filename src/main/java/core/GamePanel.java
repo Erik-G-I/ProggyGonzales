@@ -10,7 +10,9 @@ import javax.swing.JPanel;
 import entity.Background;
 import entity.Player;
 import entity.Score;
-import gameOver.GameOver;
+import gameState.GameOver;
+import gameState.GameState;
+import gameState.StartMenu;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -61,6 +63,12 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Score
     private Score score;
+
+    //Game State
+    public GameState gameState;
+
+    //Start menu
+    public StartMenu menu;
     
     //Game Over if there is no time left
     private GameOver gO;
@@ -79,9 +87,17 @@ public class GamePanel extends JPanel implements Runnable{
     	player = new Player(this, keyH);
     	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
-    	timerDisplay.startTime();
+
+    	/*
+    	if (gameState == GameState.RUNNING_GAME)
+    	    timerDisplay.startTime();
+
+    	 */
+
     	score =  new Score(this);
     	gO = new GameOver(this);
+    	menu = new StartMenu(this);
+    	gameState = GameState.START_MENU;
     }
 
     public GamePanel() {
@@ -169,10 +185,15 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
-        timerDisplay.draw(g2);
-        score.draw(g2);
-        gO.draw(g2);
-        g2.dispose();
+
+        if (gameState == GameState.START_MENU)
+            menu.draw(g);
+        else {
+            timerDisplay.draw(g2);
+            score.draw(g2);
+            gO.draw(g2);
+            g2.dispose();
+        }
     }
     
 }
