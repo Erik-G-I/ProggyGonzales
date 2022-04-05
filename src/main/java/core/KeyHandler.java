@@ -1,6 +1,6 @@
 package core;
 
-import gameOver.StartMenu;
+import gameState.GameState;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -25,7 +25,7 @@ public class KeyHandler implements KeyListener{
 
         int code = e.getKeyCode();
 
-        if (gp.gameState == gp.startMenu) {
+        if (gp.gameState == GameState.START_MENU) {
             if (code == KeyEvent.VK_UP) {
                 gp.menu.commandNum--;
                 if (gp.menu.commandNum < 0)
@@ -38,22 +38,29 @@ public class KeyHandler implements KeyListener{
             }
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0)
-                    gp.gameState = gp.runningGame;
+                    gp.gameState = GameState.RUNNING_GAME;
+                if (gp.menu.commandNum == 1)
+                    // TODO:
+                if (gp.menu.commandNum == 2) {
+                    System.exit(0);
+                }
             }
         }
-        
-        // Up-arrow or space-button is pressed
-        if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
-          upPressed = true;
-        }
-        // left-arrow is pressed 
-        if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
-            leftPressed = true;
-            
-        }
-        // right-arrow is pressed 
-        if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
-            rightPressed = true;
+
+        if (gp.gameState == GameState.RUNNING_GAME) {
+            // Up-arrow or space-button is pressed
+            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
+                upPressed = true;
+            }
+            // left-arrow is pressed
+            if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
+                leftPressed = true;
+
+            }
+            // right-arrow is pressed
+            if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
+                rightPressed = true;
+            }
         }
     }
 

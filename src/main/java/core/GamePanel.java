@@ -9,8 +9,9 @@ import javax.swing.JPanel;
 
 import entity.Player;
 import entity.Score;
-import gameOver.GameOver;
-import gameOver.StartMenu;
+import gameState.GameOver;
+import gameState.GameState;
+import gameState.StartMenu;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -51,10 +52,7 @@ public class GamePanel extends JPanel implements Runnable{
     //Game Thread
     private Thread gameThread;
 
-    public int gameState;
-    public final int startMenu = 0;
-    public final int runningGame = 1;
-    public final int gameOver = 2;
+    public GameState gameState;
     
     public void setGameThread(Thread gameThread) {
     	this.gameThread = gameThread;
@@ -80,7 +78,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         this.add(menu);
 
-        gameState = startMenu;
+        gameState = GameState.START_MENU;
     }
 
     public void startGameThread() {  
@@ -88,6 +86,10 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    public void startTimer() {
+        if (gameState == GameState.RUNNING_GAME)
+            timerDisplay.startTime();
+    }
     
     public void run() {
 
@@ -97,9 +99,6 @@ public class GamePanel extends JPanel implements Runnable{
         long currentTime;
         long timer = 0;
         int drawCount = 0;
-
-        //start the timer
-        timerDisplay.startTime();
 
         while(gameThread != null) {
 
@@ -132,11 +131,8 @@ public class GamePanel extends JPanel implements Runnable{
                 timer = 0;
             }
             gO.isGameDone();
-            
 
     }
-
-
     
 	public void update() {
        // bg.update();
@@ -163,11 +159,12 @@ public class GamePanel extends JPanel implements Runnable{
         loader.draw(g2, player.worldX);
         player.draw(g2);
 
-        if(gameState == startMenu) {
+        if(gameState == GameState.START_MENU) {
             menu.draw(g2);
-
-        } else {
+        }
+        else {
             timerDisplay.draw(g2);
+            startTimer();
             score.draw(g2);
             gO.draw(g2);
         }
