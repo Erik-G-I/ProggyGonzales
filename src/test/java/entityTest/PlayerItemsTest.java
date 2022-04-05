@@ -14,7 +14,7 @@ import entity.Score;
 public class PlayerItemsTest {
 
 	GamePanel gp = new GamePanel();
-	KeyHandler keyH = new KeyHandler(gp);
+	KeyHandler keyH = new KeyHandler();
 	Player p;
 	int startPos;
 	Score score;

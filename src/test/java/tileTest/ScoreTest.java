@@ -28,7 +28,7 @@ public class ScoreTest {
     @Test
     void testMoneyDisappears() {
         CollisionCheck check = new CollisionCheck(gp);
-        KeyHandler keyH = new KeyHandler(gp);
+        KeyHandler keyH = new KeyHandler();
 
         Player p = new Player(gp, keyH);
         p.setDefaultValues();
@@ -46,7 +46,7 @@ public class ScoreTest {
     @Test
     void testScoreIncreases() {
     	CollisionCheck check = new CollisionCheck(gp);
-        KeyHandler keyH = new KeyHandler(gp);
+        KeyHandler keyH = new KeyHandler();
 
         Player p = new Player(gp, keyH);
         p.setDefaultValues();

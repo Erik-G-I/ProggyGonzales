@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PlayerMovementTest {
 
 	GamePanel gp = new GamePanel();
-	KeyHandler keyH = new KeyHandler(gp);
+	KeyHandler keyH = new KeyHandler();
 	Player p;
 	int startPos;
 	Score score;

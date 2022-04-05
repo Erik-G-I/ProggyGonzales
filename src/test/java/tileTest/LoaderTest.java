@@ -30,7 +30,7 @@ public class LoaderTest {
 
     @Test
     public void testPlayerCannotGoThroughTile() {
-        KeyHandler keyH = new KeyHandler(gp);
+        KeyHandler keyH = new KeyHandler();
 
         Player p = new Player(gp, keyH);
         p.setDefaultValues();
