@@ -32,28 +32,29 @@ public class CollisionCheck {
 
 
 
-    public void pickUpMoney(int x1, int y1, int x2, int y2) {
+    public void pickUpFromGround(int x1, int y1, int x2, int y2) {
         //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
+        // Pick up 100 kroner
         if (pickUp(x1, y1, x2, y2, 7)) {
             coins += 100;
         }
-        
-        if (pickUp(x1, y1, x2, y2, 8))
+        // pick up 200-kroner
+        if (pickUp(x1, y1, x2, y2, 8)) {
             coins += 200;
         }
 
-
-    public void pickUpMask(int x1, int y1, int x2, int y2) {
+        //pick up mask
         if (pickUp(x1, y1, x2, y2, 12)) {
             gp.playerState = PlayerState.INVISIBLE;
         }
-    }
-    public void pickUpShoes(int x1, int y1, int x2, int y2) {
+        // Pick up shoes
         if (pickUp(x1, y1, x2, y2, 11)) {
             gp.playerState = PlayerState.FASTER;
             System.out.println("Now the player has picked up shoes and should become faster");
         }
+
     }
+
 
 
 
@@ -83,9 +84,9 @@ public class CollisionCheck {
                     // if one of these corners collide, collision is true
                     unit.colliding = true;
                 }
-                this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
-                this.pickUpMask(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
-                this.pickUpShoes(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                this.pickUpFromGround(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                // this.pickUpMask(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
+                // this.pickUpShoes(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
 
             
                 break;
@@ -103,9 +104,9 @@ public class CollisionCheck {
                     unit.onGround = true;
                 }
 
-                this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
-                this.pickUpMask(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
-                this.pickUpShoes(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.pickUpFromGround(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                // this.pickUpMask(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                // this.pickUpShoes(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
 
                 break;
             case "left":
@@ -115,9 +116,9 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                 }
-                this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-                this.pickUpMask(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-                this.pickUpShoes(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                this.pickUpFromGround(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                // this.pickUpMask(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
+                // this.pickUpShoes(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
 
                 break;
             case "right":
@@ -127,9 +128,9 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                 }
-                this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
-                this.pickUpMask(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
-                this.pickUpShoes(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                this.pickUpFromGround(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                // this.pickUpMask(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                // this.pickUpShoes(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
     }
