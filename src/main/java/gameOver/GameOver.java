@@ -1,47 +1,63 @@
 package gameOver;
 
+import java.awt.Color;
 import java.awt.Font;
-import java.awt.Graphics2D;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
+import core.DisplayText;
 import core.GamePanel;
-import timer.Time;
 import timer.TimerDisplay;
 
-public class GameOver {
+public class GameOver extends DisplayText{
 
 	GamePanel gp;
 	TimerDisplay timerDisplay;
-	Time time;
 	int widthOfScreen;
 	Font font;
 	boolean isGameOver = false;
 	BufferedImage img;
+	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
 		this.gp = gp;
 		timerDisplay = gp.getTimerDisplay();
-		time = timerDisplay.getTime();
 		widthOfScreen = gp.screenWidth;
-		font = new Font("Times New Roman",Font.BOLD,80);
-		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/graphics/gameover.png"));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public void update() {
-		isGameOver = time.getGameOver();
+		isGameOver = gp.getGameOver();
 	}
 	
-	public void draw(Graphics2D g2) {
-		g2.setFont(font);
-		if(isGameOver==true) {
-			g2.drawImage(img, widthOfScreen/3, 150, 500,500,null);
+	public void draw(Graphics g2) {
+		this.draw(g2, 200);
+		if (isGameOver == true) {
+			
+			g2.setColor(Color.BLACK);
+			g2.drawString("GAME", widthOfScreen / 3, 200);
+			g2.setColor(Color.RED);
+			g2.drawString("GAME", widthOfScreen/3+10, 200);
+			
+			g2.setColor(Color.BLACK);
+			g2.drawString("OVER", widthOfScreen / 3, 350);
+			g2.setColor(Color.BLUE);
+			g2.drawString("OVER", widthOfScreen / 3+10, 350);
+			
+			g2.setColor(Color.BLACK);
+			this.draw(g2, 100);
+			String restartStr = "Restart?";
+			g2.drawString(restartStr, widthOfScreen / 3, 450);
+
+			String yes = "yes";
+			g2.drawString(yes, widthOfScreen / 5, 500);
+			if (cmd == 1) {
+				g2.drawString(">", widthOfScreen / 5 - 40, 500);
+			}
+
+			String no = "no";
+			g2.drawString(no, widthOfScreen / 2 + 200, 500);
+			if (cmd == 2) {
+				g2.drawString(">", widthOfScreen / 2 + 160, 500);
+			}
 		}
 	}
 	
@@ -49,10 +65,7 @@ public class GameOver {
 		return isGameOver;
 	}
 	
-	public void isGameDone() {
-		if(isGameOver) {
-			Thread gameThread = null;
-			gp.setGameThread(gameThread);
-		}
+	public void restart() {
+		gp.setGame();
 	}
 }

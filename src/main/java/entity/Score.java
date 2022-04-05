@@ -12,6 +12,7 @@ import java.io.IOException;
 import core.KeyHandler;
 import tile.Tile;
 import core.CollisionCheck;
+import core.DisplayText;
 
 import javax.imageio.ImageIO;
 
@@ -26,9 +27,8 @@ import core.GamePanel;
 import timer.Time;
 
 
-public class Score {
+public class Score extends DisplayText{
 
-    private Font timeFont;
     //public int coins;
     private String showScore;
     GamePanel gp;
@@ -36,7 +36,6 @@ public class Score {
 
     public Score(GamePanel gp) {
         this.gp = gp;
-        timeFont = new Font("Times New Roman",Font.BOLD,40);
         //coins = 0;
         showScore = new String();
     }
@@ -49,8 +48,7 @@ public class Score {
     }
 
     public void draw(Graphics g2) {
-
-        g2.setFont(timeFont);
+    	this.draw(g2, 40);
         g2.setColor(Color.BLACK);
         g2.drawString(showScore, gp.maxWorldRow/2,54);
     }
