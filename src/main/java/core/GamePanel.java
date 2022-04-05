@@ -45,7 +45,7 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //CollisionCheck 
-    public CollisionCheck collisionChecker = new CollisionCheck(this);
+    public CollisionCheck collisionChecker;;
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
@@ -57,8 +57,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Timer
     private TimerDisplay timerDisplay = new TimerDisplay(this);
-    public TimerDisplay getTimerDisplay() {
-    	return timerDisplay;
+    
+    public void startTimer() {
+        timerDisplay.startTime();
     }
     
     //Score
@@ -73,7 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
     //Game Over if there is no time left
     private GameOver gO;
     //get GameOver object
-    public GameOver gOO() {
+    public GameOver getGameOverObj() {
     	return gO;
     }
     public boolean getGameOver() {
@@ -91,7 +92,7 @@ public class GamePanel extends JPanel implements Runnable{
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
     	gameState = GameState.START_MENU;
-        //collisionChecker = new CollisionCheck(this);
+        collisionChecker = new CollisionCheck(this);
     }
 
     public GamePanel() {
@@ -148,10 +149,6 @@ public class GamePanel extends JPanel implements Runnable{
             }
             
         }
-    }
-
-    public void startTimer() {
-        timerDisplay.startTime();
     }
     
     

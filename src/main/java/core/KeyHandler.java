@@ -53,23 +53,23 @@ public class KeyHandler implements KeyListener{
         if(gp.getGameOver()==true) {
         	if(code==KeyEvent.VK_LEFT) {
         		leftPressed = true;
-        		gp.gOO().cmd--;
-        		if(gp.gOO().cmd<1) {
-        			gp.gOO().cmd = 1;
+        		gp.getGameOverObj().cmd--;
+        		if(gp.getGameOverObj().cmd<1) {
+        			gp.getGameOverObj().cmd = 1;
         		}
         	}
         	if(code==KeyEvent.VK_RIGHT) {
         		rightPressed = true;
-        		gp.gOO().cmd++;
-        		if(gp.gOO().cmd>2) {
-        			gp.gOO().cmd = 2;
+        		gp.getGameOverObj().cmd++;
+        		if(gp.getGameOverObj().cmd>2) {
+        			gp.getGameOverObj().cmd = 2;
         		}
         	}
-            if (gp.gOO().cmd==1 && code == KeyEvent.VK_ENTER) {
-            	gp.gOO().restart();
+            if (gp.getGameOverObj().cmd==1 && code == KeyEvent.VK_ENTER) {
+            	gp.getGameOverObj().restart();
             }
-            if (gp.gOO().cmd == 2 && code == KeyEvent.VK_ENTER) {
-                gp.gOO().restart();
+            if (gp.getGameOverObj().cmd == 2 && code == KeyEvent.VK_ENTER) {
+                gp.setGame();
                 gp.gameState = GameState.START_MENU;
             }
         }

@@ -48,7 +48,8 @@ public class Score extends DisplayText{
     }
 
     public void draw(Graphics g2) {
-    	this.draw(g2, 40);
+    	this.setGraphics(g2);
+    	this.draw(40);
         g2.setColor(Color.BLACK);
         g2.drawString(showScore, gp.maxWorldRow/2,54);
     }

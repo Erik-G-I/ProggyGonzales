@@ -10,6 +10,16 @@ public class DisplayText {
 
 	private InputStream getFont;
 	private Font font;
+	private GamePanel gp;
+	private Graphics g2;
+	
+	public void setGp(GamePanel gp) {
+		this.gp = gp;
+	}
+	
+	public void setGraphics(Graphics g2) {
+		this.g2 = g2;
+	}
 	
 	private void initialiseFont() {
 		getFont = getClass().getResourceAsStream("/font/ExpressionPro.ttf");
@@ -22,10 +32,14 @@ public class DisplayText {
 		}
 	}
 	
-	public void draw(Graphics g2, int fontSize) {
+	public void draw(int fontSize) {
 		initialiseFont();
 		g2.setFont(font.deriveFont(Font.PLAIN,fontSize));
 	}
 	
+    public int centerText(String text) {
+        int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        return gp.screenWidth/2 - length/2;
+    }
 	
 }

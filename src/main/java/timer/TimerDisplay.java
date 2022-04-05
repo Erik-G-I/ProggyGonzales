@@ -20,7 +20,7 @@ public class TimerDisplay extends DisplayText{
 	
 	public TimerDisplay(GamePanel gp) {
 		this.gp=gp;
-		seconds=10; //change later to wanted time
+		seconds=60; //change later to wanted time
 		minutes=0; //change later to wanted time
 		widthOfScreen=gp.screenWidth;
 		showTime=new String();
@@ -38,8 +38,9 @@ public class TimerDisplay extends DisplayText{
 	}
 	
 	public void draw(Graphics g2) {
+		this.setGraphics(g2);
 		g2.setColor(Color.BLACK);
-		this.draw(g2, 50);
+		this.draw(50);
 		g2.drawString(showTime, widthOfScreen/2,54);
 	}
 	
