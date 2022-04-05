@@ -38,14 +38,15 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0) {
                     gp.gameState = GameState.RUNNING_GAME;
-                    gp.timerDisplay.startTime();
+                    gp.startTimer();
                 }
 
-                if (gp.menu.commandNum == 1)
-                    // TODO:
-                    if (gp.menu.commandNum == 2) {
-                        System.exit(0);
-                    }
+                if (gp.menu.commandNum == 1) {
+
+                }
+                if (gp.menu.commandNum == 2) {
+                    System.exit(0);
+                }
             }
         }
         
@@ -66,6 +67,10 @@ public class KeyHandler implements KeyListener{
         	}
             if (gp.gOO().cmd==1 && code == KeyEvent.VK_ENTER) {
             	gp.gOO().restart();
+            }
+            if (gp.gOO().cmd == 2 && code == KeyEvent.VK_ENTER) {
+                gp.gOO().restart();
+                gp.gameState = GameState.START_MENU;
             }
         }
 

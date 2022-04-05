@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
     private Thread gameThread;
     
     //Timer
-    TimerDisplay timerDisplay = new TimerDisplay(this);
+    private TimerDisplay timerDisplay = new TimerDisplay(this);
     public TimerDisplay getTimerDisplay() {
     	return timerDisplay;
     }
@@ -87,17 +87,11 @@ public class GamePanel extends JPanel implements Runnable{
     	player = new Player(this, keyH);
     	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
-
-    	/*
-    	if (gameState == GameState.RUNNING_GAME)
-    	    timerDisplay.startTime();
-
-    	 */
-
     	score =  new Score(this);
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
     	gameState = GameState.START_MENU;
+        //collisionChecker = new CollisionCheck(this);
     }
 
     public GamePanel() {
@@ -154,6 +148,10 @@ public class GamePanel extends JPanel implements Runnable{
             }
             
         }
+    }
+
+    public void startTimer() {
+        timerDisplay.startTime();
     }
     
     
