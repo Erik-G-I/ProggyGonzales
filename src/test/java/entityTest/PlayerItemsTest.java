@@ -14,7 +14,7 @@ import timer.Time;
 
 public class PlayerItemsTest {
 
-	GamePanel gp = new GamePanel();
+	GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	Player p;
 	int startPos;
@@ -28,9 +28,16 @@ public class PlayerItemsTest {
 	
 	@Test
 	public void testSpeedBoost() {
-		//TODO:
-		//fullfør testen når vi implementerer gullsko
-		assertTrue(false);
+		int normalSpeed = p.speed;
+		//moves player to the right, and picks up speed boost
+		for (int i = 0; i < 20; i++) {
+			keyH.rightPressed = true;
+			p.update();
+		}
+		
+		int newSpeed = p.speed;
+		assertTrue(newSpeed > normalSpeed);
+		assertEquals(newSpeed, 7);
 	}
 
 	@Test
@@ -48,9 +55,15 @@ public class PlayerItemsTest {
 	@Test
 	public void testPlayerCanPickUpMoney() {
 		score = new Score(gp);
-		keyH.rightPressed = true;
-		p.update();
 		int money = gp.collisionChecker.coins;
+		
+		//moves player to the right, and picks up money
+		for(int i = 0; i < 5; i++) {
+			keyH.rightPressed = true;
+			p.update();
+		}
+		
+		
 		int newScore = money + 100;
 
 		assertTrue(gp.loader.numOfTiles[8][1] == 0);

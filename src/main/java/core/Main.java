@@ -12,7 +12,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Proggy Gonzales");
         
-        GamePanel gamePanel = new GamePanel();
+        GamePanel gamePanel = new GamePanel("/maps/testMap.txt"); // må endres når vi lager nytt map
         window.add(gamePanel);
         
         window.pack();
