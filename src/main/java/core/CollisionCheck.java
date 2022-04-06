@@ -57,10 +57,13 @@ public class CollisionCheck {
     }
     
     public void looseMoney(int x1, int y1, int x2, int y2) {
+        gp.getPlayerState();
+        if (gp.playerState != PlayerState.INVISIBLE) {
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
             gp.loader.numOfTiles[x1][y1] = 10;
             coins -= 15;
         }
+    }
         
     }
     /**
@@ -103,7 +106,6 @@ public class CollisionCheck {
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
         looseMoney(x1, y1, x2, y2);
-
     }
 
 
