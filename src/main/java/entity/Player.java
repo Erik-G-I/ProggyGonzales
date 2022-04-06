@@ -36,6 +36,7 @@ public class Player extends Entity{
     
     }
     
+
     public void setDefaultValues() {
     	worldX = 64;
         //jo mindre y, jo høyere opp
@@ -104,6 +105,8 @@ public class Player extends Entity{
                 // updates to be true if Proggy collides with a solid tile
                 gp.collisionChecker.checkCollisionOnTile(this);
 
+                PowerUpRunning();
+
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
                     switch(direction) {
@@ -141,6 +144,13 @@ public class Player extends Entity{
         }
     }
     
+
+    public void PowerUpRunning() {
+        if (this.gp.getPlayerState() == PlayerState.FASTER) {
+            speed=7;
+        }
+    }
+
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
