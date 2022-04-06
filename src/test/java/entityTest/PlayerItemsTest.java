@@ -10,6 +10,7 @@ import core.GamePanel;
 import core.KeyHandler;
 import entity.Player;
 import entity.Score;
+import timer.Time;
 
 public class PlayerItemsTest {
 
@@ -50,19 +51,31 @@ public class PlayerItemsTest {
 		keyH.rightPressed = true;
 		p.update();
 		int money = gp.collisionChecker.coins;
-		int newScore = money + 50;
+		int newScore = money + 100;
 
 		assertTrue(gp.loader.numOfTiles[8][1] == 0);
 		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test
-	public void testPlayerLoosesMoney() {
+	public void testPlayerLosesMoney() {
 		//TODO: lage når vi implementerer fiender
+		gp.collisionChecker.coins = 100;
+		int money = gp.collisionChecker.coins;
+		int newScore = money - 100;
+		//player.loseMoney / enemy.attackPlayer
+		
+		assertEquals(newScore, gp.collisionChecker.coins);
 	}
 
 	@Test
-	public void testPlayerLoosesTime() {
+	public void testPlayerLosesTime() {
 		//TODO: lage når vi implementerer fiender og tid
+		Time time = new Time(10, 0, "");
+		//timer.getTime trenger en metode i timer
+		int originalTime = 0;
+		//player.loseTime / enemy.attackPlayer
+		int newTime = 0;
+		assertTrue(originalTime > newTime);
 	}
 }
