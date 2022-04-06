@@ -17,24 +17,37 @@ public class CollisionCheck {
         //om proggy collider med penger blir den gjort om til tiles[0] aka ingenting
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[7]) {
             gp.loader.numOfTiles[x1][y1] = 0;
-            coins += 100;
+            coins += 10;
         }
         else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[7]) {
             gp.loader.numOfTiles[x2][y2] = 0;
-            coins += 100;
+            coins += 10;
         }
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[8]) {
             gp.loader.numOfTiles[x1][y1] = 0;
-            coins += 200;
+            coins += 20;
         }
         else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[8]) {
             gp.loader.numOfTiles[x2][y2] = 0;
-            coins += 200;
+            coins += 20;
         }
 
     }
 
+    
+    public void looseMoney(int x1, int y1, int x2, int y2) {
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+            gp.loader.numOfTiles[x1][y1] = 10;
+            coins -= 15;
 
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
+            gp.loader.numOfTiles[x2][y2] = 10;
+            coins -= 15;
+        }
+
+    }
+    
 
     public void checkCollisionOnTile(Entity unit) {
         // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
@@ -62,7 +75,10 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitRightCol, unitTopRow);
-            
+                this.looseMoney(unitLeftCol, unitTopRow, unitRightCol, unitTopRow);
+                //entity.hitHead = true;
+                // int neutralizedSpeed = unitTopSide - unit.speed;
+                // directionColliding(unit, unitTopRow, neutralizedSpeed, unitLeftCol, unitTopRow, unitRightCol, unitTopRow);
                 break;
 
 
@@ -74,12 +90,17 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                     // We also introduce a boolean to check if Proggy is colliding with the ground.
-                    // This is used to check if porggy is allowed to jump again.
+                    // This is used to check if Proggy is allowed to jump again.
                     unit.onGround = true;
                 }
 
                 this.pickUpMoney(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
-
+                this.looseMoney(unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);
+                // int neutralizedSpeed2 = unitBottomSide + unit.speed;
+                // directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow);
+                // if (directionColliding(unit, unitBottomRow, neutralizedSpeed2, unitLeftCol, unitBottomRow, unitRightCol, unitBottomRow)){
+                //     unit.onGround = true;
+                // }
                 break;
             case "left":
                 unitLeftCol = (unitLeftSide - unit.speed) / gp.tileSize;
@@ -89,7 +110,9 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
-              
+                this.looseMoney(unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);
+                // int neutralizedSpeed3 = unitLeftSide - unit.speed;
+                // directionColliding(unit, unitBottomRow, neutralizedSpeed3, unitLeftCol, unitTopRow, unitLeftCol, unitBottomRow);
 
                 break;
             case "right":
@@ -100,8 +123,15 @@ public class CollisionCheck {
                     unit.colliding = true;
                 }
                 this.pickUpMoney(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
+                this.looseMoney(unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
+                // int neutralizedSpeed4 = unitRightSide + unit.speed;
+                // directionColliding(unit, unitBottomRow, neutralizedSpeed4, unitRightCol, unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
-    }
-}
 
+
+    }
+
+
+
+}
