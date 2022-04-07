@@ -13,7 +13,6 @@ public class GameOver extends DisplayText{
 	int widthOfScreen;
 	Font font;
 	boolean isGameOver = false;
-	BufferedImage img;
 	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
