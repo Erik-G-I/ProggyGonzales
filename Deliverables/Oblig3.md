@@ -1,77 +1,32 @@
 # Deloppgave 1
 ### Møtereferater
+Møtereferater siden siste innlevering:
 
-**Gruppetime 25. januar 08.15**
-Til stede: Hannah, Erik I, Chantal, Erik H.
-Jobbet med øving 1
- 
-**Gruppetime 1. februar 08.15**
-Til stede: Hannah, Erik I, Chantal, Erik H.
-Jobbet med øving 2
- 
-**Gruppetime 8. februar 08.15**
-Til stede: Hannah, Erik I, Chantal, Erik H.
-Begynner med brainstorming av navn og historie, og fordeler roller i teamet. Vi blir enige om å ha et møte senere den uka, der vi skal presentere ideer til spill, navn og brukerhistorier. Reflekterer også over forventninger vi har til hverandre i gruppa. 
- 
-**Tilleggsmøte 10. februar 16.00**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-Første møte med nytt medlem Alexander på teamet. Han presenterte seg, og fikk tildelt rolle som miljøansvarlig og assisterende kundekontakt. Alle presenterte ideene sine, og vi bestemte oss for navn og historie. Det ble også laget en teamkontrakt, og vi ble enige om å alle lese over til neste gang vi møttes. Videre ønsker vi å lage et rammeverk for koden.
+**Tilleggsmøte 25. mars 12.15**
+Til stede: Hannah, Erik I, Chantal, Alexander, Erik H
 
- 
-**Gruppetime 15. februar 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H (Discord).
-Erik I hadde laget utgangspunktet for koden og introdusert for måten vi skal arbeide på git med branches og commits. 
+Chantal viste Game-Over skjerm. Reflekterte rundt hvordan vi ønsket å arbeide fram mot neste innlevering. Snakket litt om det vi hadde reflektert rundt til innlevering 2. Vi ble enige om å bruke Trello mer aktivt og mer parprogrammering.
+Gruppetime 29. mars 08.15
+Til stede: Hannah, Erik I, Chantal, Alexander
 
-**Tilleggsmøte 19. februar 16.00**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H (Discord).
-Startet å skrive på MD-filen som skulle leveres, brukerhistorier. Vi ønsket å tilpasse spillet vårt til Bergen sentrum, og med det kommer vi til å trenge mye visuelt. Fram til nå har ikke arbeidet som kundekontakt krevet mye, så Chantal tok på seg rollen som "Visuell ansvarlig" Chantal begynte å lage litt visuelt med bybane, buss, bryggen, RFB.
-Erik I lagde et par tester har blitt laget i mellomtiden. Fordelte arbeidsoppgaver til ferdigstilling av innleveringen.
- 
+Kartlegger hva vi mangler av MVP-kravene, og hva vi vil implementere til neste innlevering. Vi fordeler oppgaver, og blir enige om å jobbe med disse individuelt fram til neste gruppetime. Chantal skal jobbe med en restart funksjon, Alexander og Erik I skal parprogramere for å prøve å få fiender i spillet og Hannah skal jobbe med en startskjerm. Erik H blir tildelt å begynne å se på implementasjon av power-ups.
 
+**Gruppetime 5. april 08.15**
+Til stede: Hannah, Erik I, Alexander, Chantal (discord), Erik H (discord)
 
-**Tilleggsmøte 21. februar 16.00**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-Gikk over, ferdigstilte og leverte innlevering 1.
+Alexander viser fram arbeidet deres med fiender. Erik H viser power-ups. Hannah viser start-skerm. Det som er ferdig blir merget til master. Vi får en muntlig tilbakemelding fra gruppeleder på oblig 2, og fra det forbereder vi oss til neste innlevering. Hannah og Chantal planlegger parprogrammering senere på kvelden for å få start-skjerm og game-over skjerm til å fungere sammen. Vi planlegger et nytt møte 7. april.
 
+**Tilleggsmøte 7. april 12.15** 
+Til stede: Hannah, Erik I, Erik H, Chantal (discord)
 
+Erik I presenterer noen tester han har jobbet med. Vi undersøker mulighet for at det blir game-over når Proggy faller utenfor skjermen. Vi fordeler oppgaver knyttet til innleveringen til dagen etter. Erik I skal se mer på testene og lage klassediagram til koden. Chantal hadde noen tanker rundt hvordan Game-over ved Proggy ute av banen som hun skal se på, samt mye grafisk som vi ønsker å få med til innleveringen. Hannah og Erik H skal arbeide med MD-filen. 
 
-**Gruppetime 22. februar 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-Vi reflekterte hvordan vi hadde arbeidet med første innlevering og hvordan det hadde gått. Vi var enige om at arbeidet på Trello hadde forbedringspotensiale. Vi ble enige om å oppdatere oftere og følge mer med for å vite progresjonen nå som mange flere momenter skulle med i oppgaven. Frem til nå hadde det ikke vært så veldig kodeteknisk, men vi ble enige om å skulle gjøre mer parprogrammering fram mot neste innlevering for å kunne diskutere mer.
- 
-**Gruppetime 1. mars 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Hannah presenterer at bakgrunnen scroller. Alexander presenterer hoppefunksjonen. I dette møtet har vi planlagt veien videre. Vi gikk gjennom MVPene og fordelte oppgaver for tiden framover. Det første kravet vi ønsket å få på plass var at Proggy responderte på terrenget rundt seg så bra som mulig. Ettersom det kom til å påvirke mye av resten av koden fant vi ut at Chantal kunne lage en timer ettersom det ikke kom til å interagere i stor grad med resten av det arbeidet. 
- 
-
-**Gruppetime 8. mars 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Erik H og Alexander hadde hatt en parprogrammeringsøkt og viste frem collision, presenterte problemet det medførte for hoppingen. Erik I hadde laget design til litt power ups og penger, og presenterte dette. Vi drøftet hvordan vi skulle løse problemet med hoppingen, og fordelte arbeidsoppgaver der Erik I og Erik H skulle prøve å løse problemet. 
-
-Chantal viste fram timer og hvordan den kunne utvikles videre når fiender etterhvert ble lagt til. Hun skal arbeide videre med å gjøre at timeren avslutter spillet med game over. 
- 
- 
-**Gruppetime 15. mars 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Gruppetimen er digital så vi møtes på et booket grupperom. Erik I og Erik H har hatt en parprogrammeringsøkt siden forrige møte, og presenterer hvordan hoppingen er for øyeblikket. Blir enige om at Erik I jobber videre med å fikse problemene tilknyttet hoppingen og Hannah + Alexander jobber med å legge til et scoresystem som samarbeider med penger i spillet. Chantal skal lage Game Over når tiden går ut. Erik H skal starte med tekstarbeidet til innleveringen.
- 
- 
-**Gruppetime 22. mars 08.15**
-Til stede: Hannah, Erik I, Chantal, Alexander, Erik H.
-
-Alexander og Hannah presenterer hvordan scoresystemet funker og hvordan det er implementert.
-Samme uke som innlevering. Vi jobber med å gjøre koden kjørbar til neste innlevering. Vi fordeler oppgaver vi skal gjøre fram mot neste møte. Vi har fått tilbake første innlevering og fordeler det vi har manglet til forrige innlevering. Vi skal drøfte retroperspektiver og rollefordeling, oppdatere klassediagram, oppdatere brukerhistorier til MVP med akseptansekrav og arbeidsoppgaver. I tillegg skal vi drøfte utbedringer av feil siden sist.
-
-**Tilleggsmøte 24. Mars 12.30**
-Til stede: Hannah, Erik I, Erik H, Chantal (Discord), Alexander (Discord).
-
-Jobbet med tekstarbeidet til innleveringen. Erik I viste fram at han hadde fikset buggen med hoppingen. Fordelte arbeid for å kunne levere dagen etter.
 
 ### Roller
-Som nevnt i møtereferatene er den eneste endringen i roller at Chantal har tatt ansvar for det visuelle. Her bidrar og Erik I med noen grafiske elementer. Vi synes rollene har fungert svært godt, og gjør at hvert enkelt medlem har meningsfulle ansvarsoppgaver og at alle medlemmer naturlig må bidra for å dekke sitt område. Dette har bidratt til generell god harmoni i teamet. 
+Rollefordelingen ser slik ut:
+
+**Teamlead: Hannah** - Har det overordnede ansvaret for framgang og koordinering av prosjekt
+**Nestlead: Erik H** - Har og et ekstra ansvar for framgang og koordinering av prosjekt, samt 
 
 ### Prosjektmetodikk og retroperspektiv
 Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette fortsatt er riktig prosjektmetodikken. Vi har derimot et par forbedringspotensialer. Frem til nå har koden vært oversiktlig med ikke alt for mange momenter som gjør at det har vært lett å følge progresjonen for hvert enkelt medlem. Dette har ført til at vi ofte har følt at vi ikke trenger å legge inn alt av oppgaver i Trello. Videre vet vi at koden blir mer kompleks, og store arbeidsoppgaver kommer til å gjennomføres parallellt. Det er derfor viktig fremover at vi i større grad oppdaterer Trello, og bruker funksjonene den tilbyr i mye større grad, ved å legge seg selv inn som deltaker på oppgaver og skrive kommentarer. 
