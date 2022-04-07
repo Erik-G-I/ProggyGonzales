@@ -83,8 +83,8 @@ public class KeyHandler implements KeyListener{
         	}
         }
         
-        if(gp.getGameOver()==true) {
-        	if(code==KeyEvent.VK_LEFT) {
+        if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
+        	if(code == KeyEvent.VK_LEFT) {
         		leftPressed = true;
         		gp.getGameOverObj().cmd--;
         		if(gp.getGameOverObj().cmd<1) {
@@ -122,7 +122,7 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
             }
-            if(gp.getGameOver() == false && code == KeyEvent.VK_ESCAPE) {
+            if((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
         }

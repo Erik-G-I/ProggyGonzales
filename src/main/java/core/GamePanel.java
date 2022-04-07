@@ -98,6 +98,10 @@ public class GamePanel extends JPanel implements Runnable{
     	boolean gameO = this.timerDisplay.getTime().getGameOver();
     	return gameO;
     }
+    public boolean getOutOfBounds() {
+    	boolean out = collisionChecker.isOutOfBounds();
+    	return out;
+    }
     
     public void setGame() {
     	setMap(mapPath);
@@ -187,10 +191,13 @@ public class GamePanel extends JPanel implements Runnable{
 	public void update() {
         bg.update();
         gO.update();
-        timerDisplay.update();
+        
         if(!gO.gameOver()) {
             score.showScore();
             player.update();
+        }
+        if(!gO.gameOverBounds()) {
+        	timerDisplay.update();
         }
     }
     
