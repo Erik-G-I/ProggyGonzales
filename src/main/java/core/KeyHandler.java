@@ -40,9 +40,8 @@ public class KeyHandler implements KeyListener{
                     gp.gameState = GameState.RUNNING_GAME;
                     gp.startTimer();
                 }
-
                 if (gp.menu.commandNum == 1) {
-
+                    gp.gameState = GameState.INFO_SCREEN;
                 }
                 
                 if (gp.menu.commandNum == 2) {
@@ -50,6 +49,30 @@ public class KeyHandler implements KeyListener{
                 }
                 if (gp.menu.commandNum == 3) {
                     System.exit(0);
+                }
+            }
+        }
+
+        if (gp.gameState == GameState.INFO_SCREEN) {
+            if (code == KeyEvent.VK_RIGHT) {
+                gp.info.c++;
+                if (gp.info.c > 2)
+                    gp.info.c = 0;
+            }
+
+            if (code == KeyEvent.VK_LEFT) {
+                gp.info.c--;
+                if (gp.info.c < 0)
+                    gp.info.c = 2;
+            }
+            if (code == KeyEvent.VK_ENTER) {
+                if (gp.info.c == 1) {
+                    gp.gameState = GameState.START_MENU;
+                    gp.info.c = 0;
+                }
+
+                if (gp.info.c == 2) {
+
                 }
             }
         }

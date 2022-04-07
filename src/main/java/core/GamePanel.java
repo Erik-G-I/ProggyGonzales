@@ -14,6 +14,7 @@ import entity.Score;
 import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
+import gameState.InfoScreen;
 import gameState.Paused;
 import gameState.StartMenu;
 import tile.TileLoader;
@@ -77,6 +78,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Start menu
     public StartMenu menu;
+
+    //Info screen
+    public InfoScreen info;
     
     //Pause menu
     public Paused pause;
@@ -104,6 +108,7 @@ public class GamePanel extends JPanel implements Runnable{
     	score =  new Score(this);
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
+    	info = new InfoScreen(this);
     	pause = new Paused(this);
     	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
@@ -208,6 +213,9 @@ public class GamePanel extends JPanel implements Runnable{
 
         if (gameState == GameState.START_MENU)
             menu.draw(g);
+        else if (gameState == GameState.INFO_SCREEN) {
+            info.draw(g2);
+        }
         else if(gameState == GameState.PAUSED_GAME) {
         	pause.draw(g2);
         }
