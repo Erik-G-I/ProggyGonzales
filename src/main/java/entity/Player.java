@@ -53,8 +53,6 @@ public class Player extends Entity{
     public void getPlayerImage() {
         
         try {
-            
-        	
         	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
             up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
             down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
@@ -74,9 +72,6 @@ public class Player extends Entity{
     
     public void update() {
         if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
-            
-      	            
-
 				if(keyH.upPressed == true ) {
 					previousDirection = direction;
 					direction = "up";

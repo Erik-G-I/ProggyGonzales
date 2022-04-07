@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoaderTest {
 
-    GamePanel gp = new GamePanel();
+    GamePanel gp = new GamePanel("/maps/testingMap.txt");
     TileLoader loader;
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
 

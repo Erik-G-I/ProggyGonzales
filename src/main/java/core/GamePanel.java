@@ -11,18 +11,18 @@ import entity.Background;
 import entity.Player;
 import entity.PlayerState;
 import entity.Score;
+import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
 import gameState.InfoScreen;
+import gameState.Paused;
 import gameState.StartMenu;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
 public class GamePanel extends JPanel implements Runnable{
 	
-    /**
-	 * 
-	 */
+    private String mapPath;
 	private static final long serialVersionUID = 1L;
 	// Screen settings
     final int originalTileSize = 32; // 32x32 tiles
@@ -66,6 +66,10 @@ public class GamePanel extends JPanel implements Runnable{
         timerDisplay.startTime();
     }
     
+    public void stopTimer() {
+    	timerDisplay.stopTime();
+    }
+    
     //Score
     private Score score;
 
@@ -77,6 +81,12 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Info screen
     public InfoScreen info;
+    
+    //Pause menu
+    public Paused pause;
+    
+    //Show controls
+    public GameControls ctrls;
     
     //Game Over if there is no time left
     private GameOver gO;
@@ -90,7 +100,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setGame() {
-    	is = getClass().getResourceAsStream("/maps/testmap.txt");
+    	setMap(mapPath);
     	bg = new Background(this, keyH);
     	player = new Player(this, keyH);
     	loader =  new TileLoader(this, is);
@@ -99,10 +109,14 @@ public class GamePanel extends JPanel implements Runnable{
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
     	info = new InfoScreen(this);
+    	pause = new Paused(this);
+    	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
     }
 
-    public GamePanel() {
+    public GamePanel(String mapPath) {
+    	this.mapPath = mapPath;
+    	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
       //  this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
@@ -121,6 +135,11 @@ public class GamePanel extends JPanel implements Runnable{
         return this.playerState;
 
     }
+    
+    public void setMap(String mapPath) {
+    	is = getClass().getResourceAsStream(mapPath);
+    }
+    
     public void run() {
         double drawInterval = 1000000000/FPS;
         double delta = 0;
@@ -196,6 +215,12 @@ public class GamePanel extends JPanel implements Runnable{
             menu.draw(g);
         else if (gameState == GameState.INFO_SCREEN) {
             info.draw(g2);
+        }
+        else if(gameState == GameState.PAUSED_GAME) {
+        	pause.draw(g2);
+        }
+        else if(gameState == GameState.GAME_CONTROLS) {
+        	ctrls.draw(g2);
         }
         else {
             timerDisplay.draw(g2);

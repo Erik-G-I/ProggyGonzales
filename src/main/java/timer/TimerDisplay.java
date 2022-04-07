@@ -33,6 +33,10 @@ public class TimerDisplay extends DisplayText{
 		timer.start();
 	}
 	
+	public void stopTime() {
+		timer.stop();
+	}
+	
 	public void update() {
 		showTime=time.getShowTime();
 	}

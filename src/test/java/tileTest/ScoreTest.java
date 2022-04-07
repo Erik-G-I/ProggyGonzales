@@ -5,6 +5,8 @@ import core.GamePanel;
 import core.KeyHandler;
 import entity.Entity;
 import entity.Player;
+import entity.Score;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tile.TileLoader;
@@ -15,47 +17,40 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ScoreTest {
 
-    GamePanel gp = new GamePanel();
-    TileLoader loader;
+    GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    KeyHandler keyH = new KeyHandler(gp);
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
-
+    Player p;
+    Score score;
     @BeforeEach
     void beforeEach() {
-        this.loader = new TileLoader(gp, is);
-        loader.loadMap();
+    	this.p = new Player(gp, keyH);
+        p.setDefaultValues();
     }
 
     @Test
     void testMoneyDisappears() {
-        CollisionCheck check = new CollisionCheck(gp);
-        KeyHandler keyH = new KeyHandler(gp);
-
-        Player p = new Player(gp, keyH);
-        p.setDefaultValues();
-
-        while (p.worldX < 192) {
+    	score = new Score(gp);
+		int money = gp.collisionChecker.coins;
+		
+        for(int i = 0; i < 5; i++) {
             keyH.rightPressed = true;
             p.update();
         }
-
-        assertEquals(0, loader.numOfTiles[1][8]);
-        assertEquals( 100, check.coins, "Coin did not disappear when Proggy tried to pick it up");
+        int newMoney = gp.collisionChecker.coins;
+        assertEquals(0, gp.loader.numOfTiles[1][8]);
+        assertEquals(100, newMoney, "Coin did not disappear when Proggy tried to pick it up");
     }
     
     
     @Test
     void testScoreIncreases() {
-    	CollisionCheck check = new CollisionCheck(gp);
-        KeyHandler keyH = new KeyHandler(gp);
-
-        Player p = new Player(gp, keyH);
-        p.setDefaultValues();
         
-        while (p.worldX < 192) {
+        for(int i = 0; i < 5; i++) {
             keyH.rightPressed = true;
             p.update();
         }
-        assertEquals( 100, check.coins);
+        assertEquals( 100, gp.collisionChecker.coins);
     }
 }
 

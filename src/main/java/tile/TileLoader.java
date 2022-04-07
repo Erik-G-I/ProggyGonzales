@@ -105,13 +105,6 @@ public class TileLoader {
 			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
 			tiles[6].collission = true;
 
-			tiles[11] = new Tile();
-			tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
-
-			tiles[12] = new Tile();
-			tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
-
-
 			tiles[7] = new Tile();
 			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/graphics/100kr.png"));
 
@@ -119,18 +112,28 @@ public class TileLoader {
 			tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/graphics/200kr.png"));
 			
 			tiles[9] = new Tile();
-			tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Attack.png"));
+			tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
 			
 			tiles[10] = new Tile();
-			tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/tiles/Dead.png"));
+			tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/enemies/uteliggerglad.png"));
 			
+			tiles[11] = new Tile();
+			tiles[11].image = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
 
+			tiles[12] = new Tile();
+			tiles[12].image = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
+			
 			tiles[13] = new Tile();
 			tiles[13].image = ImageIO.read(getClass().getResourceAsStream("/graphics/start flagg.png"));
+
+			tiles[14] = new Tile();
+			tiles[14].image = ImageIO.read(getClass().getResourceAsStream("/graphics/Voi.png"));
+
 
 
 		} catch (Exception e) {
 		}
+		
 	}
 	
 	
