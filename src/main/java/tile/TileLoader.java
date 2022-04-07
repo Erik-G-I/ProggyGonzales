@@ -126,6 +126,10 @@ public class TileLoader {
 			tiles[13] = new Tile();
 			tiles[13].image = ImageIO.read(getClass().getResourceAsStream("/graphics/start flagg.png"));
 
+			tiles[14] = new Tile();
+			tiles[14].image = ImageIO.read(getClass().getResourceAsStream("/graphics/Voi.png"));
+
+
 
 		} catch (Exception e) {
 		}
