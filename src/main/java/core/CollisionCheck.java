@@ -6,7 +6,7 @@ import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
-    boolean outOfBounds = false;
+    private boolean outOfBounds = false;
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;

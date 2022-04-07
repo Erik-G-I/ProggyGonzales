@@ -166,7 +166,7 @@ public class GamePanel extends JPanel implements Runnable{
         bg.update();
         gO.update();
         timerDisplay.update();
-        if(!gO.gameOver()) {
+        if(!gO.gameOver() || !collisionChecker.isOutOfBounds()) {
             score.showScore();
             player.update();
         }
