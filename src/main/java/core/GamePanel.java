@@ -11,8 +11,10 @@ import entity.Background;
 import entity.Player;
 import entity.PlayerState;
 import entity.Score;
+import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
+import gameState.Paused;
 import gameState.StartMenu;
 import tile.TileLoader;
 import timer.TimerDisplay;
@@ -63,6 +65,10 @@ public class GamePanel extends JPanel implements Runnable{
         timerDisplay.startTime();
     }
     
+    public void stopTimer() {
+    	timerDisplay.stopTime();
+    }
+    
     //Score
     private Score score;
 
@@ -71,6 +77,12 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Start menu
     public StartMenu menu;
+    
+    //Pause menu
+    public Paused pause;
+    
+    //Show controls
+    public GameControls ctrls;
     
     //Game Over if there is no time left
     private GameOver gO;
@@ -92,6 +104,8 @@ public class GamePanel extends JPanel implements Runnable{
     	score =  new Score(this);
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
+    	pause = new Paused(this);
+    	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
     }
 
@@ -194,6 +208,12 @@ public class GamePanel extends JPanel implements Runnable{
 
         if (gameState == GameState.START_MENU)
             menu.draw(g);
+        else if(gameState == GameState.PAUSED_GAME) {
+        	pause.draw(g2);
+        }
+        else if(gameState == GameState.GAME_CONTROLS) {
+        	ctrls.draw(g2);
+        }
         else {
             timerDisplay.draw(g2);
             score.draw(g2);

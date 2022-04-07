@@ -56,11 +56,17 @@ public class StartMenu extends DisplayText {
         if (commandNum == 1) {
             g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*7);
         }
+        
+        text = "Controls";
+        g.drawString(text, centerText(text), gp.tileSize*8);
+        if(commandNum == 2) {
+        	g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*8);
+        }
 
         text = "Quit";
-        g.drawString(text, centerText(text),gp.tileSize*8);
-        if (commandNum == 2) {
-            g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*8);
+        g.drawString(text, centerText(text),gp.tileSize*9);
+        if (commandNum == 3) {
+            g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*9);
         }
 
     }
