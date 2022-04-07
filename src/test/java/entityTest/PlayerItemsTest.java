@@ -11,6 +11,7 @@ import core.KeyHandler;
 import entity.Player;
 import entity.Score;
 import timer.Time;
+import timer.TimerDisplay;
 
 public class PlayerItemsTest {
 
@@ -42,9 +43,16 @@ public class PlayerItemsTest {
 
 	@Test
 	public void testInvisible() {
-		//TODO:
-		//fullfør testen når vi implementerer munnbind
-		assertTrue(false);
+		gp.collisionChecker.coins = 100;
+		int money = gp.collisionChecker.coins;
+		
+		for(int i = 0; i < 40; i++) {
+			keyH.rightPressed = true;
+			p.update();
+		}
+		int newMoney = gp.collisionChecker.coins; // lagrer nye verdien til pengene
+		
+		assertEquals(newMoney, money + 10 - 15); // tar +10 -15 fordi player plukker opp 10kr, går så forbi en fiende, også plukker opp maske før neste fiende. Player skal altså bare miste 15kr fra første fiende
 	}
 
 	@Test
@@ -64,7 +72,7 @@ public class PlayerItemsTest {
 		}
 		
 		
-		int newScore = money + 100;
+		int newScore = money + 10;
 
 		assertTrue(gp.loader.numOfTiles[8][1] == 0);
 		assertEquals(newScore, gp.collisionChecker.coins);
@@ -75,20 +83,16 @@ public class PlayerItemsTest {
 		//TODO: lage når vi implementerer fiender
 		gp.collisionChecker.coins = 100;
 		int money = gp.collisionChecker.coins;
-		int newScore = money - 100;
+		
+		for (int i = 0; i < 20; i++) {
+			keyH.rightPressed = true;
+			p.update();
+		}
+		
+		int newScore = gp.collisionChecker.coins;
 		//player.loseMoney / enemy.attackPlayer
 		
-		assertEquals(newScore, gp.collisionChecker.coins);
-	}
-
-	@Test
-	public void testPlayerLosesTime() {
-		//TODO: lage når vi implementerer fiender og tid
-		Time time = new Time(10, 0, "");
-		//timer.getTime trenger en metode i timer
-		int originalTime = 0;
-		//player.loseTime / enemy.attackPlayer
-		int newTime = 0;
-		assertTrue(originalTime > newTime);
+		assertTrue(newScore < money);
+		assertEquals(newScore, money + 10 - 15);
 	}
 }
