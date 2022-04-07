@@ -199,8 +199,8 @@ public class CollisionCheck {
         }
        }
         catch(ArrayIndexOutOfBoundsException e) {
-        	System.out.println("Player out of bounds");
         	outOfBounds = true;
+        	gp.player.setGravity(0); //setting gravity equal to 0 so that Proggy doesn't fall to infinity
         }
     }
 }
