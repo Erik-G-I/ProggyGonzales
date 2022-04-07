@@ -13,6 +13,7 @@ public class GameOver extends DisplayText{
 	int widthOfScreen;
 	Font font;
 	boolean isGameOver = false;
+	boolean isOutOfBounds = false;
 	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
@@ -22,6 +23,7 @@ public class GameOver extends DisplayText{
 	
 	public void update() {
 		isGameOver = gp.getGameOver();
+		isOutOfBounds = gp.getOutOfBounds();
 	}
 	
 	public void draw(Graphics g2) {
@@ -30,7 +32,7 @@ public class GameOver extends DisplayText{
 		this.setGp(gp);
 		
 		this.draw(200);
-		if (isGameOver == true) {
+		if (isGameOver == true || isOutOfBounds == true) {
 			
 			Color transparentRed = new Color(0, 0, 0, 200);
 			g2.setColor(transparentRed);
@@ -71,6 +73,10 @@ public class GameOver extends DisplayText{
 	
 	public boolean gameOver() {
 		return isGameOver;
+	}
+	
+	public boolean gameOverBounds() {
+		return isOutOfBounds;
 	}
 	
 	public void restart() {

@@ -15,7 +15,11 @@ public class CollisionCheck {
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
     public int coins = 0;
-
+    
+    private boolean outOfBounds = false;
+    public boolean isOutOfBounds() {
+    	return outOfBounds;
+    }
 
     /**
      * Creates a help function for picking up money and power ups
@@ -139,7 +143,7 @@ public class CollisionCheck {
         int unitTopRow = unitTopSide / gp.tileSize;
         int unitBottomRow = unitBottomSide / gp.tileSize;
 
-
+        try {
         switch(unit.direction) {
             case "up":
                 //If Proggy moves in an upwards direction, the two corners that needs to be checked is top right and left corners
@@ -192,6 +196,11 @@ public class CollisionCheck {
                 }
                 this.pickUp(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
                 break;
+        }
+       }
+        catch(ArrayIndexOutOfBoundsException e) {
+        	System.out.println("Player out of bounds");
+        	outOfBounds = true;
         }
     }
 }
