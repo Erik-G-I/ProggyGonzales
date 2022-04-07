@@ -19,7 +19,7 @@ import timer.TimerDisplay;
 
 public class GamePanel extends JPanel implements Runnable{
 	
-    
+    private String mapPath;
 	private static final long serialVersionUID = 1L;
 	// Screen settings
     final int originalTileSize = 32; // 32x32 tiles
@@ -84,6 +84,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setGame() {
+    	setMap(mapPath);
     	bg = new Background(this, keyH);
     	player = new Player(this, keyH);
     	loader =  new TileLoader(this, is);
@@ -95,6 +96,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public GamePanel(String mapPath) {
+    	this.mapPath = mapPath;
     	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
       //  this.setBackground(Color.DARK_GRAY);
