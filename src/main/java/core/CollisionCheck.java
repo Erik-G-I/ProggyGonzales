@@ -58,14 +58,19 @@ public class CollisionCheck {
     
     public void looseMoney(int x1, int y1, int x2, int y2) {
         gp.getPlayerState();
-        if (gp.playerState != PlayerState.INVISIBLE) {
+        int loosingMoney = 15;
+        if (gp.playerState != PlayerState.INVISIBLE && coins >= loosingMoney) {
             if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
                 gp.loader.numOfTiles[x1][y1] = 10;
-                coins -= 15;
+                coins -= loosingMoney;
         }
+    } else if (coins>0 && coins < loosingMoney) {
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+            gp.loader.numOfTiles[x1][y1] = 10;
+            coins = 0;
     }
         
-    }
+    }}
     /**
      * Picks up mask and sets player state to invisible
      * @param x1 x-value of first corner
@@ -79,9 +84,12 @@ public class CollisionCheck {
         }
     }
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
-        if (pickUpGeneric(x1, y1, x2, y2, 14)) {
-            gp.playerState = PlayerState.FASTER;
-            coins -= 15;
+        int scooterCost = 15;
+        if (coins>=scooterCost) {
+            if (pickUpGeneric(x1, y1, x2, y2, 14)) {
+                gp.playerState = PlayerState.FASTER;
+                coins -= scooterCost;
+            }
         }
     }
 
