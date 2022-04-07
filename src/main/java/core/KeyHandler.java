@@ -50,7 +50,7 @@ public class KeyHandler implements KeyListener{
             }
         }
         
-        if(gp.getGameOver()==true) {
+        if(gp.getGameOver()==true || gp.getOutOfBounds()==true) {
         	if(code==KeyEvent.VK_LEFT) {
         		leftPressed = true;
         		gp.getGameOverObj().cmd--;

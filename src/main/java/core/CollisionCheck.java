@@ -6,7 +6,7 @@ import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
-
+    boolean outOfBounds = false;
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -16,7 +16,13 @@ public class CollisionCheck {
     int cornerOne, cornerTwo;
     public int coins = 0;
 
-
+    
+    public boolean isOutOfBounds() {
+//    	if(..) {
+    		return outOfBounds = true;
+//    	}
+    }
+    
     /**
      * Creates a help function for picking up money and power ups
      * @param x1 x-value of first corner

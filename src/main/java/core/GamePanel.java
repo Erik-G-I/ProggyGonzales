@@ -83,6 +83,11 @@ public class GamePanel extends JPanel implements Runnable{
     	return gameO;
     }
     
+    public boolean getOutOfBounds() {
+    	boolean out = collisionChecker.isOutOfBounds();
+    	return out;
+    }
+    
     public void setGame() {
     	is = getClass().getResourceAsStream("/maps/testmap.txt");
     	bg = new Background(this, keyH);

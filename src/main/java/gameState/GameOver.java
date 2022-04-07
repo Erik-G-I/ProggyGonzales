@@ -13,6 +13,7 @@ public class GameOver extends DisplayText{
 	int widthOfScreen;
 	Font font;
 	boolean isGameOver = false;
+	boolean isOutOfBounds = false;
 	BufferedImage img;
 	public int cmd = 1;
 	
@@ -23,6 +24,7 @@ public class GameOver extends DisplayText{
 	
 	public void update() {
 		isGameOver = gp.getGameOver();
+		isOutOfBounds = gp.getOutOfBounds();
 	}
 	
 	public void draw(Graphics g2) {
@@ -68,6 +70,10 @@ public class GameOver extends DisplayText{
 	
 	public boolean gameOver() {
 		return isGameOver;
+	}
+	
+	public boolean gameOverBounds() {
+		return isOutOfBounds;
 	}
 	
 	public void restart() {
