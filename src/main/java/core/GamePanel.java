@@ -84,7 +84,6 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setGame() {
-    	is = getClass().getResourceAsStream("/maps/testmap.txt");
     	bg = new Background(this, keyH);
     	player = new Player(this, keyH);
     	loader =  new TileLoader(this, is);
@@ -95,7 +94,8 @@ public class GamePanel extends JPanel implements Runnable{
         collisionChecker = new CollisionCheck(this);
     }
 
-    public GamePanel() {
+    public GamePanel(String mapPath) {
+    	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
       //  this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
@@ -114,6 +114,11 @@ public class GamePanel extends JPanel implements Runnable{
         return this.playerState;
 
     }
+    
+    public void setMap(String mapPath) {
+    	is = getClass().getResourceAsStream(mapPath);
+    }
+    
     public void run() {
         double drawInterval = 1000000000/FPS;
         double delta = 0;
