@@ -47,6 +47,20 @@ public class InfoScreen extends DisplayText {
         g.drawString(text, x + width-(gp.tileSize+32), y + height-40);
         if (c == 2)
             g.drawString(">", x + width-(2*gp.tileSize), y + height-40);
+
+        //Text
+        String line1 = "Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest,";
+        String line2 = "og må rekke butikken før ølsalget stenger. Han har donert alle pengene sine til unicef";
+        String line3 = "så han må løpe gjennom Bergen sentrum og samle penger for å få råd. I tillegg må han unngå";
+        String line4 = "gateselgere som ikke gir seg uansett hvor hardt han sier at han allerede er fadder.";
+        Font textFont = new Font("Monospaced", Font.PLAIN, 14);
+        g.setFont(textFont);
+
+        g.drawString(line1, x+gp.tileSize/2, y+gp.tileSize);
+        g.drawString(line2, x+gp.tileSize/2, y+gp.tileSize+25);
+        g.drawString(line3, x+gp.tileSize/2, y+gp.tileSize+50);
+        g.drawString(line4, x+gp.tileSize/2, y+gp.tileSize+75);
+
     }
 
 }
