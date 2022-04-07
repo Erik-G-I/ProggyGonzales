@@ -3,28 +3,24 @@
 Møtereferater siden siste innlevering:
 
 **Tilleggsmøte 25. mars 12.15**
-
 Til stede: Hannah, Erik I, Chantal, Alexander, Erik H
 
 Chantal viste Game-Over skjerm. Reflekterte rundt hvordan vi ønsket å arbeide fram mot neste innlevering. Snakket litt om det vi hadde reflektert rundt til innlevering 2. Vi ble enige om å bruke Trello mer aktivt og mer parprogrammering.
 
 
-Gruppetime 29. mars 08.15
-
+**Gruppetime 29. mars 08.15**
 Til stede: Hannah, Erik I, Chantal, Alexander
 
 Kartlegger hva vi mangler av MVP-kravene, og hva vi vil implementere til neste innlevering. Vi fordeler oppgaver, og blir enige om å jobbe med disse individuelt fram til neste gruppetime. Chantal skal jobbe med en restart funksjon, Alexander og Erik I skal parprogramere for å prøve å få fiender i spillet og Hannah skal jobbe med en startskjerm. Erik H blir tildelt å begynne å se på implementasjon av power-ups.
 
 
 **Gruppetime 5. april 08.15**
-
 Til stede: Hannah, Erik I, Alexander, Chantal (discord), Erik H (discord)
 
 Alexander viser fram arbeidet deres med fiender. Erik H viser power-ups. Hannah viser start-skerm. Det som er ferdig blir merget til master. Vi får en muntlig tilbakemelding fra gruppeleder på oblig 2, og fra det forbereder vi oss til neste innlevering. Hannah og Chantal planlegger parprogrammering senere på kvelden for å få start-skjerm og game-over skjerm til å fungere sammen. Vi planlegger et nytt møte 7. april.
 
 
 **Tilleggsmøte 7. april 12.15** 
-
 Til stede: Hannah, Erik I, Erik H, Chantal (discord)
 
 Erik I presenterer noen tester han har jobbet med. Hannah og Chantal viser hva de har gjort under parprogrammering om hvordan start- og game-over skjerm er integrert sammen. Vi undersøker mulighet for at det blir game-over når Proggy faller utenfor skjermen. Vi fordeler oppgaver knyttet til innleveringen til dagen etter. Chantal hadde noen tanker rundt hvordan Game-over ved Proggy ute av banen som hun skal se på, samt mye grafisk som vi ønsker å få med til innleveringen. Erik I skal se mer på testene og lage klassediagram til koden. Hannah og Erik H skal arbeide med MD-filen. 
