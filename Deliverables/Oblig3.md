@@ -25,18 +25,31 @@ Erik I presenterer noen tester han har jobbet med. Vi undersøker mulighet for a
 ### Roller
 Rollefordelingen ser slik ut:
 
-**Teamlead: Hannah** - Har det overordnede ansvaret for framgang og koordinering av prosjekt
-**Nestlead: Erik H** - Har og et ekstra ansvar for framgang og koordinering av prosjekt, samt 
+**Hannah: Teamlead** - Har det overordnede ansvaret for framgang og koordinering av prosjekt
+
+**Erik H: Nestlead** - Har og et ekstra ansvar for framgang og koordinering av prosjekt, samt sosialt.
+
+**Erik I: IT-ansvarlig** - Har mest ansvar for det tekniske rundt prosjektet. Det dreier seg om det generelle tekniske rundt IDE-ene vi jobber i samt arbeidet i GIT.
+
+**Chantal: Grafisk ansvarlig, Kundeansvarlig** - Har ansvar for det grafiske innenfor spillet når det kommer til bakgrunn og ulike spilleskjermer. Tar i mot beskjeder fra Vetle (Gruppeansvarlig)
+
+**Alexander: Sosialt ansvarlig** - Sørger for at vi som gruppe er så sammensveiset som mulig. 
+
+Generelt for alle er at vi alle bidrar mye i kodingen. Det grafiske arbeidet med Power-ups, fiender og Proggy jobber alle med underveis i Piskel. 
 
 ### Prosjektmetodikk og retroperspektiv
-Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette fortsatt er riktig prosjektmetodikken. Vi har derimot et par forbedringspotensialer. Frem til nå har koden vært oversiktlig med ikke alt for mange momenter som gjør at det har vært lett å følge progresjonen for hvert enkelt medlem. Dette har ført til at vi ofte har følt at vi ikke trenger å legge inn alt av oppgaver i Trello. Videre vet vi at koden blir mer kompleks, og store arbeidsoppgaver kommer til å gjennomføres parallellt. Det er derfor viktig fremover at vi i større grad oppdaterer Trello, og bruker funksjonene den tilbyr i mye større grad, ved å legge seg selv inn som deltaker på oppgaver og skrive kommentarer. 
-Vi har i tillegg valgt å innføre momenter fra Scrum der vi gjør oss ferdig med små funksjonelle oppgaver raskere slik at disse funksjonene kan brukes videre i andre deler av prosjektet. Vi føler derimot ikke at XP som prosjektmetodikk i stor grad er relevant for oss da vi har god kontroll på hvor vi ønsker å nå, og vi har få muligheter for negative ytre påvirkninger. 
-Vi har derfor sett oss ut spesielt to forbedringsområder vi øsnker å jobbe med fram mot neste innlevering:
-- Oppdatere Trello i større grad
--- https://trello.com/invite/b/Ar2twdkF/2578d5c9c7cbb0249909c3e82a326c30/inf112
-- Arbeide mer i par eller team på tre for å få bedre overblikk over koden
+Ettersom det er kort tid siden forrige innlevering, vil tankene rundt prosjektmetodikken vår være veldig lik forrige innlevering. 
+Prosjektmetodikken vi i utgangspunktet hadde valgt var Kanban, og vi mener dette fortsatt er riktig prosjektmetodikk. Forbedringspotensialene våre fra forrige innlevering gikk på at vi ville bruke Trello mer, og mer parprogrammering.
+
+I denne perioden har vi til tross for kort tid hatt flere parprogrammeringsøkter, og i minste fall konsultert med hverandre når vi har arbeidet alene. Dette har gjort at vi har fått til ekstremt mye på kort tid. Vi har alle fått mye bedre oversikt over koden, som resulterer i at koden blir mer ryddig i videre arbeid også. Vi ønsket også å bruke Trello mer. Til tross for at vi har brukt det mer aktivt, tror vi at vi kan bli enda flinkere på dette området. Ettersom vi har et mye større grunnlag i koden vår nå, har vi muligheten til å jobbe med mange mindre prosjekter simultant. Vi innser derfor viktigheten av et oversiktlig dashboard så man har oversikt over hva andre jobber med, og om det kan skape konflikter ved merging til Git. Derfor er dette noe vi ønsker å fortsette å ta tak i. 
+
+Vi synes at arbeidet med Scrum har vært veldig nyttig denne perioden. I denne perioden har vi hatt mange småprosjekter vi har ønsket å få merget så raskt som mulig. Her og kan vi nok bli enda flinkere til å få ting gjort og pushet det inn i GIT. Dette vil vi jobbe videre med fram mot neste innlevering. 
+
+Vi har derfor to arbeidsområder vi ønsker å arbeide enda mer med fram mot siste innlevering:
+- Enda flinkere til å bruke Trello. Ikke bare oppdatere hvilke arbeidsoppgaver som skal gjøres, men og hvem som skal gjøre de.
+- Få unnagjort prosjekter enda kjappere så teammedlemmer har enda bedre utgangspunkt å ta tak i. 
 
 
 ### Kommunikasjon og samarbeid
-Det er en konsensus blant gruppemedlemmene at vi jobber godt sammen og jevnt. Vi mener alle bidrar bra til teamet på forskjellige måter. Vi har styrker på forskjellige fagområder der noen gruppemedlemmer er svært god på den tekniske kodebiten, mens andre er gode på visuelt grafisk arbeib eller overordnet prosjektgjennomføring og akrivearbeid. Vi prøver likevel å inkludere alle i de ulike oppgavene for å få best mulig utbytte. Gjennom parprogrammering har kodesterke medlemmer viktigheten av flere perspektiver vist seg nyttig til å løse større problemer. Vi slet bl.a mye med en jump-funksjon som vi etterhvert fikk fikset. Gjennom parprogrammering har det ført til forskjeller i antall commits, og den generelle commit-policien blant gruppemedlemmene har vært forskjellig. Mens noen committer større endringer, har andre mange små. Vi har konkludert med at arbeidsmengden på hvert gruppemedlem har vært relativ jevn. 
+Det er en konsensus blant gruppemedlemmene at vi jobber godt sammen og jevnt. Vi mener alle bidrar bra til teamet på forskjellige måter. Vi har styrker på forskjellige fagområder der noen gruppemedlemmer er svært god på den tekniske kodebiten, mens andre er gode på visuelt grafisk arbeid eller overordnet prosjektgjennomføring og akrivearbeid. Vi prøver likevel å inkludere alle i de ulike oppgavene for å få best mulig utbytte. Gjennom parprogrammering har kodesterke medlemmer viktigheten av flere perspektiver vist seg nyttig til å løse større problemer. Vi slet bl.a mye med en jump-funksjon som vi etterhvert fikk fikset. Gjennom parprogrammering har det ført til forskjeller i antall commits, og den generelle commit-policien blant gruppemedlemmene har vært forskjellig. Mens noen committer større endringer, har andre mange små. Vi har konkludert med at arbeidsmengden på hvert gruppemedlem har vært relativ jevn. 
 
