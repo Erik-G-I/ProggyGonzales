@@ -78,6 +78,12 @@ public class CollisionCheck {
             gp.playerState = PlayerState.INVISIBLE;
         }
     }
+    private void pickUpScooter(int x1, int y1, int x2, int y2) {
+        if (pickUpGeneric(x1, y1, x2, y2, 14)) {
+            gp.playerState = PlayerState.FASTER;
+            coins -= 15;
+        }
+    }
 
     /**
      * 
@@ -106,6 +112,7 @@ public class CollisionCheck {
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
         looseMoney(x1, y1, x2, y2);
+        pickUpScooter(x1, y1, x2, y2);
     }
 
 
