@@ -33,6 +33,10 @@ public class GameOver extends DisplayText{
 		this.draw(200);
 		if (isGameOver == true) {
 			
+			Color transparentRed = new Color(0, 0, 0, 200);
+			g2.setColor(transparentRed);
+			g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+			
 			String gameStr = "GAME";
 			g2.setColor(Color.BLACK);
 			g2.drawString(gameStr, centerText(gameStr), gp.tileSize*3);
@@ -45,19 +49,19 @@ public class GameOver extends DisplayText{
 			g2.setColor(Color.BLUE);
 			g2.drawString(overStr, centerText(overStr), gp.tileSize*5+10);
 			
-			g2.setColor(Color.BLACK);
+			g2.setColor(Color.WHITE);
 			this.draw(100);
 			String restartStr = "Restart?";
 			g2.drawString(restartStr, centerText(restartStr), gp.tileSize*7);
 			
-			g2.setColor(Color.GREEN);
+			g2.setColor(Color.WHITE);
 			String yes = "yes";
 			g2.drawString(yes, widthOfScreen / 5, 500);
 			if (cmd == 1) {
 				g2.drawString(">", widthOfScreen / 5 - 40, 500);
 			}
 			
-			g2.setColor(Color.RED);
+			g2.setColor(Color.WHITE);
 			String no = "no";
 			g2.drawString(no, widthOfScreen / 2 + 200, 500);
 			if (cmd == 2) {

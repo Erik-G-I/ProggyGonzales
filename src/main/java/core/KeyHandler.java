@@ -27,13 +27,13 @@ public class KeyHandler implements KeyListener{
         if (gp.gameState == GameState.START_MENU) {
             if (code == KeyEvent.VK_DOWN) {
                 gp.menu.commandNum++;
-                if (gp.menu.commandNum > 2)
+                if (gp.menu.commandNum > 3)
                     gp.menu.commandNum = 0;
             }
             if (code == KeyEvent.VK_UP) {
                 gp.menu.commandNum--;
                 if (gp.menu.commandNum < 0)
-                    gp.menu.commandNum = 2;
+                    gp.menu.commandNum = 3;
             }
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0) {
@@ -44,10 +44,20 @@ public class KeyHandler implements KeyListener{
                 if (gp.menu.commandNum == 1) {
 
                 }
+                
                 if (gp.menu.commandNum == 2) {
+                	gp.gameState = GameState.GAME_CONTROLS;
+                }
+                if (gp.menu.commandNum == 3) {
                     System.exit(0);
                 }
             }
+        }
+        
+        if(gp.gameState == GameState.GAME_CONTROLS) {
+        	if(code == KeyEvent.VK_ESCAPE) {
+        		gp.gameState = GameState.START_MENU;
+        	}
         }
         
         if(gp.getGameOver()==true) {
@@ -89,6 +99,38 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
             }
+            if(gp.getGameOver() == false && code == KeyEvent.VK_ESCAPE) {
+            	gp.gameState = GameState.PAUSED_GAME;
+            }
+        }
+        
+        if (gp.gameState == GameState.PAUSED_GAME) {
+        	gp.stopTimer();
+        	if (code == KeyEvent.VK_DOWN) {
+        		gp.pause.cmd++;
+        		if (gp.pause.cmd > 3){
+        			gp.pause.cmd = 3;
+        		}
+        	}
+        	if (code == KeyEvent.VK_UP) {
+        		gp.pause.cmd--;
+        		if (gp.pause.cmd < 1) {
+        			gp.pause.cmd =  1;
+        		}
+        	}
+        	if(gp.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.RUNNING_GAME;
+        		gp.startTimer();
+        	}
+        	if(gp.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.RUNNING_GAME;
+        		gp.setGame();
+        		gp.startTimer();
+        	}
+        	if(gp.pause.cmd == 3 && code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.START_MENU;
+        		gp.setGame();
+        	}
         }
     }
 
