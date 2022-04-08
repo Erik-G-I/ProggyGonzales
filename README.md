@@ -1,6 +1,7 @@
 ## Proggy Gonzales
 
-Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest, og må rekke butikken før ølsalget stenger. Han har donert alle pengene sine til unicef og må løpe gjennom Bergen sentrum og samle penger for å få råd, og han må unngå gateselgere som ikke gir seg uansett hvor hardt han sier at han allerede er fadder. 
+Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest. Han må skyndte seg for å rekke butikken før ølsalget stenger. Han har donert alle pengene sine til Unicef og må løpe gjennom Bergen sentrum og samle penger for å få råd. Unicef-arbeidere prøver å stoppe han og gir seg ikke uansett hvor hardt han sier at han allerede er fadder. Hjemløse ønsker å ta penger fra han dersom han går for nært.
+
 Aspekter:
 Scrolles horisontalt, power-up gjør han raskere, munnbind og caps gjør han usynlig, flere levels
 
