@@ -115,3 +115,11 @@ Videre vil vi jobbe mot å oppfylle krav 6 ved å få fiendene til å interagere
 # Deloppgave 3
 
 **Klassediagram er lagt til i mappen Bilder under Deliverables**
+
+**Utbedring av feil siden sist:**
+
+- Siden siste innlevering har vi jobbet mer med tester rettet på bevegeligheten til Proggy i mappet. Vi har laget et map som brukes til å teste hvordan Proggy oppfører seg i gitte situasjoner. 
+- Vi har laget et mer helhetlig spill som kræsjer mindre ved exeptions og navigerer til en game-over skjerm i stedet. 
+- Spillet har blitt mer intuitivt med start skjerm med info om spillhistorien og controls.
+
+
