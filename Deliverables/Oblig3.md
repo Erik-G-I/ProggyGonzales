@@ -23,7 +23,7 @@ Alexander viser fram arbeidet deres med fiender. Erik H viser power-ups. Hannah 
 **Tilleggsmøte 7. april 12.15** 
 Til stede: Hannah, Erik I, Erik H, Chantal (discord)
 
-Erik I presenterer noen tester han har jobbet med. Hannah og Chantal viser hva de har gjort under parprogrammering om hvordan start- og game-over skjerm er integrert sammen. Vi undersøker mulighet for at det blir game-over når Proggy faller utenfor skjermen. Vi fordeler oppgaver knyttet til innleveringen til dagen etter. Chantal hadde noen tanker rundt hvordan Game-over ved Proggy ute av banen som hun skal se på, samt mye grafisk som vi ønsker å få med til innleveringen. Erik I skal se mer på testene og lage klassediagram til koden. Hannah og Erik H skal arbeide med MD-filen. 
+Erik I presenterer noen tester han har jobbet med. Hannah og Chantal viser hva de har gjort under parprogrammering om hvordan start- og game-over skjerm er integrert sammen. Vi undersøker mulighet for at det blir game-over når Proggy faller utenfor skjermen. Vi fordeler oppgaver knyttet til innleveringen til dagen etter. Chantal har mye grafisk som vi ønsker å få med til innleveringen og skal implementere dette, samt at hun har noen tanker rundt hvordan Game-over ved Proggy ute av banen som hun skal se på sammen med Erik H. Erik I skal se mer på testene og lage klassediagram til koden. Hannah og Erik H skal arbeide med MD-filen.
 
 
 ### Roller
