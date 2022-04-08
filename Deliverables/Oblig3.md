@@ -50,12 +50,13 @@ I denne perioden har vi til tross for kort tid hatt flere parprogrammeringsøkte
 Vi synes at arbeidet med Scrum har vært veldig nyttig denne perioden. I denne perioden har vi hatt mange småprosjekter vi har ønsket å få merget så raskt som mulig. Her og kan vi nok bli enda flinkere til å få ting gjort og pushet det inn i GIT. Dette vil vi jobbe videre med fram mot neste innlevering. 
 
 Vi har derfor to arbeidsområder vi ønsker å arbeide enda mer med fram mot siste innlevering:
-- Enda flinkere til å bruke Trello. Ikke bare oppdatere hvilke arbeidsoppgaver som skal gjøres, men og hvem som skal gjøre de.
+- Enda flinkere til å bruke Trello. Ikke bare oppdatere hvilke arbeidsoppgaver som skal gjøres, men og hvem som skal gjøre de. Link til trello [her](https://trello.com/b/Ar2twdkF/inf112)
 - Få unnagjort prosjekter enda kjappere så teammedlemmer har enda bedre utgangspunkt å ta tak i. 
 
 
 ### Kommunikasjon og samarbeid
 Det er en konsensus blant gruppemedlemmene at vi jobber godt sammen og jevnt. Vi mener alle bidrar bra til teamet på forskjellige måter. Vi har styrker på forskjellige fagområder der noen gruppemedlemmer er svært god på den tekniske kodebiten, mens andre er gode på visuelt grafisk arbeid eller overordnet prosjektgjennomføring og akrivearbeid. Vi prøver likevel å inkludere alle i de ulike oppgavene for å få best mulig utbytte. Gjennom parprogrammering har kodesterke medlemmer viktigheten av flere perspektiver vist seg nyttig til å løse større problemer. Vi slet bl.a mye med en jump-funksjon som vi etterhvert fikk fikset. Gjennom parprogrammering har det ført til forskjeller i antall commits, og den generelle commit-policien blant gruppemedlemmene har vært forskjellig. Mens noen committer større endringer, har andre mange små. Vi har konkludert med at arbeidsmengden på hvert gruppemedlem har vært relativ jevn. 
+
 
 # Deloppgave 2
 ### Stretch-goal
@@ -111,4 +112,6 @@ MVP-kravene vi har fokusert på siden forrige innlevering er krav 6, 7, 9 og 10.
 
 Videre vil vi jobbe mot å oppfylle krav 6 ved å få fiendene til å interagere mer med terrenget og kunne gå rundt på brettet. Vi planlegger også å lage det endelige spillbrettet med fjell i bakgrunn og butikken som mål så fort som mulig. Det som gjenstår etter det er å implementere power-ups slik at de fungerer som de skal. Etter vi har fått til dette har vi et MVP-spill, noe vi er veldig fornøyd med. Det som da er igjen blir å rydde opp i koden vår slik at den blir enklere å forstå, og å jobbe mot å nå våre stretch-goals.
 
+# Deloppgave 3
 
+**Klassediagram er lagt til i mappen Bilder under Deliverables**
