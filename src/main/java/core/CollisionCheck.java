@@ -67,14 +67,25 @@ public class CollisionCheck {
             if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
                 gp.loader.numOfTiles[x1][y1] = 10;
                 coins -= loosingMoney;
+            }
+            if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
+                gp.loader.numOfTiles[x2][y2] = 10;
+            }
         }
-    } else if (coins>0 && coins < loosingMoney) {
-        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
-            gp.loader.numOfTiles[x1][y1] = 10;
-            coins = 0;
-    }
         
-    }}
+        else if (coins>0 && coins < loosingMoney) {
+        	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+        		gp.loader.numOfTiles[x1][y1] = 10;
+        		coins = 0;
+        	}
+        	if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
+        		gp.loader.numOfTiles[x2][y2] = 10;
+        		coins = 0;
+        	}
+        
+        }
+        
+    }
     /**
      * Picks up mask and sets player state to invisible
      * @param x1 x-value of first corner
