@@ -17,6 +17,7 @@ import gameState.GameState;
 import gameState.InfoScreen;
 import gameState.Paused;
 import gameState.StartMenu;
+import sound.Sound;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -55,6 +56,9 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player;
     public Background bg;
     public TileLoader loader;
+    
+    //audio
+    Sound sound = new Sound();
     
     //Game Thread
     private Thread gameThread;
@@ -238,4 +242,17 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
     
+    
+    public void playMusic(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    	sound.loop();
+    }
+    public void stopMusic() {
+    	sound.stop();
+    }
+    public void playSoundEffect(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    }
 }
