@@ -96,6 +96,7 @@ public class KeyHandler implements KeyListener{
         
         if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
         	if(code == KeyEvent.VK_LEFT) {
+        		gp.playSoundEffect(0);
         		leftPressed = true;
         		gp.getGameOverObj().cmd--;
         		if(gp.getGameOverObj().cmd<1) {
@@ -103,6 +104,7 @@ public class KeyHandler implements KeyListener{
         		}
         	}
         	if(code==KeyEvent.VK_RIGHT) {
+        		gp.playSoundEffect(0);
         		rightPressed = true;
         		gp.getGameOverObj().cmd++;
         		if(gp.getGameOverObj().cmd>2) {

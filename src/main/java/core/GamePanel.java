@@ -238,8 +238,9 @@ public class GamePanel extends JPanel implements Runnable{
             timerDisplay.draw(g2);
             score.draw(g2);
             gO.draw(g2);
-            g2.dispose();
+            
         }
+        g2.dispose();
     }
     
     

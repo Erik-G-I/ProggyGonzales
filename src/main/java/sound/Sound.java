@@ -15,8 +15,9 @@ public class Sound {
 		soundURL[0] = getClass().getResource("/audio/menuSelectionClick.wav");
 		soundURL[1] = getClass().getResource("/audio/sfx_coin_single6.wav");
 		soundURL[2] = getClass().getResource("/audio/sfx_coin_single1.wav");
-		soundURL[3] = getClass().getResource("/audio/sfx_movement_jump8.wav");
+		soundURL[3] = getClass().getResource("/audio/sfx_movement_jump2.wav");
 		soundURL[4] = getClass().getResource("/audio/sfx_sounds_fanfare1.wav");
+		soundURL[5] = getClass().getResource("/audio/sfx_sound_shutdown2.wav");
 	}
 	
 	public void setFile(int i) {
