@@ -29,10 +29,10 @@ public class TileLoader {
 	public TileLoader(GamePanel gp, InputStream is) {
 		// lag variabler som tar utgangspunkt i input stream sin size
 		this.mapCols = 64;
-		this.mapRows = 12;
+		this.mapRows = 16;
 		this.gp = gp;
 		this.tiles = new Tile[20];
-		this.numOfTiles = new int[64][12];
+		this.numOfTiles = new int[64][16];
 		this.is = is;
 		
 		getTileImage();
