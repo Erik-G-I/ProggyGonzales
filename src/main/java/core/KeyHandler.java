@@ -26,28 +26,35 @@ public class KeyHandler implements KeyListener{
 
         if (gp.gameState == GameState.START_MENU) {
             if (code == KeyEvent.VK_DOWN) {
+                gp.playSoundEffect(0);
                 gp.menu.commandNum++;
                 if (gp.menu.commandNum > 3)
                     gp.menu.commandNum = 0;
             }
             if (code == KeyEvent.VK_UP) {
+            	gp.playSoundEffect(0);
                 gp.menu.commandNum--;
                 if (gp.menu.commandNum < 0)
                     gp.menu.commandNum = 3;
             }
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0) {
+                	gp.playSoundEffect(0);
                     gp.gameState = GameState.RUNNING_GAME;
                     gp.startTimer();
                 }
                 if (gp.menu.commandNum == 1) {
+                	gp.playSoundEffect(0);
                     gp.gameState = GameState.INFO_SCREEN;
                 }
                 
                 if (gp.menu.commandNum == 2) {
+                	gp.playSoundEffect(0);
                 	gp.gameState = GameState.GAME_CONTROLS;
+                	
                 }
                 if (gp.menu.commandNum == 3) {
+                	gp.playSoundEffect(0);
                     System.exit(0);
                 }
             }
@@ -55,17 +62,20 @@ public class KeyHandler implements KeyListener{
 
         if (gp.gameState == GameState.INFO_SCREEN) {
             if (code == KeyEvent.VK_RIGHT) {
+            	gp.playSoundEffect(0);
                 gp.info.c++;
                 if (gp.info.c > 2)
                     gp.info.c = 0;
             }
 
             if (code == KeyEvent.VK_LEFT) {
+            	gp.playSoundEffect(0);
                 gp.info.c--;
                 if (gp.info.c < 0)
                     gp.info.c = 2;
             }
             if (code == KeyEvent.VK_ENTER) {
+            	gp.playSoundEffect(0);
                 if (gp.info.c == 1) {
                     gp.gameState = GameState.START_MENU;
                     gp.info.c = 0;
@@ -78,6 +88,7 @@ public class KeyHandler implements KeyListener{
         }
         
         if(gp.gameState == GameState.GAME_CONTROLS) {
+        	gp.playSoundEffect(0);
         	if(code == KeyEvent.VK_ESCAPE) {
         		gp.gameState = GameState.START_MENU;
         	}
@@ -85,6 +96,7 @@ public class KeyHandler implements KeyListener{
         
         if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
         	if(code == KeyEvent.VK_LEFT) {
+        		gp.playSoundEffect(0);
         		leftPressed = true;
         		gp.getGameOverObj().cmd--;
         		if(gp.getGameOverObj().cmd<1) {
@@ -92,6 +104,7 @@ public class KeyHandler implements KeyListener{
         		}
         	}
         	if(code==KeyEvent.VK_RIGHT) {
+        		gp.playSoundEffect(0);
         		rightPressed = true;
         		gp.getGameOverObj().cmd++;
         		if(gp.getGameOverObj().cmd>2) {
@@ -130,12 +143,14 @@ public class KeyHandler implements KeyListener{
         if (gp.gameState == GameState.PAUSED_GAME) {
         	gp.stopTimer();
         	if (code == KeyEvent.VK_DOWN) {
+        		gp.playSoundEffect(0);
         		gp.pause.cmd++;
         		if (gp.pause.cmd > 3){
         			gp.pause.cmd = 3;
         		}
         	}
         	if (code == KeyEvent.VK_UP) {
+        		gp.playSoundEffect(0);
         		gp.pause.cmd--;
         		if (gp.pause.cmd < 1) {
         			gp.pause.cmd =  1;

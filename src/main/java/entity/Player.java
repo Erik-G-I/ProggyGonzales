@@ -161,6 +161,7 @@ public class Player extends Entity{
     		gp.collisionChecker.checkCollisionOnTile(this);
     		if(colliding == false) {
     			if(onGround == true) {
+    				gp.playSoundEffect(3);
     				// How fast the jump is upwards
         			jumpStrength = 15;
         			worldY -= jumpStrength;

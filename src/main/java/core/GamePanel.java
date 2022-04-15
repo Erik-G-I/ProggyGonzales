@@ -17,6 +17,7 @@ import gameState.GameState;
 import gameState.InfoScreen;
 import gameState.Paused;
 import gameState.StartMenu;
+import sound.Sound;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -36,7 +37,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     //World settings
     public final int maxWorldCol = 16;
-    public final int maxWorldRow = 12;
+    public final int maxWorldRow = 16;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
@@ -55,6 +56,9 @@ public class GamePanel extends JPanel implements Runnable{
     public Player player;
     public Background bg;
     public TileLoader loader;
+    
+    //audio
+    Sound sound = new Sound();
     
     //Game Thread
     private Thread gameThread;
@@ -234,8 +238,22 @@ public class GamePanel extends JPanel implements Runnable{
             timerDisplay.draw(g2);
             score.draw(g2);
             gO.draw(g2);
-            g2.dispose();
+            
         }
+        g2.dispose();
     }
     
+    
+    public void playMusic(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    	sound.loop();
+    }
+    public void stopMusic() {
+    	sound.stop();
+    }
+    public void playSoundEffect(int i) {
+    	sound.setFile(i);
+    	sound.play();
+    }
 }
