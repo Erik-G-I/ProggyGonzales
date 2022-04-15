@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
     public TileLoader loader;
     
     //audio
-    Sound sound = new Sound();
+    private Sound sound = new Sound();
     
     //Game Thread
     private Thread gameThread;
@@ -198,11 +198,14 @@ public class GamePanel extends JPanel implements Runnable{
         
         if(!gO.gameOver()) {
             score.showScore();
+            if(!(gameState == GameState.GAME_OVER)) {
             player.update();
+            }
         }
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
         }
+        
     }
     
     public void jump() {

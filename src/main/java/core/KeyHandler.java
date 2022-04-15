@@ -95,6 +95,7 @@ public class KeyHandler implements KeyListener{
         }
         
         if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
+        	gp.gameState = GameState.GAME_OVER;
         	if(code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
         		leftPressed = true;
@@ -112,6 +113,7 @@ public class KeyHandler implements KeyListener{
         		}
         	}
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
+            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
             	gp.startTimer();
             }

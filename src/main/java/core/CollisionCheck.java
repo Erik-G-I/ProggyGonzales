@@ -1,7 +1,6 @@
 package core;
 
 import entity.Entity;
-import entity.Player;
 import entity.PlayerState;
 
 public class CollisionCheck {
@@ -52,12 +51,10 @@ public class CollisionCheck {
     private void pickUpMoney(int x1, int y1, int x2, int y2) {
         // Pick up 100 kroner
         if (pickUpGeneric(x1, y1, x2, y2, 7)) {
-        	gp.playSoundEffect(1);
             coins += 10;
         }
         // pick up 200-kroner
         if (pickUpGeneric(x1, y1, x2, y2, 8)) {
-        	gp.playSoundEffect(2);
             coins += 20;
         }
     }
@@ -86,7 +83,6 @@ public class CollisionCheck {
      */
     private void pickUpMask(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
-        	gp.playSoundEffect(4);
             gp.playerState = PlayerState.INVISIBLE;
         }
     }
@@ -94,7 +90,6 @@ public class CollisionCheck {
         int scooterCost = 15;
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
-            	gp.playSoundEffect(4);
                 gp.playerState = PlayerState.FASTER;
                 coins -= scooterCost;
             }
@@ -111,7 +106,6 @@ public class CollisionCheck {
      */
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
-        	gp.playSoundEffect(4);
             gp.playerState = PlayerState.FASTER;
             System.out.println("Now the player has picked up shoes and should become faster");
         }
