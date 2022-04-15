@@ -1,7 +1,6 @@
 package core;
 
 import entity.Entity;
-import entity.Player;
 import entity.PlayerState;
 
 public class CollisionCheck {
