@@ -87,6 +87,7 @@ public class CollisionCheck {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
         	gp.playSoundEffect(4);
             gp.playerState = PlayerState.INVISIBLE;
+            gp.player.getPlayerImage();
         }
     }
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
@@ -96,6 +97,8 @@ public class CollisionCheck {
             	gp.playSoundEffect(4);
                 gp.playerState = PlayerState.FASTER;
                 coins -= scooterCost;
+                gp.player.getPlayerImage();
+
             }
         }
     }
@@ -113,6 +116,8 @@ public class CollisionCheck {
         	gp.playSoundEffect(4);
             gp.playerState = PlayerState.FASTER;
             System.out.println("Now the player has picked up shoes and should become faster");
+            gp.player.getPlayerImage();
+
         }
     }
 
