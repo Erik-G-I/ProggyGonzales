@@ -51,23 +51,75 @@ public class Player extends Entity{
     }
     
     public void getPlayerImage() {
-        
-        try {
-        	up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
-            up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
-            down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
-            down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
-            left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
-            left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left2.png"));
-            right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
-            right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
+        if (gp.playerState == PlayerState.NORMAL) {
+            try {
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
+    
+               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
 
-           // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
-            
-            
-        }catch(IOException e) {
-            e.printStackTrace();
+        } else if (gp.playerState == PlayerState.INVISIBLE)  {
+            try {
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_right2.png"));
+    
+               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (gp.playerState == PlayerState.FASTER)  {
+            try {
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_right2.png"));
+    
+               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (gp.playerState == PlayerState.VOI)  {
+            try {
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default2.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_right2.png"));
+    
+               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+
         }
+        
     }
     
     public void update() {
@@ -101,6 +153,7 @@ public class Player extends Entity{
                 gp.collisionChecker.checkCollisionOnTile(this);
 
                 PowerUpRunning();
+                PowerUpVOI();
 
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
@@ -142,6 +195,12 @@ public class Player extends Entity{
 
     public void PowerUpRunning() {
         if (this.gp.getPlayerState() == PlayerState.FASTER) {
+            speed=7;
+        }
+    }
+
+    public void PowerUpVOI() {
+        if (this.gp.getPlayerState() == PlayerState.VOI) {
             speed=7;
         }
     }
