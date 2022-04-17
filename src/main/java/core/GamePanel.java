@@ -108,9 +108,15 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setGame() {
+    	//setter mappet som skal spilles
     	setMap(mapPath);
     	bg = new Background(this, keyH);
+    	
+    	//setter player state til normal før nytt player objekt blir laget
+        playerState = PlayerState.NORMAL;
     	player = new Player(this, keyH);
+    	
+    	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
@@ -120,7 +126,6 @@ public class GamePanel extends JPanel implements Runnable{
     	pause = new Paused(this);
     	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
-        playerState = PlayerState.NORMAL;
     }
 
     public GamePanel(String mapPath) {
