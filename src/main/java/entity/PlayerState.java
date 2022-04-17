@@ -4,5 +4,5 @@ public enum PlayerState {
     NORMAL,
     INVISIBLE, 
     FASTER,
-    SCOOTER
+    VOI
 }

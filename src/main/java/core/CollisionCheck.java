@@ -95,7 +95,7 @@ public class CollisionCheck {
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
             	gp.playSoundEffect(4);
-                gp.playerState = PlayerState.FASTER;
+                gp.playerState = PlayerState.VOI;
                 coins -= scooterCost;
                 gp.player.getPlayerImage();
 
