@@ -2,6 +2,7 @@ package gameState;
 
 public enum GameState {
 
+	LANGUAGE_MENU,
     START_MENU,
     RUNNING_GAME,
     GAME_OVER,

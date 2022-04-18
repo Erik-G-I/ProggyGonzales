@@ -15,6 +15,7 @@ import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
 import gameState.InfoScreen;
+import gameState.Languages;
 import gameState.Paused;
 import gameState.StartMenu;
 import sound.Sound;
@@ -112,7 +113,10 @@ public class GamePanel extends JPanel implements Runnable{
     	return out;
     }
     
-
+    private Languages lang;
+    public Languages getLang() {
+    	return lang;
+    }
     
     public void setGame() {
     	//setter mappet som skal spilles
@@ -122,6 +126,9 @@ public class GamePanel extends JPanel implements Runnable{
     	//setter player state til normal før nytt player objekt blir laget
         playerState = PlayerState.NORMAL;
     	player = new Player(this, keyH);
+    	
+    	//get the language chosen by player
+    	lang = getLang();
     	
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);

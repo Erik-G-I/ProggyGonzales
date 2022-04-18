@@ -21,6 +21,8 @@ import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
 import entity.Entity;
+import gameState.Languages;
+
 import javax.swing.Timer;
 
 import core.GamePanel;
@@ -44,7 +46,14 @@ public class Score extends DisplayText{
     	/*if(!gp.loader.tiles[5].collission) {
 			coins = 50;
 		}*/
-        showScore = "Proggys ølpenger: " + gp.collisionChecker.coins;
+    	
+    	if(gp.getLang() == Languages.NORWEGIAN) {
+    		showScore = "Proggys ølpenger: " + gp.collisionChecker.coins;	
+    	}
+    	else {
+    		showScore = "Proggy's beer money: " + gp.collisionChecker.coins;
+    	}
+        
     }
 
     public void draw(Graphics g2) {
