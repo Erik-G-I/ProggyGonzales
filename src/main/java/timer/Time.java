@@ -4,18 +4,25 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
+import core.GamePanel;
+import entity.PlayerState;
+
 public class Time implements ActionListener{
 	
 	private int seconds;
 	private int minutes;
 	private String showTime; //timer will be a String
+	private GamePanel gp;
 	private Timer timer;
 	private boolean gameOver;
+	private boolean startPowerUpTimer;
+	private int powerUpSeconds = 10;
 	
-	public Time(int seconds, int minutes, String showTime) {
+	public Time(int seconds, int minutes, String showTime, GamePanel gp) {
 		this.seconds=seconds;
 		this.minutes=minutes;
 		this.showTime=showTime;
+		this.gp = gp;
 	}
 	
 	public void setTimer(Timer timer) {
@@ -46,11 +53,31 @@ public class Time implements ActionListener{
 				gameOver = true;
 			}
 		}
+		if(seconds > 0) {
+			if(startPowerUpTimer == true) {
+				if (gp.pickedUpPowerUp() == true) {
+					powerUpSeconds = 10;
+					System.out.println("updated time");
+					gp.setPickedUpPowerUp(false);
+				}
+				powerUpSeconds--;
+				if(powerUpSeconds == 0) {
+					powerUpSeconds = 10;
+					startPowerUpTimer = false;
+					gp.setPLayerState(PlayerState.NORMAL);
+					System.out.println("normal speed");
+				}
+			}
+		}
 	}
 	
 	
 	public boolean getGameOver() {
 		return gameOver;
+	}
+	
+	public void setStartPowerUpTimer(boolean startPowerUpTimer) {
+		this.startPowerUpTimer = startPowerUpTimer;
 	}
 	
 }

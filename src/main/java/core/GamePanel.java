@@ -41,7 +41,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    public PlayerState playerState = PlayerState.NORMAL;
+    private PlayerState playerState = PlayerState.NORMAL;
+    public boolean pickedUpPowerUp;
 
     //Map
     public InputStream is;
@@ -72,6 +73,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void stopTimer() {
     	timerDisplay.stopTime();
+    }
+    
+    public void truePowerUpTimer() {
+    	timerDisplay.startPowerUpTimerTrue();
     }
     
     //Score
@@ -107,6 +112,8 @@ public class GamePanel extends JPanel implements Runnable{
     	return out;
     }
     
+
+    
     public void setGame() {
     	//setter mappet som skal spilles
     	setMap(mapPath);
@@ -139,6 +146,19 @@ public class GamePanel extends JPanel implements Runnable{
         gameState = GameState.START_MENU;
         setGame();
     }
+    
+    
+    
+    public boolean pickedUpPowerUp() {
+    	if (collisionChecker.getPickedUpPowerUp() == true) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
+    	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
+    }
 
     public void startGameThread() {  
         gameThread = new Thread(this);
@@ -148,6 +168,10 @@ public class GamePanel extends JPanel implements Runnable{
     public PlayerState getPlayerState() {
         return this.playerState;
 
+    }
+    
+    public void setPLayerState(PlayerState playerState) {
+    	this.playerState = playerState;
     }
     
     public void setMap(String mapPath) {
@@ -230,7 +254,10 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
-
+        if (playerState == PlayerState.NORMAL) {
+			this.player.getPlayerImage();
+        }
+        
         if (gameState == GameState.START_MENU)
             menu.draw(g);
         else if (gameState == GameState.INFO_SCREEN) {

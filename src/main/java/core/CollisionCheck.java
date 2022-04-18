@@ -5,6 +5,7 @@ import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
+    private boolean pickedUpPowerUp = false;
 
 
     public CollisionCheck(GamePanel gp) {
@@ -64,7 +65,7 @@ public class CollisionCheck {
     public void looseMoney(int x1, int y1, int x2, int y2) {
         gp.getPlayerState();
         int loosingMoney = 15;
-        if (gp.playerState != PlayerState.INVISIBLE && coins >= loosingMoney) {
+        if (gp.getPlayerState() != PlayerState.INVISIBLE && coins >= loosingMoney) {
             if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
                 gp.loader.numOfTiles[x1][y1] = 10;
                 coins -= loosingMoney;
@@ -85,8 +86,10 @@ public class CollisionCheck {
      */
     private void pickUpMask(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
+        	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
-            gp.playerState = PlayerState.INVISIBLE;
+            gp.setPLayerState(PlayerState.INVISIBLE);
+            gp.truePowerUpTimer();
             gp.player.getPlayerImage();
         }
     }
@@ -94,8 +97,10 @@ public class CollisionCheck {
         int scooterCost = 15;
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
+            	pickedUpPowerUp = true;
             	gp.playSoundEffect(4);
-                gp.playerState = PlayerState.VOI;
+                gp.setPLayerState(PlayerState.VOI);
+                gp.truePowerUpTimer();
                 coins -= scooterCost;
                 gp.player.getPlayerImage();
 
@@ -113,8 +118,10 @@ public class CollisionCheck {
      */
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
+        	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
-            gp.playerState = PlayerState.FASTER;
+        	gp.setPLayerState(PlayerState.FASTER);
+        	gp.truePowerUpTimer();
             System.out.println("Now the player has picked up shoes and should become faster");
             gp.player.getPlayerImage();
 
@@ -136,7 +143,12 @@ public class CollisionCheck {
         pickUpScooter(x1, y1, x2, y2);
     }
 
-
+    public boolean getPickedUpPowerUp() {
+    	return this.pickedUpPowerUp;
+    }
+    public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
+        this.pickedUpPowerUp = pickedUpPowerUp;
+    }
 
 
     public void checkCollisionOnTile(Entity unit) {

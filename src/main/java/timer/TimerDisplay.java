@@ -24,7 +24,7 @@ public class TimerDisplay extends DisplayText{
 		minutes=0; //change later to wanted time
 		widthOfScreen=gp.screenWidth;
 		showTime=new String();
-		time=new Time(seconds,minutes,showTime);
+		time=new Time(seconds,minutes,showTime,gp);
 		timer=new Timer(1000,time);
 	}
 	
@@ -50,5 +50,9 @@ public class TimerDisplay extends DisplayText{
 	
 	public Time getTime() {
 		return time;
+	}
+	
+	public void startPowerUpTimerTrue() {
+		time.setStartPowerUpTimer(true);
 	}
 }
