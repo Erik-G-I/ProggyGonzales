@@ -41,8 +41,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    public PlayerState playerState = PlayerState.NORMAL;
-
+    private PlayerState playerState = PlayerState.NORMAL;
+    
     //Map
     public InputStream is;
 
@@ -72,6 +72,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     public void stopTimer() {
     	timerDisplay.stopTime();
+    }
+    
+    public void truePowerUpTimer() {
+    	timerDisplay.startPowerUpTimerTrue();
     }
     
     //Score
@@ -148,6 +152,10 @@ public class GamePanel extends JPanel implements Runnable{
     public PlayerState getPlayerState() {
         return this.playerState;
 
+    }
+    
+    public void setPLayerState(PlayerState playerState) {
+    	this.playerState = playerState;
     }
     
     public void setMap(String mapPath) {
@@ -230,7 +238,10 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
-
+        if (playerState == PlayerState.NORMAL) {
+			this.player.getPlayerImage();
+        }
+        
         if (gameState == GameState.START_MENU)
             menu.draw(g);
         else if (gameState == GameState.INFO_SCREEN) {

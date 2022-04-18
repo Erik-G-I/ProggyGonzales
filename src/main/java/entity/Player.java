@@ -51,7 +51,7 @@ public class Player extends Entity{
     }
     
     public void getPlayerImage() {
-        if (gp.playerState == PlayerState.NORMAL) {
+        if (gp.getPlayerState() == PlayerState.NORMAL) {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
@@ -67,7 +67,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.playerState == PlayerState.INVISIBLE)  {
+        } else if (gp.getPlayerState() == PlayerState.INVISIBLE)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up2.png"));
@@ -84,7 +84,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.playerState == PlayerState.FASTER)  {
+        } else if (gp.getPlayerState() == PlayerState.FASTER)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up2.png"));
@@ -101,7 +101,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.playerState == PlayerState.VOI)  {
+        } else if (gp.getPlayerState() == PlayerState.VOI)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up2.png"));
@@ -153,7 +153,7 @@ public class Player extends Entity{
                 gp.collisionChecker.checkCollisionOnTile(this);
 
                 PowerUpRunning();
-                PowerUpVOI();
+//                PowerUpVOI();
 
                 // IF collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
@@ -194,16 +194,25 @@ public class Player extends Entity{
     
 
     public void PowerUpRunning() {
-        if (this.gp.getPlayerState() == PlayerState.FASTER) {
-            speed=7;
-        }
-    }
-
-    public void PowerUpVOI() {
         if (this.gp.getPlayerState() == PlayerState.VOI) {
             speed=7;
         }
+        if (this.gp.getPlayerState() == PlayerState.FASTER) {
+            speed=7;
+        }
+        if(this.gp.getPlayerState() == PlayerState.NORMAL) {
+        	speed = 5;
+        }
     }
+
+//    public void PowerUpVOI() {
+//        if (this.gp.getPlayerState() == PlayerState.VOI) {
+//            speed=7;
+//        }
+//        else if(this.gp.getPlayerState() == PlayerState.NORMAL) {
+//        	speed = 5;
+//        }
+//    }
 
     // jump function that makes proggy collide also when jumping	
     public void jump() {
