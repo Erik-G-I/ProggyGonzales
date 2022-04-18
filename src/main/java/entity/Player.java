@@ -203,6 +203,10 @@ public class Player extends Entity{
         if(this.gp.getPlayerState() == PlayerState.NORMAL) {
         	speed = 5;
         }
+        if(this.gp.getPlayerState() == PlayerState.INVISIBLE) {
+        	speed = 5;
+
+        }
     }
 
 //    public void PowerUpVOI() {

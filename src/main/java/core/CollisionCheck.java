@@ -146,6 +146,9 @@ public class CollisionCheck {
     public boolean getPickedUpPowerUp() {
     	return this.pickedUpPowerUp;
     }
+    public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
+        this.pickedUpPowerUp = pickedUpPowerUp;
+    }
 
 
     public void checkCollisionOnTile(Entity unit) {

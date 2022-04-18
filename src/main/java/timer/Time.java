@@ -16,7 +16,7 @@ public class Time implements ActionListener{
 	private Timer timer;
 	private boolean gameOver;
 	private boolean startPowerUpTimer;
-	private int powerUpSeconds = 5;
+	private int powerUpSeconds = 10;
 	
 	public Time(int seconds, int minutes, String showTime, GamePanel gp) {
 		this.seconds=seconds;
@@ -55,13 +55,14 @@ public class Time implements ActionListener{
 		}
 		if(seconds > 0) {
 			if(startPowerUpTimer == true) {
-				powerUpSeconds--;
-				if(gp.pickedUpPowerUp()) {
-					powerUpSeconds = 5;
+				if (gp.pickedUpPowerUp() == true) {
+					powerUpSeconds = 10;
+					System.out.println("updated time");
 					gp.setPickedUpPowerUp(false);
 				}
+				powerUpSeconds--;
 				if(powerUpSeconds == 0) {
-					powerUpSeconds = 5;
+					powerUpSeconds = 10;
 					startPowerUpTimer = false;
 					gp.setPLayerState(PlayerState.NORMAL);
 					System.out.println("normal speed");

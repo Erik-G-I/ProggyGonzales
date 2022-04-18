@@ -42,7 +42,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
     private PlayerState playerState = PlayerState.NORMAL;
-    
+    public boolean pickedUpPowerUp;
+
     //Map
     public InputStream is;
 
@@ -146,17 +147,17 @@ public class GamePanel extends JPanel implements Runnable{
         setGame();
     }
     
-    boolean pickedUpPowerUp = this.collisionChecker.getPickedUpPowerUp();
+    
     
     public boolean pickedUpPowerUp() {
-    	if (this.pickedUpPowerUp == true) {
+    	if (collisionChecker.getPickedUpPowerUp() == true) {
     		return true;
     	}
     	return false;
     }
     
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
-    	this.pickedUpPowerUp = pickedUpPowerUp;
+    	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
     }
 
     public void startGameThread() {  
