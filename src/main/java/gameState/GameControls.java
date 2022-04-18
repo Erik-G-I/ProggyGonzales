@@ -22,20 +22,19 @@ public class GameControls extends DisplayText{
 		
 		if(gp.getLang() == Languages.NORWEGIAN) {
 			s1 = "Kontroller";
-			s2 = "Arrow Up, W, Space    -    Jump";
-			s3 = "Arrow Left or A    -    Move left";
-			s4 = "Arrow Right or D    -    Move right";
-			s5 = "ESC    -    Pause Menu";
-			s6 = "ESC to go back to Main Menu";
-		}
-		else {
-			s1 = "CONTROLS";
 			s2 = "Pil opp, W, mellombar    -    Hopp";
 			s3 = "Venstre pil, A    -    Gå til venstre";
 			s4 = "Høyre pil, D    -    Gå til høyre";
 			s5 = "ESC    -    Pause";
 			s6 = "ESC    -    Tilbake til hovedmeny";
-			
+		}
+		else {
+			s1 = "CONTROLS";
+			s2 = "Arrow Up, W, Space    -    Jump";
+			s3 = "Arrow Left or A    -    Move left";
+			s4 = "Arrow Right or D    -    Move right";
+			s5 = "ESC    -    Pause Menu";
+			s6 = "ESC to go back to Main Menu";
 		}
 		
 		Color transparentRed = new Color(0, 0, 0, 200);
