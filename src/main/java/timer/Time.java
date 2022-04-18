@@ -56,8 +56,12 @@ public class Time implements ActionListener{
 		if(seconds > 0) {
 			if(startPowerUpTimer == true) {
 				powerUpSeconds--;
+				if(gp.pickedUpPowerUp()) {
+					powerUpSeconds = 5;
+					gp.setPickedUpPowerUp(false);
+				}
 				if(powerUpSeconds == 0) {
-					powerUpSeconds = 15;
+					powerUpSeconds = 5;
 					startPowerUpTimer = false;
 					gp.setPLayerState(PlayerState.NORMAL);
 					System.out.println("normal speed");

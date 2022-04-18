@@ -111,6 +111,8 @@ public class GamePanel extends JPanel implements Runnable{
     	return out;
     }
     
+
+    
     public void setGame() {
     	//setter mappet som skal spilles
     	setMap(mapPath);
@@ -142,6 +144,19 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
         gameState = GameState.START_MENU;
         setGame();
+    }
+    
+    boolean pickedUpPowerUp = this.collisionChecker.getPickedUpPowerUp();
+    
+    public boolean pickedUpPowerUp() {
+    	if (this.pickedUpPowerUp == true) {
+    		return true;
+    	}
+    	return false;
+    }
+    
+    public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
+    	this.pickedUpPowerUp = pickedUpPowerUp;
     }
 
     public void startGameThread() {  

@@ -5,6 +5,7 @@ import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
+    private boolean pickedUpPowerUp = false;
 
 
     public CollisionCheck(GamePanel gp) {
@@ -85,6 +86,7 @@ public class CollisionCheck {
      */
     private void pickUpMask(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
+        	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
             gp.setPLayerState(PlayerState.INVISIBLE);
             gp.truePowerUpTimer();
@@ -95,6 +97,7 @@ public class CollisionCheck {
         int scooterCost = 15;
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
+            	pickedUpPowerUp = true;
             	gp.playSoundEffect(4);
                 gp.setPLayerState(PlayerState.VOI);
                 gp.truePowerUpTimer();
@@ -115,6 +118,7 @@ public class CollisionCheck {
      */
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
+        	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
         	gp.setPLayerState(PlayerState.FASTER);
         	gp.truePowerUpTimer();
@@ -139,7 +143,9 @@ public class CollisionCheck {
         pickUpScooter(x1, y1, x2, y2);
     }
 
-
+    public boolean getPickedUpPowerUp() {
+    	return this.pickedUpPowerUp;
+    }
 
 
     public void checkCollisionOnTile(Entity unit) {
