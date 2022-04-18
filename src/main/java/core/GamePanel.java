@@ -170,7 +170,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     }
     
-    public void setPLayerState(PlayerState playerState) {
+    public void setPlayerState(PlayerState playerState) {
     	this.playerState = playerState;
     }
     

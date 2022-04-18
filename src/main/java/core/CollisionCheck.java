@@ -65,18 +65,16 @@ public class CollisionCheck {
     public void looseMoney(int x1, int y1, int x2, int y2) {
         gp.getPlayerState();
         int loosingMoney = 15;
-        if (gp.getPlayerState() != PlayerState.INVISIBLE && coins >= loosingMoney) {
+        if (gp.getPlayerState() != PlayerState.INVISIBLE) {
+        if (coins >= loosingMoney) {
             if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
                 gp.loader.numOfTiles[x1][y1] = 10;
                 coins -= loosingMoney;
-        }
-    } else if (coins>0 && coins < loosingMoney) {
+        }} else if (coins>0 && coins < loosingMoney) {
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
             gp.loader.numOfTiles[x1][y1] = 10;
             coins = 0;
-    }
-        
-    }}
+    }}}}
     /**
      * Picks up mask and sets player state to invisible
      * @param x1 x-value of first corner
@@ -88,7 +86,7 @@ public class CollisionCheck {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
         	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
-            gp.setPLayerState(PlayerState.INVISIBLE);
+            gp.setPlayerState(PlayerState.INVISIBLE);
             gp.truePowerUpTimer();
             gp.player.getPlayerImage();
         }
@@ -99,7 +97,7 @@ public class CollisionCheck {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
             	pickedUpPowerUp = true;
             	gp.playSoundEffect(4);
-                gp.setPLayerState(PlayerState.VOI);
+                gp.setPlayerState(PlayerState.VOI);
                 gp.truePowerUpTimer();
                 coins -= scooterCost;
                 gp.player.getPlayerImage();
@@ -120,7 +118,7 @@ public class CollisionCheck {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
         	pickedUpPowerUp = true;
         	gp.playSoundEffect(4);
-        	gp.setPLayerState(PlayerState.FASTER);
+        	gp.setPlayerState(PlayerState.FASTER);
         	gp.truePowerUpTimer();
             System.out.println("Now the player has picked up shoes and should become faster");
             gp.player.getPlayerImage();

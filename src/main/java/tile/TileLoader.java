@@ -129,6 +129,13 @@ public class TileLoader {
 			tiles[14] = new Tile();
 			tiles[14].image = ImageIO.read(getClass().getResourceAsStream("/graphics/Voi.png"));
 
+			tiles[15] = new Tile();
+			tiles[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/transparent.png"));
+			tiles[15].collission = true;
+
+
+
+
 
 
 		} catch (Exception e) {
