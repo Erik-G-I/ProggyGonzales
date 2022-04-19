@@ -198,6 +198,10 @@ public class GamePanel extends JPanel implements Runnable{
     	is = getClass().getResourceAsStream(mapPath);
     }
     
+    public String getMapPath() {
+    	return mapPath;
+    }
+    
 	public void resetLoader() {
     	loader =  new TileLoader(this, is);
 	}

@@ -12,6 +12,7 @@ public class KeyHandler implements KeyListener{
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     public float jumpSpeed;
     private GamePanel gp;
+    String mapPath;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -224,9 +225,7 @@ public class KeyHandler implements KeyListener{
         		gp.startTimer();
         	}
         	if(gp.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
-        		gp.gameState = GameState.RUNNING_GAME;
-        		gp.setGame();
-        		gp.startTimer();
+        		this.selectingMapPath(this.mapPath);
         	}
         	if(gp.pause.cmd == 3 && code == KeyEvent.VK_ENTER) {
         		gp.gameState = GameState.START_MENU;
@@ -260,6 +259,7 @@ public class KeyHandler implements KeyListener{
     }
     
     private void selectingMapPath(String mapPath) {
+    	this.mapPath = mapPath;
 		gp.playSoundEffect(0);
 		gp.setMap(mapPath);
 		gp.resetLoader();
