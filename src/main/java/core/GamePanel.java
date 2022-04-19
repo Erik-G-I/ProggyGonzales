@@ -133,6 +133,7 @@ public class GamePanel extends JPanel implements Runnable{
     	pause = new Paused(this);
     	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
+        
     }
 
     public GamePanel(String mapPath) {

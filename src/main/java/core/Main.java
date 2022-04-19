@@ -22,6 +22,8 @@ public class Main {
         window.setVisible(true);
         
         gamePanel.startGameThread();
+        gamePanel.playMusic(8);
+        
         
     }
 
