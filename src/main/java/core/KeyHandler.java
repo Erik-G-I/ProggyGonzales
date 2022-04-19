@@ -67,7 +67,9 @@ public class KeyHandler implements KeyListener{
             }
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0) {
+                	gp.stopMusic();
                 	gp.playSoundEffect(0);
+                	gp.playMusic(7);
                     gp.gameState = GameState.RUNNING_GAME;
                     gp.startTimer();
                 }
@@ -141,13 +143,22 @@ public class KeyHandler implements KeyListener{
         		}
         	}
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
+            	gp.stopMusic();
+            	gp.playSoundEffect(0);
+            	gp.playMusic(7);
             	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
             	gp.startTimer();
             }
             if (gp.getGameOverObj().cmd == 2 && code == KeyEvent.VK_ENTER) {
-                gp.setGame();
+            	gp.stopMusic();
+            	gp.playSoundEffect(0);
+            	gp.playMusic(8);
                 gp.gameState = GameState.START_MENU;
+                gp.setGame();
+                
+            	
+                
             }
         }
 
@@ -187,15 +198,23 @@ public class KeyHandler implements KeyListener{
         		}
         	}
         	if(gp.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		gp.playSoundEffect(0);
         		gp.gameState = GameState.RUNNING_GAME;
+        		
         		gp.startTimer();
         	}
         	if(gp.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
+        		gp.stopMusic();
+        		gp.playSoundEffect(0);
+        		gp.playMusic(7);
         		gp.gameState = GameState.RUNNING_GAME;
         		gp.setGame();
         		gp.startTimer();
         	}
         	if(gp.pause.cmd == 3 && code == KeyEvent.VK_ENTER) {
+        		gp.stopMusic();
+        		gp.playSoundEffect(0);
+        		gp.playMusic(8);
         		gp.gameState = GameState.START_MENU;
         		gp.setGame();
         	}
