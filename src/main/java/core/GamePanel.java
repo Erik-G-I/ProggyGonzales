@@ -17,6 +17,7 @@ import gameState.GameState;
 import gameState.InfoScreen;
 import gameState.LanguageScreen;
 import gameState.Languages;
+import gameState.LevelsMenu;
 import gameState.Paused;
 import gameState.StartMenu;
 import sound.Sound;
@@ -96,6 +97,9 @@ public class GamePanel extends JPanel implements Runnable{
     //Pause menu
     public Paused pause;
     
+    //Levels menu
+    public LevelsMenu levels;
+    
     //Show controls
     public GameControls ctrls;
     
@@ -126,8 +130,7 @@ public class GamePanel extends JPanel implements Runnable{
     public LanguageScreen lS;
     
     public void setGame() {
-    	//setter mappet som skal spilles
-    	setMap(mapPath);
+    	
     	bg = new Background(this, keyH);
     	
     	//setter player state til normal før nytt player objekt blir laget
@@ -137,8 +140,6 @@ public class GamePanel extends JPanel implements Runnable{
     	//get the language chosen by player
     	lang = getLang();
     	
-    	//loader mappet fra en tekstfil
-    	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
     	gO = new GameOver(this);
@@ -147,11 +148,13 @@ public class GamePanel extends JPanel implements Runnable{
     	pause = new Paused(this);
     	lS = new LanguageScreen(this);
     	ctrls = new GameControls(this);
+    	levels = new LevelsMenu(this);
         collisionChecker = new CollisionCheck(this);
     }
 
     public GamePanel(String mapPath) {
     	this.mapPath = mapPath;
+    	//setter mappet som skal spilles
     	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
       //  this.setBackground(Color.DARK_GRAY);
@@ -159,6 +162,8 @@ public class GamePanel extends JPanel implements Runnable{
         this.addKeyListener(keyH);
         this.setFocusable(true);
         gameState = GameState.LANGUAGE_MENU;
+    	//loader mappet fra en tekstfil
+    	loader =  new TileLoader(this, is);
         setGame();
     }
     
@@ -192,6 +197,11 @@ public class GamePanel extends JPanel implements Runnable{
     public void setMap(String mapPath) {
     	is = getClass().getResourceAsStream(mapPath);
     }
+    
+	public void resetLoader() {
+    	loader =  new TileLoader(this, is);
+	}
+    
     
     public void run() {
         double drawInterval = 1000000000/FPS;
@@ -286,6 +296,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if(gameState == GameState.LANGUAGE_MENU) {
         	lS.draw(g2);
+        }
+        else if (gameState == GameState.LEVELS_MENU) {
+        	levels.draw(g2);
         }
         else {
             timerDisplay.draw(g2);

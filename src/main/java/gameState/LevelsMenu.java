@@ -40,25 +40,25 @@ public class LevelsMenu extends DisplayText{
 			g2.drawString(s1, centerText(s1), gp.tileSize*2);
 			
 			this.draw(50);
-			s2 = "Map name1";
+			s2 = "powerUptestingMap";
 			g2.drawString(s2, centerText(s2), gp.tileSize*5);
 			if (cmd == 1) {
 				g2.drawString(">", centerText(s2)-gp.tileSize, gp.tileSize*5);
 			}
 
-			s3 = "Map name2";
+			s3 = "gameMap";
 			g2.drawString(s3, centerText(s3), gp.tileSize*6);
 			if (cmd == 2) {
 				g2.drawString(">", centerText(s3)-gp.tileSize, gp.tileSize*6);
 			}
 
-			s4 = "Map name3";
+			s4 = "testingMap";
 			g2.drawString(s4, centerText(s4), gp.tileSize*7);
 			if (cmd == 3) {
 				g2.drawString(">", centerText(s4)-gp.tileSize, gp.tileSize*7);
 			}
 			
-			g2.drawString(s5, centerText(s5)-350, gp.tileSize*10);
+			g2.drawString(s5, centerText(s5), gp.tileSize*10);
 		}
 	}
 
