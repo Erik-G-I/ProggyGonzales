@@ -1,6 +1,7 @@
 package core;
 
 import gameState.GameState;
+import gameState.Languages;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,6 +24,33 @@ public class KeyHandler implements KeyListener{
     public void keyPressed(KeyEvent e) {
         
         int code = e.getKeyCode();
+        
+        if (gp.gameState == GameState.LANGUAGE_MENU) {
+        	if (code == KeyEvent.VK_LEFT) {
+        		gp.playSoundEffect(0);
+        		gp.lS.cmd--;
+        		if(gp.lS.cmd<1) {
+        			gp.lS.cmd = 1;
+        		}
+        	}
+        	if (code == KeyEvent.VK_RIGHT) {
+        		gp.playSoundEffect(0);
+        		gp.lS.cmd++;
+        		if(gp.lS.cmd > 2) {
+        			gp.lS.cmd = 2;
+        		}
+        	}
+        	if (gp.lS.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		gp.setLang(Languages.ENGLISH);
+        		code = KeyEvent.KEY_RELEASED;
+        		gp.gameState = GameState.START_MENU;
+        	}
+        	if (gp.lS.cmd == 2 && code == KeyEvent.VK_ENTER) {
+        		gp.setLang(Languages.NORWEGIAN);
+        		code = KeyEvent.KEY_RELEASED;
+        		gp.gameState = GameState.START_MENU;
+        	}
+        }
 
         if (gp.gameState == GameState.START_MENU) {
             if (code == KeyEvent.VK_DOWN) {
