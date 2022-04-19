@@ -109,12 +109,16 @@ public class KeyHandler implements KeyListener{
         		gp.gameState = GameState.START_MENU;
         	}
         	if (code == KeyEvent.VK_ENTER) {
+        		gp.playMusic(7);
         		if (gp.levels.cmd == 1) {
         			selectingMapPath("/maps/powerUptestingMap.txt");
         			
         		}
         		if (gp.levels.cmd == 2) {
+        			gp.stopMusic();
+        			gp.playSoundEffect(0);
         			selectingMapPath("/maps/gameMap.txt");
+        			gp.playMusic(7);
         			
         		}
         		if (gp.levels.cmd == 3) {
