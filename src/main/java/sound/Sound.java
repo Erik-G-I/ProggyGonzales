@@ -18,6 +18,7 @@ public class Sound {
 		soundURL[3] = getClass().getResource("/audio/sfx_movement_jump2.wav");
 		soundURL[4] = getClass().getResource("/audio/sfx_sounds_fanfare1.wav");
 		soundURL[5] = getClass().getResource("/audio/sfx_sound_shutdown2.wav");
+		soundURL[6] = getClass().getResource("/audio/sfx_sounds_fanfare1_reverse.wav");
 	}
 	
 	public void setFile(int i) {
