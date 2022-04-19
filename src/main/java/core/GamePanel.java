@@ -15,6 +15,8 @@ import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
 import gameState.InfoScreen;
+import gameState.LanguageScreen;
+import gameState.Languages;
 import gameState.Paused;
 import gameState.StartMenu;
 import sound.Sound;
@@ -112,7 +114,16 @@ public class GamePanel extends JPanel implements Runnable{
     	return out;
     }
     
-
+    private Languages lang;
+    public Languages getLang() {
+    	return lang;
+    }
+    
+    public void setLang(Languages lang) {
+    	this.lang = lang;
+    }
+    
+    public LanguageScreen lS;
     
     public void setGame() {
     	//setter mappet som skal spilles
@@ -123,6 +134,9 @@ public class GamePanel extends JPanel implements Runnable{
         playerState = PlayerState.NORMAL;
     	player = new Player(this, keyH);
     	
+    	//get the language chosen by player
+    	lang = getLang();
+    	
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
@@ -131,6 +145,7 @@ public class GamePanel extends JPanel implements Runnable{
     	menu = new StartMenu(this);
     	info = new InfoScreen(this);
     	pause = new Paused(this);
+    	lS = new LanguageScreen(this);
     	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
     }
@@ -143,7 +158,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        gameState = GameState.START_MENU;
+        gameState = GameState.LANGUAGE_MENU;
         setGame();
     }
     
@@ -268,6 +283,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if(gameState == GameState.GAME_CONTROLS) {
         	ctrls.draw(g2);
+        }
+        else if(gameState == GameState.LANGUAGE_MENU) {
+        	lS.draw(g2);
         }
         else {
             timerDisplay.draw(g2);

@@ -30,6 +30,19 @@ public class GameOver extends DisplayText{
 		this.setGraphics(g2);
 		this.setGp(gp);
 		
+		String s1, s2, s3;
+		
+		if(gp.getLang() == Languages.NORWEGIAN) {
+			s1 = "Prøv på nytt?";
+			s2 = "Ja";
+			s3 = "Nei";
+		}
+		else {
+			s1 = "Restart?";
+			s2 = "Yes";
+			s3 = "No";
+		}
+		
 		this.draw(200);
 		if (isGameOver == true || isOutOfBounds == true) {
 			
@@ -50,20 +63,18 @@ public class GameOver extends DisplayText{
 			g2.drawString(overStr, centerText(overStr), gp.tileSize*5+10);
 			
 			g2.setColor(Color.WHITE);
-			this.draw(100);
-			String restartStr = "Restart?";
-			g2.drawString(restartStr, centerText(restartStr), gp.tileSize*7);
+			this.draw(65);
+			g2.drawString(s1, centerText(s1), gp.tileSize*7);
 			
+			this.draw(55);
 			g2.setColor(Color.WHITE);
-			String yes = "yes";
-			g2.drawString(yes, widthOfScreen / 5, 500);
+			
+			g2.drawString(s2, widthOfScreen / 5, 500);
 			if (cmd == 1) {
 				g2.drawString(">", widthOfScreen / 5 - 40, 500);
 			}
 			
-			g2.setColor(Color.WHITE);
-			String no = "no";
-			g2.drawString(no, widthOfScreen / 2 + 200, 500);
+			g2.drawString(s3, widthOfScreen / 2 + 200, 500);
 			if (cmd == 2) {
 				g2.drawString(">", widthOfScreen / 2 + 160, 500);
 			}
