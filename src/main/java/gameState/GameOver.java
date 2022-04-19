@@ -13,6 +13,7 @@ public class GameOver extends DisplayText{
 	Font font;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
+	boolean gameOverMusic = false;
 	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
@@ -32,6 +33,13 @@ public class GameOver extends DisplayText{
 		
 		this.draw(200);
 		if (isGameOver == true || isOutOfBounds == true) {
+			gp.gameState = GameState.GAME_OVER;
+			if(gameOverMusic == false) {
+				gp.stopMusic();
+				gp.playSoundEffect(5);
+				gp.playMusic(9);
+				gameOverMusic = true;
+			}
 			
 			Color transparentRed = new Color(0, 0, 0, 200);
 			g2.setColor(transparentRed);
@@ -79,6 +87,7 @@ public class GameOver extends DisplayText{
 	}
 	
 	public void restart() {
+		gameOverMusic = false;
 		gp.setGame();
 	}
 }

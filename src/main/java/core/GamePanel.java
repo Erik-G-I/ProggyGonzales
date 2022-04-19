@@ -59,7 +59,8 @@ public class GamePanel extends JPanel implements Runnable{
     public TileLoader loader;
     
     //audio
-    private Sound sound = new Sound();
+    private Sound music = new Sound();
+    private Sound soundEffect = new Sound();
     
     //Game Thread
     private Thread gameThread;
@@ -78,7 +79,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void truePowerUpTimer() {
     	timerDisplay.startPowerUpTimerTrue();
     }
-    
+   
     //Score
     private Score score;
 
@@ -281,15 +282,15 @@ public class GamePanel extends JPanel implements Runnable{
     
     
     public void playMusic(int i) {
-    	sound.setFile(i);
-    	sound.play();
-    	sound.loop();
+    	music.setFile(i);
+    	music.play();
+    	music.loop();
     }
     public void stopMusic() {
-    	sound.stop();
+    	music.stop();
     }
     public void playSoundEffect(int i) {
-    	sound.setFile(i);
-    	sound.play();
+    	soundEffect.setFile(i);
+    	soundEffect.play();
     }
 }

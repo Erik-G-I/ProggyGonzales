@@ -23,8 +23,6 @@ public class Main {
         
         gamePanel.startGameThread();
         gamePanel.playMusic(8);
-        
-        
     }
 
 }
