@@ -8,5 +8,6 @@ public enum GameState {
     GAME_OVER,
     INFO_SCREEN,
     PAUSED_GAME,
-    GAME_CONTROLS
+    GAME_CONTROLS,
+    LEVELS_MENU
 }
