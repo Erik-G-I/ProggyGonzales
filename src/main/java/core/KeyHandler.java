@@ -2,6 +2,7 @@ package core;
 
 import gameState.GameState;
 import gameState.Languages;
+import tile.TileLoader;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -68,8 +69,7 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.commandNum == 0) {
                 	gp.playSoundEffect(0);
-                    gp.gameState = GameState.RUNNING_GAME;
-                    gp.startTimer();
+                    gp.gameState = GameState.LEVELS_MENU;
                 }
                 if (gp.menu.commandNum == 1) {
                 	gp.playSoundEffect(0);
@@ -86,6 +86,41 @@ public class KeyHandler implements KeyListener{
                     System.exit(0);
                 }
             }
+            code = KeyEvent.KEY_RELEASED;
+        }
+        
+        if (gp.gameState == GameState.LEVELS_MENU) {
+        	if (code == KeyEvent.VK_DOWN) {
+        		gp.playSoundEffect(0);
+        		gp.levels.cmd++;
+        		if (gp.levels.cmd > 3) {
+        			gp.levels.cmd = 3;
+        		}
+        	}
+        	if (code == KeyEvent.VK_UP) {
+        		gp.playSoundEffect(0);
+        		gp.levels.cmd--;
+        		if (gp.levels.cmd < 1) {
+        			gp.levels.cmd = 1;
+        		}
+        	}
+        	if (code == KeyEvent.VK_ESCAPE) {
+        		gp.gameState = GameState.START_MENU;
+        	}
+        	if (code == KeyEvent.VK_ENTER) {
+        		if (gp.levels.cmd == 1) {
+        			selectingMapPath("/maps/powerUptestingMap.txt");
+        			
+        		}
+        		if (gp.levels.cmd == 2) {
+        			selectingMapPath("/maps/gameMap.txt");
+        			
+        		}
+        		if (gp.levels.cmd == 3) {
+        			selectingMapPath("/maps/testingMap.txt");
+        		}
+        	}
+        	code = KeyEvent.KEY_RELEASED;
         }
 
         if (gp.gameState == GameState.INFO_SCREEN) {
@@ -126,7 +161,6 @@ public class KeyHandler implements KeyListener{
         	gp.gameState = GameState.GAME_OVER;
         	if(code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
-        		leftPressed = true;
         		gp.getGameOverObj().cmd--;
         		if(gp.getGameOverObj().cmd<1) {
         			gp.getGameOverObj().cmd = 1;
@@ -134,7 +168,6 @@ public class KeyHandler implements KeyListener{
         	}
         	if(code==KeyEvent.VK_RIGHT) {
         		gp.playSoundEffect(0);
-        		rightPressed = true;
         		gp.getGameOverObj().cmd++;
         		if(gp.getGameOverObj().cmd>2) {
         			gp.getGameOverObj().cmd = 2;
@@ -224,6 +257,15 @@ public class KeyHandler implements KeyListener{
         }
          
         
+    }
+    
+    private void selectingMapPath(String mapPath) {
+		gp.playSoundEffect(0);
+		gp.setMap(mapPath);
+		gp.resetLoader();
+		gp.setGame();
+		gp.gameState = GameState.RUNNING_GAME;
+		gp.startTimer();
     }
 
 }
