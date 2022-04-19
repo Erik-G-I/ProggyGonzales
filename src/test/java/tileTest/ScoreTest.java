@@ -39,7 +39,7 @@ public class ScoreTest {
         }
         int newMoney = gp.collisionChecker.coins;
         assertEquals(0, gp.loader.numOfTiles[1][8]);
-        assertEquals(100, newMoney, "Coin did not disappear when Proggy tried to pick it up");
+        assertEquals(10, newMoney, "Coin did not disappear when Proggy tried to pick it up");
     }
     
     
@@ -50,7 +50,7 @@ public class ScoreTest {
             keyH.rightPressed = true;
             p.update();
         }
-        assertEquals( 100, gp.collisionChecker.coins);
+        assertEquals( 10, gp.collisionChecker.coins);
     }
 }
 
