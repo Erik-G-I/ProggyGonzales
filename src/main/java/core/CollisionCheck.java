@@ -5,20 +5,31 @@ import entity.PlayerState;
 
 public class CollisionCheck {
     GamePanel gp;
-    private boolean pickedUpPowerUp = false;
-
-
-    public CollisionCheck(GamePanel gp) {
-        this.gp = gp;
-    }
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
     public int coins = 0;
     
     private boolean outOfBounds = false;
+    private boolean pickedUpPowerUp = false;
+    private boolean pickedBeer = false;
+
+    public CollisionCheck(GamePanel gp) {
+        this.gp = gp;
+    }
+
+    
     public boolean isOutOfBounds() {
     	return outOfBounds;
+    }
+    
+    
+    public boolean getPickedBeer() {
+    	return pickedBeer;
+    }
+    
+    public void setpickedBeerFalse() {
+    	pickedBeer = false;
     }
 
     /**
@@ -125,6 +136,25 @@ public class CollisionCheck {
 
         }
     }
+    
+    /**
+     * 
+     * @param x1 x-value of first corner
+     * @param y1 y-value of first corner
+     * @param x2 x-value of second corner
+     * @param y2 y-value of second corner
+     * Picks up Beer to end the game only when the player has enough coins to win
+     */
+    private void pickUpBeer(int x1, int y1, int x2, int y2) {
+    	if(coins >= 100) {
+    	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
+    		gp.setPlayerState(PlayerState.NORMAL);
+    		gp.playSoundEffect(4);
+    		pickedBeer = true;
+    		
+    	}
+    	}
+    }
 
     /**
      * Tries to pick up for all possible pickable objects.
@@ -139,6 +169,7 @@ public class CollisionCheck {
         pickUpShoes(x1, y1, x2, y2);
         looseMoney(x1, y1, x2, y2);
         pickUpScooter(x1, y1, x2, y2);
+        pickUpBeer(x1, y1, x2, y2);
     }
 
     public boolean getPickedUpPowerUp() {

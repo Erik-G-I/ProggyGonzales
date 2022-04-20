@@ -210,9 +210,20 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
             }
-            if((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
+            if ((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
+            if (gp.collisionChecker.getPickedBeer()) {
+            	gp.gameState = GameState.WIN_SCREEN;
+            }
+        }
+        
+        if (gp.gameState == GameState.WIN_SCREEN) {
+        	gp.stopMusic();
+        	if (code == KeyEvent.VK_ESCAPE) {
+        		gp.gameState = GameState.START_MENU;
+        		gp.setGame();
+        	}
         }
         
         if (gp.gameState == GameState.PAUSED_GAME) {
@@ -247,6 +258,7 @@ public class KeyHandler implements KeyListener{
         		gp.gameState = GameState.START_MENU;
         		gp.setGame();
         	}
+        	code = KeyEvent.VK_ESCAPE;
         }
     }
 
