@@ -291,6 +291,10 @@ public class KeyHandler implements KeyListener{
         
     }
     
+    /**
+     * This method is to avoid duplicate writing of the same code for all levels
+     * @param mapPath
+     */
     private void selectingMapPath(String mapPath) {
     	this.mapPath = mapPath;
 		gp.playSoundEffect(0);
