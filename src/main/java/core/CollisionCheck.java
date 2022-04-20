@@ -2,6 +2,7 @@ package core;
 
 import entity.Entity;
 import entity.PlayerState;
+import gameState.GameState;
 
 public class CollisionCheck {
     GamePanel gp;
@@ -21,15 +22,6 @@ public class CollisionCheck {
     
     public boolean isOutOfBounds() {
     	return outOfBounds;
-    }
-    
-    
-    public boolean getPickedBeer() {
-    	return pickedBeer;
-    }
-    
-    public void setpickedBeerFalse() {
-    	pickedBeer = false;
     }
 
     /**
@@ -148,9 +140,9 @@ public class CollisionCheck {
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
     	if(coins >= 100) {
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
-    		gp.setPlayerState(PlayerState.NORMAL);
     		gp.playSoundEffect(4);
     		pickedBeer = true;
+            	gp.gameState = GameState.WIN_SCREEN;
     		
     	}
     	}

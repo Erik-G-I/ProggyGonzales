@@ -18,13 +18,15 @@ public class WinScreen extends GameScreen{
 		@Override
 		public void draw(Graphics g2) {
 			
-			String s1;
+			String s1, s2;
 			
 			if (gp.getLang() == Languages.NORWEGIAN) {
 				s1 = "Neste";
+				s2 = "Du vant!!";
 			}
 			else {
 				s1 = "Next";
+				s2 = "You won!!";
 			}
 			
 			this.setGp(gp);
@@ -37,6 +39,9 @@ public class WinScreen extends GameScreen{
 			
 			this.draw(50);
 			g2.setColor(Color.WHITE);
+			
+			g2.drawString(s2, centerText(s2), gp.tileSize*3);
+			
 			g2.drawString(s1, centerText(s1)-100, gp.tileSize*10);
 			g2.drawString(">", centerText(">")-200, gp.tileSize*10);
 			
