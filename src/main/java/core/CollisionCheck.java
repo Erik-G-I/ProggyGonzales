@@ -13,7 +13,7 @@ public class CollisionCheck {
     
     private boolean outOfBounds = false;
     private boolean pickedUpPowerUp = false;
-    private boolean pickedBeer = false;
+ 
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -141,7 +141,6 @@ public class CollisionCheck {
     	if(coins >= 100) {
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
     		gp.playSoundEffect(4);
-    		pickedBeer = true;
             	gp.gameState = GameState.WIN_SCREEN;
     		
     	}
