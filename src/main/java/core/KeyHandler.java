@@ -213,12 +213,16 @@ public class KeyHandler implements KeyListener{
             if ((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
-            if (gp.collisionChecker.getPickedBeer()) {
-            	gp.gameState = GameState.WIN_SCREEN;
-            }
         }
         
         if (gp.gameState == GameState.WIN_SCREEN) {
+        	if (code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.WIN_SCREEN2;
+        	}
+        	code = KeyEvent.KEY_RELEASED;
+        }
+        
+        if (gp.gameState == GameState.WIN_SCREEN2) {
         	gp.stopMusic();
         	if (code == KeyEvent.VK_ESCAPE) {
         		gp.gameState = GameState.START_MENU;
