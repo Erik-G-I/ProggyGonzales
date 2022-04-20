@@ -20,6 +20,10 @@ public class CollisionCheck {
     }
 
     
+    /**
+     * Returns outOfBounds boolean check
+     * @return
+     */
     public boolean isOutOfBounds() {
     	return outOfBounds;
     }
