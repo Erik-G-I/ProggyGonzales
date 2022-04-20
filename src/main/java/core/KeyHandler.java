@@ -292,7 +292,7 @@ public class KeyHandler implements KeyListener{
     }
     
     /**
-     * This method is to avoid duplicate writing of the same code for all levels
+     * This method is to avoid writing duplicate code for all levels
      * @param mapPath
      */
     private void selectingMapPath(String mapPath) {
