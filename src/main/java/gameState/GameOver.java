@@ -97,6 +97,5 @@ public class GameOver extends GameScreen {
 	
 	public void restart() {
 		gameOverMusic = false;
-		gp.setGame();
 	}
 }

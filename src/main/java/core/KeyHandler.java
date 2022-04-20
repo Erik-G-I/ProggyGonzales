@@ -182,19 +182,17 @@ public class KeyHandler implements KeyListener{
             	gp.stopMusic();
             	gp.playSoundEffect(0);
             	gp.playMusic(7);
-            	gp.gameState = GameState.RUNNING_GAME;
+            	this.selectingMapPath(mapPath);
+//            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
-            	gp.startTimer();
+//            	gp.startTimer();
             }
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
             	gp.stopMusic();
             	gp.playSoundEffect(0);
             	gp.playMusic(8);
                 gp.gameState = GameState.START_MENU;
-                gp.setGame();
-                
-            	
-                
+                gp.setGame();   
             }
         }
 
