@@ -6,7 +6,6 @@ import javax.swing.Timer;
 
 import core.GamePanel;
 import entity.PlayerState;
-import gameState.GameState;
 
 public class Time implements ActionListener{
 	
@@ -65,7 +64,7 @@ public class Time implements ActionListener{
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
-					gp.setPLayerState(PlayerState.NORMAL);
+					gp.setPlayerState(PlayerState.NORMAL);
 					gp.playSoundEffect(6);
 					System.out.println("normal speed");
 				}

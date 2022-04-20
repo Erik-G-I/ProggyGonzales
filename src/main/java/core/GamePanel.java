@@ -20,6 +20,8 @@ import gameState.Languages;
 import gameState.LevelsMenu;
 import gameState.Paused;
 import gameState.StartMenu;
+import gameState.WinScreen;
+import gameState.WinScreen2;
 import sound.Sound;
 import tile.TileLoader;
 import timer.TimerDisplay;
@@ -129,6 +131,8 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public LanguageScreen lS;
+    private WinScreen2 wS2;
+    private WinScreen wS;
     
     public void setGame() {
     	
@@ -150,6 +154,8 @@ public class GamePanel extends JPanel implements Runnable{
     	lS = new LanguageScreen(this);
     	ctrls = new GameControls(this);
     	levels = new LevelsMenu(this);
+    	wS = new WinScreen(this);
+    	wS2 = new WinScreen2(this);
         collisionChecker = new CollisionCheck(this);
         
     }
@@ -305,6 +311,12 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if (gameState == GameState.LEVELS_MENU) {
         	levels.draw(g2);
+        }
+        else if (gameState == GameState.WIN_SCREEN) {
+        	wS.draw(g2);
+        }
+        else if (gameState == GameState.WIN_SCREEN2) {
+        	wS2.draw(g2);
         }
         else {
             timerDisplay.draw(g2);

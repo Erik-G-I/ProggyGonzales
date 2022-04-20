@@ -182,19 +182,17 @@ public class KeyHandler implements KeyListener{
             	gp.stopMusic();
             	gp.playSoundEffect(0);
             	gp.playMusic(7);
-            	gp.gameState = GameState.RUNNING_GAME;
+            	this.selectingMapPath(mapPath);
+//            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
-            	gp.startTimer();
+//            	gp.startTimer();
             }
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
             	gp.stopMusic();
             	gp.playSoundEffect(0);
             	gp.playMusic(8);
                 gp.gameState = GameState.START_MENU;
-                gp.setGame();
-                
-            	
-                
+                gp.setGame();   
             }
         }
 
@@ -212,9 +210,25 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
             }
-            if((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
+            if ((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
+        }
+        
+        if (gp.gameState == GameState.WIN_SCREEN) {
+        	if (code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.WIN_SCREEN2;
+        	}
+        	code = KeyEvent.KEY_RELEASED;
+        }
+        
+        if (gp.gameState == GameState.WIN_SCREEN2) {
+        	if (code == KeyEvent.VK_ESCAPE) {
+        		gp.stopMusic();
+        		gp.setGame();
+        		gp.gameState = GameState.START_MENU;
+        		gp.playMusic(8);
+        	}
         }
         
         if (gp.gameState == GameState.PAUSED_GAME) {
@@ -249,6 +263,7 @@ public class KeyHandler implements KeyListener{
         		gp.gameState = GameState.START_MENU;
         		gp.setGame();
         	}
+        	code = KeyEvent.VK_ESCAPE;
         }
     }
 
@@ -276,6 +291,10 @@ public class KeyHandler implements KeyListener{
         
     }
     
+    /**
+     * This method is to avoid writing duplicate code for all levels
+     * @param mapPath
+     */
     private void selectingMapPath(String mapPath) {
     	this.mapPath = mapPath;
 		gp.playSoundEffect(0);

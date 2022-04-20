@@ -2,13 +2,9 @@ package tile;
 
 
 import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import entity.Player;
 
 import javax.imageio.ImageIO;
 
@@ -133,7 +129,8 @@ public class TileLoader {
 			tiles[15].image = ImageIO.read(getClass().getResourceAsStream("/tiles/transparent.png"));
 			tiles[15].collission = true;
 
-
+			tiles[16] = new Tile();
+			tiles[16].image = ImageIO.read(getClass().getResourceAsStream("/graphics/winBeer.png"));
 
 
 
