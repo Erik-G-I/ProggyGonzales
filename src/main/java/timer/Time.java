@@ -6,7 +6,6 @@ import javax.swing.Timer;
 
 import core.GamePanel;
 import entity.PlayerState;
-import gameState.GameState;
 
 public class Time implements ActionListener{
 	
