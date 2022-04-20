@@ -15,6 +15,9 @@ import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
 import gameState.InfoScreen;
+import gameState.LanguageScreen;
+import gameState.Languages;
+import gameState.LevelsMenu;
 import gameState.Paused;
 import gameState.StartMenu;
 import sound.Sound;
@@ -59,7 +62,8 @@ public class GamePanel extends JPanel implements Runnable{
     public TileLoader loader;
     
     //audio
-    private Sound sound = new Sound();
+    private Sound music = new Sound();
+    private Sound soundEffect = new Sound();
     
     //Game Thread
     private Thread gameThread;
@@ -78,7 +82,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void truePowerUpTimer() {
     	timerDisplay.startPowerUpTimerTrue();
     }
-    
+   
     //Score
     private Score score;
 
@@ -93,6 +97,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Pause menu
     public Paused pause;
+    
+    //Levels menu
+    public LevelsMenu levels;
     
     //Show controls
     public GameControls ctrls;
@@ -112,38 +119,53 @@ public class GamePanel extends JPanel implements Runnable{
     	return out;
     }
     
-
+    private Languages lang;
+    public Languages getLang() {
+    	return lang;
+    }
+    
+    public void setLang(Languages lang) {
+    	this.lang = lang;
+    }
+    
+    public LanguageScreen lS;
     
     public void setGame() {
-    	//setter mappet som skal spilles
-    	setMap(mapPath);
+    	
     	bg = new Background(this, keyH);
     	
     	//setter player state til normal før nytt player objekt blir laget
         playerState = PlayerState.NORMAL;
     	player = new Player(this, keyH);
     	
-    	//loader mappet fra en tekstfil
-    	loader =  new TileLoader(this, is);
+    	//get the language chosen by player
+    	lang = getLang();
+    	
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
     	gO = new GameOver(this);
     	menu = new StartMenu(this);
     	info = new InfoScreen(this);
     	pause = new Paused(this);
+    	lS = new LanguageScreen(this);
     	ctrls = new GameControls(this);
+    	levels = new LevelsMenu(this);
         collisionChecker = new CollisionCheck(this);
+        
     }
 
     public GamePanel(String mapPath) {
     	this.mapPath = mapPath;
+    	//setter mappet som skal spilles
     	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
       //  this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        gameState = GameState.START_MENU;
+        gameState = GameState.LANGUAGE_MENU;
+    	//loader mappet fra en tekstfil
+    	loader =  new TileLoader(this, is);
         setGame();
     }
     
@@ -177,6 +199,15 @@ public class GamePanel extends JPanel implements Runnable{
     public void setMap(String mapPath) {
     	is = getClass().getResourceAsStream(mapPath);
     }
+    
+    public String getMapPath() {
+    	return mapPath;
+    }
+    
+	public void resetLoader() {
+    	loader =  new TileLoader(this, is);
+	}
+    
     
     public void run() {
         double drawInterval = 1000000000/FPS;
@@ -269,6 +300,12 @@ public class GamePanel extends JPanel implements Runnable{
         else if(gameState == GameState.GAME_CONTROLS) {
         	ctrls.draw(g2);
         }
+        else if(gameState == GameState.LANGUAGE_MENU) {
+        	lS.draw(g2);
+        }
+        else if (gameState == GameState.LEVELS_MENU) {
+        	levels.draw(g2);
+        }
         else {
             timerDisplay.draw(g2);
             score.draw(g2);
@@ -280,15 +317,15 @@ public class GamePanel extends JPanel implements Runnable{
     
     
     public void playMusic(int i) {
-    	sound.setFile(i);
-    	sound.play();
-    	sound.loop();
+    	music.setFile(i);
+    	music.play();
+    	music.loop();
     }
     public void stopMusic() {
-    	sound.stop();
+    	music.stop();
     }
     public void playSoundEffect(int i) {
-    	sound.setFile(i);
-    	sound.play();
+    	soundEffect.setFile(i);
+    	soundEffect.play();
     }
 }

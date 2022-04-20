@@ -18,6 +18,10 @@ public class Sound {
 		soundURL[3] = getClass().getResource("/audio/sfx_movement_jump2.wav");
 		soundURL[4] = getClass().getResource("/audio/sfx_sounds_fanfare1.wav");
 		soundURL[5] = getClass().getResource("/audio/sfx_sound_shutdown2.wav");
+		soundURL[6] = getClass().getResource("/audio/sfx_sounds_fanfare1_reverse.wav");
+		soundURL[7] = getClass().getResource("/audio/juhani_junkala_retro_bg_music.wav");
+		soundURL[8] = getClass().getResource("/audio/juhani_junkala_title_screen_music.wav");
+		soundURL[9] = getClass().getResource("/audio/juhani_junkala_game_over.wav");
 	}
 	
 	public void setFile(int i) {
@@ -41,5 +45,6 @@ public class Sound {
 	}
 	public void stop() {
 		clip.stop();
+		
 	}
 }

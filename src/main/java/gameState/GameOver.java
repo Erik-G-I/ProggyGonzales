@@ -6,14 +6,12 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class GameOver extends DisplayText{
+public class GameOver extends GameScreen {
 
-	GamePanel gp;
 	int widthOfScreen;
-	Font font;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
-	public int cmd = 1;
+	boolean gameOverMusic = false;
 	
 	public GameOver(GamePanel gp) {
 		this.gp = gp;
@@ -24,14 +22,35 @@ public class GameOver extends DisplayText{
 		isGameOver = gp.getGameOver();
 		isOutOfBounds = gp.getOutOfBounds();
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		
 		this.setGraphics(g2);
 		this.setGp(gp);
 		
+		String s1, s2, s3;
+		
+		if(gp.getLang() == Languages.NORWEGIAN) {
+			s1 = "Prøv på nytt?";
+			s2 = "Ja";
+			s3 = "Nei";
+		}
+		else {
+			s1 = "Restart?";
+			s2 = "Yes";
+			s3 = "No";
+		}
+		
 		this.draw(200);
 		if (isGameOver == true || isOutOfBounds == true) {
+			gp.gameState = GameState.GAME_OVER;
+			if(gameOverMusic == false) {
+				gp.stopMusic();
+				gp.playSoundEffect(5);
+				gp.playMusic(9);
+				gameOverMusic = true;
+			}
 			
 			Color transparentRed = new Color(0, 0, 0, 200);
 			g2.setColor(transparentRed);
@@ -50,21 +69,19 @@ public class GameOver extends DisplayText{
 			g2.drawString(overStr, centerText(overStr), gp.tileSize*5+10);
 			
 			g2.setColor(Color.WHITE);
-			this.draw(100);
-			String restartStr = "Restart?";
-			g2.drawString(restartStr, centerText(restartStr), gp.tileSize*7);
+			this.draw(65);
+			g2.drawString(s1, centerText(s1), gp.tileSize*7);
 			
+			this.draw(55);
 			g2.setColor(Color.WHITE);
-			String yes = "yes";
-			g2.drawString(yes, widthOfScreen / 5, 500);
-			if (cmd == 1) {
+			
+			g2.drawString(s2, widthOfScreen / 5, 500);
+			if (cmd == 0) {
 				g2.drawString(">", widthOfScreen / 5 - 40, 500);
 			}
 			
-			g2.setColor(Color.WHITE);
-			String no = "no";
-			g2.drawString(no, widthOfScreen / 2 + 200, 500);
-			if (cmd == 2) {
+			g2.drawString(s3, widthOfScreen / 2 + 200, 500);
+			if (cmd == 1) {
 				g2.drawString(">", widthOfScreen / 2 + 160, 500);
 			}
 		}
@@ -79,6 +96,7 @@ public class GameOver extends DisplayText{
 	}
 	
 	public void restart() {
+		gameOverMusic = false;
 		gp.setGame();
 	}
 }

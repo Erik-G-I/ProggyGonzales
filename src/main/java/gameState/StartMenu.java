@@ -6,21 +6,32 @@ import core.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class StartMenu extends DisplayText {
-
-    GamePanel gp;
-    public int commandNum = 0;
-
+public class StartMenu extends GameScreen {
 
     public StartMenu(GamePanel gp) {
         this.gp = gp;
     }
 
-
+    @Override
     public void draw(Graphics g) {
     	
         this.setGp(gp);
         this.setGraphics(g);
+        
+        String s2, s3, s4, s5;
+        
+        if(gp.getLang() == Languages.NORWEGIAN) {
+        	s2 = "Start";
+        	s3 = "Om spillet";
+        	s4 = "Kontroller";
+        	s5 = "Avslutt";
+        }
+        else {
+        	s2 = "Play Game";
+        	s3 = "About";
+        	s4 = "Controls";
+            s5 = "Quit";
+        }
     	
         Color transparent = new Color(0, 0, 0, 0x80); // fourth argument is transparency - try out different values 0x00 - 0xff
         g.setColor(transparent);
@@ -40,28 +51,24 @@ public class StartMenu extends DisplayText {
         this.draw(50);
         g.setColor(Color.WHITE);
 
-        text = "Play Game";
-        g.drawString(text, centerText(text),gp.tileSize*6);
-        if (commandNum == 0) {
-            g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*6);
+        g.drawString(s2, centerText(s2),gp.tileSize*6);
+        if (cmd == 0) {
+            g.drawString(">", centerText(s2)-gp.tileSize,gp.tileSize*6);
         }
 
-        text = "About";
-        g.drawString(text, centerText(text),gp.tileSize*7);
-        if (commandNum == 1) {
-            g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*7);
+        g.drawString(s3, centerText(s3),gp.tileSize*7);
+        if (cmd == 1) {
+            g.drawString(">", centerText(s3)-gp.tileSize,gp.tileSize*7);
         }
         
-        text = "Controls";
-        g.drawString(text, centerText(text), gp.tileSize*8);
-        if(commandNum == 2) {
-        	g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*8);
+        g.drawString(s4, centerText(s4), gp.tileSize*8);
+        if(cmd == 2) {
+        	g.drawString(">", centerText(s4)-gp.tileSize,gp.tileSize*8);
         }
 
-        text = "Quit";
-        g.drawString(text, centerText(text),gp.tileSize*9);
-        if (commandNum == 3) {
-            g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*9);
+        g.drawString(s5, centerText(s5),gp.tileSize*9);
+        if (cmd == 3) {
+            g.drawString(">", centerText(s5)-gp.tileSize,gp.tileSize*9);
         }
 
     }
