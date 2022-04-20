@@ -6,10 +6,7 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class LevelsMenu extends DisplayText{
-	
-		GamePanel gp;
-		public int cmd = 1;
+public class LevelsMenu extends GameScreen {
 		
 		public LevelsMenu(GamePanel gp) {
 			this.gp = gp;
@@ -42,19 +39,19 @@ public class LevelsMenu extends DisplayText{
 			this.draw(50);
 			s2 = "powerUptestingMap";
 			g2.drawString(s2, centerText(s2), gp.tileSize*5);
-			if (cmd == 1) {
+			if (cmd == 0) {
 				g2.drawString(">", centerText(s2)-gp.tileSize, gp.tileSize*5);
 			}
 
 			s3 = "gameMap";
 			g2.drawString(s3, centerText(s3), gp.tileSize*6);
-			if (cmd == 2) {
+			if (cmd == 1) {
 				g2.drawString(">", centerText(s3)-gp.tileSize, gp.tileSize*6);
 			}
 
 			s4 = "testingMap";
 			g2.drawString(s4, centerText(s4), gp.tileSize*7);
-			if (cmd == 3) {
+			if (cmd == 2) {
 				g2.drawString(">", centerText(s4)-gp.tileSize, gp.tileSize*7);
 			}
 			

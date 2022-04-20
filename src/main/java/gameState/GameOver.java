@@ -6,15 +6,12 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class GameOver extends DisplayText{
+public class GameOver extends GameScreen {
 
-	GamePanel gp;
 	int widthOfScreen;
-	Font font;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
 	boolean gameOverMusic = false;
-	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
 		this.gp = gp;
@@ -25,7 +22,8 @@ public class GameOver extends DisplayText{
 		isGameOver = gp.getGameOver();
 		isOutOfBounds = gp.getOutOfBounds();
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		
 		this.setGraphics(g2);
@@ -78,12 +76,12 @@ public class GameOver extends DisplayText{
 			g2.setColor(Color.WHITE);
 			
 			g2.drawString(s2, widthOfScreen / 5, 500);
-			if (cmd == 1) {
+			if (cmd == 0) {
 				g2.drawString(">", widthOfScreen / 5 - 40, 500);
 			}
 			
 			g2.drawString(s3, widthOfScreen / 2 + 200, 500);
-			if (cmd == 2) {
+			if (cmd == 1) {
 				g2.drawString(">", widthOfScreen / 2 + 160, 500);
 			}
 		}
