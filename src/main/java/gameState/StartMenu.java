@@ -6,17 +6,13 @@ import core.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class StartMenu extends DisplayText {
-
-    GamePanel gp;
-    public int commandNum = 0;
-
+public class StartMenu extends GameScreen {
 
     public StartMenu(GamePanel gp) {
         this.gp = gp;
     }
 
-
+    @Override
     public void draw(Graphics g) {
     	
         this.setGp(gp);
@@ -56,22 +52,22 @@ public class StartMenu extends DisplayText {
         g.setColor(Color.WHITE);
 
         g.drawString(s2, centerText(s2),gp.tileSize*6);
-        if (commandNum == 0) {
+        if (cmd == 0) {
             g.drawString(">", centerText(s2)-gp.tileSize,gp.tileSize*6);
         }
 
         g.drawString(s3, centerText(s3),gp.tileSize*7);
-        if (commandNum == 1) {
+        if (cmd == 1) {
             g.drawString(">", centerText(s3)-gp.tileSize,gp.tileSize*7);
         }
         
         g.drawString(s4, centerText(s4), gp.tileSize*8);
-        if(commandNum == 2) {
+        if(cmd == 2) {
         	g.drawString(">", centerText(s4)-gp.tileSize,gp.tileSize*8);
         }
 
         g.drawString(s5, centerText(s5),gp.tileSize*9);
-        if (commandNum == 3) {
+        if (cmd == 3) {
             g.drawString(">", centerText(s5)-gp.tileSize,gp.tileSize*9);
         }
 

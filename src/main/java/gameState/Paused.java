@@ -6,15 +6,13 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class Paused extends DisplayText {
-	
-	GamePanel gp;
-	public int cmd = 1;
+public class Paused extends GameScreen {
 	
 	public Paused(GamePanel gp) {
 		this.gp = gp;
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		this.setGp(gp);
 		this.setGraphics(g2);
@@ -49,17 +47,17 @@ public class Paused extends DisplayText {
 		
 		this.draw(75);
 		g2.drawString(s2, centerText(s2), gp.tileSize*4);
-		if (cmd == 1) {
+		if (cmd == 0) {
 			g2.drawString(str, centerText(str)-175, gp.tileSize*4);
 		}
 		
 		g2.drawString(s3, centerText(s3), gp.tileSize*5);
-		if (cmd == 2) {
+		if (cmd == 1) {
 			g2.drawString(str, centerText(str)-225, gp.tileSize*5);
 		}
 		
 		g2.drawString(s4, centerText(s4), gp.tileSize*6);
-		if (cmd == 3) {
+		if (cmd == 2) {
 			g2.drawString(str, centerText(str)-350, gp.tileSize*6);
 		}
 	}

@@ -10,10 +10,8 @@ import javax.imageio.ImageIO;
 import core.DisplayText;
 import core.GamePanel;
 
-public class LanguageScreen extends DisplayText{
-	
-	GamePanel gp;
-	public int cmd = 1;
+public class LanguageScreen extends GameScreen {
+
 	BufferedImage img1, img2;
 	
 	public LanguageScreen(GamePanel gp) {
@@ -26,7 +24,8 @@ public class LanguageScreen extends DisplayText{
 		}
 		
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		String str;
 		this.setGraphics(g2);
@@ -38,7 +37,7 @@ public class LanguageScreen extends DisplayText{
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		g2.setColor(Color.WHITE);
 		g2.drawImage(img1, 225, gp.tileSize*3, 100, 100, null);
-		if (cmd == 1) {
+		if (cmd == 0) {
 			g2.drawString(">", 150, gp.tileSize*3+75);
 			this.draw(75);
 			str = "Enter - to choose";
@@ -46,7 +45,7 @@ public class LanguageScreen extends DisplayText{
 		}
 		
 		g2.drawImage(img2, 700, gp.tileSize*3, 100, 100, null);
-		if (cmd == 2) {
+		if (cmd == 1) {
 			g2.drawString(">", 650, gp.tileSize*3+75);
 			this.draw(75);
 			str = "Enter - for å velge";
