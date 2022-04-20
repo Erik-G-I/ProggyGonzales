@@ -135,13 +135,13 @@ public class CollisionCheck {
      * @param y1 y-value of first corner
      * @param x2 x-value of second corner
      * @param y2 y-value of second corner
-     * Picks up Beer to end the game only when the player has enough coins to win
+     * Player can pick up the beer and win the game only when the player has enough coins
      */
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
     	if(coins >= 100) { //check for winning
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
     		gp.playSoundEffect(4);
-            	gp.gameState = GameState.WIN_SCREEN;
+            gp.gameState = GameState.WIN_SCREEN; //switches to winning screen
     		gp.stopTimer();
     	}
     	}
