@@ -1,9 +1,7 @@
 package gameState;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
-import core.DisplayText;
 import core.GamePanel;
 
 public class GameOver extends GameScreen {
