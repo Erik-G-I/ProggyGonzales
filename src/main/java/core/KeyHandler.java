@@ -224,8 +224,10 @@ public class KeyHandler implements KeyListener{
         
         if (gp.gameState == GameState.WIN_SCREEN2) {
         	if (code == KeyEvent.VK_ESCAPE) {
-        		gp.gameState = GameState.START_MENU;
+        		gp.stopMusic();
         		gp.setGame();
+        		gp.gameState = GameState.START_MENU;
+        		gp.playMusic(8);
         	}
         }
         
