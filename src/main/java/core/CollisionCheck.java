@@ -138,7 +138,7 @@ public class CollisionCheck {
      * Picks up Beer to end the game only when the player has enough coins to win
      */
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
-    	if(coins >= 100) {
+    	if(coins >= 100) { //check for winning
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
     		gp.playSoundEffect(4);
             	gp.gameState = GameState.WIN_SCREEN;
