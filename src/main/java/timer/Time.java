@@ -80,7 +80,7 @@ public class Time implements ActionListener{
 		return gameOver;
 	}
 	
-	public void setStartPowerUpTimer(boolean startPowerUpTimer) {
+	protected void setStartPowerUpTimer(boolean startPowerUpTimer) {
 		this.startPowerUpTimer = startPowerUpTimer;
 	}
 	
