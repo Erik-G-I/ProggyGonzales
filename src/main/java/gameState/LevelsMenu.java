@@ -2,8 +2,6 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-
-import core.DisplayText;
 import core.GamePanel;
 
 public class LevelsMenu extends GameScreen {
