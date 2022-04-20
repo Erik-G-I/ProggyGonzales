@@ -6,14 +6,13 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class GameControls extends DisplayText{
-
-	GamePanel gp;
+public class GameControls extends GameScreen {
 	
 	public GameControls(GamePanel gp) {
 		this.gp = gp;
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		this.setGp(gp);
 		this.setGraphics(g2);

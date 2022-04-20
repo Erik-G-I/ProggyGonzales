@@ -6,17 +6,14 @@ import core.GamePanel;
 import javax.swing.*;
 import java.awt.*;
 
-public class StartMenu extends DisplayText {
-
-    GamePanel gp;
-    public int commandNum = 0;
-
+public class StartMenu extends GameScreen {
 
     public StartMenu(GamePanel gp) {
         this.gp = gp;
     }
 
 
+    @Override
     public void draw(Graphics g) {
     	
         this.setGp(gp);
@@ -42,25 +39,25 @@ public class StartMenu extends DisplayText {
 
         text = "Play Game";
         g.drawString(text, centerText(text),gp.tileSize*6);
-        if (commandNum == 0) {
+        if (cmd == 0) {
             g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*6);
         }
 
         text = "About";
         g.drawString(text, centerText(text),gp.tileSize*7);
-        if (commandNum == 1) {
+        if (cmd == 1) {
             g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*7);
         }
         
         text = "Controls";
         g.drawString(text, centerText(text), gp.tileSize*8);
-        if(commandNum == 2) {
+        if(cmd == 2) {
         	g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*8);
         }
 
         text = "Quit";
         g.drawString(text, centerText(text),gp.tileSize*9);
-        if (commandNum == 3) {
+        if (cmd == 3) {
             g.drawString(">", centerText(text)-gp.tileSize,gp.tileSize*9);
         }
 

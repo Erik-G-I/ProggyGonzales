@@ -5,15 +5,13 @@ import core.GamePanel;
 
 import java.awt.*;
 
-public class InfoScreen extends DisplayText {
-
-    GamePanel gp;
-    public int c = 0;
+public class InfoScreen extends GameScreen {
 
     public InfoScreen(GamePanel gp) {
         this.gp = gp;
     }
 
+    @Override
     public void draw(Graphics g) {
         this.setGp(gp);
         this.setGraphics(g);
@@ -40,19 +38,21 @@ public class InfoScreen extends DisplayText {
         this.draw(40);
         text = "Back";
         g.drawString(text, x + gp.tileSize, y + height-40);
-        if (c == 1)
+        if (cmd == 1)
             g.drawString(">", x + gp.tileSize/2, y + height-40);
 
         text = "Next";
         g.drawString(text, x + width-(gp.tileSize+32), y + height-40);
-        if (c == 2)
+        if (cmd == 2)
             g.drawString(">", x + width-(2*gp.tileSize), y + height-40);
 
         //Text
-        String line1 = "Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest,";
-        String line2 = "og må rekke butikken før ølsalget stenger. Han har donert alle pengene sine til unicef";
-        String line3 = "så han må løpe gjennom Bergen sentrum og samle penger for å få råd. I tillegg må han unngå";
-        String line4 = "gateselgere som ikke gir seg uansett hvor hardt han sier at han allerede er fadder.";
+        String line1 = "Proggy Gonzales has been studying hard all year, but today he had his last exam!";
+        String line2 = "To celebrate, he is going to a party, but he needs to get to the shop to buy beer before";
+        String line3 = "closing time. He has donated all his money to Unicef so he has to collect all the money";
+        String line4 = "he can find in the streets of Bergen. It is important to avoid meeting charity workers";
+        String line5 = "with their collecting tins since they won't leave him alone, even though he keeps telling";
+        String line6 = "them he already gives donations reguarly.";
         Font textFont = new Font("Monospaced", Font.PLAIN, 14);
         g.setFont(textFont);
 
@@ -60,6 +60,8 @@ public class InfoScreen extends DisplayText {
         g.drawString(line2, x+gp.tileSize/2, y+gp.tileSize+25);
         g.drawString(line3, x+gp.tileSize/2, y+gp.tileSize+50);
         g.drawString(line4, x+gp.tileSize/2, y+gp.tileSize+75);
+        g.drawString(line5, x+gp.tileSize/2, y+gp.tileSize+100);
+        g.drawString(line6, x+gp.tileSize/2, y+gp.tileSize+125);
 
     }
 

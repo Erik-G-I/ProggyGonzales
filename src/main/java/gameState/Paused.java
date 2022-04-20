@@ -6,15 +6,13 @@ import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
 
-public class Paused extends DisplayText {
-	
-	GamePanel gp;
-	public int cmd = 1;
+public class Paused extends GameScreen {
 	
 	public Paused(GamePanel gp) {
 		this.gp = gp;
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		this.setGp(gp);
 		this.setGraphics(g2);
@@ -34,19 +32,19 @@ public class Paused extends DisplayText {
 		this.draw(75);
 		String resume = "Resume";
 		g2.drawString(resume, centerText(resume), gp.tileSize*4);
-		if (cmd == 1) {
+		if (cmd == 0) {
 			g2.drawString(str, centerText(str)-150, gp.tileSize*4);
 		}
 		
 		String restart = "Restart";
 		g2.drawString(restart, centerText(restart), gp.tileSize*5);
-		if (cmd == 2) {
+		if (cmd == 1) {
 			g2.drawString(str, centerText(str)-150, gp.tileSize*5);
 		}
 		
 		String back = "Back to Main Menu";
 		g2.drawString(back, centerText(back), gp.tileSize*6);
-		if (cmd == 3) {
+		if (cmd == 2) {
 			g2.drawString(str, centerText(str)-350, gp.tileSize*6);
 		}
 	}

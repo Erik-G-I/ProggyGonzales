@@ -11,12 +11,7 @@ import entity.Background;
 import entity.Player;
 import entity.PlayerState;
 import entity.Score;
-import gameState.GameControls;
-import gameState.GameOver;
-import gameState.GameState;
-import gameState.InfoScreen;
-import gameState.Paused;
-import gameState.StartMenu;
+import gameState.*;
 import tile.TileLoader;
 import timer.TimerDisplay;
 
@@ -87,12 +82,15 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Show controls
     public GameControls ctrls;
+
+    //Winning screen
+    public GameWon winner;
     
     //Game Over if there is no time left
-    private GameOver gO;
+    private GameOver gameOver;
     //get GameOver object
     public GameOver getGameOverObj() {
-    	return gO;
+    	return gameOver;
     }
     public boolean getGameOver() {
     	boolean gameO = this.timerDisplay.getTime().getGameOver();
@@ -110,10 +108,11 @@ public class GamePanel extends JPanel implements Runnable{
     	loader =  new TileLoader(this, is);
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
-    	gO = new GameOver(this);
+    	gameOver = new GameOver(this);
     	menu = new StartMenu(this);
     	info = new InfoScreen(this);
     	pause = new Paused(this);
+    	winner = new GameWon(this);
     	ctrls = new GameControls(this);
         collisionChecker = new CollisionCheck(this);
         playerState = PlayerState.NORMAL;
@@ -190,13 +189,13 @@ public class GamePanel extends JPanel implements Runnable{
     
 	public void update() {
         bg.update();
-        gO.update();
-        
-        if(!gO.gameOver()) {
+        gameOver.update();
+
+        if(!gameOver.gameOver()) {
             score.showScore();
             player.update();
         }
-        if(!gO.gameOverBounds()) {
+        if(!gameOver.gameOverBounds()) {
         	timerDisplay.update();
         }
     }
@@ -230,10 +229,13 @@ public class GamePanel extends JPanel implements Runnable{
         else if(gameState == GameState.GAME_CONTROLS) {
         	ctrls.draw(g2);
         }
+        else if (gameState == GameState.GAME_WON) {
+            winner.draw(g2);
+        }
         else {
             timerDisplay.draw(g2);
             score.draw(g2);
-            gO.draw(g2);
+            gameOver.draw(g2);
             g2.dispose();
         }
     }

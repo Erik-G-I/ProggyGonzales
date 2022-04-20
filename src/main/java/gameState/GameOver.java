@@ -7,14 +7,12 @@ import java.awt.image.BufferedImage;
 import core.DisplayText;
 import core.GamePanel;
 
-public class GameOver extends DisplayText{
+public class GameOver extends GameScreen{
 
-	GamePanel gp;
 	int widthOfScreen;
 	Font font;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
-	public int cmd = 1;
 	
 	public GameOver(GamePanel gp) {
 		this.gp = gp;
@@ -25,7 +23,8 @@ public class GameOver extends DisplayText{
 		isGameOver = gp.getGameOver();
 		isOutOfBounds = gp.getOutOfBounds();
 	}
-	
+
+	@Override
 	public void draw(Graphics g2) {
 		
 		this.setGraphics(g2);
@@ -34,8 +33,8 @@ public class GameOver extends DisplayText{
 		this.draw(200);
 		if (isGameOver == true || isOutOfBounds == true) {
 			
-			Color transparentRed = new Color(0, 0, 0, 200);
-			g2.setColor(transparentRed);
+			Color transparent = new Color(0, 0, 0, 200);
+			g2.setColor(transparent);
 			g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 			
 			String gameStr = "GAME";
@@ -70,7 +69,7 @@ public class GameOver extends DisplayText{
 			}
 		}
 	}
-	
+
 	public boolean gameOver() {
 		return isGameOver;
 	}
