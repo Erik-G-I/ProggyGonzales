@@ -114,13 +114,13 @@ public class KeyHandler implements KeyListener{
         	if (code == KeyEvent.VK_ENTER) {
         		gp.playMusic(7);
         		if (gp.levels.cmd == 0) {
-        			selectingMapPath("/maps/powerUptestingMap.txt");
+        			selectingMapPath("/maps/easy.txt");
         			
         		}
         		if (gp.levels.cmd == 1) {
         			gp.stopMusic();
         			gp.playSoundEffect(0);
-        			selectingMapPath("/maps/gameMap.txt");
+        			selectingMapPath("/maps/medium.txt");
         			gp.playMusic(7);
         			
         		}

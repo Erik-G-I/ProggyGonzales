@@ -35,13 +35,13 @@ public class LevelsMenu extends GameScreen {
 			g2.drawString(s1, centerText(s1), gp.tileSize*2);
 			
 			this.draw(50);
-			s2 = "powerUptestingMap";
+			s2 = "Level 1 - Easy";
 			g2.drawString(s2, centerText(s2), gp.tileSize*5);
 			if (cmd == 0) {
 				g2.drawString(">", centerText(s2)-gp.tileSize, gp.tileSize*5);
 			}
 
-			s3 = "gameMap";
+			s3 = "Level 2 - Medium";
 			g2.drawString(s3, centerText(s3), gp.tileSize*6);
 			if (cmd == 1) {
 				g2.drawString(">", centerText(s3)-gp.tileSize, gp.tileSize*6);
