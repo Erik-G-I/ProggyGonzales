@@ -261,7 +261,10 @@ public class GamePanel extends JPanel implements Runnable{
 	public void update() {
         bg.update();
         gO.update();
-        
+        lS.update();
+        if(this.keyH.enterPressed) {
+        menu.update();
+        }
         if(!gO.gameOver()) {
             score.showScore();
             if(!(gameState == GameState.GAME_OVER || gameState == GameState.WIN_SCREEN)) {

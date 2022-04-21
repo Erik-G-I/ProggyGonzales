@@ -6,13 +6,12 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
-import core.DisplayText;
 import core.GamePanel;
 
 public class LanguageScreen extends GameScreen {
 
 	BufferedImage img1, img2;
+	int x = 0;
 	
 	public LanguageScreen(GamePanel gp) {
 		this.gp = gp;
@@ -24,6 +23,13 @@ public class LanguageScreen extends GameScreen {
 		}
 		
 	}
+	
+	public void update() {
+		x += 2;
+		if (x == gp.tileSize*3) {
+			x-=2;
+		}
+	}
 
 	@Override
 	public void draw(Graphics g2) {
@@ -32,11 +38,11 @@ public class LanguageScreen extends GameScreen {
 		this.setGp(gp);
 		this.draw(100);
 		
-		Color transparentRed = new Color(0, 0, 0, 200);
-		g2.setColor(transparentRed);
+		Color black = Color.BLACK;
+		g2.setColor(black);
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		g2.setColor(Color.WHITE);
-		g2.drawImage(img1, 225, gp.tileSize*3, 100, 100, null);
+		g2.drawImage(img1, x, gp.tileSize*3, 100, 100, null);
 		if (cmd == 0) {
 			g2.drawString(">", 150, gp.tileSize*3+75);
 			this.draw(75);
@@ -44,13 +50,14 @@ public class LanguageScreen extends GameScreen {
 			g2.drawString(str, 150, gp.tileSize*8);
 		}
 		
-		g2.drawImage(img2, 700, gp.tileSize*3, 100, 100, null);
+		g2.drawImage(img2, x+500, gp.tileSize*3, 100, 100, null);
 		if (cmd == 1) {
 			g2.drawString(">", 650, gp.tileSize*3+75);
 			this.draw(75);
 			str = "Enter - for å velge";
 			g2.drawString(str, 150, gp.tileSize*8);
 		}
+		
 		
 	}
 }
