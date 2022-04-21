@@ -36,9 +36,9 @@ public class WinScreen2 extends GameScreen{
 		g2.setColor(Color.BLACK);
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		
-		g2.drawImage(image, 200, 200, 500, 500, null);
+		g2.drawImage(image, 250, 50, 600, 600, null);
 		
-		this.draw(50);
+		this.draw(30);
 		g2.setColor(Color.WHITE);
 		g2.drawString(s1, centerText(s1)-100, gp.tileSize*10);
 	}

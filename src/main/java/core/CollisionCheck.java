@@ -146,7 +146,6 @@ public class CollisionCheck {
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
     		gp.playSoundEffect(4);
             gp.gameState = GameState.WIN_SCREEN; //switches to winning screen
-    		gp.stopTimer();
     	}
     	}
     }
