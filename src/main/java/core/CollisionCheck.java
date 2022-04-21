@@ -1,6 +1,7 @@
 package core;
 
 import entity.Entity;
+import entity.Player;
 import entity.PlayerState;
 import gameState.GameState;
 
@@ -82,6 +83,16 @@ public class CollisionCheck {
             gp.loader.numOfTiles[x1][y1] = 10;
             coins = 0;
     }}}}
+    
+    /* Method that is activated for each powerup. Activates the power up, plays sound effect, sets player 
+    to the state of the belonging power up, starts timer on power up and updates the graphics */
+    private void powerUpSequence(int soundEffectNr, PlayerState state) {
+        pickedUpPowerUp = true;
+        gp.playSoundEffect(soundEffectNr);
+        gp.setPlayerState(state);
+        gp.truePowerUpTimer();
+        gp.player.getPlayerImage();
+    }
     /**
      * Picks up mask and sets player state to invisible
      * @param x1 x-value of first corner
@@ -91,54 +102,34 @@ public class CollisionCheck {
      */
     private void pickUpMask(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
-        	pickedUpPowerUp = true;
-        	gp.playSoundEffect(4);
-            gp.setPlayerState(PlayerState.INVISIBLE);
-            gp.truePowerUpTimer();
-            gp.player.getPlayerImage();
+            powerUpSequence(4, PlayerState.INVISIBLE);
         }
     }
+    // Picks up scooter, which costs 15 coins
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
         int scooterCost = 15;
+        //If the player does not have at least the cost of the scooter, it cannot be picked up
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
-            	pickedUpPowerUp = true;
-            	gp.playSoundEffect(4);
-                gp.setPlayerState(PlayerState.VOI);
-                gp.truePowerUpTimer();
+                powerUpSequence(4, PlayerState.VOI);
                 coins -= scooterCost;
-                gp.player.getPlayerImage();
 
             }
         }
     }
 
     /**
-     * 
-     * @param x1 x-value of first corner
-     * @param y1 y-value of first corner
-     * @param x2 x-value of second corner
-     * @param y2 y-value of second corner
      * Picks up Shoes and sets player state to Faster
      */
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
-        	pickedUpPowerUp = true;
-        	gp.playSoundEffect(4);
-        	gp.setPlayerState(PlayerState.FASTER);
-        	gp.truePowerUpTimer();
+            powerUpSequence(4, PlayerState.FASTER);
             System.out.println("Now the player has picked up shoes and should become faster");
-            gp.player.getPlayerImage();
 
         }
     }
     
     /**
-     * 
-     * @param x1 x-value of first corner
-     * @param y1 y-value of first corner
-     * @param x2 x-value of second corner
-     * @param y2 y-value of second corner
      * Player can pick up the beer and win the game only when the player has enough coins
      */
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
