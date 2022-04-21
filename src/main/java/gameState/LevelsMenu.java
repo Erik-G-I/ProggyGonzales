@@ -47,7 +47,7 @@ public class LevelsMenu extends GameScreen {
 				g2.drawString(">", centerText(s3)-gp.tileSize, gp.tileSize*6);
 			}
 
-			s4 = "testingMap";
+			s4 = "Level 3 - Hard";
 			g2.drawString(s4, centerText(s4), gp.tileSize*7);
 			if (cmd == 2) {
 				g2.drawString(">", centerText(s4)-gp.tileSize, gp.tileSize*7);

@@ -125,7 +125,7 @@ public class KeyHandler implements KeyListener{
         			
         		}
         		if (gp.levels.cmd == 2) {
-        			selectingMapPath("/maps/testingMap.txt");
+        			selectingMapPath("/maps/hard.txt");
         		}
         	}
         	code = KeyEvent.KEY_RELEASED;
