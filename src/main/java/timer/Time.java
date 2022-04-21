@@ -6,6 +6,7 @@ import javax.swing.Timer;
 
 import core.GamePanel;
 import entity.PlayerState;
+import gameState.GameState;
 
 public class Time implements ActionListener{
 	
@@ -53,6 +54,7 @@ public class Time implements ActionListener{
 				gameOver = true;
 			}
 		}
+		if(gp.gameState == GameState.RUNNING_GAME) {
 		if(seconds > 0) {
 			if(startPowerUpTimer == true) {
 				if (gp.pickedUpPowerUp() == true) {
@@ -69,6 +71,7 @@ public class Time implements ActionListener{
 					System.out.println("normal speed");
 				}
 			}
+		}
 		}
 		else {
 			setStartPowerUpTimer(false);

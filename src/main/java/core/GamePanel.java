@@ -264,7 +264,7 @@ public class GamePanel extends JPanel implements Runnable{
         
         if(!gO.gameOver()) {
             score.showScore();
-            if(!(gameState == GameState.GAME_OVER)) {
+            if(!(gameState == GameState.GAME_OVER || gameState == GameState.WIN_SCREEN)) {
             player.update();
             }
         }
