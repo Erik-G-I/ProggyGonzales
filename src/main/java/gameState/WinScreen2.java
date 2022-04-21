@@ -2,8 +2,6 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Image;
-import javax.swing.ImageIcon;
 
 import core.GamePanel;
 
@@ -11,37 +9,46 @@ import core.GamePanel;
 public class WinScreen2 extends GameScreen{
 	
 	GamePanel gp;
-	Image image;
 	
 	public WinScreen2(GamePanel gp) {
 		this.gp = gp;
-		image = new ImageIcon(getClass().getResource("/graphics/ProggyEnding.gif")).getImage();
+		
 	}
 
 	@Override
 	public void draw(Graphics g2) {
 		
-		this.setGp(gp);
-		this.setGraphics(g2);
-		
-		String s1;
+		String s1, s2;
 		
 		if (gp.getLang() == Languages.NORWEGIAN) {
 			s1 = "ESC - Tilbake til hovedmeny";
+			s2 = "Du vant!!";
 		}
 		else {
 			s1 = "ESC - Back to main menu";
+			s2 = "You won!!";
 		}
+
 		
-		g2.setColor(Color.BLACK);
+		this.setGp(gp);
+		this.setGraphics(g2);
+		
+    	
+        Color transparent = new Color(0, 0, 0, 0x80);
+        g2.setColor(transparent);
 		g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 		
-		g2.drawImage(image, 250, 50, 600, 600, null);
+		this.draw(50);
+		g2.setColor(Color.WHITE);
+		
+		g2.drawString(s2, centerText(s2), gp.tileSize*3);
 		
 		this.draw(30);
-		g2.setColor(Color.WHITE);
 		g2.drawString(s1, centerText(s1)-100, gp.tileSize*10);
 	}
 	
 	
+
 }
+	
+
