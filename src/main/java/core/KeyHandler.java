@@ -145,12 +145,15 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
             	gp.playSoundEffect(0);
                 if (gp.info.cmd == 1) {
-                    gp.gameState = GameState.START_MENU;
-                    gp.info.cmd = 0;
+                	if (gp.info.page == 1) {
+						gp.gameState = GameState.START_MENU;
+						gp.info.cmd = 0;
+					}
+                	gp.info.page--;
                 }
 
                 if (gp.info.cmd == 2) {
-
+                	gp.info.page++;
                 }
             }
         }
