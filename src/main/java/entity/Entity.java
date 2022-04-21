@@ -2,6 +2,10 @@ package entity;
 
 import java.awt.image.BufferedImage;
 
+import core.GamePanel;
+import core.KeyHandler;
+
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
 
@@ -13,11 +17,14 @@ public class Entity {
     public int speed;
     
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, bakgrunn;
+    protected BufferedImage uteligger;
+	protected BufferedImage uteliggerglad;
     public String direction;
     public String previousDirection;
     
     public int jumpStrength;
     public Rectangle playerSolid;
+    public Rectangle enemySolid;
     public boolean colliding = false;
 
     public boolean onGround = true;
@@ -28,6 +35,13 @@ public class Entity {
     //brukes til å skape animasjon på spiller og fiender
     public int spriteCounter = 0;
     public int spriteNum = 1;
+	GamePanel gp;
+    
+    
+    public Entity(GamePanel gp, KeyHandler keyH) {
+    	this.gp = gp;
+    }
+    
     
     
 }

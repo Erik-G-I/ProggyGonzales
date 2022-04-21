@@ -8,11 +8,15 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import core.GamePanel;
 
-public class Background extends Entity {
+public class Background  {
 
     GamePanel gp;
     KeyHandler keyH;
     BufferedImage realfag, bakgrunn;
+    int worldX;
+    int worldY;
+    int speed;
+    String direction;
 
     public Background(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;

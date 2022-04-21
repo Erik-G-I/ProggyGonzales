@@ -3,6 +3,8 @@ package core;
 import entity.Entity;
 import entity.Player;
 import entity.PlayerState;
+import core.AssetSetter;
+import enemies.entityEnemy;
 
 public class CollisionCheck {
     GamePanel gp;
@@ -63,26 +65,19 @@ public class CollisionCheck {
     public void looseMoney(int x1, int y1, int x2, int y2) {
         gp.getPlayerState();
         int loosingMoney = 15;
+        
         if (gp.playerState != PlayerState.INVISIBLE && coins >= loosingMoney) {
-            if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
-                gp.loader.numOfTiles[x1][y1] = 10;
+            if (gp.player.worldX == gp.hobo[0].worldX && gp.player.worldY == gp.hobo[0].worldY) {
                 coins -= loosingMoney;
             }
-            if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
-                gp.loader.numOfTiles[x2][y2] = 10;
-            }
+            
         }
         
-        else if (coins>0 && coins < loosingMoney) {
-        	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
-        		gp.loader.numOfTiles[x1][y1] = 10;
+        else if (coins > 0 && coins < loosingMoney) {
+        	if (gp.player.worldX == gp.hobo[0].worldX) {
         		coins = 0;
         	}
-        	if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[9]) {
-        		gp.loader.numOfTiles[x2][y2] = 10;
-        		coins = 0;
-        	}
-        
+        	
         }
         
     }
@@ -137,8 +132,6 @@ public class CollisionCheck {
         looseMoney(x1, y1, x2, y2);
         pickUpScooter(x1, y1, x2, y2);
     }
-
-
 
 
     public void checkCollisionOnTile(Entity unit) {
@@ -214,5 +207,58 @@ public class CollisionCheck {
         	gp.player.setGravity(0); //setting gravity equal to 0 so that Proggy doesn't fall to infinity
         }
     }
-}
+    
+    public void checkEnemyOnTile(entityEnemy entityEnemy) {
+        // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
+        int enemyleftworldx = entityEnemy.worldX + entityEnemy.enemySolid.x;
+        int enemyrightworldx =  entityEnemy.worldX + entityEnemy.enemySolid.x + entityEnemy.enemySolid.width;
+        int enemytopworldy = entityEnemy.worldY + entityEnemy.enemySolid.y;
+        int enemybottomworldy = entityEnemy.worldY + entityEnemy.enemySolid.y + entityEnemy.enemySolid.height;
 
+        // This must be adjusted for tilesize to find the columns and rows they are at
+        int enemyLeftCol = enemyleftworldx / gp.tileSize;
+        int enemyRightCol = enemyrightworldx / gp.tileSize;
+        int enemyTopRow = enemytopworldy / gp.tileSize;
+        int enemyBottomRow = enemybottomworldy / gp.tileSize;
+
+        int tilenum1, tilenum2;
+                
+        		
+                
+                switch(entityEnemy.direction) {
+                
+               
+                
+                case"down":
+                	enemyBottomRow = (enemybottomworldy - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                    tilenum1 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top left corner
+                    tilenum2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
+                    if(gp.loader.tiles[tilenum1].collission == true || gp.loader.tiles[tilenum2].collission == true) {
+                     	entityEnemy.colliding = true;
+                    }
+                    break;
+                    
+                case"left":
+                	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                    tilenum1 = gp.loader.numOfTiles[enemyLeftCol][enemyTopRow]; // Top left corner
+                    tilenum2 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top right corner
+                    if(gp.loader.tiles[tilenum1].collission == true || gp.loader.tiles[tilenum2].collission == true) {
+                     	entityEnemy.colliding = true;
+                    }
+                    break;
+                    
+                case"right":
+                	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                    tilenum1 = gp.loader.numOfTiles[enemyRightCol][enemyTopRow]; // Top left corner
+                    tilenum2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
+                    if(gp.loader.tiles[tilenum1].collission == true || gp.loader.tiles[tilenum2].collission == true) {
+                     	entityEnemy.colliding = true;
+                    }
+                    break;
+
+
+      
+               }
+    }
+
+}

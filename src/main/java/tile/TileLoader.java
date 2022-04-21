@@ -111,8 +111,8 @@ public class TileLoader {
 			tiles[8] = new Tile();
 			tiles[8].image = ImageIO.read(getClass().getResourceAsStream("/graphics/200kr.png"));
 			
-			tiles[9] = new Tile();
-			tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
+		//	tiles[9] = new Tile();
+		//	tiles[9].image = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
 			
 			tiles[10] = new Tile();
 			tiles[10].image = ImageIO.read(getClass().getResourceAsStream("/enemies/uteliggerglad.png"));

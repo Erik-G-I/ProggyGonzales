@@ -20,9 +20,10 @@ public class Player extends Entity{
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
+    	
+        super(gp, keyH);
         this.gp = gp;
         this.keyH = keyH;
-
         playerX = 480;
         playerY = 515;
 
@@ -109,18 +110,19 @@ public class Player extends Entity{
                     jump();
                     moveWhileJumping();
                         break;
+                        
                     case "down":
                     fall();
                         break;
+                        
                     case "right":
                     worldX += speed;
                     jump();		//jump instead of fall seems to give better results currently
-                    
                         break;
+                        
                     case "left":
                     worldX -= speed; 
                     jump();
-                    
                         break;
                     }
                 }
