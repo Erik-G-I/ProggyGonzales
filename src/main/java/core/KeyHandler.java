@@ -217,6 +217,8 @@ public class KeyHandler implements KeyListener{
         
         if (gp.gameState == GameState.WIN_SCREEN) {
         	if (code == KeyEvent.VK_ENTER) {
+        		WriteToFile writer = new WriteToFile();
+        		writer.writeFile("highscore.txt", "200");
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;
