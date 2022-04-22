@@ -77,7 +77,6 @@ public class TileLoader {
 			tiles[2] = new Tile();
 			tiles[2].image = ImageIO.read(getClass().getResourceAsStream("/tiles/brick_red.png"));
 			// We want red bricks to be categorized as a solid block
-
 			tiles[2].collission = true;
 
 			tiles[3] = new Tile();
@@ -131,6 +130,14 @@ public class TileLoader {
 
 			tiles[16] = new Tile();
 			tiles[16].image = ImageIO.read(getClass().getResourceAsStream("/graphics/winBeer.png"));
+
+			tiles[17] = new Tile();
+			tiles[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
+			tiles[17].collission = true;
+
+			
+			tiles[18] = new Tile();
+			tiles[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water_top.png"));
 
 
 
