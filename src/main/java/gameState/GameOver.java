@@ -18,7 +18,7 @@ public class GameOver extends GameScreen {
 	
 	public void update() {
 		isGameOver = gp.getGameOver();
-		isOutOfBounds = gp.getOutOfBounds();
+		isOutOfBounds = gp.isOutOfBounds();
 	}
 
 	@Override

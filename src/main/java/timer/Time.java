@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import core.GamePanel;
+import entity.Player;
 import entity.PlayerState;
 
 public class Time implements ActionListener{
@@ -55,18 +56,21 @@ public class Time implements ActionListener{
 		}
 		if(seconds > 0) {
 			if(startPowerUpTimer == true) {
-				if (gp.pickedUpPowerUp() == true) {
-					powerUpSeconds = 10;
-					System.out.println("updated time");
-					gp.setPickedUpPowerUp(false);
-				}
-				powerUpSeconds--;
-				if(powerUpSeconds == 0) {
-					powerUpSeconds = 10;
-					startPowerUpTimer = false;
-					gp.setPlayerState(PlayerState.NORMAL);
-					gp.playSoundEffect(6);
-					System.out.println("normal speed");
+				for (Player p : gp.players) {
+					if (gp.pickedUpPowerUp(p) == true) {
+						powerUpSeconds = 10;
+						System.out.println("updated time");
+						gp.setPickedUpPowerUp(false, p);
+					}
+					powerUpSeconds--;
+					if (powerUpSeconds == 0) {
+						powerUpSeconds = 10;
+						startPowerUpTimer = false;
+						p.setPlayerState(PlayerState.NORMAL);
+
+						gp.playSoundEffect(6);
+						System.out.println("normal speed");
+					}
 				}
 			}
 		}

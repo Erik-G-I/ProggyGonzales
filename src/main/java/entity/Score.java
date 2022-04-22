@@ -16,22 +16,20 @@ public class Score extends DisplayText{
 
     public Score(GamePanel gp) {
         this.gp = gp;
-        //coins = 0;
         showScore = new String();
     }
 
     public void showScore() {
-    	/*if(!gp.loader.tiles[5].collission) {
-			coins = 50;
-		}*/
-    	
-    	if(gp.getLang() == Languages.NORWEGIAN) {
-    		showScore = "Proggys ølpenger: " + gp.collisionChecker.coins;	
-    	}
-    	else {
-    		showScore = "Proggy's beer money: " + gp.collisionChecker.coins;
-    	}
-        
+
+        for (Player p : gp.players) {
+
+            if (gp.getLang() == Languages.NORWEGIAN) {
+                showScore = "Proggys ølpenger: " + p.collisionChecker.coins;
+            } else {
+                showScore = "Proggy's beer money: " + p.collisionChecker.coins;
+            }
+
+        }
     }
 
     public void draw(Graphics g2) {

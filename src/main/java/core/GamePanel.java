@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JPanel;
 
@@ -46,8 +48,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    private PlayerState playerState = PlayerState.NORMAL;
-    public boolean pickedUpPowerUp;
+    //private PlayerState playerState = PlayerState.NORMAL;
+    //public boolean pickedUpPowerUp;
 
     //Map
     public InputStream is;
@@ -56,10 +58,11 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //CollisionCheck 
-    public CollisionCheck collisionChecker;
+    //public CollisionCheck collisionChecker;
 
     KeyHandler keyH = new KeyHandler(this);
-    public Player player;
+    //public Player player;
+    public List<Player> players = new ArrayList<>();
     public Background bg;
     public TileLoader loader;
     
@@ -116,9 +119,12 @@ public class GamePanel extends JPanel implements Runnable{
     	boolean gameO = this.timerDisplay.getTime().getGameOver();
     	return gameO;
     }
-    public boolean getOutOfBounds() {
-    	boolean out = collisionChecker.isOutOfBounds();
-    	return out;
+    public boolean isOutOfBounds() {
+        for (Player p : players ) {
+            if (p.collisionChecker.isOutOfBounds())
+                return true;
+        }
+        return false;
     }
     
     private Languages lang;
@@ -139,8 +145,12 @@ public class GamePanel extends JPanel implements Runnable{
     	bg = new Background(this, keyH);
     	
     	//setter player state til normal før nytt player objekt blir laget
-        playerState = PlayerState.NORMAL;
-    	player = new Player(this, keyH);
+        //playerState = PlayerState.NORMAL;
+    	//player = new Player(this, keyH);
+        Player p1 = new Player(this, keyH);
+        this.players.add(p1);
+        if (gameState == GameState.RUNNING_MULTIPLAYER)
+            multiplePlayers();
     	
     	//get the language chosen by player
     	lang = getLang();
@@ -156,8 +166,6 @@ public class GamePanel extends JPanel implements Runnable{
     	levels = new LevelsMenu(this);
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
-        collisionChecker = new CollisionCheck(this);
-        
     }
 
     public GamePanel(String mapPath) {
@@ -174,18 +182,23 @@ public class GamePanel extends JPanel implements Runnable{
     	loader =  new TileLoader(this, is);
         setGame();
     }
+
+    private void multiplePlayers() {
+        Player p2 = new Player(this, keyH);
+        this.players.add(p2);
+    }
     
     
     
-    public boolean pickedUpPowerUp() {
-    	if (collisionChecker.getPickedUpPowerUp() == true) {
+    public boolean pickedUpPowerUp(Player p) {
+    	if (p.collisionChecker.getPickedUpPowerUp() == true) {
     		return true;
     	}
     	return false;
     }
     
-    public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
-    	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
+    public void setPickedUpPowerUp(boolean pickedUpPowerUp, Player p) {
+    	p.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
     }
 
     public void startGameThread() {  
@@ -193,14 +206,16 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    /*
     public PlayerState getPlayerState() {
         return this.playerState;
-
     }
     
     public void setPlayerState(PlayerState playerState) {
     	this.playerState = playerState;
     }
+
+     */
     
     public void setMap(String mapPath) {
     	is = getClass().getResourceAsStream(mapPath);
@@ -232,18 +247,19 @@ public class GamePanel extends JPanel implements Runnable{
             lastTime = currentTime;
             
             if(delta >= 1) {
-                // 1: oppdaterer informasjon, som spillerens posisjon
-                update();
-                // 2: tegner skjermen på nytt med oppdatert informasjon
-                repaint();
-                fall();
-                repaint();
-                jump();
-                repaint();
-                
+                for (Player p : players) {
+                    // 1: oppdaterer informasjon, som spillerens posisjon
+                    update();
+                    // 2: tegner skjermen på nytt med oppdatert informasjon
+                    repaint();
+                    fall(p);
+                    repaint();
+                    jump(p);
+                    repaint();
 
-                delta--;
-                drawCount++;
+                    delta--;
+                    drawCount++;
+                }
             }
             
             //display FPS in console
@@ -265,7 +281,9 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOver()) {
             score.showScore();
             if(!(gameState == GameState.GAME_OVER)) {
-            player.update();
+                for (Player p : players) {
+                    p.update();
+                }
             }
         }
         if(!gO.gameOverBounds()) {
@@ -274,11 +292,11 @@ public class GamePanel extends JPanel implements Runnable{
         
     }
     
-    public void jump() {
-    	player.jump();
+    public void jump(Player p) {
+    	p.jump();
     }
-    public void fall() {
-    	player.fall();
+    public void fall(Player p) {
+    	p.fall();
     }
     
     public void paintComponent(Graphics g) {
@@ -288,12 +306,15 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D)g;
 
         bg.draw(g2);
-        
-        loader.draw(g2, player.worldX);
-        player.draw(g2);
-        if (playerState == PlayerState.NORMAL) {
-			this.player.getPlayerImage();
+
+        for (Player p : players) {
+            loader.draw(g2, p.worldX);
+            p.draw(g2);
+            if (p.getPlayerState() == PlayerState.NORMAL) {
+                p.getPlayerImage();
+            }
         }
+
         
         if (gameState == GameState.START_MENU)
             menu.draw(g);

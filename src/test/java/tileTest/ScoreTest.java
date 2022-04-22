@@ -14,7 +14,7 @@ import tile.TileLoader;
 import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+/*
 public class ScoreTest {
 
     GamePanel gp = new GamePanel("/maps/testingMap.txt");
@@ -54,3 +54,5 @@ public class ScoreTest {
     }
 }
 
+
+ */

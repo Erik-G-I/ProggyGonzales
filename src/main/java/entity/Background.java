@@ -63,8 +63,8 @@ public class Background extends Entity {
     			
     			int worldX = worldCol * gp.tileSize;
     			int worldY = worldRow * gp.tileSize;
-    			int screenX = worldX - gp.player.worldX + gp.player.playerX + 63;
-    			int screenY = worldY - gp.player.worldY + gp.player.playerY;
+    			int screenX = worldX - gp.players.get(0).worldX + gp.players.get(0).playerX + 63;
+    			int screenY = worldY - gp.players.get(0).worldY + gp.players.get(0).playerY;
     			
     			g2.drawImage(realfag, screenX, screenY, 600, 800, null);
     			screenX += 750;

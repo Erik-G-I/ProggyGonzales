@@ -12,7 +12,7 @@ import entity.Player;
 import entity.Score;
 import timer.Time;
 import timer.TimerDisplay;
-
+/*
 public class PlayerItemsTest {
 
 	GamePanel gp = new GamePanel("/maps/testingMap.txt");
@@ -96,3 +96,5 @@ public class PlayerItemsTest {
 		assertEquals(newScore, money + 10 - 15);
 	}
 }
+
+ */

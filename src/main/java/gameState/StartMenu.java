@@ -18,19 +18,21 @@ public class StartMenu extends GameScreen {
         this.setGp(gp);
         this.setGraphics(g);
         
-        String s2, s3, s4, s5;
+        String s2, s3, s4, s5, s6;
         
         if(gp.getLang() == Languages.NORWEGIAN) {
         	s2 = "Start";
         	s3 = "Om spillet";
         	s4 = "Kontroller";
         	s5 = "Avslutt";
+        	s6 = "Mute";
         }
         else {
         	s2 = "Play Game";
         	s3 = "About";
         	s4 = "Controls";
             s5 = "Quit";
+            s6 = "Mute";
         }
     	
         Color transparent = new Color(0, 0, 0, 0x80); // fourth argument is transparency - try out different values 0x00 - 0xff
@@ -69,6 +71,11 @@ public class StartMenu extends GameScreen {
         g.drawString(s5, centerText(s5),gp.tileSize*9);
         if (cmd == 3) {
             g.drawString(">", centerText(s5)-gp.tileSize,gp.tileSize*9);
+        }
+
+        g.drawString(s6, centerText(s6),gp.tileSize*9);
+        if (cmd == 4) {
+            g.drawString(">", centerText(s6)-gp.tileSize,gp.tileSize*9);
         }
 
     }

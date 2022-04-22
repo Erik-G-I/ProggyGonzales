@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
@@ -17,6 +18,10 @@ public class Player extends Entity{
     private int weight;
     private int gravity;
     private BufferedImage jumpImg = null;
+
+    private PlayerState playerState;
+
+    public CollisionCheck collisionChecker;
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -30,7 +35,6 @@ public class Player extends Entity{
         We set this to the whole character since it only scrolls vertically */
         playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
 
-        
         setDefaultValues();
         getPlayerImage();
     
@@ -47,11 +51,21 @@ public class Player extends Entity{
         weight = 3;
         jumpStrength = 0;
         gravity = weight;
+        playerState = PlayerState.NORMAL;
+        collisionChecker = new CollisionCheck(this);
 
+    }
+
+    public PlayerState getPlayerState() {
+        return this.playerState;
+    }
+
+    public void setPlayerState(PlayerState playerState) {
+        this.playerState = playerState;
     }
     
     public void getPlayerImage() {
-        if (gp.getPlayerState() == PlayerState.NORMAL) {
+        if (playerState == PlayerState.NORMAL) {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
@@ -67,7 +81,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.INVISIBLE)  {
+        } else if (playerState == PlayerState.INVISIBLE)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up2.png"));
@@ -84,7 +98,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.FASTER)  {
+        } else if (playerState == PlayerState.FASTER)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up2.png"));
@@ -101,7 +115,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.VOI)  {
+        } else if (playerState == PlayerState.VOI)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up2.png"));
@@ -150,7 +164,7 @@ public class Player extends Entity{
 	            colliding = false;
                 
                 // updates to be true if Proggy collides with a solid tile
-                gp.collisionChecker.checkCollisionOnTile(this);
+                collisionChecker.checkCollisionOnTile(this);
 
                 PowerUpRunning();
 //                PowerUpVOI();
@@ -194,16 +208,16 @@ public class Player extends Entity{
     
 
     public void PowerUpRunning() {
-        if (this.gp.getPlayerState() == PlayerState.VOI) {
+        if (playerState == PlayerState.VOI) {
             speed=7;
         }
-        if (this.gp.getPlayerState() == PlayerState.FASTER) {
+        if (playerState == PlayerState.FASTER) {
             speed=7;
         }
-        if(this.gp.getPlayerState() == PlayerState.NORMAL) {
+        if(playerState == PlayerState.NORMAL) {
         	speed = 5;
         }
-        if(this.gp.getPlayerState() == PlayerState.INVISIBLE) {
+        if(playerState == PlayerState.INVISIBLE) {
         	speed = 5;
 
         }
@@ -230,7 +244,7 @@ public class Player extends Entity{
     			jumpImg = up2;
     		}
     		
-    		gp.collisionChecker.checkCollisionOnTile(this);
+    		collisionChecker.checkCollisionOnTile(this);
     		if(colliding == false) {
     			if(onGround == true) {
     				gp.playSoundEffect(3);
@@ -247,7 +261,7 @@ public class Player extends Entity{
     	        	jumpStrength -=1;
     			}
     			
-    			gp.collisionChecker.checkCollisionOnTile(this);
+    			collisionChecker.checkCollisionOnTile(this);
         		if(jumpStrength <=0 || colliding == true) {
         			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
         			jumpStrength = 0;
@@ -266,7 +280,7 @@ public class Player extends Entity{
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
-    	gp.collisionChecker.checkCollisionOnTile(this);
+    	collisionChecker.checkCollisionOnTile(this);
     	if(colliding == false || onGround == false) {
     		onGround = false;
     		direction = originalDir;
@@ -303,7 +317,7 @@ public class Player extends Entity{
 				direction = "right";
 				moveInAir = speed;
 			}
-			gp.collisionChecker.checkCollisionOnTile(this);
+			collisionChecker.checkCollisionOnTile(this);
 			if(colliding == false) {
 				worldX += moveInAir;
 			}
