@@ -12,6 +12,7 @@ public class KeyHandler implements KeyListener{
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
+    boolean enterPressed = false;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -42,11 +43,13 @@ public class KeyHandler implements KeyListener{
         		}
         	}
         	if (gp.lS.cmd == 0 && code == KeyEvent.VK_ENTER) {
+        		this.enterPressed = true;
         		gp.setLang(Languages.ENGLISH);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
         	}
         	if (gp.lS.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		this.enterPressed = true;
         		gp.setLang(Languages.NORWEGIAN);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
@@ -111,18 +114,18 @@ public class KeyHandler implements KeyListener{
         	if (code == KeyEvent.VK_ENTER) {
         		gp.playMusic(7);
         		if (gp.levels.cmd == 0) {
-        			selectingMapPath("/maps/powerUptestingMap.txt");
+        			selectingMapPath("/maps/easy.txt");
         			
         		}
         		if (gp.levels.cmd == 1) {
         			gp.stopMusic();
         			gp.playSoundEffect(0);
-        			selectingMapPath("/maps/gameMap.txt");
+        			selectingMapPath("/maps/medium.txt");
         			gp.playMusic(7);
         			
         		}
         		if (gp.levels.cmd == 2) {
-        			selectingMapPath("/maps/testingMap.txt");
+        			selectingMapPath("/maps/hard.txt");
         		}
         	}
         	code = KeyEvent.KEY_RELEASED;

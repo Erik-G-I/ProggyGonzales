@@ -24,11 +24,11 @@ public class TileLoader {
 	
 	public TileLoader(GamePanel gp, InputStream is) {
 		// lag variabler som tar utgangspunkt i input stream sin size
-		this.mapCols = 64;
+		this.mapCols = 128;
 		this.mapRows = 16;
 		this.gp = gp;
 		this.tiles = new Tile[20];
-		this.numOfTiles = new int[64][16];
+		this.numOfTiles = new int[128][16];
 		this.is = is;
 		
 		getTileImage();
@@ -151,7 +151,7 @@ public class TileLoader {
 	public void draw(Graphics2D g2, int x) {
 		
 		int worldCol = 0; //x/gp.maxWorldCol;
-		int bufferCol = 64;//worldCol + 16;
+		int bufferCol = 128;//worldCol + 16;
 		
 		int worldRow = 0;
 		
@@ -178,8 +178,8 @@ public class TileLoader {
 			if(worldCol == bufferCol) {
 				worldCol = 0;
 				bufferCol ++;
-				if(bufferCol >= 63) {
-					bufferCol = 63;
+				if(bufferCol >= 127) {
+					bufferCol = 127;
 				}
 				worldRow  ++;
 			}
