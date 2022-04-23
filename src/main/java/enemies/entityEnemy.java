@@ -10,7 +10,7 @@ import entity.PlayerState;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import core.AssetSetter;
+import core.EnemySetter;
 
 public class entityEnemy {
 
@@ -46,15 +46,15 @@ public class entityEnemy {
 		
 		colliding = false;
 		gp.collisionChecker.checkEnemyOnTile(this);
+//		gp.collisionChecker.checkEnemyEntity(this, gp.player);
 
-		
 		if (colliding == false) {
             switch(direction) {
-            case "left":
+            case "vanlig":
             worldX -= speed;
                 break;
           
-            case "right":
+            case "vanligglad":
             worldX += speed;
                 break;
                 
@@ -75,8 +75,8 @@ public class entityEnemy {
     
     public void fall() {
     	String originalDir = direction;
-    	direction = "left";
-    	//gp.collisionChecker.checkCollisionOnTile(this);
+    	direction = "vanlig";
+    	gp.collisionChecker.checkEnemyOnTile(this);
     	if(colliding == false || onGround == false) {
     		onGround = false;
     		direction = originalDir;
@@ -110,11 +110,11 @@ public class entityEnemy {
 		   worldY - gp.tileSize < gp.player.worldY + gp.player.playerY) {
 			
 	        switch(direction) {
-	        case "left":
+	        case "vanlig":
 	        	image = uteligger;
 	            break;
 	            
-	        case "right":
+	        case "vanligglad":
 	        	image = uteligger;
 	            break;
 	        

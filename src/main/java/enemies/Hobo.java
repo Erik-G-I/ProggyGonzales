@@ -41,7 +41,7 @@ public class Hobo extends entityEnemy{
 	            e.printStackTrace();
 	        }
 	}
-	
+
 	public void setAction() {
 			
 			actionLockCounter ++;
@@ -53,10 +53,10 @@ public class Hobo extends entityEnemy{
 				int i = random.nextInt(100) + 1; //pick up a number from 1-100
 				
 				if(i <= 50) {
-					direction = "left";
+					direction = "vanlig";
 				}
 				if(i > 50) {
-					direction = "right	";
+					direction = "vanligglad";
 				}
 			
 				actionLockCounter = 0;

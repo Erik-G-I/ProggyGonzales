@@ -8,11 +8,11 @@ import enemies.entityEnemy;
 import entity.Entity;
 
 
-public class AssetSetter {
+public class EnemySetter {
 
 	GamePanel gp;
 	
-	public AssetSetter(GamePanel gp) {
+	public EnemySetter(GamePanel gp) {
 		this.gp = gp;
 	}
 	

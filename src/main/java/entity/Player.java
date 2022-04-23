@@ -94,7 +94,10 @@ public class Player extends Entity{
 
 	            }
                 
-                
+                //Check enemy collission
+			//	int enemyIndex = gp.collisionChecker.checkEnemyEntity(this, gp.hobo);
+				
+				//interactEnemy(enemyIndex);
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;
                 
@@ -240,7 +243,12 @@ public class Player extends Entity{
     	direction = originalDir;
     }
     
-    
+	/**public void interactEnemy(int i) {
+		if(i != 999) {
+			System.out.println("you are hitting an enemy");
+		}
+	}*/
+
     public void draw(Graphics2D g2) {
 //        g2.setColor(Color.white);
 //        g2.fillRect(x, y, gp.tileSize, gp.tileSize);

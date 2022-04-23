@@ -3,12 +3,11 @@ package core;
 import entity.Entity;
 import entity.Player;
 import entity.PlayerState;
-import core.AssetSetter;
+import core.EnemySetter;
 import enemies.entityEnemy;
 
 public class CollisionCheck {
     GamePanel gp;
-
 
     public CollisionCheck(GamePanel gp) {
         this.gp = gp;
@@ -16,6 +15,8 @@ public class CollisionCheck {
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
+    int tilenum1, tilenum2;
+
     public int coins = 0;
     
     private boolean outOfBounds = false;
@@ -44,6 +45,19 @@ public class CollisionCheck {
     }
     return false;
 }
+    
+    private boolean looseCoins() {
+        if (gp.loader.tiles[cornerOne] == gp.loader.tiles[tilenum1]) {
+            // If Proggy collides with object, it turns the tile into tile[0] which is nothing
+          //  gp.loader.numOfTiles[x1][y1] = 0;
+            return true;
+        }
+        else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[tilenum2]) {
+            //gp.loader.numOfTiles[x2][y2] = 0;
+            return true;
+    }
+    return false;
+}
     /**
      * Picks up money adding 100 or 200 to "Øl-penger" depending on what bill Proggy has encountered.
      * @param x1 x-value of first corner
@@ -62,23 +76,17 @@ public class CollisionCheck {
         }
     }
     
-    public void looseMoney(int x1, int y1, int x2, int y2) {
-        gp.getPlayerState();
-        int loosingMoney = 15;
-        
-        if (gp.playerState != PlayerState.INVISIBLE && coins >= loosingMoney) {
-            if (gp.player.worldX == gp.hobo[0].worldX && gp.player.worldY == gp.hobo[0].worldY) {
-                coins -= loosingMoney;
+    public void looseMoney() {
+    	
+    	if(coins > 0) {
+    		if (looseCoins() == true) {
+                coins -= 15;
+                if(coins < 0) {
+                	coins = 0;
+                }
             }
-            
-        }
-        
-        else if (coins > 0 && coins < loosingMoney) {
-        	if (gp.player.worldX == gp.hobo[0].worldX) {
-        		coins = 0;
-        	}
-        	
-        }
+    	}
+    	
         
     }
     /**
@@ -129,8 +137,9 @@ public class CollisionCheck {
         pickUpMoney(x1, y1, x2, y2);
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
-        looseMoney(x1, y1, x2, y2);
+        looseMoney();
         pickUpScooter(x1, y1, x2, y2);
+     //   collidesWithActorFromSide(gp.player);
     }
 
 
@@ -221,13 +230,10 @@ public class CollisionCheck {
         int enemyTopRow = enemytopworldy / gp.tileSize;
         int enemyBottomRow = enemybottomworldy / gp.tileSize;
 
-        int tilenum1, tilenum2;
                 
-        		
                 
                 switch(entityEnemy.direction) {
                 
-               
                 
                 case"down":
                 	enemyBottomRow = (enemybottomworldy - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
@@ -238,27 +244,79 @@ public class CollisionCheck {
                     }
                     break;
                     
-                case"left":
+                case"vanlig":
                 	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
                     tilenum1 = gp.loader.numOfTiles[enemyLeftCol][enemyTopRow]; // Top left corner
                     tilenum2 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top right corner
                     if(gp.loader.tiles[tilenum1].collission == true || gp.loader.tiles[tilenum2].collission == true) {
                      	entityEnemy.colliding = true;
+                     	if(gp.hobo2.worldX < gp.player.worldX + 40 && gp.hobo2.worldX > gp.player.worldX - 40) {
+                    		coins -= 15;
+                    	}
                     }
                     break;
                     
-                case"right":
+                case"vanligglad":
                 	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
                     tilenum1 = gp.loader.numOfTiles[enemyRightCol][enemyTopRow]; // Top left corner
                     tilenum2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
                     if(gp.loader.tiles[tilenum1].collission == true || gp.loader.tiles[tilenum2].collission == true) {
                      	entityEnemy.colliding = true;
+                     	if(gp.hobo2.worldX < gp.player.worldX + 40 && gp.hobo2.worldX > gp.player.worldX - 40) {
+                    		coins -= 15;
+                    	}
                     }
                     break;
 
 
       
                }
+                
+     
     }
-
+    
+    public void collidesWithActorFromSide(Player player) {
+    	if(gp.hobo2.worldX < player.worldX + 40 && gp.hobo2.worldX > player.worldX - 40) {
+    		coins -= 15;
+    	}
+    }
+    
+    //Enemy collission
+   /** public void checkEnemyEntity(entityEnemy enemy, Player player) {
+    	    	
+    			
+    			//får fiendes solide posisjon
+    			enemy.enemySolid.x = enemy.worldX + enemy.enemySolid.x;
+    			enemy.enemySolid.y = enemy.worldY + enemy.enemySolid.y;
+    			
+    			//får target sin solide posisjon
+    			gp.player.playerSolid.x = gp.player.worldX + gp.player.playerSolid.x;
+    			gp.player.playerSolid.y = gp.player.worldY + gp.player.playerSolid.y;
+    			
+    			switch(enemy.direction) {
+    			case"down":
+    				enemy.enemySolid.y += enemy.speed;
+    				if(enemy.enemySolid.intersects(player[i].playerSolid)) {
+    					enemy.colliding = true;
+    					index = i;
+    				}
+    				break;
+    			case"vanlig":
+    				enemy.enemySolid.x -= enemy.speed;
+    				if(enemy.enemySolid.intersects(gp.player.playerSolid)) {
+    					enemy.colliding = true;
+    					coins -= 15;
+    				}
+    				break;
+    			case"vanligglad":
+    				enemy.enemySolid.x += enemy.speed;
+    				if(enemy.enemySolid.intersects(gp.player.playerSolid)) {
+    					enemy.colliding = true;
+    					coins -= 15;
+    	        	break;
+    				}
+    			}
+    		//math.floor
+    }*/
+    
 }

@@ -63,7 +63,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public Background bg;
     public TileLoader loader;
-    public AssetSetter aSetter = new AssetSetter(this);
+    public EnemySetter eSetter = new EnemySetter(this);
     
     //Game Thread
     private Thread gameThread;
@@ -127,7 +127,7 @@ public class GamePanel extends JPanel implements Runnable{
         collisionChecker = new CollisionCheck(this);
         
         playerState = PlayerState.NORMAL;
-        aSetter.setHobo();
+        eSetter.setHobo();
     }
 
     public GamePanel(String mapPath) {
@@ -206,7 +206,7 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOver()) {
             score.showScore();
             player.update();
-            
+
             
         }
         if(!gO.gameOverBounds()) {
@@ -225,7 +225,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
-    	hobo2.fall();
+    	//hobo2.fall();
     	
     }
     
