@@ -42,6 +42,7 @@ public class KeyHandler implements KeyListener{
         			gp.lS.cmd = 0;
         		}
         	}
+        	if(gp.lS.getDrawNow()) {
         	if (gp.lS.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		this.enterPressed = true;
         		gp.setLang(Languages.ENGLISH);
@@ -53,6 +54,7 @@ public class KeyHandler implements KeyListener{
         		gp.setLang(Languages.NORWEGIAN);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
+        	}
         	}
         }
 
