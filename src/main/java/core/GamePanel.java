@@ -47,7 +47,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
     private PlayerState playerState = PlayerState.NORMAL;
-    public boolean pickedUpPowerUp;
+
 
     //Map
     public InputStream is;
