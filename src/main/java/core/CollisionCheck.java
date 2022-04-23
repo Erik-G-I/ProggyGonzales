@@ -1,7 +1,6 @@
 package core;
 
 import entity.Entity;
-import entity.Player;
 import entity.PlayerState;
 import gameState.GameState;
 
@@ -163,6 +162,23 @@ public class CollisionCheck {
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
         this.pickedUpPowerUp = pickedUpPowerUp;
     }
+    
+    /**
+     * Checks the collision with water tile number 17
+     * If there's a collision outOfBounds variable will be true
+     * So the player gets game over if the player falls in water
+     */
+    public void fellInWater() {
+    	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[17]) {
+    		this.outOfBounds = true;
+    	}
+    	else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[17]) {
+    		this.outOfBounds = true;
+    	}
+    	else {
+    		this.outOfBounds = false;
+    	}
+    }
 
 
     public void checkCollisionOnTile(Entity unit) {
@@ -206,8 +222,9 @@ public class CollisionCheck {
                     // This is used to check if porggy is allowed to jump again.
                     unit.onGround = true;
                 }
-
+                
                 this.pickUp(unitLeftCol,unitBottomRow, unitRightCol, unitBottomRow);
+                this.fellInWater();
 
 
                 break;
