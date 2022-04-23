@@ -16,7 +16,6 @@ public class Score extends DisplayText{
 
     public Score(GamePanel gp) {
         this.gp = gp;
-        //coins = 0;
         showScore = new String();
     }
 

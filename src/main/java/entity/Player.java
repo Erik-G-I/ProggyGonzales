@@ -152,10 +152,10 @@ public class Player extends Entity{
                 // updates to be true if Proggy collides with a solid tile
                 gp.collisionChecker.checkCollisionOnTile(this);
 
-                PowerUpRunning();
-//                PowerUpVOI();
+                // Checks playerState and sets the correct abilities to match the power-up
+                PowerUp();
 
-                // IF collision is false, player moves. else: direction stops. 
+                // If collision is false, player moves. else: direction stops. 
                 if (colliding == false) {
                     switch(direction) {
                     case "up":
@@ -178,8 +178,8 @@ public class Player extends Entity{
                     }
                 }
 
-				// oppdaterer bilde som blir brukt til player
-	            spriteCounter++;
+                // Updates picture that is used for player
+                spriteCounter++;
 	            if(spriteCounter>15) {
 	                if(spriteNum == 1) {
 	                    spriteNum = 2;
@@ -192,8 +192,8 @@ public class Player extends Entity{
         }
     }
     
-
-    public void PowerUpRunning() {
+    // gives abilities on player for the different power-ups
+    public void PowerUp() {
         if (this.gp.getPlayerState() == PlayerState.VOI) {
             speed=7;
         }
@@ -205,18 +205,8 @@ public class Player extends Entity{
         }
         if(this.gp.getPlayerState() == PlayerState.INVISIBLE) {
         	speed = 5;
-
         }
     }
-
-//    public void PowerUpVOI() {
-//        if (this.gp.getPlayerState() == PlayerState.VOI) {
-//            speed=7;
-//        }
-//        else if(this.gp.getPlayerState() == PlayerState.NORMAL) {
-//        	speed = 5;
-//        }
-//    }
 
     // jump function that makes proggy collide also when jumping	
     public void jump() {
@@ -312,12 +302,7 @@ public class Player extends Entity{
     }
     
     
-    public void draw(Graphics2D g2) {
-//        g2.setColor(Color.white);
-//        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
-
-        //g2.drawImage(bakgrunn, 0,0, 1000, 700, null);
-        
+    public void draw(Graphics2D g2) {        
         BufferedImage image = null;
         switch(direction) {
         case "up":

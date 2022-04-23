@@ -20,21 +20,25 @@ public class TileLoader {
 	InputStream is;
 	int mapCols;
 	int mapRows;
+	final private int rowNumber = 17;
 	
 	
 	public TileLoader(GamePanel gp, InputStream is) {
 		// lag variabler som tar utgangspunkt i input stream sin size
 		this.mapCols = 128;
-		this.mapRows = 16;
+		this.mapRows = rowNumber;
 		this.gp = gp;
 		this.tiles = new Tile[20];
-		this.numOfTiles = new int[128][16];
+		this.numOfTiles = new int[128][rowNumber];
 		this.is = is;
 		
 		getTileImage();
 		loadMap();
 	}
 
+	public int getRowNr() {
+		return this.rowNumber;
+	}
 
 	public void loadMap() {
 		BufferedReader reader;

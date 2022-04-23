@@ -42,7 +42,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     //World settings
     public final int maxWorldCol = 16;
-    public final int maxWorldRow = 16;
+    public final int maxWorldRow = 17;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
@@ -176,14 +176,14 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     
-    
+    // Will trigger a countdown of 10 seconds that makes the powerUp disappear when it ends
     public boolean pickedUpPowerUp() {
     	if (collisionChecker.getPickedUpPowerUp() == true) {
     		return true;
     	}
     	return false;
     }
-    
+    //
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
     	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
     }
@@ -193,11 +193,12 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    // Making it possible to read playerState
     public PlayerState getPlayerState() {
         return this.playerState;
 
     }
-    
+    // Making it possible to modify playerState
     public void setPlayerState(PlayerState playerState) {
     	this.playerState = playerState;
     }
