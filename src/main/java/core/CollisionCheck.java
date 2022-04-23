@@ -163,6 +163,11 @@ public class CollisionCheck {
         this.pickedUpPowerUp = pickedUpPowerUp;
     }
     
+    /**
+     * Checks the collision with water tile number 17
+     * If there's a collision outOfBounds variable will be true
+     * So the player gets game over if the player falls in water
+     */
     public void fellInWater() {
     	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[17]) {
     		this.outOfBounds = true;
