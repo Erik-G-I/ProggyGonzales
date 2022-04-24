@@ -24,6 +24,7 @@ public class WriteToFile {
 		try {
 			Path source = Paths.get(this.getClass().getResource("/highscoreDB").getPath());
 			String sourceStr = source.toString();
+			System.out.println(sourceStr);
 			File file = new File(sourceStr + File.separator + fileName);
 			fw = new FileWriter(file, true);
 			bw = new BufferedWriter(fw);

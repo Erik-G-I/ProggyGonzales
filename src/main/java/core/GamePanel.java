@@ -235,9 +235,9 @@ public class GamePanel extends JPanel implements Runnable{
                 // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
-                repaint();
+//                repaint();
                 fall();
-                repaint();
+//                repaint();
                 jump();
                 repaint();
                 

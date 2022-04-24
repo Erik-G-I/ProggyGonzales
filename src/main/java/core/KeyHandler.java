@@ -219,6 +219,9 @@ public class KeyHandler implements KeyListener{
         	if (code == KeyEvent.VK_ENTER) {
         		WriteToFile writer = new WriteToFile();
         		writer.writeFile("highscore.txt", "200");
+        		ReadFromFile reader = new ReadFromFile();
+        		reader.readHighscore(4);
+        		System.out.println(reader.list.toString());
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;
