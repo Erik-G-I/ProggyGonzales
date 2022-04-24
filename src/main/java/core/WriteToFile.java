@@ -4,6 +4,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;  
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.nio.file.Path;
 import java.nio.file.Paths; 
 
@@ -22,15 +23,18 @@ public class WriteToFile {
 	 */
 	public void writeFile(String fileName, String text) {
 		try {
-			Path source = Paths.get(this.getClass().getResource("/highscoreDB").getPath());
-			String sourceStr = source.toString();
-			System.out.println(sourceStr);
-			File file = new File(sourceStr + File.separator + fileName);
-			fw = new FileWriter(file, true);
-			bw = new BufferedWriter(fw);
-			bw.write(text);
-			bw.newLine();
-			bw.close();
+			PrintWriter writer = new PrintWriter(new File(this.getClass().getResource("/highscoreDB/highscore.txt").getPath()));
+//			Path source = Paths.get(this.getClass().getResource("/highscoreDB").getPath());
+//			String sourceStr = source.toString();
+//			System.out.println(sourceStr);
+//			File file = new File(sourceStr + File.separator + fileName);
+//			fw = new FileWriter(file, true);
+//			bw = new BufferedWriter(fw);
+//			bw.write(text);
+//			bw.newLine();
+//			bw.close();
+			writer.write(text+System.getProperty("line.separator"));
+			writer.close();
 			System.out.println("Successfully updated '"+fileName+"'!");
 		} catch (IOException e) {
 			System.out.println("Error occurred when trying to write to '"+fileName+"'!");
