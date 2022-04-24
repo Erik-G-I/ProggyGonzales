@@ -11,10 +11,10 @@ import java.util.ArrayList;
 
 public class ReadFromFile {
 
-	public ArrayList<String> list;
+	public ArrayList<Integer> list;
 	
 	public ReadFromFile() {
-		list = new ArrayList<String>();
+		list = new ArrayList<Integer>();
 	}
 	
 	
@@ -29,9 +29,9 @@ public class ReadFromFile {
 			reader = new BufferedReader(new InputStreamReader(is));
 			int j = 0;
 			
-			while(j <= i) {
+			while(j < i) {
 				String line = reader.readLine();
-				list.add(line);
+				list.add(Integer.parseInt(line));
 				j++;
 			}
 			reader.close();
