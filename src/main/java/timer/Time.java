@@ -102,4 +102,12 @@ public class Time implements ActionListener{
 		this.startPowerUpTimer = startPowerUpTimer;
 	}
 	
+	protected int getSeconds() {
+		return seconds;
+	}
+	
+	protected int getMinutes() {
+		return minutes;
+	}
+	
 }

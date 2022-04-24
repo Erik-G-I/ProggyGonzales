@@ -17,6 +17,8 @@ public class TimerDisplay extends DisplayText{
 	private String showTime;
 	private Timer timer;
 	private Time time;
+	private String timeLeft;
+	private int timerSeconds, timerMinutes;
 	
 	public TimerDisplay(GamePanel gp) {
 		this.gp=gp;
@@ -39,6 +41,8 @@ public class TimerDisplay extends DisplayText{
 	
 	public void update() {
 		showTime=time.getShowTime();
+		timerSeconds = this.getTime().getSeconds();
+		timerMinutes = this.getTime().getMinutes();
 	}
 	
 	public void draw(Graphics g2) {
@@ -54,5 +58,16 @@ public class TimerDisplay extends DisplayText{
 	
 	public void startPowerUpTimerTrue() {
 		time.setStartPowerUpTimer(true);
+	}
+	
+	
+	public String timeLeft() {
+		return showTime;
+	}
+	
+	public String getTimeTaken() {
+		int secondsTaken = this.seconds-timerSeconds;
+		int minutesTaken = this.minutes-timerMinutes;
+		return minutesTaken + ":" + secondsTaken;
 	}
 }

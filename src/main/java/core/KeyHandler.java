@@ -223,6 +223,10 @@ public class KeyHandler implements KeyListener{
         
         if (gp.gameState == GameState.WIN_SCREEN) {
         	if (code == KeyEvent.VK_ENTER) {
+        		System.out.println(gp.highscores.toString());
+        		Highscore hs = new Highscore(gp);
+        		hs.updateHighscore();
+        		System.out.println(gp.highscores.toString());
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;
