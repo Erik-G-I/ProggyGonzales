@@ -18,11 +18,12 @@ public class TimerDisplay extends DisplayText{
 	private Timer timer;
 	private Time time;
 	private String timeLeft;
+	private int timerSeconds, timerMinutes;
 	
 	public TimerDisplay(GamePanel gp) {
 		this.gp=gp;
 		seconds=60; //change later to wanted time
-		minutes=2; //change later to wanted time
+		minutes=0; //change later to wanted time
 		widthOfScreen=gp.screenWidth;
 		showTime=new String();
 		time=new Time(seconds,minutes,showTime,gp);
@@ -40,6 +41,8 @@ public class TimerDisplay extends DisplayText{
 	
 	public void update() {
 		showTime=time.getShowTime();
+		timerSeconds = this.getTime().getSeconds();
+		timerMinutes = this.getTime().getMinutes();
 	}
 	
 	public void draw(Graphics g2) {
@@ -63,8 +66,8 @@ public class TimerDisplay extends DisplayText{
 	}
 	
 	public String getTimeTaken() {
-		int secondsTaken = this.seconds-getTime().getSeconds();
-		int minutesTaken = this.minutes-getTime().getMinutes();
+		int secondsTaken = this.seconds-timerSeconds;
+		int minutesTaken = this.minutes-timerMinutes;
 		return minutesTaken + ":" + secondsTaken;
 	}
 }
