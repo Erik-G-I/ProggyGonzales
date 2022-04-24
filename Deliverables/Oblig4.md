@@ -20,12 +20,12 @@ sammen med Erik H ha et ekstra ansvar for å oppdatere Trello.
 
 
 ##### Erik Harto
-Rolle: Customer Contact  
+Rolle: Customer Contact 
 Hovedoppgave: Sammen med Hannah sørge for at progresjonen til prosjektet følger planen, og at prosjektet møter kravene oppgaven krever.
 
 
 ##### Erik Gunnaleite Ingebrigtsen  
-Rolle: Teknisk ansvarlig 
+Rolle: Teknisk ansvarlig \
 Hovedoppgave: Erik I har et ekstra ansvar for å sørge for at koden alltid kan kjøres, samt være en støttespiller når andre \
 lurer på noe knyttet til GIT eller andre programmer vi benytter.
 
