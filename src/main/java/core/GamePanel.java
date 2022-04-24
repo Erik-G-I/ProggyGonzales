@@ -76,6 +76,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Timer
     private TimerDisplay timerDisplay = new TimerDisplay(this);
+    public TimerDisplay getTimerDisplay() {
+    	return timerDisplay;
+    }
     
     public void startTimer() {
         timerDisplay.startTime();
