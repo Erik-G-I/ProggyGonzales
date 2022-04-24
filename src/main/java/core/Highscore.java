@@ -17,12 +17,13 @@ public class Highscore {
 	 * @return
 	 */
 	private int calculateScore() {
-		int score = gp.collisionChecker.coins;
+		int score = gp.collisionChecker.getCoins();
 		String[] strArr = gp.getTimerDisplay().timeLeft().split(":");
 		boolean minutesDone = false;
 		for(String s: strArr) {
-			if (minutesDone) {
+			if (minutesDone == false) {
 				score += Integer.parseInt(s)*60; //regner minutter til sekunder
+				minutesDone = true;
 			}
 			else {
 				score += Integer.parseInt(s); //legger til sekunder
@@ -32,21 +33,21 @@ public class Highscore {
 		return score;
 	}
 	
-	private void compareScores(int i) {
+	private void compareScores(String fileName, int i) {
 		ArrayList<Integer> list = gp.highscores;
 		for(int j: list) {
 			if(i > j) {
 				list.add(list.indexOf(j), i);
 				list.remove(5);
-				writer.overWriteFile(list);
+				writer.overWriteFile(fileName, list);
 				break;
 			}
 		}
 		gp.highscores = list;
 	}
 	
-	public void updateHighscore() {
+	public void updateHighscore(String fileName) {
 		int currentScore = calculateScore();
-		compareScores(currentScore);
+		compareScores(fileName, currentScore);
 	}
 }

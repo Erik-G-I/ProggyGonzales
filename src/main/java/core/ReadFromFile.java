@@ -18,13 +18,13 @@ public class ReadFromFile {
 	}
 	
 	
-	public void readHighscore(int i) {
+	public void readHighscore(String fileName, int i) {
 		BufferedReader reader;
 		list.clear();
 		
 		
 		try {
-			InputStream is = getClass().getResourceAsStream("/highscoreDB/highscore.txt");
+			InputStream is = getClass().getResourceAsStream("/highscoreDB/"+fileName);
 			
 			reader = new BufferedReader(new InputStreamReader(is));
 			int j = 0;

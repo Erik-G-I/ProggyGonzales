@@ -12,6 +12,7 @@ public class KeyHandler implements KeyListener{
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
+    int mapNum;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -114,17 +115,20 @@ public class KeyHandler implements KeyListener{
         		gp.playMusic(7);
         		if (gp.levels.cmd == 0) {
         			selectingMapPath("/maps/easy.txt");
+        			mapNum = 1;
         			
         		}
         		if (gp.levels.cmd == 1) {
         			gp.stopMusic();
         			gp.playSoundEffect(0);
         			selectingMapPath("/maps/medium.txt");
+        			mapNum = 2;
         			gp.playMusic(7);
         			
         		}
         		if (gp.levels.cmd == 2) {
         			selectingMapPath("/maps/hard.txt");
+        			mapNum = 3;
         		}
         	}
         	code = KeyEvent.KEY_RELEASED;
@@ -223,9 +227,21 @@ public class KeyHandler implements KeyListener{
         
         if (gp.gameState == GameState.WIN_SCREEN) {
         	if (code == KeyEvent.VK_ENTER) {
+        		String hsLevel = "highscore"+Integer.toString(mapNum)+".txt";
+        		
+        		//reads the highscore file to the corresponding level
+        		ReadFromFile reader = new ReadFromFile();
+                reader.readHighscore(hsLevel,5);
+                gp.highscores.clear();
+                for(int i: reader.list) {
+                	gp.highscores.add(i);
+                }
+                
         		System.out.println(gp.highscores.toString());
         		Highscore hs = new Highscore(gp);
-        		hs.updateHighscore();
+        		
+        		//updates the highscore for the current level
+        		hs.updateHighscore(hsLevel);
         		System.out.println(gp.highscores.toString());
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
