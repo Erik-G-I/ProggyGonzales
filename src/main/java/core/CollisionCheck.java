@@ -9,9 +9,12 @@ public class CollisionCheck {
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
-    public int coins = 0;
+    private int coins = 0;
     
+    // Used to activate gameOver if proggy falls out of bounds
     private boolean outOfBounds = false;
+
+    // Used to start timer on a picked up power up
     private boolean pickedUpPowerUp = false;
  
 
@@ -19,10 +22,10 @@ public class CollisionCheck {
         this.gp = gp;
     }
 
-    
+
     /**
      * Returns outOfBounds boolean check
-     * @return
+     * @return field variable: outOfBounds
      */
     public boolean isOutOfBounds() {
     	return outOfBounds;
@@ -51,10 +54,7 @@ public class CollisionCheck {
 }
     /**
      * Picks up money adding 100 or 200 to "Øl-penger" depending on what bill Proggy has encountered.
-     * @param x1 x-value of first corner
-     * @param y1 y-value of first corner
-     * @param x2 x-value of second corner
-     * @param y2 y-value of second corner
+     * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpMoney(int x1, int y1, int x2, int y2) {
         // Pick up 100 kroner
@@ -69,15 +69,19 @@ public class CollisionCheck {
         }
     }
     
-    public void looseMoney(int x1, int y1, int x2, int y2) {
+    // If Proggy meets an enemy he will lose money
+    public void loseMoney(int x1, int y1, int x2, int y2) {
         gp.getPlayerState();
-        int loosingMoney = 15;
+        int losingMoney = 15;
+        // He will not lose money if he has mask on as he is considered invisible
         if (gp.getPlayerState() != PlayerState.INVISIBLE) {
-        if (coins >= loosingMoney) {
+        // He will lose money equivalent to losingmoney if he has more than, or equal to that amount
+        if (coins >= losingMoney) {
             if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
                 gp.loader.numOfTiles[x1][y1] = 10;
-                coins -= loosingMoney;
-        }} else if (coins>0 && coins < loosingMoney) {
+                coins -= losingMoney;
+        // He can not have negative money and will only lose the amount of coins he has, if encountering an enemy while carrying less than losingMoney
+        }} else if (coins>0 && coins < losingMoney) {
         if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
             gp.loader.numOfTiles[x1][y1] = 10;
             coins = 0;
@@ -94,19 +98,19 @@ public class CollisionCheck {
     }
     /**
      * Picks up mask and sets player state to invisible
-     * @param x1 x-value of first corner
-     * @param y1 y-value of first corner
-     * @param x2 x-value of second corner
-     * @param y2 y-value of second corner
+     * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpMask(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 12)) {
             powerUpSequence(4, PlayerState.INVISIBLE);
         }
     }
-    // Picks up scooter, which costs 15 coins
+    /**
+     * Picks up scooter, which costs 15 coins
+     * parameters x1, y1, x2, y2 is the same as pickUpGeneric
+     */
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
-        int scooterCost = 15;
+        int scooterCost = 5;
         //If the player does not have at least the cost of the scooter, it cannot be picked up
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
@@ -119,6 +123,7 @@ public class CollisionCheck {
 
     /**
      * Picks up Shoes and sets player state to Faster
+     * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
@@ -130,6 +135,7 @@ public class CollisionCheck {
     
     /**
      * Player can pick up the beer and win the game only when the player has enough coins
+     * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
     	if(coins >= 100) { //check for winning
@@ -142,23 +148,27 @@ public class CollisionCheck {
 
     /**
      * Tries to pick up for all possible pickable objects.
-     * @param x1 x-value of first corner
-     * @param y1 y-value of first corner
-     * @param x2 x-value of second corner
-     * @param y2 y-value of second corner
      */
     private void pickUp(int x1, int y1, int x2, int y2) {
         pickUpMoney(x1, y1, x2, y2);
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
-        looseMoney(x1, y1, x2, y2);
+        loseMoney(x1, y1, x2, y2);
         pickUpScooter(x1, y1, x2, y2);
         pickUpBeer(x1, y1, x2, y2);
     }
 
+    /**
+     * Helper method to start timer on how long the power up should last - will be used by GamePanel and from there used in Time
+     */
     public boolean getPickedUpPowerUp() {
     	return this.pickedUpPowerUp;
     }
+
+    /** 
+     * This is used when Proggy picks up a power up while already having a power up to restart the countdown to when the power up ends
+     * - will be used by GamePanel and from there used in Time
+     */
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
         this.pickedUpPowerUp = pickedUpPowerUp;
     }
@@ -178,6 +188,25 @@ public class CollisionCheck {
     	else {
     		this.outOfBounds = false;
     	}
+    }
+
+    /**
+     * This follows the same system as getPickedUpPowerUp and setPickedUpPowerUp
+     * This is used to reduce coins by 1. It is used in GamePanel and Time uses it on its gamePanel
+     */
+    public void reduceCoins() {
+        this.coins --;
+    }
+
+    /**
+     * This follows the same system as getPickedUpPowerUp and setPickedUpPowerUp
+     * This is used to find out how many coins Proggy has
+     */
+    public int getCoins() {
+        return this.coins;
+    }
+    public void setCoins(int i) {
+        this.coins = i;
     }
 
 
@@ -235,6 +264,7 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                 }
+                // Will pick up whatever is in the new tile                
                 this.pickUp(unitLeftCol,unitTopRow, unitLeftCol, unitBottomRow);
 
 
@@ -246,10 +276,13 @@ public class CollisionCheck {
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
                     unit.colliding = true;
                 }
+                // Will pick up whatever is in the new tile 
                 this.pickUp(unitRightCol,unitTopRow, unitRightCol, unitBottomRow);
                 break;
         }
        }
+
+       // If proggy falls out of bounds this is triggered
         catch(ArrayIndexOutOfBoundsException e) {
         	outOfBounds = true;
         	gp.player.setGravity(0); //setting gravity equal to 0 so that Proggy doesn't fall to infinity
