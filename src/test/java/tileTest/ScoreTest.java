@@ -31,13 +31,13 @@ public class ScoreTest {
     @Test
     void testMoneyDisappears() {
     	score = new Score(gp);
-		int money = gp.collisionChecker.coins;
+		int money = gp.collisionChecker.getCoins();
 		
         for(int i = 0; i < 5; i++) {
             keyH.rightPressed = true;
             p.update();
         }
-        int newMoney = gp.collisionChecker.coins;
+        int newMoney = gp.collisionChecker.getCoins();
         assertEquals(0, gp.loader.numOfTiles[1][8]);
         assertEquals(10, newMoney, "Coin did not disappear when Proggy tried to pick it up");
     }
@@ -50,7 +50,7 @@ public class ScoreTest {
             keyH.rightPressed = true;
             p.update();
         }
-        assertEquals( 10, gp.collisionChecker.coins);
+        assertEquals( 10, gp.collisionChecker.getCoins());
     }
 }
 

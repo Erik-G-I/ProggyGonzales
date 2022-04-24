@@ -43,14 +43,14 @@ public class PlayerItemsTest {
 
 	@Test
 	public void testInvisible() {
-		gp.collisionChecker.coins = 100;
-		int money = gp.collisionChecker.coins;
+		gp.collisionChecker.setCoins(100);
+		int money = gp.collisionChecker.getCoins();
 		
 		for(int i = 0; i < 40; i++) {
 			keyH.rightPressed = true;
 			p.update();
 		}
-		int newMoney = gp.collisionChecker.coins; // lagrer nye verdien til pengene
+		int newMoney = gp.collisionChecker.getCoins(); // lagrer nye verdien til pengene
 		
 		assertEquals(newMoney, money + 10 - 15); // tar +10 -15 fordi player plukker opp 10kr, går så forbi en fiende, også plukker opp maske før neste fiende. Player skal altså bare miste 15kr fra første fiende
 	}
@@ -63,7 +63,7 @@ public class PlayerItemsTest {
 	@Test
 	public void testPlayerCanPickUpMoney() {
 		score = new Score(gp);
-		int money = gp.collisionChecker.coins;
+		int money = gp.collisionChecker.getCoins();
 		
 		//moves player to the right, and picks up money
 		for(int i = 0; i < 5; i++) {
@@ -75,21 +75,21 @@ public class PlayerItemsTest {
 		int newScore = money + 10;
 
 		assertTrue(gp.loader.numOfTiles[8][1] == 0);
-		assertEquals(newScore, gp.collisionChecker.coins);
+		assertEquals(newScore, gp.collisionChecker.getCoins());
 	}
 
 	@Test
 	public void testPlayerLosesMoney() {
 		//TODO: lage når vi implementerer fiender
-		gp.collisionChecker.coins = 100;
-		int money = gp.collisionChecker.coins;
+		gp.collisionChecker.setCoins(100);
+		int money = gp.collisionChecker.getCoins();
 		
 		for (int i = 0; i < 20; i++) {
 			keyH.rightPressed = true;
 			p.update();
 		}
 		
-		int newScore = gp.collisionChecker.coins;
+		int newScore = gp.collisionChecker.getCoins();
 		//player.loseMoney / enemy.attackPlayer
 		
 		assertTrue(newScore < money);

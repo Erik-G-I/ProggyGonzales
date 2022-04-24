@@ -10,7 +10,7 @@ public class CollisionCheck {
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
-    public int coins = 0;
+    private int coins = 0;
     
     // Used to activate gameOver if proggy falls out of bounds
     private boolean outOfBounds = false;
@@ -23,16 +23,7 @@ public class CollisionCheck {
         this.gp = gp;
     }
 
-    public int getCoins() {
-        return this.coins;
-    }
-    public void setCoins(int newCoins) {
-        this.coins = newCoins;
-    }
 
-    public void reduceCoins(int i) {
-        this.coins = this.coins - i;
-        }
     /**
      * Returns outOfBounds boolean check
      * @return field variable: outOfBounds
@@ -168,14 +159,38 @@ public class CollisionCheck {
         pickUpBeer(x1, y1, x2, y2);
     }
 
-    //Helper method to start timer on how long the power up should last
+    /**
+     * Helper method to start timer on how long the power up should last - will be used by GamePanel and from there used in Time
+     */
     public boolean getPickedUpPowerUp() {
     	return this.pickedUpPowerUp;
     }
 
-    // This is used when Proggy picks up a power up while already having a power up to restart the countdown to when the power up ends
+    /** 
+     * This is used when Proggy picks up a power up while already having a power up to restart the countdown to when the power up ends
+     * - will be used by GamePanel and from there used in Time
+     */
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
         this.pickedUpPowerUp = pickedUpPowerUp;
+    }
+
+    /**
+     * This follows the same system as getPickedUpPowerUp and setPickedUpPowerUp
+     * This is used to reduce coins by 1. It is used in GamePanel and Time uses it on its gamePanel
+     */
+    public void reduceCoins() {
+        this.coins --;
+    }
+
+    /**
+     * This follows the same system as getPickedUpPowerUp and setPickedUpPowerUp
+     * This is used to find out how many coins Proggy has
+     */
+    public int getCoins() {
+        return this.coins;
+    }
+    public void setCoins(int i) {
+        this.coins = i;
     }
 
 

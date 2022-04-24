@@ -187,13 +187,13 @@ public class GamePanel extends JPanel implements Runnable{
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
     	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
     }
-
+    // Gets coins from CollisionChecker and is in this class so that it can be used in Time.java
     public int getCoinsInCollisionChecker() {
         return this.collisionChecker.getCoins();
     }
-    
-    public void setCoinsInCollisionChecker(int coins) {
-        this.collisionChecker.setCoins(coins);
+    // Calls on the method from CollisionChecker that reduces coins by 1 and is in this class so that it can be used in Time.java
+    public void reduceCoinByOne() {
+        this.collisionChecker.reduceCoins();
     }
 
     public void startGameThread() {  

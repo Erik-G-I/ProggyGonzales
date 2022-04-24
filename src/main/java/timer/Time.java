@@ -63,12 +63,16 @@ public class Time implements ActionListener{
 					gp.setPickedUpPowerUp(false);
 				}
 				powerUpSeconds--;
+				// Reduce coins by 1 for each second on a VOI
 				if (gp.getPlayerState() == PlayerState.VOI) {
+					// The coins before deducting
 					int originalCoins = gp.getCoinsInCollisionChecker();
+					// Makes sure coins are not negative
 					if (originalCoins>0) {
-					gp.setCoinsInCollisionChecker(originalCoins-1);
+						gp.reduceCoinByOne();
 					}
-					if (gp.getCoinsInCollisionChecker() <= 1) {
+					// If proggy has no money left, the voi trip ends
+					if (gp.getCoinsInCollisionChecker() <= 0) {
 						gp.setPlayerState(PlayerState.NORMAL);
 					}
 					
