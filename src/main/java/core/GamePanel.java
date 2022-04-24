@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -51,6 +52,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Map
     public InputStream is;
+    
+    //Highscore list
+    public ArrayList<String> highscores;
 
     // FPS
     int FPS = 60;

@@ -23,18 +23,18 @@ public class WriteToFile {
 	 */
 	public void writeFile(String fileName, String text) {
 		try {
-			PrintWriter writer = new PrintWriter(new File(this.getClass().getResource("/highscoreDB/highscore.txt").getPath()));
+			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/highscore.txt").getPath()), true);
+			bw = new BufferedWriter(fw);
 //			Path source = Paths.get(this.getClass().getResource("/highscoreDB").getPath());
 //			String sourceStr = source.toString();
 //			System.out.println(sourceStr);
 //			File file = new File(sourceStr + File.separator + fileName);
 //			fw = new FileWriter(file, true);
 //			bw = new BufferedWriter(fw);
-//			bw.write(text);
-//			bw.newLine();
-//			bw.close();
-			writer.write(text+System.getProperty("line.separator"));
-			writer.close();
+			bw.write(text);
+			bw.newLine();
+			bw.close();
+			
 			System.out.println("Successfully updated '"+fileName+"'!");
 		} catch (IOException e) {
 			System.out.println("Error occurred when trying to write to '"+fileName+"'!");
