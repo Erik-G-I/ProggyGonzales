@@ -17,20 +17,13 @@ public class StartMenu extends GameScreen {
     public StartMenu(GamePanel gp) {
         this.gp = gp;
 		try {
-			img = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
+			img = ImageIO.read(getClass().getResourceAsStream("/graphics/start.png"));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
     }
     
-	public void update() {
-		y += 6;
-		if (y == gp.tileSize*6) {
-			y-=6;
-		}
-	}
-
     @Override
     public void draw(Graphics g) {
     	
@@ -52,8 +45,9 @@ public class StartMenu extends GameScreen {
             s5 = "Quit";
         }
     	
-//        Color transparent = new Color(0, 0, 0, 0x80); // fourth argument is transparency - try out different values 0x00 - 0xff
-        g.setColor(Color.BLACK);
+		g2.drawImage(img, 0, 0, gp.screenWidth, gp.screenHeight-68, null);
+        Color transparent = new Color(0, 0, 0, 150);
+        g.setColor(transparent);
         g.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
 
         String text;
@@ -89,7 +83,6 @@ public class StartMenu extends GameScreen {
         if (cmd == 3) {
             g.drawString(">", centerText(s5)-gp.tileSize,gp.tileSize*9);
         }
-		g2.drawImage(img, 100, y, 300, 300, null);
     }
 
 }

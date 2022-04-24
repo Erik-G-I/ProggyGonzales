@@ -12,7 +12,6 @@ public class KeyHandler implements KeyListener{
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
-    boolean enterPressed = false;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -42,17 +41,17 @@ public class KeyHandler implements KeyListener{
         			gp.lS.cmd = 0;
         		}
         	}
+        	if(gp.lS.getDrawNow()) {
         	if (gp.lS.cmd == 0 && code == KeyEvent.VK_ENTER) {
-        		this.enterPressed = true;
         		gp.setLang(Languages.ENGLISH);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
         	}
         	if (gp.lS.cmd == 1 && code == KeyEvent.VK_ENTER) {
-        		this.enterPressed = true;
         		gp.setLang(Languages.NORWEGIAN);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
+        	}
         	}
         }
 
@@ -148,13 +147,17 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
             	gp.playSoundEffect(0);
                 if (gp.info.cmd == 1) {
-                    gp.gameState = GameState.START_MENU;
-                    gp.info.cmd = 0;
+                	if (gp.info.page == 1) {
+						gp.info.cmd = 0;
+						gp.gameState = GameState.START_MENU;
+					} else
+                		gp.info.page--;
                 }
 
-                if (gp.info.cmd == 2) {
-
+                if (gp.info.cmd == 2 && gp.info.page != 3) {
+                	gp.info.page++;
                 }
+
             }
         }
         
