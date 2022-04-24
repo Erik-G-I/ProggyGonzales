@@ -188,6 +188,14 @@ public class GamePanel extends JPanel implements Runnable{
     	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
     }
 
+    public int getCoinsInCollisionChecker() {
+        return this.collisionChecker.getCoins();
+    }
+    
+    public void setCoinsInCollisionChecker(int coins) {
+        this.collisionChecker.setCoins(coins);
+    }
+
     public void startGameThread() {  
         gameThread = new Thread(this);
         gameThread.start();
@@ -274,8 +282,7 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
-        }
-        
+        } 
     }
     
     public void jump() {

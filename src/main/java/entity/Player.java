@@ -33,7 +33,6 @@ public class Player extends Entity{
         
         setDefaultValues();
         getPlayerImage();
-    
     }
     
 
@@ -142,9 +141,7 @@ public class Player extends Entity{
 	            else if(keyH.rightPressed == true) {
 	            	previousDirection = direction;
 	                direction = "right";
-
 	            }
-                
                 
                 // Is the tile Proggy is located in solid? default setting is false
 	            colliding = false;

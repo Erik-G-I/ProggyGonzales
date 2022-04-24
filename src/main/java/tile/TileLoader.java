@@ -100,6 +100,7 @@ public class TileLoader {
 			// We want grass corners to be categorized as a solid block
 			tiles[5].collission = true;
 			
+			//Tile with 
 			tiles[6] = new Tile();
 			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
 			tiles[6].collission = true;

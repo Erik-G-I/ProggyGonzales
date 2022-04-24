@@ -23,7 +23,16 @@ public class CollisionCheck {
         this.gp = gp;
     }
 
-    
+    public int getCoins() {
+        return this.coins;
+    }
+    public void setCoins(int newCoins) {
+        this.coins = newCoins;
+    }
+
+    public void reduceCoins(int i) {
+        this.coins = this.coins - i;
+        }
     /**
      * Returns outOfBounds boolean check
      * @return field variable: outOfBounds
@@ -111,7 +120,7 @@ public class CollisionCheck {
      * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
-        int scooterCost = 15;
+        int scooterCost = 5;
         //If the player does not have at least the cost of the scooter, it cannot be picked up
         if (coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {

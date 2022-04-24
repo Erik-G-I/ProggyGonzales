@@ -63,6 +63,17 @@ public class Time implements ActionListener{
 					gp.setPickedUpPowerUp(false);
 				}
 				powerUpSeconds--;
+				if (gp.getPlayerState() == PlayerState.VOI) {
+					int originalCoins = gp.getCoinsInCollisionChecker();
+					if (originalCoins>0) {
+					gp.setCoinsInCollisionChecker(originalCoins-1);
+					}
+					if (gp.getCoinsInCollisionChecker() <= 1) {
+						gp.setPlayerState(PlayerState.NORMAL);
+					}
+					
+					
+				}
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
