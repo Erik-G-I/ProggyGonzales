@@ -19,9 +19,9 @@ public class WriteToFile {
 	 * @param fileName - Name of file to write to, ex. "example.txt"
 	 * @param text - What to write in the file
 	 */
-	public void writeFile(String text) {
+	public void writeFile(String fileName, String text) {
 		try {
-			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/highscore.txt").getPath()), true);
+			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/"+fileName).getPath()), true);
 			bw = new BufferedWriter(fw);
 			bw.write(text);
 			bw.newLine();
@@ -34,9 +34,9 @@ public class WriteToFile {
 		}
 	}
 	
-	public void overWriteFile(ArrayList<Integer> list) {
+	public void overWriteFile(String fileName, ArrayList<Integer> list) {
 		try {
-			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/highscore.txt").getPath()), false);
+			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/"+fileName).getPath()), false);
 			bw = new BufferedWriter(fw);
 			for(int i: list) {
 				bw.write(Integer.toString(i));

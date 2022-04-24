@@ -15,11 +15,7 @@ public class Main {
         
         GamePanel gamePanel = new GamePanel("/maps/gameMap.txt"); // må endres når vi lager nytt map
         ReadFromFile reader = new ReadFromFile();
-        reader.readHighscore(5);
-        for(int i: reader.list) {
-        	gamePanel.highscores.add(i);
-        }
-        System.out.println(gamePanel.highscores.toString());
+        
         window.add(gamePanel);
         
         window.pack();
