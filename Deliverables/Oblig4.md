@@ -46,7 +46,32 @@ verdsatt i teamet og blir hørt på innspillene de kommer med.
 
 #### Prosjektmetodikk
 Vi har hatt lite endring på prosjektmetodikken vår gjennom semesteret, men vi har etter hver innlevering \
-evaluert om det vi har brukt fram til da er riktig for oss. Oppsummert 
+evaluert om det vi har brukt fram til da er riktig for oss. Oppsummert har vi ønsket den kontinuerlige \
+progresjonen som Kanban tilbyr, men vi var og motivert for å ha et bedre produkt å vise til for hver innlevering \
+og har dermed i tråd med Scrum kjørt kortere sprinter for å kunne levere mest mulig til kunden. 
+
+
+Ting vi gjør som tyder på Scrum:
+Jobber relativt i sprints med tanke på obliger
+Bruker tid på å planlegge fram mot neste innlevering og se i retroperspektiv på hva som gikk galt. 
+Releaser hver sprint
+
+Ting vi gjør som tyder på Kanban
+Er fleksible med tanke på arbeidsmengde fram mot hver innlevering. Dersom noe har stanget har vi brukt mye tid på det for å gjøre det ordentlig i stedet for å rushe. Har ikke hatt et fastsatt mål etter hver innlevering om hva vi skal ha klart til neste innlevering. 
+Skal releaser mye oftere, vi pusher mye til master, men vi releaser ikke til en kunde.
+
+Key points:
+Ikke ha alt for mye oppgaver i prosess samtidig. Det gjør at man i større grad kan samarbeide om komplekse oppgaver. 
+Prate om hvordan en sprint har gått og planlegg neste bedre.
+- Vi tok ting litt på sparket, og dersom vi ikke fikk til noe var det ikke krise. Vi ble ikke stresset av at noen ting kunne ta mye tid 
+
+Scrum:
+- Releaser hver sprint
+- Relativt lite på project boardet. Hver utvikler jobber som regel med veldig få oppgaver av gangen
+
+Kanban:
+- Skal release mye oftere, vi pusher mye til master, men vi releaser ikke til en kunde.
+- Har mye på project boardet. Hver utvikler jobber med mye av gangen. Her er det ofte mange blokkerte kort (ting som må vente på at andre oppgaver skal bli ferdige først.)
 
 Our project methodology has been the same throughout the project, with little changes.\
 We feel that we chose correct early on and did quick revisions of our methodology when needed.\
@@ -57,6 +82,16 @@ Secondly we made the sprints into 3/4 days cycles. Such that we had a much more 
 This corresponded well with the meetings we set up, and we personally feel that we got a good development structure.
 
 #### Retrospection
+Vi har vært flinke til å se bakover på en sprint og reflektere rundt hva vi kunne gjort bedre, men vi kunne vært mye \
+flinkere til å sette klare mål for hva vi ønsker å få til før neste sprint. 
+
+
+
+
+
+#### Grafikk
+
+
 When we first started with this project, everyone in the group was taken back at first.\
 This was the first time any of us had worked on a project of this scale before and it was kinda scary.\
 We agreed on roles quite early, since some of us were more comfortable writing code and others drawing.\
