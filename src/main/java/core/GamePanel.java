@@ -229,6 +229,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setMap(String mapPath) {
+    	this.mapPath = mapPath;
     	is = getClass().getResourceAsStream(mapPath);
     }
     
