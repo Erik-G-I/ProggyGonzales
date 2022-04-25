@@ -1,6 +1,6 @@
 package core;
 
-import enemies.entityEnemy;
+import enemies.EntityEnemy;
 import entity.Entity;
 import entity.Player;
 import entity.PlayerState;
@@ -77,7 +77,7 @@ public class CollisionCheck {
     }
     
   //Enemy collission
-    public boolean looseMoney(Player player, entityEnemy[] enemy) {
+    public boolean looseMoney(Player player, EntityEnemy[] enemy) {
 			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
     			for (int i = 0; i < enemy.length; i++) {
     				if(enemy[i] != null) {
@@ -301,7 +301,7 @@ public class CollisionCheck {
         }
     }
     
-    public void checkEnemyOnTile(entityEnemy entityEnemy) {
+    public void checkEnemyOnTile(EntityEnemy entityEnemy) {
         // Creating the sides of the solid area of Enemy. If these sides hit a solid block, it will create a collision.
         int enemyleftworldx = entityEnemy.worldX + entityEnemy.enemySolid.x;
         int enemyrightworldx =  entityEnemy.worldX + entityEnemy.enemySolid.x + entityEnemy.enemySolid.width;

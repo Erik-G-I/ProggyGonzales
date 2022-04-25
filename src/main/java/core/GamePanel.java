@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 import enemies.EnemySetter;
 import enemies.Hobo;
-import enemies.entityEnemy;
+import enemies.EntityEnemy;
 import entity.Background;
 import entity.Player;
 import entity.PlayerState;
@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
-    public entityEnemy hobo[] = new entityEnemy[50];
+    public EntityEnemy hobo[] = new EntityEnemy[50];
     public Background bg;
     public TileLoader loader;
     public EnemySetter eSetter = new EnemySetter(this);

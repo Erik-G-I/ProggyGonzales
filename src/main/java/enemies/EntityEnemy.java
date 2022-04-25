@@ -11,7 +11,7 @@ import entity.PlayerState;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class entityEnemy {
+public class EntityEnemy {
 
     
     public int worldX, worldY;
@@ -30,7 +30,7 @@ public class entityEnemy {
     private int gravity = 3;
     private int weight = 8;
 
-    public entityEnemy[] allEnemies ;
+    public EntityEnemy[] allEnemies ;
 
     public PlayerState enemyState = PlayerState.NORMAL;
 
@@ -70,7 +70,7 @@ public class entityEnemy {
 	GamePanel gp;
     
     
-    public entityEnemy(GamePanel gp) {
+    public EntityEnemy(GamePanel gp) {
     	this.gp = gp;
     	
     }

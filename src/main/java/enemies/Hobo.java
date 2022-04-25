@@ -12,9 +12,9 @@ import core.KeyHandler;
 import entity.Entity;
 
 import java.awt.Rectangle;
-import enemies.entityEnemy;
+import enemies.EntityEnemy;
 
-public class Hobo extends entityEnemy{
+public class Hobo extends EntityEnemy{
 
     GamePanel gp;
 	
