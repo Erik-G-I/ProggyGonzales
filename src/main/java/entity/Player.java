@@ -17,6 +17,7 @@ public class Player extends Entity{
     private int weight;
     private int gravity;
     private BufferedImage jumpImg = null;
+    //int hoboIndex = gp.collisionChecker.checkEnemyEntity(this, gp.hobo);
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -25,7 +26,7 @@ public class Player extends Entity{
         this.gp = gp;
         this.keyH = keyH;
         playerX = 480;
-        playerY = 515;
+        playerY = 512;
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
@@ -34,7 +35,7 @@ public class Player extends Entity{
         
         setDefaultValues();
         getPlayerImage();
-    
+
     }
     
 
@@ -151,6 +152,7 @@ public class Player extends Entity{
         }
     }
 
+    
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
@@ -243,11 +245,8 @@ public class Player extends Entity{
     	direction = originalDir;
     }
     
-	/**public void interactEnemy(int i) {
-		if(i != 999) {
-			System.out.println("you are hitting an enemy");
-		}
-	}*/
+    
+	
 
     public void draw(Graphics2D g2) {
 //        g2.setColor(Color.white);

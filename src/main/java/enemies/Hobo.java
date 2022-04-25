@@ -22,7 +22,7 @@ public class Hobo extends entityEnemy{
     public Hobo(GamePanel gp) {
         super(gp);	
         this.gp = gp;
-        direction = "vanlig";
+        direction = "down";
         speed = 1;
         enemySolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
         
@@ -58,6 +58,9 @@ public class Hobo extends entityEnemy{
 				if(i > 50) {
 					direction = "vanligglad";
 				}
+				if(onGround = false) {
+					direction = "down";
+				}
 			
 				actionLockCounter = 0;
 			}
@@ -69,89 +72,4 @@ public class Hobo extends entityEnemy{
 
 }
 
-
-/**
-
-        playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
-        
-        setDefaultValues();
-        getEnemyImage();
-    
-    }
-
-    public void setDefaultValues() {
-        direction = "left";
-        previousDirection = direction;
-        jumpStrength = 0;
-    }
-    
-    public void getEnemyImage() {
-        
-        try {
-        	uteligger = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
-           // BufferedImage uteliggerglad = ImageIO.read(getClass().getResourceAsStream("/enemies/uteliggerglad.png"));
-            
-           // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
-            
-            
-        }catch(IOException e) {
-            e.printStackTrace();
-        }
-    }
-    
-    public void changeOnCollision() {
-
-    	
-    			worldX --;
-                // Is the tile Proggy is located in solid? default setting is false
-	            colliding = false;
-                
-                // updates to be true if Proggy collides with a solid tile
-                gp.collisionChecker.checkCollisionOnTile(this);
-
-                // IF collision is true, enemy changes way.  
-                if (direction == "left" && colliding == true) {
-                    direction = "right"; 
-                    worldX ++;
-
-                }    
-                
-                if (direction == "right" && colliding == true) {
-                    direction = "left";
-                    worldX --; 
-
-                }    
-    
-    }
-    
-    
-    public void draw(Graphics2D g2) {
-//        g2.setColor(Color.white);
-//        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
-
-        //g2.drawImage(bakgrunn, 0,0, 1000, 700, null);
-        
-        BufferedImage image = null;
-        	image = uteligger;
-        
-        	int worldCol = 0; //x/gp.maxWorldCol;
-    		int bufferCol = 64;//worldCol + 16;
-    		
-    		int worldRow = 0;
-    		
-    		while(worldCol < bufferCol && worldRow < gp.maxWorldRow) {
-    			
-    			int WorldX = worldCol * gp.tileSize;
-    			int WorldY = worldRow * gp.tileSize;
-    			int screenX = WorldX - gp.player.worldX + gp.player.playerX;
-    			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
-    			
-    			
-    	        g2.drawImage(image, screenX, screenY + 200, gp.tileSize, gp.tileSize, null);
-    			
-    			worldCol ++;
-
-    		}
-    } 
- */
 

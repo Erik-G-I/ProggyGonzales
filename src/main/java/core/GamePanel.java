@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
-    public entityEnemy hobo[] = new entityEnemy[10];
+    public entityEnemy hobo[] = new entityEnemy[30];
     public entityEnemy hobo2 = new entityEnemy(this);
 
     public Background bg;
@@ -214,8 +214,14 @@ public class GamePanel extends JPanel implements Runnable{
         }
         for(int i = 0; i < hobo.length; i++) {
         	if(hobo[i] != null) {
+        	
         		hobo[i].update();
+    			System.out.println(hobo[i].worldX);
+
         	}
+        	
+        	
+        	
         }
         
     }
@@ -225,8 +231,11 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
-    	//hobo2.fall();
-    	
+    	for(int i = 0; i < hobo.length; i++) {
+        	if(hobo[i] != null) {
+        		hobo[i].fall(); 
+        	}
+        }
     }
     
     public void paintComponent(Graphics g) {

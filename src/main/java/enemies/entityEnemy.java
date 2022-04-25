@@ -27,10 +27,12 @@ public class entityEnemy {
     public Rectangle playerSolid;
     public Rectangle enemySolid;
     public boolean colliding = false;
-    public boolean onGround = true;
+    public boolean onGround = false;
     private int gravity = 3;
+    private int weight = 3;
 
-    //public boolean onGround = true;
+    public entityEnemy[] allEnemies ;
+
     public PlayerState enemyState = PlayerState.NORMAL;
 
     public int distance;
@@ -46,7 +48,6 @@ public class entityEnemy {
 		
 		colliding = false;
 		gp.collisionChecker.checkEnemyOnTile(this);
-//		gp.collisionChecker.checkEnemyEntity(this, gp.player);
 
 		if (colliding == false) {
             switch(direction) {
@@ -57,8 +58,10 @@ public class entityEnemy {
             case "vanligglad":
             worldX += speed;
                 break;
-                
-          
+            
+            case "down":
+            	fall();
+            	break;
             }
         }
 
@@ -75,7 +78,7 @@ public class entityEnemy {
     
     public void fall() {
     	String originalDir = direction;
-    	direction = "vanlig";
+    	direction = "down";
     	gp.collisionChecker.checkEnemyOnTile(this);
     	if(colliding == false || onGround == false) {
     		onGround = false;
@@ -90,9 +93,9 @@ public class entityEnemy {
     	}
     	else {
     		onGround = true;
-    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
+    		worldY = ((worldY + speed)/gp.tileSize) * gp.tileSize;
     		direction = originalDir;
-    		gravity = 3;
+    		gravity = weight;
     		
     	}
     }
@@ -102,7 +105,7 @@ public class entityEnemy {
     	BufferedImage image = null;
 
     	int screenX = worldX - gp.player.worldX + gp.player.playerX;
-		int screenY = worldY - gp.player.worldY + gp.player.playerY;
+		int screenY = worldY - gp.player.worldY + gp.player.playerY ;
 		
 		if(worldX + gp.tileSize > gp.player.worldX - gp.player.playerX && 
 		   worldX - gp.tileSize < gp.player.worldX + gp.player.playerX &&
@@ -118,16 +121,25 @@ public class entityEnemy {
 	        	image = uteligger;
 	            break;
 	        
+	        case "down":
+	        	image = uteligger;
+	            break;
 	    }       
-			if(gp.player.worldX == gp.hobo[0].worldX && !(gp.player.worldY < gp.hobo[0].worldY)) {
-				uteligger = uteliggerglad;			
-			}
+			
 			
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 			
 		}
     }
+
+	public entityEnemy[] getAllEnemies() {
+		return allEnemies;
+	}
+
+	public void setAllEnemies(entityEnemy[] allEnemies) {
+		this.allEnemies = allEnemies;
+	}
     
 }
 
