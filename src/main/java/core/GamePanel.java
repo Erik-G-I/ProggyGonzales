@@ -7,6 +7,9 @@ import java.io.InputStream;
 
 import javax.swing.JPanel;
 
+import enemies.EnemySetter;
+import enemies.Hobo;
+import enemies.entityEnemy;
 import entity.Background;
 import entity.Player;
 import entity.PlayerState;
@@ -60,8 +63,12 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
+    public entityEnemy hobo[] = new entityEnemy[50];
     public Background bg;
     public TileLoader loader;
+    public EnemySetter eSetter = new EnemySetter(this);
+
+
     
     //audio
     private Sound music = new Sound();
@@ -157,7 +164,9 @@ public class GamePanel extends JPanel implements Runnable{
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
         collisionChecker = new CollisionCheck(this);
-        
+        eSetter.setHobo();
+
+
     }
 
     public GamePanel(String mapPath) {
@@ -274,6 +283,13 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
         }
+        for(int i = 0; i < hobo.length; i++) {
+        	if(hobo[i] != null) {
+        		hobo[i].update();
+
+        	}
+        }
+
         
     }
     
@@ -282,6 +298,12 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
+    	for(int i = 0; i < hobo.length; i++) {
+        	if(hobo[i] != null) {
+        		hobo[i].fall(); 
+        	}
+        }
+
     }
     
     public void paintComponent(Graphics g) {
@@ -297,6 +319,13 @@ public class GamePanel extends JPanel implements Runnable{
         if (playerState == PlayerState.NORMAL) {
 			this.player.getPlayerImage();
         }
+        
+        for(int i = 0; i < hobo.length; i++) {
+        	if(hobo[i] != null) {
+        		hobo[i].draw(g2); 
+        	}
+        }
+
         
         if (gameState == GameState.START_MENU)
             menu.draw(g);
