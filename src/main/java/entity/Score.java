@@ -16,7 +16,6 @@ public class Score extends DisplayText{
 
     public Score(GamePanel gp) {
         this.gp = gp;
-        //coins = 0;
         showScore = new String();
     }
 
@@ -26,10 +25,10 @@ public class Score extends DisplayText{
 		}*/
     	
     	if(gp.getLang() == Languages.NORWEGIAN) {
-    		showScore = "Proggys ølpenger: " + gp.collisionChecker.coins;	
+    		showScore = "Proggys ølpenger: " + gp.collisionChecker.getCoins();	
     	}
     	else {
-    		showScore = "Proggy's beer money: " + gp.collisionChecker.coins;
+    		showScore = "Proggy's beer money: " + gp.collisionChecker.getCoins();
     	}
         
     }

@@ -12,7 +12,7 @@ public class KeyHandler implements KeyListener{
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
-    boolean enterPressed = false;
+    int mapNum;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -42,17 +42,17 @@ public class KeyHandler implements KeyListener{
         			gp.lS.cmd = 0;
         		}
         	}
+        	if(gp.lS.getDrawNow()) {
         	if (gp.lS.cmd == 0 && code == KeyEvent.VK_ENTER) {
-        		this.enterPressed = true;
         		gp.setLang(Languages.ENGLISH);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
         	}
         	if (gp.lS.cmd == 1 && code == KeyEvent.VK_ENTER) {
-        		this.enterPressed = true;
         		gp.setLang(Languages.NORWEGIAN);
         		code = KeyEvent.KEY_RELEASED;
         		gp.gameState = GameState.START_MENU;
+        	}
         	}
         }
 
@@ -115,17 +115,20 @@ public class KeyHandler implements KeyListener{
         		gp.playMusic(7);
         		if (gp.levels.cmd == 0) {
         			selectingMapPath("/maps/easy.txt");
+        			mapNum = 1;
         			
         		}
         		if (gp.levels.cmd == 1) {
         			gp.stopMusic();
         			gp.playSoundEffect(0);
         			selectingMapPath("/maps/medium.txt");
+        			mapNum = 2;
         			gp.playMusic(7);
         			
         		}
         		if (gp.levels.cmd == 2) {
         			selectingMapPath("/maps/hard.txt");
+        			mapNum = 3;
         		}
         	}
         	code = KeyEvent.KEY_RELEASED;
@@ -148,13 +151,17 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
             	gp.playSoundEffect(0);
                 if (gp.info.cmd == 1) {
-                    gp.gameState = GameState.START_MENU;
-                    gp.info.cmd = 0;
+                	if (gp.info.page == 1) {
+						gp.info.cmd = 0;
+						gp.gameState = GameState.START_MENU;
+					} else
+                		gp.info.page--;
                 }
 
-                if (gp.info.cmd == 2) {
-
+                if (gp.info.cmd == 2 && gp.info.page != 3) {
+                	gp.info.page++;
                 }
+
             }
         }
         
@@ -220,6 +227,22 @@ public class KeyHandler implements KeyListener{
         
         if (gp.gameState == GameState.WIN_SCREEN) {
         	if (code == KeyEvent.VK_ENTER) {
+        		String hsLevel = "highscore"+Integer.toString(mapNum)+".txt";
+        		
+        		//reads the highscore file to the corresponding level
+        		ReadFromFile reader = new ReadFromFile();
+                reader.readHighscore(hsLevel,5);
+                gp.highscores.clear();
+                for(int i: reader.list) {
+                	gp.highscores.add(i);
+                }
+                
+        		System.out.println(gp.highscores.toString());
+        		Highscore hs = new Highscore(gp);
+        		
+        		//updates the highscore for the current level
+        		hs.updateHighscore(hsLevel);
+        		System.out.println(gp.highscores.toString());
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;

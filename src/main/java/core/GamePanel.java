@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
 
@@ -45,15 +46,18 @@ public class GamePanel extends JPanel implements Runnable{
     
     //World settings
     public final int maxWorldCol = 16;
-    public final int maxWorldRow = 16;
+    public final int maxWorldRow = 17;
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
     private PlayerState playerState = PlayerState.NORMAL;
-    public boolean pickedUpPowerUp;
+
 
     //Map
     public InputStream is;
+    
+    //Highscore list
+    public ArrayList<Integer> highscores;
 
     // FPS
     int FPS = 60;
@@ -79,6 +83,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Timer
     private TimerDisplay timerDisplay = new TimerDisplay(this);
+    public TimerDisplay getTimerDisplay() {
+    	return timerDisplay;
+    }
     
     public void startTimer() {
         timerDisplay.startTime();
@@ -178,6 +185,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+        highscores = new ArrayList<Integer>();
         gameState = GameState.LANGUAGE_MENU;
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
@@ -185,16 +193,24 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     
-    
+    // Will trigger a countdown of 10 seconds that makes the powerUp disappear when it ends
     public boolean pickedUpPowerUp() {
     	if (collisionChecker.getPickedUpPowerUp() == true) {
     		return true;
     	}
     	return false;
     }
-    
+    //
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
     	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
+    }
+    // Gets coins from CollisionChecker and is in this class so that it can be used in Time.java
+    public int getCoinsInCollisionChecker() {
+        return this.collisionChecker.getCoins();
+    }
+    // Calls on the method from CollisionChecker that reduces coins by 1 and is in this class so that it can be used in Time.java
+    public void reduceCoinByOne() {
+        this.collisionChecker.reduceCoins();
     }
 
     public void startGameThread() {  
@@ -202,11 +218,12 @@ public class GamePanel extends JPanel implements Runnable{
         gameThread.start();
     }
 
+    // Making it possible to read playerState
     public PlayerState getPlayerState() {
         return this.playerState;
 
     }
-    
+    // Making it possible to modify playerState
     public void setPlayerState(PlayerState playerState) {
     	this.playerState = playerState;
     }
@@ -244,9 +261,9 @@ public class GamePanel extends JPanel implements Runnable{
                 // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
-                repaint();
+//                repaint();
                 fall();
-                repaint();
+//                repaint();
                 jump();
                 repaint();
                 
@@ -271,9 +288,7 @@ public class GamePanel extends JPanel implements Runnable{
         bg.update();
         gO.update();
         lS.update();
-        if(this.keyH.enterPressed) {
-        menu.update();
-        }
+
         if(!gO.gameOver()) {
             score.showScore();
             if(!(gameState == GameState.GAME_OVER || gameState == GameState.WIN_SCREEN)) {
@@ -283,14 +298,15 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
         }
+        
         for(int i = 0; i < hobo.length; i++) {
         	if(hobo[i] != null) {
         		hobo[i].update();
-
         	}
         }
 
         
+         
     }
     
     public void jump() {

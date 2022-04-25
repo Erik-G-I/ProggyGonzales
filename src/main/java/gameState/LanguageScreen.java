@@ -10,8 +10,9 @@ import core.GamePanel;
 
 public class LanguageScreen extends GameScreen {
 
-	BufferedImage img1, img2;
-	int x = 0;
+	private BufferedImage img1, img2;
+	private int x = 0;
+	private boolean drawNow;
 	
 	public LanguageScreen(GamePanel gp) {
 		this.gp = gp;
@@ -27,6 +28,7 @@ public class LanguageScreen extends GameScreen {
 	public void update() {
 		x += 2;
 		if (x == gp.tileSize*3) {
+			drawNow = true;
 			x-=2;
 		}
 	}
@@ -44,10 +46,12 @@ public class LanguageScreen extends GameScreen {
 		g2.setColor(Color.WHITE);
 		g2.drawImage(img1, x, gp.tileSize*3, 100, 100, null);
 		if (cmd == 0) {
+			if(drawNow) {
 			g2.drawString(">", 150, gp.tileSize*3+75);
 			this.draw(75);
 			str = "Enter - to choose";
 			g2.drawString(str, 150, gp.tileSize*8);
+			}
 		}
 		
 		g2.drawImage(img2, x+500, gp.tileSize*3, 100, 100, null);
@@ -57,7 +61,9 @@ public class LanguageScreen extends GameScreen {
 			str = "Enter - for å velge";
 			g2.drawString(str, 150, gp.tileSize*8);
 		}
-		
-		
+	}
+	
+	public boolean getDrawNow() {
+		return drawNow;
 	}
 }

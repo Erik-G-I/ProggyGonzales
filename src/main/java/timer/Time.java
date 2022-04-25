@@ -63,6 +63,21 @@ public class Time implements ActionListener{
 					gp.setPickedUpPowerUp(false);
 				}
 				powerUpSeconds--;
+				// Reduce coins by 1 for each second on a VOI
+				if (gp.getPlayerState() == PlayerState.VOI) {
+					// The coins before deducting
+					int originalCoins = gp.getCoinsInCollisionChecker();
+					// Makes sure coins are not negative
+					if (originalCoins>0) {
+						gp.reduceCoinByOne();
+					}
+					// If proggy has no money left, the voi trip ends
+					if (gp.getCoinsInCollisionChecker() <= 0) {
+						gp.setPlayerState(PlayerState.NORMAL);
+					}
+					
+					
+				}
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
@@ -85,6 +100,14 @@ public class Time implements ActionListener{
 	
 	protected void setStartPowerUpTimer(boolean startPowerUpTimer) {
 		this.startPowerUpTimer = startPowerUpTimer;
+	}
+	
+	protected int getSeconds() {
+		return seconds;
+	}
+	
+	protected int getMinutes() {
+		return minutes;
 	}
 	
 }
