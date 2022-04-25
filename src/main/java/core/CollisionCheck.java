@@ -3,7 +3,7 @@ package core;
 import entity.Entity;
 import entity.Player;
 import entity.PlayerState;
-import core.EnemySetter;
+import enemies.EnemySetter;
 import enemies.entityEnemy;
 
 public class CollisionCheck {

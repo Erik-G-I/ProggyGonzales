@@ -1,10 +1,9 @@
-package core;
+package enemies;
 
 import java.util.ArrayList;
 
-import enemies.Hobo;
+import core.GamePanel;
 import entity.PlayerState;
-import enemies.entityEnemy;
 import entity.Entity;
 
 

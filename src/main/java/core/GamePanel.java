@@ -7,6 +7,7 @@ import java.io.InputStream;
 
 import javax.swing.JPanel;
 
+import enemies.EnemySetter;
 import enemies.Hobo;
 import enemies.entityEnemy;
 import entity.Background;

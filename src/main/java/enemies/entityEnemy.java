@@ -10,7 +10,6 @@ import entity.PlayerState;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-import core.EnemySetter;
 
 public class entityEnemy {
 
