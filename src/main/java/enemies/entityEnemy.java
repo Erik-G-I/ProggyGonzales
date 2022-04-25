@@ -36,7 +36,7 @@ public class entityEnemy {
     public PlayerState enemyState = PlayerState.NORMAL;
 
     public int distance;
-    public int actionLockCounter = 0;
+    public int movementCount = 0;
 
 
 	public void setAction() {
@@ -51,11 +51,11 @@ public class entityEnemy {
 
 		if (colliding == false) {
             switch(direction) {
-            case "vanlig":
+            case "enemyLeft":
             worldX -= speed;
                 break;
           
-            case "vanligglad":
+            case "enemyRight":
             worldX += speed;
                 break;
             
@@ -113,11 +113,11 @@ public class entityEnemy {
 		   worldY - gp.tileSize < gp.player.worldY + gp.player.playerY) {
 			
 	        switch(direction) {
-	        case "vanlig":
+	        case "enemyLeft":
 	        	image = uteligger;
 	            break;
 	            
-	        case "vanligglad":
+	        case "enemyRight":
 	        	image = uteligger;
 	            break;
 	        
@@ -126,19 +126,14 @@ public class entityEnemy {
 	            break;
 	        }       
 			
-			
+			if(gp.collisionChecker.looseMoney(gp.player, gp.hobo) == true) {
+				image = uteliggerglad;
+			}
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 		}
     }
 
-	public entityEnemy[] getAllEnemies() {
-		return allEnemies;
-	}
-
-	public void setAllEnemies(entityEnemy[] allEnemies) {
-		this.allEnemies = allEnemies;
-	}
-    
+	
 }
 

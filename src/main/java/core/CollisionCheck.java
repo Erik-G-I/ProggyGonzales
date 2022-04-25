@@ -65,7 +65,7 @@ public class CollisionCheck {
         }
     }
     //Enemy collission
-    public void looseMoney(Player player, entityEnemy[] enemy) {
+    public boolean looseMoney(Player player, entityEnemy[] enemy) {
 			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
     			for (int i = 0; i < enemy.length; i++) {
     				if(enemy[i] != null) {
@@ -73,13 +73,16 @@ public class CollisionCheck {
     	    				if(gp.player.worldX <= enemy[i].worldX + 20 && gp.player.worldX >= enemy[i].worldX - 20) {
         	    				coins --;
         	    				if(coins < 0) {
-        	    				   coins = 0;
-        	    				}
+        	    					   coins = 0;
+        	    					}
+        	    				return true;
     	    				}
     	   				}
     				}
     			}
 			}
+			
+			return false;
     }
     	
     
@@ -233,7 +236,7 @@ public class CollisionCheck {
                     }
                     break;
                     
-                case"vanlig":
+                case"enemyLeft":
                 	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = gp.loader.numOfTiles[enemyLeftCol][enemyTopRow]; // Top left corner
                     enemyCor2 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top right corner
@@ -243,7 +246,7 @@ public class CollisionCheck {
                     }
                     break;
                     
-                case"vanligglad":
+                case"enemyRight":
                 	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = gp.loader.numOfTiles[enemyRightCol][enemyTopRow]; // Top left corner
                     enemyCor2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
@@ -252,12 +255,8 @@ public class CollisionCheck {
                      	
                     }
                     break;
-
-
-      
+ 
                }
-                
-     
     }
     
     

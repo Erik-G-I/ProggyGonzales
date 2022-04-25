@@ -44,25 +44,25 @@ public class Hobo extends entityEnemy{
 
 	public void setAction() {
 			
-			actionLockCounter ++;
+			movementCount ++;
 			
-			if(actionLockCounter == 40) {
+			if(movementCount == 40) {
 				
 				Random random = new Random();
 				
 				int i = random.nextInt(100) + 1; //pick up a number from 1-100
 				
 				if(i <= 50) {
-					direction = "vanlig";
+					direction = "enemyLeft";
 				}
 				if(i > 50) {
-					direction = "vanligglad";
+					direction = "enemyRight";
 				}
 				if(onGround = false) {
 					direction = "down";
 				}
 			
-				actionLockCounter = 0;
+				movementCount = 0;
 			}
 			
 			
