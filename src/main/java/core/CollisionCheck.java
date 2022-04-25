@@ -66,7 +66,6 @@ public class CollisionCheck {
     }
     //Enemy collission
     public void looseMoney(Player player, entityEnemy[] enemy) {
-    	int loosingMoney = 15;
 			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
     			for (int i = 0; i < enemy.length; i++) {
     				if(enemy[i] != null) {
@@ -74,7 +73,7 @@ public class CollisionCheck {
     	    				if(gp.player.worldX <= enemy[i].worldX + 20 && gp.player.worldX >= enemy[i].worldX - 20) {
         	    				coins --;
         	    				if(coins < 0) {
-        	    					coins = 0;
+        	    				   coins = 0;
         	    				}
     	    				}
     	   				}

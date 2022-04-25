@@ -124,11 +124,10 @@ public class entityEnemy {
 	        case "down":
 	        	image = uteligger;
 	            break;
-	    }       
+	        }       
 			
 			
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-			
 			
 		}
     }
