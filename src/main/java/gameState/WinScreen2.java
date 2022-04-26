@@ -18,13 +18,15 @@ public class WinScreen2 extends GameScreen{
 	@Override
 	public void draw(Graphics g2) {
 		
-		String s1, s2, s3, s4, s5, s6;
+		String s1, s2, s3, s4, s5, s6, s7;
 		
 		if (gp.getLang() == Languages.NORWEGIAN) {
-			s1 = "ESC - Tilbake til hovedmeny";
+			s1 = "Tilbake til hovedmeny";
+			s7 = "Velg et annet level";
 		}
 		else {
-			s1 = "ESC - Back to main menu";
+			s1 = "Back to main menu";
+			s7 = "Choose another level";
 		}
 
 		this.setGp(gp);
@@ -37,29 +39,37 @@ public class WinScreen2 extends GameScreen{
 		this.draw(50);
 		g2.setColor(Color.WHITE);
 		
-		g2.drawString("HighScore", centerText("HighScore"), gp.tileSize*3);
+		g2.drawString("HighScore", centerText("HighScore"), gp.tileSize*2);
 		
 		s2 = gp.highscores.get(0).toString();
-		g2.drawString(s2, centerText(s2), gp.tileSize*5);
+		g2.drawString(s2, centerText(s2), gp.tileSize*4);
 		
 
 		s3 = gp.highscores.get(1).toString();
-		g2.drawString(s3, centerText(s3), gp.tileSize*6);
+		g2.drawString(s3, centerText(s3), gp.tileSize*5);
 		
 
 		s4 = gp.highscores.get(2).toString();
-		g2.drawString(s4, centerText(s4), gp.tileSize*7);
+		g2.drawString(s4, centerText(s4), gp.tileSize*6);
 		
 		
 		s5 = gp.highscores.get(3).toString();
-		g2.drawString(s5, centerText(s5), gp.tileSize*8);
+		g2.drawString(s5, centerText(s5), gp.tileSize*7);
 		
 		
 		s6 = gp.highscores.get(4).toString();
-		g2.drawString(s6, centerText(s6), gp.tileSize*9);
+		g2.drawString(s6, centerText(s6), gp.tileSize*8);
 		
-		this.draw(30);
-		g2.drawString(s1, centerText(s1)-100, gp.tileSize*10);
+		this.draw(25);
+		g2.drawString(s1, centerText(s1)-150, gp.tileSize*10);
+		if (cmd == 0) {
+			g2.drawString(">", centerText(s1)-180, gp.tileSize*10);
+		}
+		
+		g2.drawString(s7, centerText(s7)+150, gp.tileSize*10);
+		if (cmd == 1) {
+			g2.drawString(">", centerText(s7)+120, gp.tileSize*10);
+		}
 	}
 	
 	
