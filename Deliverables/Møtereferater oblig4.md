@@ -6,12 +6,12 @@ Agenda:
 -
 -
 -
------------
 Fortsetter arbeidet etter 3. innlevering. 
 Erik I har lagt til lydeffekter som kan brukes senere
 Til neste gang skal Erik H skal fikse grafikk rundt power up og skal parprogrammere med Chantal for å fikse at power up varer i 10 sekunder ettersom Chantal har best kunnskap rundt timer. Chantal skal fikse game over dersom proggy faller utenfor map. Alexander jobber med å få fiender til å bevege på seg. Hannah skal starte å se på multiplayer. 
 Vi blir enige om at alle skal lage et forslag til en liten del av mappet. Erik I
 
+------
 
 ## Tirsdag 19. April 08.15
 #### Til stede: Alle
