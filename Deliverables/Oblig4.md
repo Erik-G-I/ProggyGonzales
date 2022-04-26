@@ -14,13 +14,13 @@ grad gått i å følge ekstra opp på krav til oppgaven og sørget for at disse 
 
 #### Team roller
 ##### Hannah Mørken
-Rolle: Teamlead
+Rolle: Teamlead \
 Hovedoppgave: Hannah skal sørge for at tidsfrister blir overholdt og inkludere alle når \
 beslutninger skal tas. Hun skal sammen med Erik H ha et ekstra ansvar for å oppdatere Trello.
 
 
 ##### Erik Harto
-Rolle: Team nestlead
+Rolle: Team nestlead \
 Hovedoppgave: Sammen med Hannah sørge for at progresjonen til prosjektet \ 
 følger planen, og at prosjektet møter kravene oppgaven krever.
 
