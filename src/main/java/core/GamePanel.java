@@ -145,7 +145,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public LanguageScreen lS;
-    private WinScreen2 wS2;
+    public WinScreen2 wS2;
     private WinScreen wS;
     
     public void setGame() {
