@@ -1,7 +1,7 @@
 package tileTest;
 
+import core.GameKeyHandler;
 import core.GamePanel;
-import core.KeyHandler;
 import entity.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoaderTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    GamePanel gp = new GamePanel(false);
     TileLoader loader;
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
 
@@ -30,7 +30,7 @@ public class LoaderTest {
 
     @Test
     public void testPlayerCannotGoThroughTile() {
-        KeyHandler keyH = new KeyHandler(gp);
+        GameKeyHandler keyH = new GameKeyHandler(gp);
 
         Player p = new Player(gp, keyH);
         p.setDefaultValues();

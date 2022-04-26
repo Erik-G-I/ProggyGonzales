@@ -10,7 +10,7 @@ public class DisplayText {
 
 	private InputStream getFont;
 	private Font font;
-	private GamePanel gp;
+	private Panel panel;
 	protected Graphics g2;
 
 	
@@ -25,8 +25,8 @@ public class DisplayText {
 		}
 	}
 
-	public void setGp(GamePanel gp) {
-		this.gp = gp;
+	public void setPanel(Panel panel) {
+		this.panel = panel;
 	}
 
 	public void setGraphics(Graphics g2) {
@@ -40,7 +40,7 @@ public class DisplayText {
 	
     public int centerText(String text) {
         int length = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-        return gp.screenWidth/2 - length/2;
+        return panel.screenWidth/2 - length/2;
     }
 	
 }

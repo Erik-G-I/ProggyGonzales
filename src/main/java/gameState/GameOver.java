@@ -10,6 +10,7 @@ public class GameOver extends GameScreen {
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
 	boolean gameOverMusic = false;
+	GamePanel gp;
 	
 	public GameOver(GamePanel gp) {
 		this.gp = gp;
@@ -25,7 +26,7 @@ public class GameOver extends GameScreen {
 	public void draw(Graphics g2) {
 		
 		this.setGraphics(g2);
-		this.setGp(gp);
+		this.setPanel(gp);
 		
 		String s1, s2, s3;
 		
@@ -44,7 +45,7 @@ public class GameOver extends GameScreen {
 		if (isGameOver == true || isOutOfBounds == true) {
 			gp.gameState = GameState.GAME_OVER;
 			if(gameOverMusic == false) {
-				gp.stopMusic();
+				//gp.stopMusic();
 				gp.playSoundEffect(5);
 				gp.playMusic(9);
 				gameOverMusic = true;

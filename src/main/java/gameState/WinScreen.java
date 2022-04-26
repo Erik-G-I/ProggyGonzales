@@ -20,7 +20,7 @@ public class WinScreen extends GameScreen{
 	@Override
 	public void draw(Graphics g2) {
 		
-		this.setGp(gp);
+		this.setPanel(gp);
 		this.setGraphics(g2);
 		
 		String s1;

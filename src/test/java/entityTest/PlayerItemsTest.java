@@ -3,20 +3,18 @@ package entityTest;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import core.GameKeyHandler;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
-import core.KeyHandler;
 import entity.Player;
 import entity.Score;
-import timer.Time;
-import timer.TimerDisplay;
 
 public class PlayerItemsTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
-	KeyHandler keyH = new KeyHandler(gp);
+	GamePanel gp = new GamePanel(false);
+	GameKeyHandler keyH = new GameKeyHandler(gp);
 	Player p;
 	int startPos;
 	Score score;

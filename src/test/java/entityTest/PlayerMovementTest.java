@@ -1,22 +1,19 @@
 package entityTest;
 
+import core.GameKeyHandler;
 import entity.Score;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
-import core.KeyHandler;
 import entity.Player;
-import tile.TileLoader;
-
-import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerMovementTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
-	KeyHandler keyH = new KeyHandler(gp);
+	GamePanel gp = new GamePanel(false);
+	GameKeyHandler keyH = new GameKeyHandler(gp);
 	Player p;
 	int startPos;
 	Score score;

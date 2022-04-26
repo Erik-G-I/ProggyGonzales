@@ -5,6 +5,7 @@ public enum GameState {
 	LANGUAGE_MENU,
     START_MENU,
     RUNNING_GAME,
+    START_GAME,
     GAME_OVER,
     INFO_SCREEN,
     PAUSED_GAME,

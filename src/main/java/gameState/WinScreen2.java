@@ -27,7 +27,7 @@ public class WinScreen2 extends GameScreen{
 			s1 = "ESC - Back to main menu";
 		}
 
-		this.setGp(gp);
+		this.setPanel(gp);
 		this.setGraphics(g2);
 		
         Color transparent = new Color(0, 0, 0, 0x80);

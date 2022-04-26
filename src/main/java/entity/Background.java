@@ -1,6 +1,7 @@
 package entity;
 
-import core.KeyHandler;
+import core.GameKeyHandler;
+import core.MenuKeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -11,10 +12,10 @@ import core.GamePanel;
 public class Background extends Entity {
 
     GamePanel gp;
-    KeyHandler keyH;
+    GameKeyHandler keyH;
     BufferedImage realfag, bakgrunn;
 
-    public Background(GamePanel gp, KeyHandler keyH) {
+    public Background(GamePanel gp, GameKeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
 
