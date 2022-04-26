@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
-    public EntityEnemy hobo[] = new EntityEnemy[50];
+    public EntityEnemy hobo[];
     public Background bg;
     public TileLoader loader;
     public EnemySetter eSetter = new EnemySetter(this);
@@ -158,7 +158,7 @@ public class GamePanel extends JPanel implements Runnable{
     	
     	//get the language chosen by player
     	lang = getLang();
-    	
+    	hobo = new EntityEnemy[50];
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
     	gO = new GameOver(this);
