@@ -51,34 +51,34 @@ public class EnemySetter {
 			gp.hobo[5].worldY = 600;
 			
 			gp.hobo[6] = new Hobo(gp);
-			gp.hobo[6].worldX = 1450;
-			gp.hobo[6].worldY = 350;
+			gp.hobo[6].worldX = 1856;
+			gp.hobo[6].worldY = 640;
 			
 			gp.hobo[7] = new Hobo(gp);
-			gp.hobo[7].worldX = 3200;
-			gp.hobo[7].worldY = 600;
+			gp.hobo[7].worldX = 3520;
+			gp.hobo[7].worldY = 832;
 			
-//			gp.hobo[8] = new Hobo(gp);
-//			gp.hobo[8].worldX = 3700;
-//			gp.hobo[8].worldY = 200;
+			gp.hobo[8] = new Hobo(gp);
+			gp.hobo[8].worldX = 5300;
+			gp.hobo[8].worldY = 896;
 		}
 		if(map == "/maps/hard.txt") {
 			
-			gp.hobo[9] = new Hobo(gp);
-			gp.hobo[9].worldX = 600;
-			gp.hobo[9].worldY = 600;
-			
+//			gp.hobo[9] = new Hobo(gp);
+//			gp.hobo[9].worldX = 600;
+//			gp.hobo[9].worldY = 600;
+//			
 			gp.hobo[10] = new Hobo(gp);
-			gp.hobo[10].worldX = 2550;
-			gp.hobo[10].worldY = 200;
-			
+			gp.hobo[10].worldX = 1856;
+			gp.hobo[10].worldY = 768;
+//			
 			gp.hobo[11] = new Hobo(gp);
-			gp.hobo[11].worldX = 3100;
-			gp.hobo[11].worldY = 200;
-			
-			gp.hobo[12] = new Hobo(gp);
-			gp.hobo[12].worldX = 3700;
-			gp.hobo[12].worldY = 200;
+			gp.hobo[11].worldX = 1920;
+			gp.hobo[11].worldY = 768;
+//			
+//			gp.hobo[12] = new Hobo(gp);
+//			gp.hobo[12].worldX = 3700;
+//			gp.hobo[12].worldY = 200;
 
 		}
 		
