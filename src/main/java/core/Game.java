@@ -17,7 +17,7 @@ public class Game {
         this.window = new JFrame();
         setWindow();
         this.menuPanel = new MenuPanel(window);
-        this.gamePanel = new GamePanel(false);
+        //this.gamePanel = new GamePanel(false);
     }
 
     private void setWindow() {

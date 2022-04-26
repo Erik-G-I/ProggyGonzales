@@ -61,6 +61,7 @@ public class Main {
 
     }
 
+    /*
     private static JFrame multiplePanels(JFrame frame) {
 	        Border border = BorderFactory.createLineBorder(Color.BLACK);
 	        Container con = frame.getContentPane();
@@ -80,10 +81,12 @@ public class Main {
             con.add(panel1);
             con.add(panel2);
 
-            panel1.startGameThread();
-            panel2.startGameThread();
+            //panel1.startGameThread();
+            //panel2.startGameThread();
 
 	        return frame;
     }
+    
+     */
 
 }

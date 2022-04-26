@@ -4,7 +4,7 @@ import gameState.GameState;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-
+/*
 public class GameKeyHandler implements KeyListener {
 
     public boolean upPressed, downPressed, leftPressed, rightPressed;
@@ -34,7 +34,7 @@ public class GameKeyHandler implements KeyListener {
         }
 
          */
-
+/*
         int code = e.getKeyCode();
         if(gamePanel.getGameOver() == true || gamePanel.getOutOfBounds() == true) {
             gamePanel.gameState = GameState.GAME_OVER;
@@ -84,6 +84,7 @@ public class GameKeyHandler implements KeyListener {
             // right-arrow is pressed
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
+                System.out.println("høyre");
             }
             if ((gamePanel.getGameOver() == false || gamePanel.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
                 gamePanel.gameState = GameState.PAUSED_GAME;
@@ -163,11 +164,13 @@ public class GameKeyHandler implements KeyListener {
         }
     }
 
+ */
+
     /**
      * This method is to avoid writing duplicate code for all levels
      * @param mapPath
      */
-    private void selectingMapPath(String mapPath) {
+   /* private void selectingMapPath(String mapPath) {
         this.mapPath = mapPath;
         gamePanel.playSoundEffect(0);
         gamePanel.setMap(mapPath);
@@ -179,3 +182,6 @@ public class GameKeyHandler implements KeyListener {
 
 
 }
+
+    */
+

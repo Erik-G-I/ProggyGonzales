@@ -6,21 +6,24 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import core.GameKeyHandler;
+//import core.GameKeyHandler;
 import core.GamePanel;
 import core.MenuKeyHandler;
+import core.MenuPanel;
+
 import java.awt.Rectangle;
 
 public class Player extends Entity{
 
     GamePanel gp;
-    GameKeyHandler keyH;
+    //GameKeyHandler keyH;
+    MenuKeyHandler keyH;
     private int weight;
     private int gravity;
     private BufferedImage jumpImg = null;
 
     
-    public Player(GamePanel gp, GameKeyHandler keyH) {
+    public Player(GamePanel gp, MenuKeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
 

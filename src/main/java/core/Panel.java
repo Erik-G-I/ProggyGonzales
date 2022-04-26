@@ -27,7 +27,7 @@ public abstract class Panel extends JPanel {
     protected Thread gameThread;
 
     //Game State
-    public GameState gameState;
+    //public GameState gameState;
 
     protected Languages lang;
 

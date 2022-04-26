@@ -10,7 +10,9 @@ import java.awt.*;
 public class MenuPanel extends Panel implements Runnable {
 
     MenuKeyHandler keyH = new MenuKeyHandler(this);
-    GameKeyHandler gameKey;
+    //GameKeyHandler gameKey;
+
+    public GameState gameState;
 
     //Start menu
     public StartMenu menu;
@@ -26,7 +28,7 @@ public class MenuPanel extends Panel implements Runnable {
 
     public LanguageScreen lS;
 
-    public GamePanel gamePanel;
+    public final GamePanel gamePanel;
 
     public JFrame frame;
 
@@ -50,8 +52,8 @@ public class MenuPanel extends Panel implements Runnable {
         lS = new LanguageScreen(this);
         ctrls = new GameControls(this);
         levels = new LevelsMenu(this);
-        gamePanel = new GamePanel(false);
-        gameKey = new GameKeyHandler(gamePanel);
+        gamePanel = new GamePanel(false, this);
+        //gameKey = new GameKeyHandler(gamePanel);
     }
 
     public void startGameThread() {
@@ -62,6 +64,8 @@ public class MenuPanel extends Panel implements Runnable {
     public void update() {
         if (gameState != GameState.RUNNING_GAME) {
             lS.update();
+        } else {
+            gamePanel.update();
         }
         /*
         else {
@@ -109,6 +113,10 @@ public class MenuPanel extends Panel implements Runnable {
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
                 repaint();
+                gamePanel.fall();
+                repaint();
+                gamePanel.jump();
+                repaint();
 
                 delta--;
                 drawCount++;
@@ -133,29 +141,30 @@ public class MenuPanel extends Panel implements Runnable {
 
          */
 
-        if (gameState == GameState.LANGUAGE_MENU)
+        if (gameState == GameState.LANGUAGE_MENU) {
+            //System.out.println("hei");
             lS.draw(g2);
-        else if (gameState == GameState.START_MENU)
+        } else if (gameState == GameState.START_MENU) {
+            System.out.println("hei");
             menu.draw(g2);
-        else if (gameState == GameState.INFO_SCREEN)
+        }else if (gameState == GameState.INFO_SCREEN)
             info.draw(g2);
         else if (gameState == GameState.GAME_CONTROLS)
             ctrls.draw(g2);
         else if (gameState == GameState.LEVELS_MENU)
             levels.draw(g2);
         else if (gameState == GameState.RUNNING_GAME) {
-            //this.removeKeyListener(keyH);
+            this.removeKeyListener(keyH);
             frame.remove(this);
             revalidate();
             repaint();
             frame.add(gamePanel);
             this.frame.pack();
             this.frame.setVisible(true);
-            this.addKeyListener(gameKey);
+            gamePanel.addKeyListener(gamePanel.keyH);
             gamePanel.startGameThread();
             selectingMapPath("/maps/easy.txt");
-        }
-
+            }
         g2.dispose();
     }
 
@@ -163,13 +172,13 @@ public class MenuPanel extends Panel implements Runnable {
      * This method is to avoid writing duplicate code for all levels
      * @param mapPath
      */
-    private void selectingMapPath(String mapPath) {
-        //this.mapPath = mapPath;
+    public void selectingMapPath(String mapPath) {
+        keyH.mapPath = mapPath;
         gamePanel.playSoundEffect(0);
         gamePanel.setMap(mapPath);
         gamePanel.resetLoader();
         gamePanel.setGame();
-        gamePanel.gameState = GameState.RUNNING_GAME;
+        gameState = GameState.RUNNING_GAME;
         gamePanel.startTimer();
     }
 

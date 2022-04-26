@@ -8,9 +8,10 @@ import java.awt.event.KeyListener;
 
 public class MenuKeyHandler implements KeyListener{
     
-    public boolean upPressed, leftPressed, rightPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed;
     private MenuPanel panel;
     public int map = 1;
+    String mapPath;
     
     public MenuKeyHandler(MenuPanel panel) {
     	this.panel = panel;
@@ -45,6 +46,7 @@ public class MenuKeyHandler implements KeyListener{
         		panel.setLang(Languages.ENGLISH);
         		code = KeyEvent.KEY_RELEASED;
         		panel.gameState = GameState.START_MENU;
+				System.out.println("h");
         	}
         	if (panel.lS.cmd == 1 && code == KeyEvent.VK_ENTER) {
         		panel.setLang(Languages.NORWEGIAN);
@@ -169,38 +171,38 @@ public class MenuKeyHandler implements KeyListener{
         		panel.gameState = GameState.START_MENU;
         	}
         }
-        /*
-        if(panel.getGameOver() == true || panel.getOutOfBounds() == true) {
+
+        if(panel.gamePanel.getGameOver() == true || panel.gamePanel.getOutOfBounds() == true) {
         	panel.gameState = GameState.GAME_OVER;
         	if(code == KeyEvent.VK_LEFT) {
         		panel.playSoundEffect(0);
-        		panel.getGameOverObj().cmd--;
-        		if(panel.getGameOverObj().cmd<0) {
-        			panel.getGameOverObj().cmd = 1;
+        		panel.gamePanel.getGameOverObj().cmd--;
+        		if(panel.gamePanel.getGameOverObj().cmd<0) {
+        			panel.gamePanel.getGameOverObj().cmd = 1;
         		}
         	}
         	if(code==KeyEvent.VK_RIGHT) {
         		panel.playSoundEffect(0);
-        		panel.getGameOverObj().cmd++;
-        		if(panel.getGameOverObj().cmd>1) {
-        			panel.getGameOverObj().cmd = 0;
+        		panel.gamePanel.getGameOverObj().cmd++;
+        		if(panel.gamePanel.getGameOverObj().cmd>1) {
+        			panel.gamePanel.getGameOverObj().cmd = 0;
         		}
         	}
-            if (panel.getGameOverObj().cmd == 0 && code == KeyEvent.VK_ENTER) {
+            if (panel.gamePanel.getGameOverObj().cmd == 0 && code == KeyEvent.VK_ENTER) {
             	panel.stopMusic();
             	panel.playSoundEffect(0);
             	panel.playMusic(7);
-            	this.selectingMapPath(mapPath);
+            	panel.selectingMapPath(mapPath);
 //            	gp.gameState = GameState.RUNNING_GAME;
-            	panel.getGameOverObj().restart();
+            	panel.gamePanel.getGameOverObj().restart();
 //            	gp.startTimer();
             }
-            if (panel.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
+            if (panel.gamePanel.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
             	panel.stopMusic();
             	panel.playSoundEffect(0);
             	panel.playMusic(8);
                 panel.gameState = GameState.START_MENU;
-                panel.setGame();
+                panel.gamePanel.setGame();
             }
         }
 
@@ -218,7 +220,7 @@ public class MenuKeyHandler implements KeyListener{
             if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
                 rightPressed = true;
             }
-            if ((panel.getGameOver() == false || panel.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
+            if ((panel.gamePanel.getGameOver() == false || panel.gamePanel.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	panel.gameState = GameState.PAUSED_GAME;
             }
         }
@@ -233,48 +235,47 @@ public class MenuKeyHandler implements KeyListener{
         if (panel.gameState == GameState.WIN_SCREEN2) {
         	if (code == KeyEvent.VK_ESCAPE) {
         		panel.stopMusic();
-        		panel.setGame();
+        		panel.gamePanel.setGame();
         		panel.gameState = GameState.START_MENU;
         		panel.playMusic(8);
         	}
         }
         
         if (panel.gameState == GameState.PAUSED_GAME) {
-        	panel.stopTimer();
+        	panel.gamePanel.stopTimer();
         	if (code == KeyEvent.VK_DOWN) {
         		panel.playSoundEffect(0);
-        		panel.pause.cmd++;
-        		if (panel.pause.cmd > 2){
-        			panel.pause.cmd = 0;
+        		panel.gamePanel.pause.cmd++;
+        		if (panel.gamePanel.pause.cmd > 2){
+        			panel.gamePanel.pause.cmd = 0;
         		}
         	}
         	if (code == KeyEvent.VK_UP) {
         		panel.playSoundEffect(0);
-        		panel.pause.cmd--;
-        		if (panel.pause.cmd < 0) {
-        			panel.pause.cmd =  2;
+        		panel.gamePanel.pause.cmd--;
+        		if (panel.gamePanel.pause.cmd < 0) {
+        			panel.gamePanel.pause.cmd =  2;
         		}
         	}
-        	if(panel.pause.cmd == 0 && code == KeyEvent.VK_ENTER) {
+        	if(panel.gamePanel.pause.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		panel.playSoundEffect(0);
         		panel.gameState = GameState.RUNNING_GAME;
         		
-        		panel.startTimer();
+        		panel.gamePanel.startTimer();
         	}
-        	if(panel.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
-        		this.selectingMapPath(this.mapPath);
+        	if(panel.gamePanel.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		panel.selectingMapPath(this.mapPath);
         	}
-        	if(panel.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
+        	if(panel.gamePanel.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
         		panel.stopMusic();
         		panel.playSoundEffect(0);
         		panel.playMusic(8);
         		panel.gameState = GameState.START_MENU;
-        		panel.setGame();
+        		panel.gamePanel.setGame();
         	}
         	code = KeyEvent.VK_ESCAPE;
         }
 
-         */
     }
 
     // releasing the buttons

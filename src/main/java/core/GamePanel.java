@@ -41,8 +41,7 @@ public class GamePanel extends Panel implements Runnable {
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    private PlayerState playerState = PlayerState.NORMAL;
-
+    public PlayerState playerState = PlayerState.NORMAL;
 
     //Map
     public InputStream is;
@@ -53,7 +52,8 @@ public class GamePanel extends Panel implements Runnable {
     //CollisionCheck
     public CollisionCheck collisionChecker;
 
-    GameKeyHandler keyH = new GameKeyHandler(this);
+    //GameKeyHandler keyH = new GameKeyHandler(this);
+    MenuKeyHandler keyH;
     public Player player;
     public Background bg;
     public TileLoader loader;
@@ -69,7 +69,7 @@ public class GamePanel extends Panel implements Runnable {
      */
 
     //Timer
-    private TimerDisplay timerDisplay = new TimerDisplay(this);
+    public TimerDisplay timerDisplay = new TimerDisplay(this);
 
     public void startTimer() {
         timerDisplay.startTime();
@@ -84,7 +84,7 @@ public class GamePanel extends Panel implements Runnable {
     }
 
     //Score
-    private Score score;
+    public Score score;
 /*
     //Game State
     public GameState gameState;
@@ -109,7 +109,7 @@ public class GamePanel extends Panel implements Runnable {
      */
 
     //Game Over if there is no time left
-    private GameOver gO;
+    public GameOver gO;
 
     //get GameOver object
     public GameOver getGameOverObj() {
@@ -142,7 +142,12 @@ public class GamePanel extends Panel implements Runnable {
     private WinScreen2 wS2;
     private WinScreen wS;
 
-    public GamePanel(boolean multi) {
+    MenuPanel menu;
+    public GameState gameState;
+
+    public GamePanel(boolean multi, MenuPanel menu) {
+        keyH = new MenuKeyHandler(menu);
+        this.menu = menu;
         //this.mapPath = mapPath;
         //setter mappet som skal spilles
         //setMap(mapPath);
@@ -156,7 +161,8 @@ public class GamePanel extends Panel implements Runnable {
         this.setDoubleBuffered(true);
         //this.addKeyListener(keyH);
         this.setFocusable(true);
-        gameState = GameState.RUNNING_GAME;
+        this.gameState = menu.gameState;
+        this.gameState = GameState.RUNNING_GAME;
         //loader mappet fra en tekstfil
         loader = new TileLoader(this, is);
         setGame();
@@ -256,7 +262,6 @@ public class GamePanel extends Panel implements Runnable {
                 repaint();
                 jump();
                 repaint();
-
 
                 delta--;
                 drawCount++;
