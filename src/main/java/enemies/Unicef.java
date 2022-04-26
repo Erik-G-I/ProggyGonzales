@@ -14,12 +14,11 @@ import entity.Entity;
 import java.awt.Rectangle;
 import enemies.EntityEnemy;
 
-public class Hobo extends EntityEnemy{
+public class Unicef extends EntityEnemy{
 
     GamePanel gp;
 	
-    
-    public Hobo(GamePanel gp) {
+    public Unicef(GamePanel gp) {
         super(gp);	
         this.gp = gp;
         direction = "down";
@@ -32,8 +31,9 @@ public class Hobo extends EntityEnemy{
 	public void getHoboImage() {
 	        
 	        try {
-	        	uteligger = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
-	            uteliggerglad = ImageIO.read(getClass().getResourceAsStream("/enemies/uteliggerglad.png"));
+	        	unicefRight = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left1.png"));
+	        	unicefLeft = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left2.png"));
+
 	            	  
 	            
 	            
