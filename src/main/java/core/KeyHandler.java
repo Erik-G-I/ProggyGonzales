@@ -249,10 +249,31 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.WIN_SCREEN2) {
-        	if (code == KeyEvent.VK_ESCAPE) {
+        	
+        	if (code == KeyEvent.VK_LEFT) {
+        		gp.playSoundEffect(0);
+        		gp.wS2.cmd--;
+        		if(gp.wS2.cmd<0) {
+        			gp.wS2.cmd = 1;
+        		}
+        	}
+        	if (code == KeyEvent.VK_RIGHT) {
+        		gp.playSoundEffect(0);
+        		gp.wS2.cmd++;
+        		if(gp.wS2.cmd > 1) {
+        			gp.wS2.cmd = 0;
+        		}
+        	}
+        	if (gp.wS2.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		gp.stopMusic();
         		gp.setGame();
         		gp.gameState = GameState.START_MENU;
+        		gp.playMusic(8);
+        	}
+        	if (gp.wS2.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		gp.stopMusic();
+        		gp.setGame();
+        		gp.gameState = GameState.LEVELS_MENU;
         		gp.playMusic(8);
         	}
         }
