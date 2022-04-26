@@ -261,9 +261,7 @@ public class GamePanel extends JPanel implements Runnable{
                 // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
-//                repaint();
                 fall();
-//                repaint();
                 jump();
                 repaint();
                 
@@ -274,7 +272,6 @@ public class GamePanel extends JPanel implements Runnable{
             
             //display FPS in console
             if(timer >= 1000000000) {
-//                System.out.println("FPS:"+drawCount);
                 drawCount = 0;
                 timer = 0;
             }
