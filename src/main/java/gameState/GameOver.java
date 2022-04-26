@@ -2,7 +2,7 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import core.GamePanel;
+import core.Panel;
 
 public class GameOver extends GameScreen {
 
@@ -11,7 +11,7 @@ public class GameOver extends GameScreen {
 	boolean isOutOfBounds = false;
 	boolean gameOverMusic = false;
 	
-	public GameOver(GamePanel gp) {
+	public GameOver(Panel gp) {
 		this.gp = gp;
 		widthOfScreen = gp.screenWidth;
 	}

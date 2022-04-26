@@ -9,6 +9,7 @@ import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 
 import core.GamePanel;
+import core.Panel;
 
 public class TileLoader {
 	
@@ -164,19 +165,19 @@ public class TileLoader {
 		while(worldCol < bufferCol && worldRow < gp.maxWorldRow) {
 			int tileNum = numOfTiles[worldCol][worldRow];
 			
-			int WorldX = worldCol * gp.tileSize;
-			int WorldY = worldRow * gp.tileSize;
+			int WorldX = worldCol * gp.panel.tileSize;
+			int WorldY = worldRow * gp.panel.tileSize;
 			int screenX = WorldX - gp.player.worldX + gp.player.playerX;
 			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
 			
 			
-			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.panel.tileSize, gp.panel.tileSize, null);
 			if(gp.player.playerX == tiles[5].x) {
 				if(gp.player.playerY == tiles[5].y) {
 					tiles[5] = tiles[0];
 				}
 			}
-			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
+			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.panel.tileSize, gp.panel.tileSize, null);
 			
 			worldCol ++;
 

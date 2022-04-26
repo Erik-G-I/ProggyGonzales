@@ -66,19 +66,19 @@ public class CollisionCheck {
     private void pickUpMoney(int x1, int y1, int x2, int y2) {
         // Pick up 100 kroner
         if (pickUpGeneric(x1, y1, x2, y2, 7)) {
-        	gp.playSoundEffect(1);
+        	//gp.playSoundEffect(1);
             coins += 10;
         }
         // pick up 200-kroner
         if (pickUpGeneric(x1, y1, x2, y2, 8)) {
-        	gp.playSoundEffect(2);
+        	//gp.playSoundEffect(2);
             coins += 20;
         }
     }
     
   //Enemy collission
     public boolean unicefLooseMoney(Player player, EntityEnemy[] enemy) {
-			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
+			if (gp.playerState != PlayerState.INVISIBLE) {
     			for (int i = 0; i < enemy.length; i++) {
     				if(enemy[i] != null) {
     	    			if(gp.player.worldY == enemy[i].worldY) {
@@ -99,9 +99,9 @@ public class CollisionCheck {
 
     private void homelessLooseMoney(int x1, int y1, int x2, int y2) {
       
-    	gp.getPlayerState();
+    	//gp.getPlayerState();
         int loosingMoney = 15;
-        if (gp.getPlayerState() != PlayerState.INVISIBLE) {
+        if (gp.playerState != PlayerState.INVISIBLE) {
         	if (coins >= loosingMoney) {
         		if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
         			gp.loader.numOfTiles[x1][y1] = 10;
@@ -123,9 +123,9 @@ public class CollisionCheck {
     to the state of the belonging power up, starts timer on power up and updates the graphics */
     private void powerUpSequence(int soundEffectNr, PlayerState state) {
         pickedUpPowerUp = true;
-        gp.playSoundEffect(soundEffectNr);
-        gp.setPlayerState(state);
-        gp.truePowerUpTimer();
+        //gp.playSoundEffect(soundEffectNr);
+        //gp.setPlayerState(state);
+        //gp.truePowerUpTimer();
         gp.player.getPlayerImage();
     }
     /**
@@ -172,8 +172,8 @@ public class CollisionCheck {
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
     	if(coins >= 100) { //check for winning
     	if (pickUpGeneric(x1, y1, x2, y2, 16)) {
-    		gp.playSoundEffect(4);
-            gp.gameState = GameState.WIN_SCREEN; //switches to winning screen
+    		//gp.playSoundEffect(4);
+            gp.panel.gameState = GameState.WIN_SCREEN; //switches to winning screen
     	}
     	}
     }
@@ -185,7 +185,7 @@ public class CollisionCheck {
         pickUpMoney(x1, y1, x2, y2);
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
-        unicefLooseMoney(gp.player, gp.unicef);
+        unicefLooseMoney(gp.player, gp.panel.unicef);
         homelessLooseMoney(x1, y1, x2, y2);
         pickUpScooter(x1, y1, x2, y2);
         pickUpBeer(x1, y1, x2, y2);
@@ -251,16 +251,16 @@ public class CollisionCheck {
         int unitBottomSide = unit.worldY - unit.playerSolid.y + unit.playerSolid.height;
 
         // This must be adjusted for tilesize to find the columns and rows they are at
-        int unitLeftCol = unitLeftSide / gp.tileSize;
-        int unitRightCol = unitRightSide / gp.tileSize;
-        int unitTopRow = unitTopSide / gp.tileSize;
-        int unitBottomRow = unitBottomSide / gp.tileSize;
+        int unitLeftCol = unitLeftSide / gp.panel.tileSize;
+        int unitRightCol = unitRightSide / gp.panel.tileSize;
+        int unitTopRow = unitTopSide / gp.panel.tileSize;
+        int unitBottomRow = unitBottomSide / gp.panel.tileSize;
 
         try {
         switch(unit.direction) {
             case "up":
                 //If Proggy moves in an upwards direction, the two corners that needs to be checked is top right and left corners
-                unitTopRow = (unitTopSide - unit.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                unitTopRow = (unitTopSide - unit.speed) / gp.panel.tileSize; //predictiong which tile Proggy tries to go into
                 cornerOne = gp.loader.numOfTiles[unitLeftCol][unitTopRow]; // Top left corner
                 cornerTwo = gp.loader.numOfTiles[unitRightCol][unitTopRow]; // Top right corner
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
@@ -275,7 +275,7 @@ public class CollisionCheck {
 
             case "down":
                 //If Proggy moves in an downwards direction, the two corners that needs to be checked is bottom right and left corners
-                unitBottomRow = (unitBottomSide + unit.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                unitBottomRow = (unitBottomSide + unit.speed) / gp.panel.tileSize; //predictiong which tile Proggy tries to go into
                 cornerOne = gp.loader.numOfTiles[unitLeftCol][unitBottomRow]; // Bottom left corner
                 cornerTwo = gp.loader.numOfTiles[unitRightCol][unitBottomRow]; // Bottom right corner
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
@@ -291,7 +291,7 @@ public class CollisionCheck {
 
                 break;
             case "left":
-                unitLeftCol = (unitLeftSide - unit.speed) / gp.tileSize;
+                unitLeftCol = (unitLeftSide - unit.speed) / gp.panel.tileSize;
                 cornerOne = gp.loader.numOfTiles[unitLeftCol][unitTopRow];
                 cornerTwo = gp.loader.numOfTiles[unitLeftCol][unitBottomRow];
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
@@ -303,7 +303,7 @@ public class CollisionCheck {
 
                 break;
             case "right":
-                unitRightCol = (unitRightSide + unit.speed) / gp.tileSize;
+                unitRightCol = (unitRightSide + unit.speed) / gp.panel.tileSize;
                 cornerOne = gp.loader.numOfTiles[unitRightCol][unitTopRow];
                 cornerTwo = gp.loader.numOfTiles[unitRightCol][unitBottomRow];
                 if (gp.loader.tiles[cornerOne].collission == true || gp.loader.tiles[cornerTwo].collission == true) {
@@ -330,10 +330,10 @@ public class CollisionCheck {
         int enemybottomworldy = entityEnemy.worldY + entityEnemy.enemySolid.y + entityEnemy.enemySolid.height;
 
         // This must be adjusted for tilesize to find the columns and rows they are at
-        int enemyLeftCol = enemyleftworldx / gp.tileSize;
-        int enemyRightCol = enemyrightworldx / gp.tileSize;
-        int enemyTopRow = enemytopworldy / gp.tileSize;
-        int enemyBottomRow = enemybottomworldy / gp.tileSize;
+        int enemyLeftCol = enemyleftworldx / gp.panel.tileSize;
+        int enemyRightCol = enemyrightworldx / gp.panel.tileSize;
+        int enemyTopRow = enemytopworldy / gp.panel.tileSize;
+        int enemyBottomRow = enemybottomworldy / gp.panel.tileSize;
 
                 
                 
@@ -342,7 +342,7 @@ public class CollisionCheck {
                 
                 case "down":
                     //If Proggy moves in an downwards direction, the two corners that needs to be checked is bottom right and left corners
-                	enemyBottomRow = (enemybottomworldy + entityEnemy.speed) / gp.tileSize; //predictiong which tile Proggy tries to go into
+                	enemyBottomRow = (enemybottomworldy + entityEnemy.speed) / gp.panel.tileSize; //predictiong which tile Proggy tries to go into
                 	enemyCor1 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Bottom left corner
                 	enemyCor2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Bottom right corner
                     if (gp.loader.tiles[enemyCor1].collission == true || gp.loader.tiles[enemyCor2].collission == true) {
@@ -352,7 +352,7 @@ public class CollisionCheck {
                     break;
                     
                 case"enemyLeft":
-                	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Enemy tries to go into
+                	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / gp.panel.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = gp.loader.numOfTiles[enemyLeftCol][enemyTopRow]; // Top left corner
                     enemyCor2 = gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top right corner
                     if(gp.loader.tiles[enemyCor1].collission == true) {
@@ -362,7 +362,7 @@ public class CollisionCheck {
                     break;
                     
                 case"enemyRight":
-                	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / gp.tileSize; //predictiong which tile Enemy tries to go into
+                	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / gp.panel.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = gp.loader.numOfTiles[enemyRightCol][enemyTopRow]; // Top left corner
                     enemyCor2 = gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
                     if(gp.loader.tiles[enemyCor1].collission == true) {

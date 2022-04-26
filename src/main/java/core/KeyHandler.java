@@ -12,12 +12,12 @@ public class KeyHandler implements KeyListener{
     
     public boolean upPressed, downPressed, leftPressed, rightPressed;
     public float jumpSpeed;
-    private GamePanel gp;
+    private Panel gp;
     String mapPath;
     int mapNum;
     private PlayerState pS;
     
-    public KeyHandler(GamePanel gp) {
+    public KeyHandler(Panel gp) {
     	this.gp = gp;
     }
     

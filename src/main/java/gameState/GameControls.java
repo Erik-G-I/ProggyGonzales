@@ -3,12 +3,11 @@ package gameState;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import core.DisplayText;
-import core.GamePanel;
+import core.Panel;
 
 public class GameControls extends GameScreen {
 	
-	public GameControls(GamePanel gp) {
+	public GameControls(Panel gp) {
 		this.gp = gp;
 	}
 

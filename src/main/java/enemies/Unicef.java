@@ -1,24 +1,19 @@
 package enemies;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import core.GamePanel;
-import core.KeyHandler;
-import entity.Entity;
+import core.Panel;
 
 import java.awt.Rectangle;
-import enemies.EntityEnemy;
 
 public class Unicef extends EntityEnemy{
 
-    GamePanel gp;
+    Panel gp;
 	
-    public Unicef(GamePanel gp) {
+    public Unicef(Panel gp) {
         super(gp);	
         this.gp = gp;
         direction = "down";

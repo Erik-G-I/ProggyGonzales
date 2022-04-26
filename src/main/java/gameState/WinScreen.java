@@ -5,14 +5,14 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
-import core.GamePanel;
+import core.Panel;
 
 public class WinScreen extends GameScreen{
 
-	GamePanel gp;
+	Panel gp;
 	Image image;
 	
-	public WinScreen(GamePanel gp) {
+	public WinScreen(Panel gp) {
 		this.gp = gp;
 		image = new ImageIcon(getClass().getResource("/graphics/ProggyEnding.gif")).getImage();
 	}

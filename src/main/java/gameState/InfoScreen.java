@@ -1,6 +1,6 @@
 package gameState;
 
-import core.GamePanel;
+import core.Panel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,7 +14,7 @@ public class InfoScreen extends GameScreen {
     BufferedImage beggar, unicef, shoes, voi, mask, proggyShoes, proggyVoi, proggyMask, proggy;
     public int page = 1;
 
-    public InfoScreen(GamePanel gp) {
+    public InfoScreen(Panel gp) {
         this.gp = gp;
     }
 

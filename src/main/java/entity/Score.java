@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import core.DisplayText;
 import core.GamePanel;
+import core.Panel;
 import gameState.Languages;
 
 
@@ -24,7 +25,7 @@ public class Score extends DisplayText{
 			coins = 50;
 		}*/
     	
-    	if(gp.getLang() == Languages.NORWEGIAN) {
+    	if(gp.panel.getLang() == Languages.NORWEGIAN) {
     		showScore = "Proggys ølpenger: " + gp.collisionChecker.getCoins();	
     	}
     	else {

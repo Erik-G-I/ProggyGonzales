@@ -7,6 +7,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 import core.GamePanel;
+import core.Panel;
 import core.KeyHandler;
 import java.awt.Rectangle;
 
@@ -28,7 +29,7 @@ public class Player extends Entity{
 
         /* specifying where on the character it will collide with tiles. 
         We set this to the whole character since it only scrolls vertically */
-        playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
+        playerSolid = new Rectangle(14 ,2,gp.panel.tileSize-14, gp.panel.tileSize-2);
 
         
         setDefaultValues();
@@ -50,7 +51,7 @@ public class Player extends Entity{
     }
     
     public void getPlayerImage() {
-        if (gp.getPlayerState() == PlayerState.NORMAL) {
+        if (gp.playerState == PlayerState.NORMAL) {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
@@ -66,7 +67,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.INVISIBLE)  {
+        } else if (gp.playerState == PlayerState.INVISIBLE)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up2.png"));
@@ -83,7 +84,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.FASTER)  {
+        } else if (gp.playerState == PlayerState.FASTER)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up2.png"));
@@ -100,7 +101,7 @@ public class Player extends Entity{
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.VOI)  {
+        } else if (gp.playerState == PlayerState.VOI)  {
             try {
                 up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up1.png"));
                 up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up2.png"));
@@ -191,16 +192,16 @@ public class Player extends Entity{
     
     // gives abilities on player for the different power-ups
     public void PowerUp() {
-        if (this.gp.getPlayerState() == PlayerState.VOI) {
+        if (this.gp.playerState == PlayerState.VOI) {
             speed=7;
         }
-        if (this.gp.getPlayerState() == PlayerState.FASTER) {
+        if (this.gp.playerState == PlayerState.FASTER) {
             speed=7;
         }
-        if(this.gp.getPlayerState() == PlayerState.NORMAL) {
+        if(this.gp.playerState == PlayerState.NORMAL) {
         	speed = 5;
         }
-        if(this.gp.getPlayerState() == PlayerState.INVISIBLE) {
+        if(this.gp.playerState == PlayerState.INVISIBLE) {
         	speed = 5;
         }
     }
@@ -220,7 +221,7 @@ public class Player extends Entity{
     		gp.collisionChecker.checkCollisionOnTile(this);
     		if(colliding == false) {
     			if(onGround == true) {
-    				gp.playSoundEffect(3);
+    				//gp.playSoundEffect(3);
     				// How fast the jump is upwards
         			jumpStrength = 15;
         			worldY -= jumpStrength;
@@ -268,7 +269,7 @@ public class Player extends Entity{
     	else {
     		onGround = true;
     		jumpStrength = 0;
-    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
+    		worldY = ((worldY + speed)/gp.panel.tileSize) *gp.panel.tileSize;
     		direction = originalDir;
     		gravity = weight;
     		
@@ -341,7 +342,7 @@ public class Player extends Entity{
             break;
         }
         
-        g2.drawImage(image, playerX, playerY, gp.tileSize, gp.tileSize, null);
+        g2.drawImage(image, playerX, playerY, gp.panel.tileSize, gp.panel.tileSize, null);
     }
     
     public void setGravity(int gravity) {

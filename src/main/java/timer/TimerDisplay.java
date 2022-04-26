@@ -5,12 +5,12 @@ import java.awt.Graphics;
 import javax.swing.Timer;
 
 import core.DisplayText;
-import core.GamePanel;
+import core.Panel;
 import java.awt.Color;
 
 public class TimerDisplay extends DisplayText{
 	
-	private GamePanel gp;
+	private Panel gp;
 	private int widthOfScreen;
 	private int seconds;
 	private int minutes;
@@ -19,7 +19,7 @@ public class TimerDisplay extends DisplayText{
 	private Time time;
 	private int timerSeconds, timerMinutes;
 	
-	public TimerDisplay(GamePanel gp) {
+	public TimerDisplay(Panel gp) {
 		this.gp=gp;
 		seconds=60; //change later to wanted time
 		minutes=2; //change later to wanted time

@@ -1,11 +1,8 @@
 package enemies;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.Random;
 
-import core.GamePanel;
-import core.KeyHandler;
+import core.Panel;
 import entity.PlayerState;
 
 import java.awt.Graphics2D;
@@ -67,10 +64,10 @@ public class EntityEnemy {
 
 	}
 
-	GamePanel gp;
+	Panel gp;
     
     
-    public EntityEnemy(GamePanel gp) {
+    public EntityEnemy(Panel gp) {
     	this.gp = gp;
     	
     }

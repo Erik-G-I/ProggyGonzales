@@ -7,14 +7,14 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import core.GamePanel;
+import core.Panel;
 
 public class StartMenu extends GameScreen {
 	
 	BufferedImage img;
 	int y = 0;
 
-    public StartMenu(GamePanel gp) {
+    public StartMenu(Panel gp) {
         this.gp = gp;
 		try {
 			img = ImageIO.read(getClass().getResourceAsStream("/graphics/start.png"));

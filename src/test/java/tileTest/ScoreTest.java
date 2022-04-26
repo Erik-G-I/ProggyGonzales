@@ -1,15 +1,12 @@
 package tileTest;
 
-import core.CollisionCheck;
-import core.GamePanel;
+import core.Panel;
 import core.KeyHandler;
-import entity.Entity;
 import entity.Player;
 import entity.Score;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import tile.TileLoader;
 
 import java.io.InputStream;
 
@@ -17,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ScoreTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    Panel gp = new Panel("/maps/testingMap.txt");
     KeyHandler keyH = new KeyHandler(gp);
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
     Player p;

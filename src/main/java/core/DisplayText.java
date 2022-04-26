@@ -10,7 +10,7 @@ public class DisplayText {
 
 	private InputStream getFont;
 	private Font font;
-	private GamePanel gp;
+	private Panel gp;
 	protected Graphics g2;
 
 	
@@ -25,7 +25,7 @@ public class DisplayText {
 		}
 	}
 
-	public void setGp(GamePanel gp) {
+	public void setGp(Panel gp) {
 		this.gp = gp;
 	}
 

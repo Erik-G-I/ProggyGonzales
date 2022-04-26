@@ -6,16 +6,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import core.GamePanel;
+import core.Panel;
 import core.KeyHandler;
 import entity.Player;
 import entity.Score;
-import timer.Time;
-import timer.TimerDisplay;
 
 public class PlayerItemsTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	Panel gp = new Panel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	Player p;
 	int startPos;

@@ -2,11 +2,11 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import core.GamePanel;
+import core.Panel;
 
 public class LevelsMenu extends GameScreen {
 		
-		public LevelsMenu(GamePanel gp) {
+		public LevelsMenu(Panel gp) {
 			this.gp = gp;
 		}
 		

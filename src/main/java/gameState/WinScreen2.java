@@ -3,14 +3,14 @@ package gameState;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import core.GamePanel;
+import core.Panel;
 
 
 public class WinScreen2 extends GameScreen{
 	
-	GamePanel gp;
+	Panel gp;
 	
-	public WinScreen2(GamePanel gp) {
+	public WinScreen2(Panel gp) {
 		this.gp = gp;
 		
 	}

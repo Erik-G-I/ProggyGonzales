@@ -1,17 +1,13 @@
 package enemies;
 
-import java.util.ArrayList;
-
-import core.GamePanel;
-import entity.PlayerState;
-import entity.Entity;
+import core.Panel;
 
 
 public class EnemySetter {
 
-	GamePanel gp;
+	Panel gp;
 	
-	public EnemySetter(GamePanel gp) {
+	public EnemySetter(Panel gp) {
 		this.gp = gp;
 	}
 	

@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
-import core.GamePanel;
+import core.Panel;
 import entity.PlayerState;
 import gameState.GameState;
 
@@ -13,13 +13,13 @@ public class Time implements ActionListener{
 	private int seconds;
 	private int minutes;
 	private String showTime; //timer will be a String
-	private GamePanel gp;
+	private Panel gp;
 	private Timer timer;
 	private boolean gameOver;
 	private boolean startPowerUpTimer;
 	private int powerUpSeconds = 10;
 	
-	public Time(int seconds, int minutes, String showTime, GamePanel gp) {
+	public Time(int seconds, int minutes, String showTime, Panel gp) {
 		this.seconds=seconds;
 		this.minutes=minutes;
 		this.showTime=showTime;

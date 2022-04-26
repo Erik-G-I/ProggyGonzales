@@ -3,11 +3,11 @@ package tile;
 
 import java.awt.image.BufferedImage;
 
-import core.GamePanel;
+import core.Panel;
 
 public class Tile {
 
-	GamePanel gp;
+	Panel gp;
 	public BufferedImage image;
 	public int x, y;
 

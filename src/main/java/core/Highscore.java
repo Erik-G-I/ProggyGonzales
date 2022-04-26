@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Highscore {
 	
-	GamePanel gp;
+	Panel gp;
 	WriteToFile writer;
 	
-	public Highscore(GamePanel gp) {
+	public Highscore(Panel gp) {
 		this.gp = gp;
 		writer = new WriteToFile();
 	}

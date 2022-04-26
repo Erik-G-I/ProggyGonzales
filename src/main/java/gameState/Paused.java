@@ -2,11 +2,11 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import core.GamePanel;
+import core.Panel;
 
 public class Paused extends GameScreen {
 	
-	public Paused(GamePanel gp) {
+	public Paused(Panel gp) {
 		this.gp = gp;
 	}
 

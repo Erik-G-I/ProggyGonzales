@@ -1,6 +1,6 @@
 package tileTest;
 
-import core.GamePanel;
+import core.Panel;
 import core.KeyHandler;
 import entity.Player;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoaderTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    Panel gp = new Panel("/maps/testingMap.txt");
     TileLoader loader;
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
 

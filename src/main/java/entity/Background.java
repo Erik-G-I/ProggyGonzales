@@ -1,12 +1,13 @@
 package entity;
 
+import core.GamePanel;
 import core.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import core.GamePanel;
+import core.Panel;
 
 public class Background extends Entity {
 
@@ -61,8 +62,8 @@ public class Background extends Entity {
     		
     		if(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
     			
-    			int worldX = worldCol * gp.tileSize;
-    			int worldY = worldRow * gp.tileSize;
+    			int worldX = worldCol * gp.panel.tileSize;
+    			int worldY = worldRow * gp.panel.tileSize;
     			int screenX = worldX - gp.player.worldX + gp.player.playerX + 63;
     			int screenY = worldY - gp.player.worldY + gp.player.playerY;
     			

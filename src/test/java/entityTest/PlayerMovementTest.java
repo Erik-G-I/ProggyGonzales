@@ -4,18 +4,15 @@ import entity.Score;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import core.GamePanel;
+import core.Panel;
 import core.KeyHandler;
 import entity.Player;
-import tile.TileLoader;
-
-import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class PlayerMovementTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	Panel gp = new Panel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	Player p;
 	int startPos;

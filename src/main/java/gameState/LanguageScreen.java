@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import core.GamePanel;
+import core.Panel;
 
 public class LanguageScreen extends GameScreen {
 
@@ -14,7 +14,7 @@ public class LanguageScreen extends GameScreen {
 	private int x = 0;
 	private boolean drawNow;
 	
-	public LanguageScreen(GamePanel gp) {
+	public LanguageScreen(Panel gp) {
 		this.gp = gp;
 		try {
 			img1 = ImageIO.read(getClass().getResourceAsStream("/language/GB.png"));

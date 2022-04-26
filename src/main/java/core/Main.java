@@ -13,18 +13,18 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Proggy Gonzales");
         
-        GamePanel gamePanel = new GamePanel("/maps/gameMap.txt"); // må endres når vi lager nytt map
+        Panel panel = new Panel("/maps/gameMap.txt"); // må endres når vi lager nytt map
         ReadFromFile reader = new ReadFromFile();
         
-        window.add(gamePanel);
+        window.add(panel);
         
         window.pack();
         
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         
-        gamePanel.startGameThread();
-        gamePanel.playMusic(8);
+        panel.startGameThread();
+        panel.playMusic(8);
         
     }
 
