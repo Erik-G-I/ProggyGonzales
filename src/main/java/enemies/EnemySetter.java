@@ -84,6 +84,18 @@ public class EnemySetter {
 			gp.hobo[13].worldX = 3380;
 			gp.hobo[13].worldY = 832;
 			
+			gp.hobo[14] = new Hobo(gp);
+			gp.hobo[14].worldX = 4416;
+			gp.hobo[14].worldY = 768;
+			
+			gp.hobo[15] = new Hobo(gp);
+			gp.hobo[15].worldX = 5632;
+			gp.hobo[15].worldY = 768;
+			
+			gp.hobo[16] = new Hobo(gp);
+			gp.hobo[16].worldX = 5888;
+			gp.hobo[16].worldY = 704;
+			
 		}
 		
 
