@@ -295,9 +295,6 @@ public class GamePanel extends JPanel implements Runnable{
                 player.update();
                 if (gameState == GameState.RUNNING_GAME && multiGame) {
                     player2.update();
-                    if (keyH.leftPressed1 || keyH.rightPressed1 || keyH.upPressed1) {
-
-                    }
                 }
             }
         }

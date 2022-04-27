@@ -14,7 +14,6 @@ public class Player2 extends Entity {
     //public GamePanel gp;
     public KeyHandler keyH;
     private int weight;
-    private int gravity;
     //int x;
     //int y;
     BufferedImage jumpImg = null;
@@ -159,11 +158,13 @@ public class Player2 extends Entity {
                         //playerX += speed;
                         worldX += speed;
                         jump();//jump instead of fall seems to give better results currently
+                        fall();
                         break;
                     case "left":
                         //playerX -= speed;
                         worldX -= speed;
                         jump();
+                        fall();
                         break;
                 }
             }
@@ -247,14 +248,13 @@ public class Player2 extends Entity {
                     jumpStrength +=12;
                     onGround = false;
                 }
-                if (onGround == false && jumpStrength > 0) {
+                else if (onGround == false && jumpStrength > 0) {
                     //playerY -= jumpStrength;
                     worldY -= jumpStrength;
                     jumpStrength -=1;
                 }
 
                 gp.collisionChecker2.checkCollisionOnTile();
-
                 if(jumpStrength <=0 || colliding == true) {
                     // setting jumpStrengt to 0 if you hit your head, so you dont keep going up
                     jumpStrength = 0;

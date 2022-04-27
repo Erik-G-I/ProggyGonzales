@@ -25,12 +25,17 @@ public class Entity {
 
     public boolean onGround = true;
 
+    public int gravity;
+
 
     //brukes til å skape animasjon på spiller og fiender
     public int spriteCounter = 0;
     public int spriteNum = 1;
 
 
+    public void setGravity(int gravity) {
+        this.gravity = gravity;
+    }
     
     
 }

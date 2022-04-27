@@ -152,6 +152,9 @@ public class KeyHandler implements KeyListener{
 					gp.multiMenu.cmd = 1;
 				}
 			}
+			if (code == KeyEvent.VK_ESCAPE)
+				gp.gameState = GameState.LEVELS_MENU;
+
 			if (code == KeyEvent.VK_ENTER) {
 				if (gp.multiMenu.cmd == 0) {
 					gp.multiGame = false;

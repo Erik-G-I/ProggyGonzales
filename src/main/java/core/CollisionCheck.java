@@ -320,7 +320,7 @@ public class CollisionCheck {
        // If proggy falls out of bounds this is triggered
         catch(ArrayIndexOutOfBoundsException e) {
         	outOfBounds = true;
-            this.player.gp.player.setGravity(0); //setting gravity equal to 0 so that Proggy doesn't fall to infinity
+            player.setGravity(0); //setting gravity equal to 0 so that Proggy doesn't fall to infinity
         }
     }
     

@@ -15,7 +15,6 @@ public class Player extends Entity{
 
     KeyHandler keyH;
     private int weight;
-    private int gravity;
     private BufferedImage jumpImg = null;
 
     
@@ -351,10 +350,6 @@ public class Player extends Entity{
         }
         
         g2.drawImage(image, playerX, playerY, gp.tileSize, gp.tileSize, null);
-    }
-    
-    public void setGravity(int gravity) {
-    	this.gravity = gravity;
     }
         
     

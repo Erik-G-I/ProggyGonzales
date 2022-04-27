@@ -57,8 +57,9 @@ public class LevelsMenu extends GameScreen {
 			if (cmd == 2) {
 				g2.drawString(">", centerText(s4)-gp.tileSize, gp.tileSize*7);
 			}
-			
-			g2.drawString(s5, centerText(s5), gp.tileSize*10);
+
+			this.draw(40);
+			g2.drawString(s5, centerText(s5), gp.tileSize*9);
 		}
 	}
 
