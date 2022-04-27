@@ -23,7 +23,7 @@ public class InfoScreen extends GameScreen {
         try {
             beggar = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
             proggy = ImageIO.read(getClass().getResourceAsStream("/Player/Proggy_default1.png"));
-            unicef = ImageIO.read(getClass().getResourceAsStream("/graphics/Unicef_right1.png"));
+            unicef = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_right1.png"));
             shoes = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
             voi = ImageIO.read(getClass().getResourceAsStream("/graphics/voi.png"));
             mask = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));

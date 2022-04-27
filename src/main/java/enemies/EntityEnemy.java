@@ -18,8 +18,8 @@ public class EntityEnemy {
     public int playerX, playerY;
     public int speed;
     
-    protected BufferedImage uteligger;
-	protected BufferedImage uteliggerglad;
+    protected BufferedImage unicefLeft;
+	protected BufferedImage unicefRight;
     public String direction;
     public String previousDirection;
 
@@ -108,21 +108,21 @@ public class EntityEnemy {
 			
 	        switch(direction) {
 	        case "enemyLeft":
-	        	image = uteligger;
+	        	image = unicefLeft;
 	            break;
 	            
 	        case "enemyRight":
-	        	image = uteligger;
+	        	image = unicefRight;
 	            break;
 	        
 	        case "down":
-	        	image = uteligger;
+	        	image = unicefRight;
 	            break;
 	        }       
 			
-			if(gp.collisionChecker.looseMoney(gp.player, gp.hobo) == true) {
-				image = uteliggerglad;
-			}
+		//	if(gp.collisionChecker.looseMoney(gp.player, gp.unicef) == true) {
+		//		image = uteliggerglad;
+		//	}
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 		}

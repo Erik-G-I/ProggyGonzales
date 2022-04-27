@@ -17,7 +17,6 @@ public class TimerDisplay extends DisplayText{
 	private String showTime;
 	private Timer timer;
 	private Time time;
-	private String timeLeft;
 	private int timerSeconds, timerMinutes;
 	
 	public TimerDisplay(GamePanel gp) {

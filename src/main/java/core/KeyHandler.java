@@ -6,6 +6,8 @@ import gameState.Languages;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import entity.PlayerState;
+
 public class KeyHandler implements KeyListener{
     
     public boolean upPressed, downPressed, leftPressed, rightPressed;
@@ -13,6 +15,7 @@ public class KeyHandler implements KeyListener{
     private GamePanel gp;
     String mapPath;
     int mapNum;
+    private PlayerState pS;
     
     public KeyHandler(GamePanel gp) {
     	this.gp = gp;
@@ -252,16 +255,39 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.WIN_SCREEN2) {
-        	if (code == KeyEvent.VK_ESCAPE) {
+        	
+        	if (code == KeyEvent.VK_LEFT) {
+        		gp.playSoundEffect(0);
+        		gp.wS2.cmd--;
+        		if(gp.wS2.cmd<0) {
+        			gp.wS2.cmd = 1;
+        		}
+        	}
+        	if (code == KeyEvent.VK_RIGHT) {
+        		gp.playSoundEffect(0);
+        		gp.wS2.cmd++;
+        		if(gp.wS2.cmd > 1) {
+        			gp.wS2.cmd = 0;
+        		}
+        	}
+        	if (gp.wS2.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		gp.stopMusic();
         		gp.setGame();
         		gp.gameState = GameState.START_MENU;
         		gp.playMusic(10);
         	}
+        	if (gp.wS2.cmd == 1 && code == KeyEvent.VK_ENTER) {
+        		gp.stopMusic();
+        		gp.setGame();
+        		gp.gameState = GameState.LEVELS_MENU;
+        		gp.playMusic(8);
+        	}
         }
         
         if (gp.gameState == GameState.PAUSED_GAME) {
+        	pS = gp.getPlayerState();
         	gp.stopTimer();
+        	gp.setPlayerState(PlayerState.INVISIBLE);
         	if (code == KeyEvent.VK_DOWN) {
         		gp.playSoundEffect(0);
         		gp.pause.cmd++;
@@ -278,8 +304,8 @@ public class KeyHandler implements KeyListener{
         	}
         	if(gp.pause.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		gp.playSoundEffect(0);
+        		gp.setPlayerState(pS);
         		gp.gameState = GameState.RUNNING_GAME;
-        		
         		gp.startTimer();
         	}
         	if(gp.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
