@@ -1,11 +1,8 @@
 package enemies;
 
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
-import java.util.Random;
 
 import core.GamePanel;
-import core.KeyHandler;
 import entity.PlayerState;
 
 import java.awt.Graphics2D;
@@ -46,7 +43,8 @@ public class EntityEnemy {
 		setAction();
 		
 		colliding = false;
-		gp.collisionChecker.checkEnemyOnTile(this);
+		gp.collisionChecker1.checkEnemyOnTile(this);
+		gp.collisionChecker2.checkEnemyOnTile(this);
 
 		if (colliding == false) {
             switch(direction) {
@@ -78,7 +76,8 @@ public class EntityEnemy {
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
-    	gp.collisionChecker.checkEnemyOnTile(this);
+    	gp.collisionChecker1.checkEnemyOnTile(this);
+		gp.collisionChecker2.checkEnemyOnTile(this);
     	if(colliding == false || onGround == false) {
     		onGround = false;
     		direction = originalDir;
@@ -99,9 +98,9 @@ public class EntityEnemy {
     	BufferedImage image = null;
 
     	int screenX = worldX - gp.player.worldX + gp.player.playerX;
-		int screenY = worldY - gp.player.worldY + gp.player.playerY ;
+		int screenY = worldY - gp.player.worldY + gp.player.playerY;
 		
-		if(worldX + gp.tileSize > gp.player.worldX - gp.player.playerX && 
+		if(worldX + gp.tileSize > gp.player.worldX - gp.player.playerX &&
 		   worldX - gp.tileSize < gp.player.worldX + gp.player.playerX &&
 		   worldY + gp.tileSize > gp.player.worldY - gp.player.playerY &&
 		   worldY - gp.tileSize < gp.player.worldY + gp.player.playerY) {

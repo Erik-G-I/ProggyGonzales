@@ -41,12 +41,12 @@ public class Background extends Entity {
     }
 
     public void update() {
-        if (keyH.leftPressed == true || keyH.rightPressed == true) {
+        if (keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
 
-            if (keyH.leftPressed == true) {
+            if (keyH.leftPressed1 == true) {
                 direction = "left";
                 worldX += speed;
-            } else if (keyH.rightPressed == true) {
+            } else if (keyH.rightPressed1 == true) {
                 direction = "right";
                 worldX -= speed;
             }

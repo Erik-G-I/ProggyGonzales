@@ -10,7 +10,7 @@ import entity.PlayerState;
 
 public class KeyHandler implements KeyListener{
     
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean upPressed1, upPressed2, downPressed, leftPressed1, rightPressed1, leftPressed2, rightPressed2;
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
@@ -137,6 +137,34 @@ public class KeyHandler implements KeyListener{
         	code = KeyEvent.KEY_RELEASED;
         }
 
+		if (gp.gameState == GameState.MULTIPLAYER_MENU) {
+			if (code == KeyEvent.VK_DOWN) {
+				gp.playSoundEffect(0);
+				gp.multiMenu.cmd++;
+				if (gp.multiMenu.cmd > 1) {
+					gp.multiMenu.cmd = 0;
+				}
+			}
+			if (code == KeyEvent.VK_UP) {
+				gp.playSoundEffect(0);
+				gp.multiMenu.cmd--;
+				if (gp.multiMenu.cmd < 0) {
+					gp.multiMenu.cmd = 1;
+				}
+			}
+			if (code == KeyEvent.VK_ENTER) {
+				if (gp.multiMenu.cmd == 0) {
+					gp.multiGame = false;
+					gp.gameState = GameState.RUNNING_GAME;
+					System.out.println("he");
+				}
+				if (gp.multiMenu.cmd == 1) {
+					gp.multiGame = true;
+					gp.gameState = GameState.RUNNING_GAME;
+				}
+			}
+		}
+
         if (gp.gameState == GameState.INFO_SCREEN) {
             if (code == KeyEvent.VK_RIGHT) {
             	gp.playSoundEffect(0);
@@ -211,18 +239,28 @@ public class KeyHandler implements KeyListener{
 
         if (gp.gameState == GameState.RUNNING_GAME) {
             // Up-arrow or space-button is pressed
-            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
-                upPressed = true;
+            if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE) {
+                upPressed1 = true;
             }
-            // left-arrow is pressed
-            if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
-                leftPressed = true;
+            if (e.getKeyChar() == 'w')
+            	upPressed2 = true;
 
+            // left-arrow is pressed
+            if (code == KeyEvent.VK_LEFT) {
+                leftPressed1 = true;
             }
+            if (e.getKeyChar() == 'a')
+            	leftPressed2 = true;
+
+
             // right-arrow is pressed
-            if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
-                rightPressed = true;
+            if (code == KeyEvent.VK_RIGHT) {
+                rightPressed1 = true;
             }
+            if (e.getKeyChar() == 'd')
+            	rightPressed2 = true;
+
+
             if ((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
@@ -282,9 +320,9 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.PAUSED_GAME) {
-        	pS = gp.getPlayerState();
+        	pS = gp.player.playerState;
         	gp.stopTimer();
-        	gp.setPlayerState(PlayerState.INVISIBLE);
+        	gp.player.playerState = PlayerState.INVISIBLE;
         	if (code == KeyEvent.VK_DOWN) {
         		gp.playSoundEffect(0);
         		gp.pause.cmd++;
@@ -301,7 +339,7 @@ public class KeyHandler implements KeyListener{
         	}
         	if(gp.pause.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		gp.playSoundEffect(0);
-        		gp.setPlayerState(pS);
+        		gp.player.playerState = pS;
         		gp.gameState = GameState.RUNNING_GAME;
         		gp.startTimer();
         	}
@@ -326,19 +364,25 @@ public class KeyHandler implements KeyListener{
         int code = e.getKeyCode();
         
         // space-button or up-arrow is released 
-        if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE || e.getKeyChar() == 'w') {
-            upPressed = false;
+        if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE) {
+            upPressed1 = false;
         }
+        if (e.getKeyChar() == 'w')
+        	upPressed2 = false;
         
         // left arrow is released
-        if (code == KeyEvent.VK_LEFT || e.getKeyChar() == 'a') {
-            leftPressed = false;
-            
+        if (code == KeyEvent.VK_LEFT) {
+            leftPressed1 = false;
         }
+        if (e.getKeyChar() == 'a')
+        	leftPressed2 = false;
+
         //right-arrow is released
-        if (code == KeyEvent.VK_RIGHT || e.getKeyChar() == 'd') {
-            rightPressed = false;
+        if (code == KeyEvent.VK_RIGHT) {
+            rightPressed1 = false;
         }
+        if (e.getKeyChar() == 'd')
+        	rightPressed2 = false;
          
         
     }
@@ -353,7 +397,7 @@ public class KeyHandler implements KeyListener{
 		gp.setMap(mapPath);
 		gp.resetLoader();
 		gp.setGame();
-		gp.gameState = GameState.RUNNING_GAME;
+		gp.gameState = GameState.MULTIPLAYER_MENU;
 		gp.startTimer();
     }
 

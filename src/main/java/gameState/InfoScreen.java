@@ -10,8 +10,8 @@ import java.io.IOException;
 
 public class InfoScreen extends GameScreen {
 
-    Image proggyGif, shop;
-    BufferedImage beggar, unicef, shoes, voi, mask, proggyShoes, proggyVoi, proggyMask, proggy;
+    Image proggyGif;
+    BufferedImage beggar, unicef, shoes, voi, mask, proggyShoes, proggyVoi, proggyMask, proggy, proggy2;
     public int page = 1;
 
     public InfoScreen(GamePanel gp) {
@@ -22,14 +22,15 @@ public class InfoScreen extends GameScreen {
         proggyGif = new ImageIcon(getClass().getResource("/graphics/Proggy.gif")).getImage();
         try {
             beggar = ImageIO.read(getClass().getResourceAsStream("/enemies/uteligger.png"));
-            proggy = ImageIO.read(getClass().getResourceAsStream("/Player/Proggy_default1.png"));
+            proggy = ImageIO.read(getClass().getResourceAsStream("/Player1/Proggy_default1.png"));
             unicef = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_right1.png"));
             shoes = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
             voi = ImageIO.read(getClass().getResourceAsStream("/graphics/voi.png"));
             mask = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
-            proggyMask = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default1.png"));
-            proggyShoes = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default1.png"));
-            proggyVoi = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
+            proggyMask = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_default1.png"));
+            proggyShoes = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_default1.png"));
+            proggyVoi = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default1.png"));
+            proggy2 = ImageIO.read(getClass().getResourceAsStream("/player2/Proggy2_default1.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -76,7 +77,7 @@ public class InfoScreen extends GameScreen {
         	line5 = "afford enough beer.";
         	line6 = "It is important to avoid meeting Unicef charity workers with their collecting tins since";
         	line7 = "they won't leave him alone, even though he keeps telling them he already gives donations";
-        	line8 = "regularly. There are also several beggars in the streets asking for money. Proggy cannot";
+        	line8 = "regularly. There are also a few beggars in the streets asking for money. Proggy cannot";
         	line9 = "say no when they ask him, so he has to avoid them if he's going to afford any beer.";
         	line10 = "To make things easier, there are luckily several power ups to be found in Bergen. Each";
         	line11 = "power up has a time limit of 10 seconds. There are scooters that boosts Proggy's speed";

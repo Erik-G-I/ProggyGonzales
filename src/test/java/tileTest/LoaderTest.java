@@ -36,7 +36,7 @@ public class LoaderTest {
         p.setDefaultValues();
 
         int startPos = p.worldY;
-        keyH.upPressed = true;
+        keyH.upPressed1 = true;
         p.update();
         p.jump();
 

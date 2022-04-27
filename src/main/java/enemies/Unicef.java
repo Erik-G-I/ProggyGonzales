@@ -43,9 +43,7 @@ public class Unicef extends EntityEnemy{
 	}
 
 	public void setAction() {
-			
-			
-			
+
 			movementCount ++;
 			
 			//the higher the movementcount, the longer between change of direction

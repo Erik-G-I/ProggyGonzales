@@ -10,9 +10,9 @@ import core.GamePanel;
 import core.KeyHandler;
 import java.awt.Rectangle;
 
+
 public class Player extends Entity{
 
-    GamePanel gp;
     KeyHandler keyH;
     private int weight;
     private int gravity;
@@ -30,7 +30,7 @@ public class Player extends Entity{
         We set this to the whole character since it only scrolls vertically */
         playerSolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
 
-        
+
         setDefaultValues();
         getPlayerImage();
     }
@@ -46,84 +46,84 @@ public class Player extends Entity{
         weight = 3;
         jumpStrength = 0;
         gravity = weight;
-
+        playerState = PlayerState.NORMAL;
     }
-    
+/*
+    public PlayerState getPlayerState() {
+        return this.playerState;
+    }
+
+ */
+
     public void getPlayerImage() {
-        if (gp.getPlayerState() == PlayerState.NORMAL) {
+        if (playerState == PlayerState.NORMAL) {
             try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up1.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_up2.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_default2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left1.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_left2.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right1.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_right2.png"));
-    
-               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
-            }catch(IOException e) {
-                e.printStackTrace();
-            }
-
-        } else if (gp.getPlayerState() == PlayerState.INVISIBLE)  {
-            try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up1.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_up2.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_left1.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_left2.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_right1.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_right2.png"));
-    
-               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_right2.png"));
 
             }catch(IOException e) {
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.FASTER)  {
+        } else if (playerState == PlayerState.INVISIBLE)  {
             try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up1.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_up2.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_left1.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_left2.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_right1.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_right2.png"));
-    
-               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_right2.png"));
+
 
             }catch(IOException e) {
                 e.printStackTrace();
             }
 
-        } else if (gp.getPlayerState() == PlayerState.VOI)  {
+        } else if (playerState == PlayerState.FASTER)  {
             try {
-                up1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up1.png"));
-                up2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_up2.png"));
-                down1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
-                down2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default2.png"));
-                left1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default2.png"));
-                left2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_left2.png"));
-                right1 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
-                right2 = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_right2.png"));
-    
-               // bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bakgrunn.jpg"));
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_left1.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_right1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_right2.png"));
+
+            }catch(IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (playerState == PlayerState.VOI)  {
+            try {
+                up1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_up1.png"));
+                up2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_up2.png"));
+                down1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default1.png"));
+                down2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default2.png"));
+                left1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default2.png"));
+                left2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_left2.png"));
+                right1 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default1.png"));
+                right2 = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_right2.png"));
 
             }catch(IOException e) {
                 e.printStackTrace();
             }
 
         }
-        
+
     }
     
     public void update() {
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
-				if(keyH.upPressed == true ) {
+        if(keyH.upPressed1 == true || keyH.downPressed == true || keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
+				if(keyH.upPressed1 == true ) {
 					previousDirection = direction;
 					direction = "up";
 
@@ -133,12 +133,12 @@ public class Player extends Entity{
 	                direction = "down";
 
 	            }
-	            else if(keyH.leftPressed == true) {
+	            else if(keyH.leftPressed1 == true) {
 	            	previousDirection = direction;
 	                direction = "left";
 
 	            }
-	            else if(keyH.rightPressed == true) {
+	            else if(keyH.rightPressed1 == true) {
 	            	previousDirection = direction;
 	                direction = "right";
 	            }
@@ -147,7 +147,18 @@ public class Player extends Entity{
 	            colliding = false;
                 
                 // updates to be true if Proggy collides with a solid tile
-                gp.collisionChecker.checkCollisionOnTile(this);
+                gp.collisionChecker1.checkCollisionOnTile();
+
+                //System.out.println("Player 1: " + worldX);
+
+                int rightCol = ((playerSolid.width + worldX) + speed) / gp.tileSize;
+                int topRow = (playerSolid.y + worldY) / gp.tileSize;
+                int bottomRow = (worldY - playerSolid.y + playerSolid.height) / gp.tileSize;
+                //System.out.println("left: " + leftCol);
+                //System.out.println("top: " + topRow);
+                int cornerOne = this.gp.loader.numOfTiles[rightCol][topRow];
+                int cornerTwo = this.gp.loader.numOfTiles[rightCol][bottomRow];
+                System.out.println("[" + rightCol + "]" + "[" + bottomRow + "]:  " + cornerTwo);
 
                 // Checks playerState and sets the correct abilities to match the power-up
                 PowerUp();
@@ -163,12 +174,12 @@ public class Player extends Entity{
                     fall();
                         break;
                     case "right":
-                    worldX += speed;
+                        worldX += speed;
                     jump();		//jump instead of fall seems to give better results currently
                     
                         break;
                     case "left":
-                    worldX -= speed; 
+                        worldX -= speed;
                     jump();
                     
                         break;
@@ -191,16 +202,16 @@ public class Player extends Entity{
     
     // gives abilities on player for the different power-ups
     public void PowerUp() {
-        if (this.gp.getPlayerState() == PlayerState.VOI) {
+        if (playerState == PlayerState.VOI) {
             speed=7;
         }
-        if (this.gp.getPlayerState() == PlayerState.FASTER) {
+        if (playerState == PlayerState.FASTER) {
             speed=7;
         }
-        if(this.gp.getPlayerState() == PlayerState.NORMAL) {
+        if(playerState == PlayerState.NORMAL) {
         	speed = 5;
         }
-        if(this.gp.getPlayerState() == PlayerState.INVISIBLE) {
+        if(playerState == PlayerState.INVISIBLE) {
         	speed = 5;
         }
     }
@@ -208,7 +219,7 @@ public class Player extends Entity{
     // jump function that makes proggy collide also when jumping	
     public void jump() {
         // Proggy needs to be on the ground while button is pressed in order to jump
-    	if(keyH.upPressed == true || (jumpStrength <= 0 && !onGround)) {
+    	if(keyH.upPressed1 == true || (jumpStrength <= 0 && !onGround)) {
     		//jump is initialized and depending on the previous direction we need different image sprites
     		if(previousDirection == "right") {
     			jumpImg = up1;
@@ -217,24 +228,24 @@ public class Player extends Entity{
     			jumpImg = up2;
     		}
     		
-    		gp.collisionChecker.checkCollisionOnTile(this);
+    		gp.collisionChecker1.checkCollisionOnTile();
     		if(colliding == false) {
     			if(onGround == true) {
     				gp.playSoundEffect(3);
     				// How fast the jump is upwards
         			jumpStrength = 15;
-        			worldY -= jumpStrength;
+                    worldY -= jumpStrength;
         			jumpStrength +=12;
         			onGround = false;
         			
         		}
     			else if(onGround == false && jumpStrength > 0) {
-    				
-    	        	worldY -= jumpStrength;
+
+                    worldY -= jumpStrength;
     	        	jumpStrength -=1;
     			}
     			
-    			gp.collisionChecker.checkCollisionOnTile(this);
+    			gp.collisionChecker1.checkCollisionOnTile();
         		if(jumpStrength <=0 || colliding == true) {
         			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
         			jumpStrength = 0;
@@ -253,22 +264,20 @@ public class Player extends Entity{
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
-    	gp.collisionChecker.checkCollisionOnTile(this);
+    	gp.collisionChecker1.checkCollisionOnTile();
     	if(colliding == false || onGround == false) {
     		onGround = false;
     		direction = originalDir;
-    		worldY += gravity;
+            worldY += gravity;
     		
     		if(gravity < 18) {
     			gravity += 1; 
     		}
-    		
-    		
     	}
     	else {
     		onGround = true;
     		jumpStrength = 0;
-    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
+            worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
     		direction = originalDir;
     		gravity = weight;
     		
@@ -278,21 +287,21 @@ public class Player extends Entity{
     private void moveWhileJumping () {
     	String originalDir = previousDirection;
     	int moveInAir = 0;
-    	if(keyH.leftPressed == true || keyH.rightPressed == true) {
+    	if(keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
     		
-			if(keyH.leftPressed == true ) {
+			if(keyH.leftPressed1 == true ) {
 				originalDir = direction;
 				direction = "left";
 				moveInAir = -speed;
 			}
-			if(keyH.rightPressed == true ) {
+			if(keyH.rightPressed1 == true ) {
 				originalDir = direction;
 				direction = "right";
 				moveInAir = speed;
 			}
-			gp.collisionChecker.checkCollisionOnTile(this);
+			gp.collisionChecker1.checkCollisionOnTile();
 			if(colliding == false) {
-				worldX += moveInAir;
+                worldX += moveInAir;
 			}
 		}
     	direction = originalDir;

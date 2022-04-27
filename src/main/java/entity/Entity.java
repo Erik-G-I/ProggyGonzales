@@ -1,5 +1,7 @@
 package entity;
 
+import core.GamePanel;
+
 import java.awt.image.BufferedImage;
 
 import java.awt.Rectangle;
@@ -7,7 +9,8 @@ import java.awt.Rectangle;
 
 public class Entity {
 
-    
+    public PlayerState playerState;
+    public GamePanel gp;
     public int worldX, worldY;
     public int playerX, playerY;
     public int speed;
@@ -23,11 +26,11 @@ public class Entity {
     public boolean onGround = true;
 
 
-
-
     //brukes til å skape animasjon på spiller og fiender
     public int spriteCounter = 0;
     public int spriteNum = 1;
+
+
     
     
 }

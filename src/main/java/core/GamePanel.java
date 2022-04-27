@@ -9,23 +9,9 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 
 import enemies.EnemySetter;
-import enemies.Unicef;
 import enemies.EntityEnemy;
-import entity.Background;
-import entity.Player;
-import entity.PlayerState;
-import entity.Score;
-import gameState.GameControls;
-import gameState.GameOver;
-import gameState.GameState;
-import gameState.InfoScreen;
-import gameState.LanguageScreen;
-import gameState.Languages;
-import gameState.LevelsMenu;
-import gameState.Paused;
-import gameState.StartMenu;
-import gameState.WinScreen;
-import gameState.WinScreen2;
+import entity.*;
+import gameState.*;
 import sound.Sound;
 import tile.TileLoader;
 import timer.TimerDisplay;
@@ -50,7 +36,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldWidth = tileSize * maxWorldCol;
     public final int worldHeight = tileSize * maxWorldRow;
 
-    private PlayerState playerState = PlayerState.NORMAL;
+    //private PlayerState playerState;
 
 
     //Map
@@ -63,10 +49,12 @@ public class GamePanel extends JPanel implements Runnable{
     int FPS = 60;
 
     //CollisionCheck 
-    public CollisionCheck collisionChecker;
+    public CollisionCheck collisionChecker1;
+    public CollisionCheck collisionChecker2;
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
+    public Player2 player2;
     public EntityEnemy unicef[] = new EntityEnemy[50];
     public Background bg;
     public TileLoader loader;
@@ -98,7 +86,10 @@ public class GamePanel extends JPanel implements Runnable{
     public void truePowerUpTimer() {
     	timerDisplay.startPowerUpTimerTrue();
     }
-   
+
+    //Multiplayer screen
+    public MultiPlayerMenu multiMenu;
+
     //Score
     private Score score;
 
@@ -119,6 +110,8 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Show controls
     public GameControls ctrls;
+
+    public boolean multiGame;
     
     //Game Over if there is no time left
     private GameOver gO;
@@ -131,7 +124,7 @@ public class GamePanel extends JPanel implements Runnable{
     	return gameO;
     }
     public boolean getOutOfBounds() {
-    	boolean out = collisionChecker.isOutOfBounds();
+    	boolean out = collisionChecker1.isOutOfBounds();
     	return out;
     }
     
@@ -153,8 +146,9 @@ public class GamePanel extends JPanel implements Runnable{
     	bg = new Background(this, keyH);
     	
     	//setter player state til normal før nytt player objekt blir laget
-        playerState = PlayerState.NORMAL;
+        //playerState = PlayerState.NORMAL;
     	player = new Player(this, keyH);
+    	player2 = new Player2(this, keyH);
     	
     	//get the language chosen by player
     	lang = getLang();
@@ -170,8 +164,11 @@ public class GamePanel extends JPanel implements Runnable{
     	levels = new LevelsMenu(this);
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
-        collisionChecker = new CollisionCheck(this);
+    	multiMenu = new MultiPlayerMenu(this);
+        collisionChecker1 = new CollisionCheck(player);
+        collisionChecker2 = new CollisionCheck(player2);
         eSetter.setHobo();
+        multiGame = false;
 
 
     }
@@ -195,22 +192,22 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Will trigger a countdown of 10 seconds that makes the powerUp disappear when it ends
     public boolean pickedUpPowerUp() {
-    	if (collisionChecker.getPickedUpPowerUp() == true) {
+    	if (collisionChecker1.getPickedUpPowerUp() == true) {
     		return true;
     	}
     	return false;
     }
     //
     public void setPickedUpPowerUp(boolean pickedUpPowerUp) {
-    	this.collisionChecker.setPickedUpPowerUp(pickedUpPowerUp);
+    	this.collisionChecker1.setPickedUpPowerUp(pickedUpPowerUp);
     }
     // Gets coins from CollisionChecker and is in this class so that it can be used in Time.java
     public int getCoinsInCollisionChecker() {
-        return this.collisionChecker.getCoins();
+        return this.collisionChecker1.getCoins();
     }
     // Calls on the method from CollisionChecker that reduces coins by 1 and is in this class so that it can be used in Time.java
     public void reduceCoinByOne() {
-        this.collisionChecker.reduceCoins();
+        this.collisionChecker1.reduceCoins();
     }
 
     public void startGameThread() {  
@@ -219,14 +216,17 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     // Making it possible to read playerState
-    public PlayerState getPlayerState() {
+    /*public PlayerState getPlayerState() {
         return this.playerState;
-
     }
+
+     */
     // Making it possible to modify playerState
-    public void setPlayerState(PlayerState playerState) {
+    /*public void setPlayerState(PlayerState playerState) {
     	this.playerState = playerState;
     }
+
+     */
     
     public void setMap(String mapPath) {
     	is = getClass().getResourceAsStream(mapPath);
@@ -292,7 +292,13 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOver()) {
             score.showScore();
             if(!(gameState == GameState.GAME_OVER || gameState == GameState.WIN_SCREEN)) {
-            player.update();
+                player.update();
+                if (gameState == GameState.RUNNING_GAME && multiGame) {
+                    player2.update();
+                    if (keyH.leftPressed1 || keyH.rightPressed1 || keyH.upPressed1) {
+
+                    }
+                }
             }
         }
         if(!gO.gameOverBounds()) {
@@ -332,8 +338,11 @@ public class GamePanel extends JPanel implements Runnable{
         
         loader.draw(g2, player.worldX);
         player.draw(g2);
-        if (playerState == PlayerState.NORMAL) {
+        if (player.playerState == PlayerState.NORMAL) {
 			this.player.getPlayerImage();
+        }
+        if (player2.playerState == PlayerState.NORMAL) {
+            this.player2.getPlayerImage();
         }
         
         for(int i = 0; i < unicef.length; i++) {
@@ -366,10 +375,15 @@ public class GamePanel extends JPanel implements Runnable{
         else if (gameState == GameState.WIN_SCREEN2) {
         	wS2.draw(g2);
         }
+        else if (gameState == GameState.MULTIPLAYER_MENU) {
+            multiMenu.draw(g2);
+        }
         else {
             timerDisplay.draw(g2);
             score.draw(g2);
             gO.draw(g2);
+            if (multiGame)
+                player2.draw(g2);
             
         }
         g2.dispose();

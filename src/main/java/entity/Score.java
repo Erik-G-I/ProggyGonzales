@@ -20,15 +20,12 @@ public class Score extends DisplayText{
     }
 
     public void showScore() {
-    	/*if(!gp.loader.tiles[5].collission) {
-			coins = 50;
-		}*/
-    	
+        int score = gp.collisionChecker1.getCoins() + gp.collisionChecker2.getCoins();
     	if(gp.getLang() == Languages.NORWEGIAN) {
-    		showScore = "Proggys ølpenger: " + gp.collisionChecker.getCoins();	
+    		showScore = "Proggys ølpenger: " + score;
     	}
     	else {
-    		showScore = "Proggy's beer money: " + gp.collisionChecker.getCoins();
+    		showScore = "Proggy's beer money: " + score;
     	}
         
     }

@@ -64,7 +64,7 @@ public class Time implements ActionListener{
 				}
 				powerUpSeconds--;
 				// Reduce coins by 1 for each second on a VOI
-				if (gp.getPlayerState() == PlayerState.VOI) {
+				if (gp.player.playerState == PlayerState.VOI) {
 					// The coins before deducting
 					int originalCoins = gp.getCoinsInCollisionChecker();
 					// Makes sure coins are not negative
@@ -73,7 +73,7 @@ public class Time implements ActionListener{
 					}
 					// If proggy has no money left, the voi trip ends
 					if (gp.getCoinsInCollisionChecker() <= 0) {
-						gp.setPlayerState(PlayerState.NORMAL);
+						gp.player.playerState = PlayerState.NORMAL;
 					}
 					
 					
@@ -81,7 +81,7 @@ public class Time implements ActionListener{
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
-					gp.setPlayerState(PlayerState.NORMAL);
+					gp.player.playerState = PlayerState.NORMAL;
 					gp.playSoundEffect(6);
 					System.out.println("normal speed");
 				}

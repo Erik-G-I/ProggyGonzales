@@ -17,7 +17,7 @@ public class Highscore {
 	 * @return
 	 */
 	private int calculateScore() {
-		int score = gp.collisionChecker.getCoins();
+		int score = gp.collisionChecker1.getCoins();
 		String[] strArr = gp.getTimerDisplay().timeLeft().split(":");
 		boolean minutesDone = false;
 		for(String s: strArr) {
