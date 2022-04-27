@@ -158,7 +158,7 @@ public class GamePanel extends JPanel implements Runnable{
     	
     	//get the language chosen by player
     	lang = getLang();
-    	
+    	hobo = new EntityEnemy[50];
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
     	gO = new GameOver(this);
@@ -229,6 +229,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setMap(String mapPath) {
+    	this.mapPath = mapPath;
     	is = getClass().getResourceAsStream(mapPath);
     }
     

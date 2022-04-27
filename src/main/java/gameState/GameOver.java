@@ -46,7 +46,7 @@ public class GameOver extends GameScreen {
 			if(gameOverMusic == false) {
 				gp.stopMusic();
 				gp.playSoundEffect(5);
-				gp.playMusic(9);
+				gp.playMusic(11);
 				gameOverMusic = true;
 			}
 			

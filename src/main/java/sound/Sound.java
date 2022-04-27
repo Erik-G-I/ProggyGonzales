@@ -9,7 +9,7 @@ import javax.sound.sampled.Clip;
 public class Sound {
 
 	Clip clip;
-	URL soundURL[] = new URL[10];
+	URL soundURL[] = new URL[12];
 	
 	public Sound() {
 		soundURL[0] = getClass().getResource("/audio/menuSelectionClick.wav");
@@ -19,9 +19,11 @@ public class Sound {
 		soundURL[4] = getClass().getResource("/audio/sfx_sounds_fanfare1.wav");
 		soundURL[5] = getClass().getResource("/audio/sfx_sound_shutdown2.wav");
 		soundURL[6] = getClass().getResource("/audio/sfx_sounds_fanfare1_reverse.wav");
-		soundURL[7] = getClass().getResource("/audio/juhani_junkala_retro_bg_music.wav");
-		soundURL[8] = getClass().getResource("/audio/juhani_junkala_title_screen_music.wav");
-		soundURL[9] = getClass().getResource("/audio/juhani_junkala_game_over.wav");
+		soundURL[7] = getClass().getResource("/audio/juhani_junkala_retro_bg_lvl1_music.wav");
+		soundURL[8] = getClass().getResource("/audio/juhani_junkala_retro_bg_lvl2_music.wav");
+		soundURL[9] = getClass().getResource("/audio/juhani_junkala_retro_bg_lvl3_music.wav");
+		soundURL[10] = getClass().getResource("/audio/juhani_junkala_title_screen_music.wav");
+		soundURL[11] = getClass().getResource("/audio/juhani_junkala_game_over.wav");
 	}
 	
 	public void setFile(int i) {

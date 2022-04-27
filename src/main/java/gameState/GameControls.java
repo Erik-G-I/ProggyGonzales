@@ -21,7 +21,7 @@ public class GameControls extends GameScreen {
 		
 		if(gp.getLang() == Languages.NORWEGIAN) {
 			s1 = "Kontroller";
-			s2 = "Pil opp, W, mellombar    -    Hopp";
+			s2 = "Pil opp, W, mellomrom    -    Hopp";
 			s3 = "Venstre pil, A    -    Gå til venstre";
 			s4 = "Høyre pil, D    -    Gå til høyre";
 			s5 = "ESC    -    Pause";

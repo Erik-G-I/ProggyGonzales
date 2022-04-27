@@ -74,7 +74,6 @@ public class KeyHandler implements KeyListener{
             }
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.cmd == 0) {
-                	gp.stopMusic();
                 	gp.playSoundEffect(0);
                     gp.gameState = GameState.LEVELS_MENU;
                 }
@@ -115,24 +114,28 @@ public class KeyHandler implements KeyListener{
         		gp.gameState = GameState.START_MENU;
         	}
         	if (code == KeyEvent.VK_ENTER) {
-        		gp.playMusic(7);
+        		gp.stopMusic();
+        		gp.playSoundEffect(0);
+        		
         		if (gp.levels.cmd == 0) {
-        			selectingMapPath("/maps/easy.txt");
         			mapNum = 1;
+        			selectingMapPath("/maps/easy.txt");
+        			
         			
         		}
         		if (gp.levels.cmd == 1) {
-        			gp.stopMusic();
-        			gp.playSoundEffect(0);
-        			selectingMapPath("/maps/medium.txt");
         			mapNum = 2;
-        			gp.playMusic(7);
+        			selectingMapPath("/maps/medium.txt");
+        			
+        			
         			
         		}
         		if (gp.levels.cmd == 2) {
-        			selectingMapPath("/maps/hard.txt");
         			mapNum = 3;
+        			selectingMapPath("/maps/hard.txt");
+        			
         		}
+        		playMapMusic();
         	}
         	code = KeyEvent.KEY_RELEASED;
         }
@@ -194,7 +197,7 @@ public class KeyHandler implements KeyListener{
             if (gp.getGameOverObj().cmd == 0 && code == KeyEvent.VK_ENTER) {
             	gp.stopMusic();
             	gp.playSoundEffect(0);
-            	gp.playMusic(7);
+            	playMapMusic();
             	this.selectingMapPath(mapPath);
 //            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
@@ -203,7 +206,7 @@ public class KeyHandler implements KeyListener{
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
             	gp.stopMusic();
             	gp.playSoundEffect(0);
-            	gp.playMusic(8);
+            	gp.playMusic(10);
                 gp.gameState = GameState.START_MENU;
                 gp.setGame();   
             }
@@ -271,7 +274,7 @@ public class KeyHandler implements KeyListener{
         		gp.stopMusic();
         		gp.setGame();
         		gp.gameState = GameState.START_MENU;
-        		gp.playMusic(8);
+        		gp.playMusic(10);
         	}
         	if (gp.wS2.cmd == 1 && code == KeyEvent.VK_ENTER) {
         		gp.stopMusic();
@@ -311,7 +314,7 @@ public class KeyHandler implements KeyListener{
         	if(gp.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
         		gp.stopMusic();
         		gp.playSoundEffect(0);
-        		gp.playMusic(8);
+        		gp.playMusic(10);
         		gp.gameState = GameState.START_MENU;
         		gp.setGame();
         	}
@@ -341,6 +344,19 @@ public class KeyHandler implements KeyListener{
         }
          
         
+    }
+    
+    
+    private void playMapMusic() {
+    	if(mapNum == 1) {
+    		gp.playMusic(7);
+    	}
+    	if(mapNum == 2) {
+    		gp.playMusic(8);
+    	}
+    	if(mapNum == 3) {
+    		gp.playMusic(9);
+    	}
     }
     
     /**

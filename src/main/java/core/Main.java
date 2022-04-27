@@ -13,7 +13,7 @@ public class Main {
         window.setResizable(false);
         window.setTitle("Proggy Gonzales");
         
-        GamePanel gamePanel = new GamePanel("/maps/gameMap.txt"); // må endres når vi lager nytt map
+        GamePanel gamePanel = new GamePanel("/maps/emptyMap.txt"); // må endres når vi lager nytt map
         ReadFromFile reader = new ReadFromFile();
         
         window.add(gamePanel);
@@ -24,7 +24,7 @@ public class Main {
         window.setVisible(true);
         
         gamePanel.startGameThread();
-        gamePanel.playMusic(8);
+        gamePanel.playMusic(10);
         
     }
 
