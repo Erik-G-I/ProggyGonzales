@@ -28,7 +28,7 @@ public class EntityEnemy {
     public boolean colliding = false;
     public boolean onGround = false;
     private int gravity = 3;
-    private int weight = 8;
+    public int weight = 8;
 
     public EntityEnemy[] allEnemies ;
 
