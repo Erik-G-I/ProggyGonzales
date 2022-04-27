@@ -115,23 +115,24 @@ public class KeyHandler implements KeyListener{
         		gp.playSoundEffect(0);
         		
         		if (gp.levels.cmd == 0) {
-        			gp.playMusic(7);
-        			selectingMapPath("/maps/easy.txt");
         			mapNum = 1;
+        			selectingMapPath("/maps/easy.txt");
+        			
         			
         		}
         		if (gp.levels.cmd == 1) {
-        			gp.playMusic(8);
-        			selectingMapPath("/maps/medium.txt");
         			mapNum = 2;
+        			selectingMapPath("/maps/medium.txt");
+        			
         			
         			
         		}
         		if (gp.levels.cmd == 2) {
-        			gp.playMusic(9);
-        			selectingMapPath("/maps/hard.txt");
         			mapNum = 3;
+        			selectingMapPath("/maps/hard.txt");
+        			
         		}
+        		playMapMusic();
         	}
         	code = KeyEvent.KEY_RELEASED;
         }
@@ -193,7 +194,7 @@ public class KeyHandler implements KeyListener{
             if (gp.getGameOverObj().cmd == 0 && code == KeyEvent.VK_ENTER) {
             	gp.stopMusic();
             	gp.playSoundEffect(0);
-            	gp.playMusic(7);
+            	playMapMusic();
             	this.selectingMapPath(mapPath);
 //            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
@@ -317,6 +318,19 @@ public class KeyHandler implements KeyListener{
         }
          
         
+    }
+    
+    
+    private void playMapMusic() {
+    	if(mapNum == 1) {
+    		gp.playMusic(7);
+    	}
+    	if(mapNum == 2) {
+    		gp.playMusic(8);
+    	}
+    	if(mapNum == 3) {
+    		gp.playMusic(9);
+    	}
     }
     
     /**

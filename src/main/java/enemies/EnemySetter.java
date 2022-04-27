@@ -64,9 +64,9 @@ public class EnemySetter {
 		}
 		if(map == "/maps/hard.txt") {
 			
-//			gp.hobo[9] = new Hobo(gp);
-//			gp.hobo[9].worldX = 600;
-//			gp.hobo[9].worldY = 600;
+			gp.hobo[9] = new Hobo(gp);
+			gp.hobo[9].worldX = 384;
+			gp.hobo[9].worldY = 640;
 //			
 			gp.hobo[10] = new Hobo(gp);
 			gp.hobo[10].worldX = 1856;
