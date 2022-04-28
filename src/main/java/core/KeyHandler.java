@@ -74,6 +74,7 @@ public class KeyHandler implements KeyListener{
                 	gp.stopMusic();
                 	gp.playSoundEffect(0);
                     gp.gameState = GameState.LEVELS_MENU;
+					//gp.setPlayerName();
                 }
                 if (gp.menu.cmd == 1) {
                 	gp.playSoundEffect(0);

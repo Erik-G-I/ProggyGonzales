@@ -5,6 +5,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
 import core.GamePanel;
 import core.KeyHandler;
@@ -17,12 +18,13 @@ public class Player extends Entity{
     private int weight;
     private int gravity;
     private BufferedImage jumpImg = null;
+    String playerName;
+    //char playerChar;
 
     
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
-
         playerX = 480;
         playerY = 515;
 
@@ -34,6 +36,21 @@ public class Player extends Entity{
         setDefaultValues();
         getPlayerImage();
     }
+
+    public void setPlayerName() {
+        String name = null;
+        while (!isValidName(name)) {
+            name = JOptionPane.showInputDialog("Type in your name");
+            this.playerName = name;
+        }
+    }
+    public String getPlayerName() {
+        return this.playerName;
+    }
+
+    public static boolean isValidName(String name) {
+		return name != null && !name.isBlank() && !name.contains(",");
+	}
     
 
     public void setDefaultValues() {

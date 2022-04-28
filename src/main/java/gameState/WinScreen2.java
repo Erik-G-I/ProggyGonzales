@@ -39,9 +39,9 @@ public class WinScreen2 extends GameScreen{
 		
 		g2.drawString("HighScore", centerText("HighScore"), gp.tileSize*3);
 		
-		s2 = gp.highscores.get(0).toString();
+		s2 = gp.highscores.get(0).toString()+ " - " + gp.getPlayerName();
+
 		g2.drawString(s2, centerText(s2), gp.tileSize*5);
-		
 
 		s3 = gp.highscores.get(1).toString();
 		g2.drawString(s3, centerText(s3), gp.tileSize*6);
