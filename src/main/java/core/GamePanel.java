@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.awt.Color;
 
 import javax.swing.JPanel;
 
@@ -181,7 +182,7 @@ public class GamePanel extends JPanel implements Runnable{
     	//setter mappet som skal spilles
     	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-      //  this.setBackground(Color.DARK_GRAY);
+        //this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
@@ -211,6 +212,17 @@ public class GamePanel extends JPanel implements Runnable{
     // Calls on the method from CollisionChecker that reduces coins by 1 and is in this class so that it can be used in Time.java
     public void reduceCoinByOne() {
         this.collisionChecker.reduceCoins();
+    }
+
+    /**
+     * Sets player name in Player and can be recieved from GamePanel
+     */
+    public void setPlayerName() {
+        this.player.setPlayerName();
+    }
+
+    public String getPlayerName() {
+        return this.player.getPlayerName();
     }
 
     public void startGameThread() {  
@@ -262,9 +274,7 @@ public class GamePanel extends JPanel implements Runnable{
                 // 1: oppdaterer informasjon, som spillerens posisjon
                 update();
                 // 2: tegner skjermen på nytt med oppdatert informasjon
-//                repaint();
                 fall();
-//                repaint();
                 jump();
                 repaint();
                 
@@ -275,7 +285,6 @@ public class GamePanel extends JPanel implements Runnable{
             
             //display FPS in console
             if(timer >= 1000000000) {
-//                System.out.println("FPS:"+drawCount);
                 drawCount = 0;
                 timer = 0;
             }

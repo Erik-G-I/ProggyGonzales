@@ -59,7 +59,6 @@ public class Time implements ActionListener{
 			if(startPowerUpTimer == true) {
 				if (gp.pickedUpPowerUp() == true) {
 					powerUpSeconds = 10;
-					System.out.println("updated time");
 					gp.setPickedUpPowerUp(false);
 				}
 				powerUpSeconds--;
@@ -83,7 +82,6 @@ public class Time implements ActionListener{
 					startPowerUpTimer = false;
 					gp.setPlayerState(PlayerState.NORMAL);
 					gp.playSoundEffect(6);
-					System.out.println("normal speed");
 				}
 			}
 		}
