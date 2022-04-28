@@ -41,23 +41,23 @@ public class WinScreen2 extends GameScreen{
 		
 		g2.drawString("HighScore", centerText("HighScore"), gp.tileSize*2);
 		
-		s2 = gp.highscores.get(0).toString()+ " - " + gp.getPlayerName();
+		s2 = gp.highscores.getName(0) + " - " + gp.highscores.getScore(0).toString();
 
-		g2.drawString(s2, centerText(s2), gp.tileSize*5);
+		g2.drawString(s2, centerText(s2), gp.tileSize*4);
 
-		s3 = gp.highscores.get(1).toString();
+		s3 = gp.highscores.getName(1) + " - " + gp.highscores.getScore(1).toString();
 		g2.drawString(s3, centerText(s3), gp.tileSize*5);
 		
 
-		s4 = gp.highscores.get(2).toString();
+		s4 = gp.highscores.getName(2) + " - " + gp.highscores.getScore(2).toString();
 		g2.drawString(s4, centerText(s4), gp.tileSize*6);
 		
 		
-		s5 = gp.highscores.get(3).toString();
+		s5 = gp.highscores.getName(3) + " - " + gp.highscores.getScore(3).toString();
 		g2.drawString(s5, centerText(s5), gp.tileSize*7);
 		
 		
-		s6 = gp.highscores.get(4).toString();
+		s6 = gp.highscores.getName(4) + " - " + gp.highscores.getScore(4).toString();
 		g2.drawString(s6, centerText(s6), gp.tileSize*8);
 		
 		this.draw(25);

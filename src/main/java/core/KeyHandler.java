@@ -76,7 +76,7 @@ public class KeyHandler implements KeyListener{
                 if (gp.menu.cmd == 0) {
                 	gp.playSoundEffect(0);
                     gp.gameState = GameState.LEVELS_MENU;
-					//gp.setPlayerName();
+					gp.setPlayerName();
                 }
                 if (gp.menu.cmd == 1) {
                 	gp.playSoundEffect(0);
@@ -240,8 +240,8 @@ public class KeyHandler implements KeyListener{
         		ReadFromFile reader = new ReadFromFile();
                 reader.readHighscore(hsLevel,5);
                 gp.highscores.clear();
-                for(int i: reader.list) {
-                	gp.highscores.add(i);
+                for(int i = 0; i<5; i++) {
+                	gp.highscores.addEntry(reader.table.getName(i), reader.table.getScore(i));
                 }
                 
         		System.out.println(gp.highscores.toString());

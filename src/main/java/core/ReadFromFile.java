@@ -11,16 +11,16 @@ import java.util.ArrayList;
 
 public class ReadFromFile {
 
-	public ArrayList<Integer> list;
+	public Table table;
+	private String[] arr;
 	
 	public ReadFromFile() {
-		list = new ArrayList<Integer>();
+		table = new Table();
 	}
 	
 	
 	public void readHighscore(String fileName, int i) {
 		BufferedReader reader;
-		list.clear();
 		
 		
 		try {
@@ -30,8 +30,10 @@ public class ReadFromFile {
 			int j = 0;
 			
 			while(j < i) {
+				arr = new String[2];
 				String line = reader.readLine();
-				list.add(Integer.parseInt(line));
+				arr = line.split(" ");
+				table.addEntry(arr[0], Integer.parseInt(arr[1]));
 				j++;
 			}
 			reader.close();

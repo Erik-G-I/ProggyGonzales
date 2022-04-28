@@ -49,7 +49,7 @@ public class Player extends Entity{
     }
 
     public static boolean isValidName(String name) {
-		return name != null && !name.isBlank() && !name.contains(",");
+		return name != null && !name.isBlank() && !name.contains(" ");
 	}
     
 

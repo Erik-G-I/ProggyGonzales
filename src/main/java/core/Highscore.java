@@ -34,16 +34,22 @@ public class Highscore {
 	}
 	
 	private void compareScores(String fileName, int i) {
-		ArrayList<Integer> list = gp.highscores;
-		for(int j: list) {
+		Table hsTable = gp.highscores;
+		ArrayList<Integer> scores = hsTable.getScoreList();
+		ArrayList<String> names = hsTable.getNameList();
+		for(int j: scores) {
 			if(i > j) {
-				list.add(list.indexOf(j), i);
-				list.remove(5);
-				writer.overWriteFile(fileName, list);
+				int index = scores.indexOf(j);
+				scores.add(index, i);
+				scores.remove(5);
+				names.add(index, gp.getPlayerName());
+				names.remove(5);
+				hsTable.overWriteTable(names, scores);
+				writer.overWriteFile(fileName, hsTable);
 				break;
 			}
 		}
-		gp.highscores = list;
+		gp.highscores = hsTable;
 	}
 	
 	public void updateHighscore(String fileName) {
