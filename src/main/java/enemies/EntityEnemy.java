@@ -38,7 +38,6 @@ public class EntityEnemy {
 
 
 	public void setAction() {
-		
 	}
 
 	public void update() {
@@ -62,7 +61,6 @@ public class EntityEnemy {
             	break;
             }
         }
-
 
 	}
 
