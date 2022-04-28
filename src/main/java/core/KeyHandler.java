@@ -5,6 +5,7 @@ import gameState.Languages;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.LinkedList;
 
 import entity.PlayerState;
 
@@ -261,17 +262,21 @@ public class KeyHandler implements KeyListener{
         		ReadFromFile reader = new ReadFromFile();
                 reader.readHighscore(hsLevel,5);
                 gp.highscores.clear();
+                LinkedList<Integer> scoreList = reader.table.getScores();
                 
-                for(int i: reader.list) {
-                	gp.highscores.add(i);
+                for(int i=0; i<5; i++) {
+                	
+                	gp.highscores.add(reader.table.getName(i), reader.table.getScore(i));
                 }
                 
-        		System.out.println(gp.highscores.toString());
+        		System.out.println(gp.highscores.getNames().toString());
+        		System.out.println(gp.highscores.getScores().toString());
         		Highscore hs = new Highscore(gp);
         		
         		//updates the highscore for the current level
         		hs.updateHighscore(hsLevel);
-        		System.out.println(gp.highscores.toString());
+        		System.out.println(gp.highscores.getNames().toString());
+        		System.out.println(gp.highscores.getScores().toString());
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;
@@ -306,7 +311,7 @@ public class KeyHandler implements KeyListener{
         		gp.stopMusic();
         		gp.setGame();
         		gp.gameState = GameState.LEVELS_MENU;
-        		gp.playMusic(8);
+        		gp.playMusic(10);
         	}
         }
         

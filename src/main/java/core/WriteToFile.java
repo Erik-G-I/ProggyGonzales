@@ -33,13 +33,19 @@ public class WriteToFile {
 		}
 	}
 	
-	public void overWriteFile(String fileName, ArrayList<Integer> list) {
+	public void overWriteFile(String fileName, Table table) {
 		try {
 			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/"+fileName).getPath()), false);
 			bw = new BufferedWriter(fw);
-			for(int i: list) {
-				bw.write(Integer.toString(i));
+			
+			int index = 0;
+			for(String s: table.getNames()) {
+				
+				int score = table.getScore(index);
+				String line = s + "," + Integer.toString(score);
+				bw.write(line);
 				bw.newLine();
+				index ++;
 			}
 			bw.close();
 		} catch (IOException e) {

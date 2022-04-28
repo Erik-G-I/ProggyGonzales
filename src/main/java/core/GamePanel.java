@@ -56,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
     public InputStream is;
     
     //Highscore list
-    public ArrayList<Integer> highscores;
+    public Table highscores;
 
     // FPS
     int FPS = 60;
@@ -184,7 +184,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        highscores = new ArrayList<Integer>();
+        highscores = new Table();
         gameState = GameState.LANGUAGE_MENU;
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
