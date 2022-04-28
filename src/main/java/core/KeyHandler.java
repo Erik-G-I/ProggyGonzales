@@ -84,7 +84,7 @@ public class KeyHandler implements KeyListener{
                 if (gp.menu.cmd == 0) {
                 	gp.playSoundEffect(0);
                     gp.gameState = GameState.LEVELS_MENU;
-					//gp.setPlayerName();
+					gp.setPlayerName();
                 }
                 
                 if (gp.menu.cmd == 1) {
