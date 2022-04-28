@@ -12,11 +12,8 @@ Trello: https://trello.com/b/Ar2twdkF/inf112
 
 ## Innholdsfortegnelse
 -   [Introduksjon til Proggy Gonzales](#requirements)
--   [Documentation](#documentation)
--   [Shortcuts](#shortcuts)
--   [Issues](#issues)
--   [License](#license)
--   [Bugs](#bugs)
+-   [Oppsett](#oppsett)
+
 
 ## Introduksjon til Proggy Gonzales
 Proggy Gonzales er kjent som den beste programmeringsstudenten UiB har sett, og ryktene sier han programmerer raskere enn sin egen skygge. Han har lest hardt i hele år så eksamenen i dag gikk knirkefritt. På vei ut av realfagsbygget går det opp for han: Klokka er 19.57 og han har ikke kjøpt drikke enda?? Han innser og at han ikke har noen penger etter en veldedighetsauksjon tidligere i semesteret. Der klarte han å gi alle sparepengene sine for å sikre seg et dansekurs med Frank Løke, og månedlige avdrag til Unicef, Redd Barna og Leger uten Grenser tømmer kontoen. Proggy skjønner derfor at han må løpe Bergen rundt for å lete etter penger, og rekke en butikk før ølsalget stenger kl 20.00. Unicef-arbeidere prøver å stoppe han og gir seg ikke uansett hvor hardt han sier at han allerede er fadder. Samvittigheten hans tåler heller ikke å gå forbi en hjemløs uten å avse en slant. Hjelp Proggy fortjent feire et tungt semester!
