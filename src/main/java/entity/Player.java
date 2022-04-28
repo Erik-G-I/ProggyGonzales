@@ -193,8 +193,8 @@ public class Player extends Entity{
                 }
 
                 // Updates picture that is used for player
-                spriteCounter++;
-	            if(spriteCounter>15) {
+                spriteCounter ++;
+	            if(spriteCounter > 15) {
 	                if(spriteNum == 1) {
 	                    spriteNum = 2;
 	                }
@@ -209,10 +209,10 @@ public class Player extends Entity{
     // gives abilities on player for the different power-ups
     public void PowerUp() {
         if (this.gp.getPlayerState() == PlayerState.VOI) {
-            speed=7;
+            speed = 7;
         }
         if (this.gp.getPlayerState() == PlayerState.FASTER) {
-            speed=7;
+            speed = 7;
         }
         if(this.gp.getPlayerState() == PlayerState.NORMAL) {
         	speed = 5;
@@ -241,18 +241,18 @@ public class Player extends Entity{
     				// How fast the jump is upwards
         			jumpStrength = 15;
         			worldY -= jumpStrength;
-        			jumpStrength +=12;
+        			jumpStrength += 12;
         			onGround = false;
         			
         		}
     			else if(onGround == false && jumpStrength > 0) {
     				
     	        	worldY -= jumpStrength;
-    	        	jumpStrength -=1;
+    	        	jumpStrength -= 1;
     			}
     			
     			gp.collisionChecker.checkCollisionOnTile(this);
-        		if(jumpStrength <=0 || colliding == true) {
+        		if(jumpStrength <= 0 || colliding == true) {
         			// setting jumpStrengt to 0 if you hit your head, so you dont keep going up
         			jumpStrength = 0;
         			

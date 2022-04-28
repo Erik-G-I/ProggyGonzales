@@ -13,12 +13,5 @@ public class Tile {
 
 	// detects collission between character and tiles
 	public boolean collission = false;
-	
-	
-	public Tile() {
-		BufferedImage image = this.image;
-		
-	}
-	
-	
+
 }

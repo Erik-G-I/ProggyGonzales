@@ -185,6 +185,7 @@ public class TileLoader {
 			if(worldCol == bufferCol) {
 				worldCol = 0;
 				bufferCol ++;
+				
 				if(bufferCol >= 127) {
 					bufferCol = 127;
 				}

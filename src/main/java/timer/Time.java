@@ -43,6 +43,7 @@ public class Time implements ActionListener{
 		else {
 			this.showTime = minutes + ":" + seconds;
 		}
+		
 		if(seconds == 0) {
 			if(minutes > 0) {
 				seconds = 60; //reset seconds then descrease minutes
@@ -54,14 +55,15 @@ public class Time implements ActionListener{
 				gameOver = true;
 			}
 		}
+		
 		if(gp.gameState == GameState.RUNNING_GAME) {
-		if(seconds > 0) {
-			if(startPowerUpTimer == true) {
+			if(startPowerUpTimer == true && seconds > 0) {
 				if (gp.pickedUpPowerUp() == true) {
 					powerUpSeconds = 10;
 					gp.setPickedUpPowerUp(false);
 				}
 				powerUpSeconds--;
+					
 				// Reduce coins by 1 for each second on a VOI
 				if (gp.getPlayerState() == PlayerState.VOI) {
 					// The coins before deducting
@@ -74,9 +76,8 @@ public class Time implements ActionListener{
 					if (gp.getCoinsInCollisionChecker() <= 0) {
 						gp.setPlayerState(PlayerState.NORMAL);
 					}
-					
-					
 				}
+					
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
@@ -84,7 +85,6 @@ public class Time implements ActionListener{
 					gp.playSoundEffect(6);
 				}
 			}
-		}
 		}
 		else {
 			setStartPowerUpTimer(false);

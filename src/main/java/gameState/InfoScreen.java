@@ -47,7 +47,7 @@ public class InfoScreen extends GameScreen {
         if(gp.getLang() == Languages.NORWEGIAN) {
             //Text
         	s1 = "Tilbake";
-        	s2 = "neste";
+        	s2 = "Neste";
             line1 = "Proggy Gonzales har lest hardt i hele år, men i dag hadde han sin siste eksamen!";
             line2 = "For å feire skal han på eksamensfest, og må rekke butikken før ølsalget stenger. Han har";
             line3 = "donert alle pengene sine til unicef, og må derfor løpe gjennom Bergen sentrum og samle";
@@ -96,8 +96,8 @@ public class InfoScreen extends GameScreen {
 
         //White background
         g.setColor(Color.WHITE);
-        int width = gp.tileSize*(gp.maxScreenCol-4);
-        int height = gp.tileSize*(gp.maxScreenRow-4);
+        int width = gp.tileSize*(gp.maxScreenCol - 4);
+        int height = gp.tileSize*(gp.maxScreenRow - 4);
 
         int x = gp.screenWidth/2 - (width/2);
         int y = gp.screenHeight/2 - (height/2);
@@ -112,68 +112,68 @@ public class InfoScreen extends GameScreen {
             case 1:
                 g.setFont(textFont);
                 g.drawImage(proggy, x + gp.tileSize, y + gp.tileSize, 128, 128, null);
-                g.drawString(line1, x + gp.tileSize / 2, y + gp.tileSize + 175);
-                g.drawString(line2, x + gp.tileSize / 2, y + gp.tileSize + 200);
-                g.drawString(line3, x + gp.tileSize / 2, y + gp.tileSize + 225);
-                g.drawString(line4, x + gp.tileSize / 2, y + gp.tileSize + 250);
-                g.drawString(line5, x + gp.tileSize / 2, y + gp.tileSize + 275);
+                g.drawString(line1, x + gp.tileSize/2, y + gp.tileSize + 175);
+                g.drawString(line2, x + gp.tileSize/2, y + gp.tileSize + 200);
+                g.drawString(line3, x + gp.tileSize/2, y + gp.tileSize + 225);
+                g.drawString(line4, x + gp.tileSize/2, y + gp.tileSize + 250);
+                g.drawString(line5, x + gp.tileSize/2, y + gp.tileSize + 275);
                 g.drawImage(proggyGif, x + gp.tileSize*6, y + gp.tileSize + 275, 360, 94, null);
 
                 //Back and next buttons
                 this.draw(40);
-                g.drawString(s1, x + gp.tileSize, y + height-40);
+                g.drawString(s1, x + gp.tileSize, y + height - 40);
                 if (cmd == 1)
-                    g.drawString(">", x + gp.tileSize/2, y + height-40);
+                    g.drawString(">", x + gp.tileSize/2, y + height - 40);
 
-                g.drawString(s2, x + width-(gp.tileSize+32), y + height-40);
+                g.drawString(s2, x + width-(gp.tileSize+32), y + height - 40);
                 if (cmd == 2)
-                    g.drawString(">", x + width-(2*gp.tileSize), y + height-40);
+                    g.drawString(">", x + width-(2*gp.tileSize), y + height - 40);
                 break;
 
             case 2:
                 g.setFont(textFont);
                 g.drawImage(beggar, x + gp.tileSize*3, y + gp.tileSize + 50, 128, 128, null);
                 g.drawImage(unicef, x + gp.tileSize*7, y + gp.tileSize + 50, 128, 128, null);
-                g.drawString(line6, x+gp.tileSize/2, y+gp.tileSize+250);
-                g.drawString(line7, x+gp.tileSize/2, y+gp.tileSize+275);
-                g.drawString(line8, x+gp.tileSize/2, y+gp.tileSize+300);
-                g.drawString(line9, x+gp.tileSize/2, y+gp.tileSize+325);
+                g.drawString(line6, x + gp.tileSize/2, y + gp.tileSize+250);
+                g.drawString(line7, x + gp.tileSize/2, y + gp.tileSize+275);
+                g.drawString(line8, x + gp.tileSize/2, y + gp.tileSize+300);
+                g.drawString(line9, x + gp.tileSize/2, y + gp.tileSize+325);
 
                 //Back and next buttons
                 this.draw(40);
-                g.drawString(s1, x + gp.tileSize, y + height-40);
+                g.drawString(s1, x + gp.tileSize, y + height - 40);
                 if (cmd == 1)
-                    g.drawString(">", x + gp.tileSize/2, y + height-40);
+                    g.drawString(">", x + gp.tileSize/2, y + height - 40);
 
-                g.drawString(s2, x + width-(gp.tileSize+32), y + height-40);
+                g.drawString(s2, x + width - (gp.tileSize + 32), y + height - 40);
                 if (cmd == 2)
-                    g.drawString(">", x + width-(2*gp.tileSize), y + height-40);
+                    g.drawString(">", x + width - (2*gp.tileSize), y + height - 40);
                 break;
 
             case 3:
                 g.setFont(textFont);
-                g.drawImage(shoes, x + gp.tileSize*2, y + gp.tileSize-25, 91, 91, null);
-                g.drawImage(voi, x + gp.tileSize*5, y + gp.tileSize-30, 91, 91, null);
-                g.drawImage(mask, x + gp.tileSize*8, y + gp.tileSize-25, 91, 91, null);
+                g.drawImage(shoes, x + gp.tileSize*2, y + gp.tileSize - 25, 91, 91, null);
+                g.drawImage(voi, x + gp.tileSize*5, y + gp.tileSize - 30, 91, 91, null);
+                g.drawImage(mask, x + gp.tileSize*8, y + gp.tileSize - 25, 91, 91, null);
 
-                g.drawString(line10, x+gp.tileSize/2, y+gp.tileSize+100);
-                g.drawString(line11, x+gp.tileSize/2, y+gp.tileSize+125);
-                g.drawString(line12, x+gp.tileSize/2, y+gp.tileSize+150);
-                g.drawString(line13, x+gp.tileSize/2, y+gp.tileSize+175);
-                g.drawString(line14, x+gp.tileSize/2, y+gp.tileSize+200);
-                g.drawString(line15, x+gp.tileSize/2, y+gp.tileSize+225);
-                g.drawString(line16, x+gp.tileSize/2, y+gp.tileSize+250);
-                g.drawString(line17, x+gp.tileSize/2, y+gp.tileSize+275);
+                g.drawString(line10, x+gp.tileSize/2, y+gp.tileSize + 100);
+                g.drawString(line11, x+gp.tileSize/2, y+gp.tileSize + 125);
+                g.drawString(line12, x+gp.tileSize/2, y+gp.tileSize + 150);
+                g.drawString(line13, x+gp.tileSize/2, y+gp.tileSize + 175);
+                g.drawString(line14, x+gp.tileSize/2, y+gp.tileSize + 200);
+                g.drawString(line15, x+gp.tileSize/2, y+gp.tileSize + 225);
+                g.drawString(line16, x+gp.tileSize/2, y+gp.tileSize + 250);
+                g.drawString(line17, x+gp.tileSize/2, y+gp.tileSize + 275);
 
-                g.drawImage(proggyMask, x + gp.tileSize*8, y + gp.tileSize+290, 91, 91, null);
-                g.drawImage(proggyShoes, x + gp.tileSize*2+5, y + gp.tileSize+290, 91, 91, null);
-                g.drawImage(proggyVoi, x + gp.tileSize*5, y + gp.tileSize+290, 91, 91, null);
+                g.drawImage(proggyMask, x + gp.tileSize*8, y + gp.tileSize + 290, 91, 91, null);
+                g.drawImage(proggyShoes, x + gp.tileSize*2 + 5, y + gp.tileSize + 290, 91, 91, null);
+                g.drawImage(proggyVoi, x + gp.tileSize*5, y + gp.tileSize + 290, 91, 91, null);
 
                 //Back and next buttons
                 this.draw(40);
-                g.drawString(s1, x + gp.tileSize, y + height-40);
+                g.drawString(s1, x + gp.tileSize, y + height - 40);
                 if (cmd == 1)
-                    g.drawString(">", x + gp.tileSize/2, y + height-40);
+                    g.drawString(">", x + gp.tileSize/2, y + height - 40);
 
         }
     }

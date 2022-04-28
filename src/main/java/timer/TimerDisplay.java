@@ -10,7 +10,6 @@ import java.awt.Color;
 
 public class TimerDisplay extends DisplayText{
 	
-	private GamePanel gp;
 	private int widthOfScreen;
 	private int seconds;
 	private int minutes;
@@ -20,7 +19,6 @@ public class TimerDisplay extends DisplayText{
 	private int timerSeconds, timerMinutes;
 	
 	public TimerDisplay(GamePanel gp) {
-		this.gp=gp;
 		seconds=60; //change later to wanted time
 		minutes=2; //change later to wanted time
 		widthOfScreen=gp.screenWidth;

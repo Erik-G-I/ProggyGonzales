@@ -47,14 +47,14 @@ public class LanguageScreen extends GameScreen {
 		g2.drawImage(img1, x, gp.tileSize*3, 100, 100, null);
 		if (cmd == 0) {
 			if(drawNow) {
-			g2.drawString(">", 150, gp.tileSize*3+75);
+			g2.drawString(">", 150, gp.tileSize*3 + 75);
 			this.draw(75);
 			str = "Enter - to choose";
 			g2.drawString(str, 150, gp.tileSize*8);
 			}
 		}
 		
-		g2.drawImage(img2, x+500, gp.tileSize*3, 100, 100, null);
+		g2.drawImage(img2, x + 500, gp.tileSize*3, 100, 100, null);
 		if (cmd == 1) {
 			g2.drawString(">", 650, gp.tileSize*3+75);
 			this.draw(75);

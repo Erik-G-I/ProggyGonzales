@@ -94,7 +94,7 @@ public class EntityEnemy {
     
     public void draw(Graphics2D g2) {
 		
-    	BufferedImage image = null;
+    	BufferedImage image = unicefLeft;
 
     	int screenX = worldX - gp.player.worldX + gp.player.playerX;
 		int screenY = worldY - gp.player.worldY + gp.player.playerY ;
@@ -103,22 +103,7 @@ public class EntityEnemy {
 		   worldX - gp.tileSize < gp.player.worldX + gp.player.playerX &&
 		   worldY + gp.tileSize > gp.player.worldY - gp.player.playerY &&
 		   worldY - gp.tileSize < gp.player.worldY + gp.player.playerY) {
-			
-	        switch(direction) {
-	        case "enemyLeft":
-	        	image = unicefLeft;
-	            break;
-	            
-	        case "enemyRight":
-	        	image = unicefRight;
-	            break;
-	        
-	        case "down":
-	        	image = unicefRight;
-	            break;
-	        }       
-			
-		
+
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 		}

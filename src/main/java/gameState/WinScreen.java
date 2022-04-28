@@ -40,8 +40,8 @@ public class WinScreen extends GameScreen{
 		this.draw(50);
 		g2.setColor(Color.WHITE);
 		
-		g2.drawString(s1, centerText(s1)-100, gp.tileSize*10);
-		g2.drawString(">", centerText(">")-200, gp.tileSize*10);
+		g2.drawString(s1, centerText(s1) - 100, gp.tileSize*10);
+		g2.drawString(">", centerText(">") - 200, gp.tileSize*10);
 	}
 	
 	

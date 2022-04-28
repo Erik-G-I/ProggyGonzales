@@ -39,24 +39,24 @@ public class Paused extends GameScreen {
 		this.draw(100);
 		g2.setColor(Color.BLACK);
 		
-		g2.drawString(s1, centerText(s1)-8, gp.tileSize*2);
+		g2.drawString(s1, centerText(s1) - 8, gp.tileSize*2);
 		g2.setColor(Color.WHITE);
 		g2.drawString(s1,centerText(s1),gp.tileSize*2);
 		
 		this.draw(75);
 		g2.drawString(s2, centerText(s2), gp.tileSize*4);
 		if (cmd == 0) {
-			g2.drawString(str, centerText(str)-175, gp.tileSize*4);
+			g2.drawString(str, centerText(str) - 175, gp.tileSize*4);
 		}
 		
 		g2.drawString(s3, centerText(s3), gp.tileSize*5);
 		if (cmd == 1) {
-			g2.drawString(str, centerText(str)-225, gp.tileSize*5);
+			g2.drawString(str, centerText(str) - 225, gp.tileSize*5);
 		}
 		
 		g2.drawString(s4, centerText(s4), gp.tileSize*6);
 		if (cmd == 2) {
-			g2.drawString(str, centerText(str)-350, gp.tileSize*6);
+			g2.drawString(str, centerText(str) - 350, gp.tileSize*6);
 		}
 	}
 

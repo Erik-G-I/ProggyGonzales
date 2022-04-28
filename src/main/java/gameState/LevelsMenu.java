@@ -30,7 +30,7 @@ public class LevelsMenu extends GameScreen {
 			this.draw(100);
 			s1 = "LEVELS";
 			g2.setColor(Color.BLACK);
-			g2.drawString(s1, centerText(s1)-8, gp.tileSize*2);
+			g2.drawString(s1, centerText(s1) - 8, gp.tileSize*2);
 			g2.setColor(Color.WHITE);
 			g2.drawString(s1, centerText(s1), gp.tileSize*2);
 			

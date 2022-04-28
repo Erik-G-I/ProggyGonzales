@@ -61,14 +61,14 @@ public class WinScreen2 extends GameScreen{
 		g2.drawString(s6, centerText(s6), gp.tileSize*8);
 		
 		this.draw(25);
-		g2.drawString(s1, centerText(s1)-150, gp.tileSize*10);
+		g2.drawString(s1, centerText(s1) - 150, gp.tileSize*10);
 		if (cmd == 0) {
-			g2.drawString(">", centerText(s1)-180, gp.tileSize*10);
+			g2.drawString(">", centerText(s1) - 180, gp.tileSize*10);
 		}
 		
-		g2.drawString(s7, centerText(s7)+150, gp.tileSize*10);
+		g2.drawString(s7, centerText(s7) + 150, gp.tileSize*10);
 		if (cmd == 1) {
-			g2.drawString(">", centerText(s7)+120, gp.tileSize*10);
+			g2.drawString(">", centerText(s7) + 120, gp.tileSize*10);
 		}
 	}
 	

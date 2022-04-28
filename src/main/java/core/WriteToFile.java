@@ -15,7 +15,6 @@ public class WriteToFile {
 		
 	}
 	/**
-	 * 
 	 * @param fileName - Name of file to write to, ex. "example.txt"
 	 * @param text - What to write in the file
 	 */
@@ -44,7 +43,7 @@ public class WriteToFile {
 			}
 			bw.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Couldn't overwrite");
 			e.printStackTrace();
 		}
 	}

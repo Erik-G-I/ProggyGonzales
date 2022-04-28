@@ -34,9 +34,6 @@ public class Unicef extends EntityEnemy{
 	        	unicefRight = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left1.png"));
 	        	unicefLeft = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left2.png"));
 
-	            	  
-	            
-	            
 	        }catch(IOException e) {
 	            e.printStackTrace();
 	        }
@@ -44,15 +41,13 @@ public class Unicef extends EntityEnemy{
 
 	public void setAction() {
 			
-			
-			
 			movementCount ++;
 			
 			//the higher the movementcount, the longer between change of direction
 			if(movementCount == 120) {
 				
 				Random random = new Random();
-				int i = random.nextInt(100) + 1; //pick up a number from 1-100
+				int i = random.nextInt(100) + 1; //picks a random number from 1-100
 				
 				if(i <= 50) {
 					direction = "enemyLeft";

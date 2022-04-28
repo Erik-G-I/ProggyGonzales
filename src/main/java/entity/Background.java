@@ -33,7 +33,6 @@ public class Background extends Entity {
 
         try {
         	realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbygget åpen.png"));
-//            bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bryggen1.png"));
 
         }catch(IOException e) {
             e.printStackTrace();
@@ -70,7 +69,6 @@ public class Background extends Entity {
     			screenX += 750;
 
     			while(worldCol < gp.maxWorldRow) {
-//    				g2.drawImage(bakgrunn, screenX, screenY, 1000, 880, null);
         			screenX += 1050;
         			worldCol ++;
         			

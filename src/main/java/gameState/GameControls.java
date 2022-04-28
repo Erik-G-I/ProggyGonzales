@@ -42,7 +42,7 @@ public class GameControls extends GameScreen {
 		
 		this.draw(100);
 		g2.setColor(Color.BLACK);
-		g2.drawString(s1, centerText(s1)-10, gp.tileSize*2);
+		g2.drawString(s1, centerText(s1) - 10, gp.tileSize*2);
 		g2.setColor(Color.WHITE);
 		g2.drawString(s1, centerText(s1), gp.tileSize*2);
 		
@@ -60,7 +60,7 @@ public class GameControls extends GameScreen {
 
 		g2.drawString(s6, gp.tileSize*2, gp.tileSize*10);
 		String s7 = ">";
-		g2.drawString(s7, gp.tileSize*2-25, gp.tileSize*10);
+		g2.drawString(s7, gp.tileSize*2 - 25, gp.tileSize*10);
 		
 	}
 }
