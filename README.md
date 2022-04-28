@@ -1,4 +1,4 @@
-[![Trello](https://trello.com/b/Ar2twdkF/inf112)](https://travis-ci.com/inf112-v20/Kokkene)[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e588033d2e1445ab9b5d0fbda3b6719f)](https://app.codacy.com/gh/inf112-v20/Kokkene?utm_source=github.com&utm_medium=referral&utm_content=inf112-v20/Kokkene&utm_campaign=Badge_Grade_Dashboard)
+[![Trello](https://trello.com/b/Ar2twdkF/inf112)](https://travis-ci.com/inf112-v20/Kokkene)[![Codacy Badge](https://trello.com/b/Ar2twdkF/inf112)](https://app.codacy.com/gh/inf112-v20/Kokkene?utm_source=github.com&utm_medium=referral&utm_content=inf112-v20/Kokkene&utm_campaign=Badge_Grade_Dashboard)
 
 ## Table of Contents
 
