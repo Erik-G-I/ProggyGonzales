@@ -14,9 +14,6 @@ public class CollisionCheck {
     
     // The two corners of enemies to be checked for collision for each case
     int enemyCor1, enemyCor2;
-
-    public int coins = 0;
-
     
     // Used to activate gameOver if proggy falls out of bounds
     private boolean outOfBounds = false;
@@ -68,12 +65,12 @@ public class CollisionCheck {
         // Pick up 100 kroner
         if (pickUpGeneric(x1, y1, x2, y2, 7)) {
         	player.gp.playSoundEffect(1);
-            coins += 10;
+            player.gp.coins += 10;
         }
         // pick up 200-kroner
         if (pickUpGeneric(x1, y1, x2, y2, 8)) {
             player.gp.playSoundEffect(2);
-            coins += 20;
+            player.gp.coins += 20;
         }
     }
     
@@ -84,9 +81,9 @@ public class CollisionCheck {
     				if(enemy[i] != null) {
     	    			if(player.worldY == enemy[i].worldY) {
     	    				if(player.worldX <= enemy[i].worldX + 10 && player.worldX >= enemy[i].worldX - 10) {
-        	    				coins --;
-        	    				if(coins < 0) {
-        	    					   coins = 0;
+        	    				player.gp.coins --;
+        	    				if(player.gp.coins < 0) {
+        	    					   player.gp.coins = 0;
         	    					}
         	    				return true;
     	    				}
@@ -102,16 +99,16 @@ public class CollisionCheck {
         //player.gp.getPlayerState();
         int loosingMoney = 15;
         if (player.playerState != PlayerState.INVISIBLE) {
-        	if (coins >= loosingMoney) {
+        	if (player.gp.coins >= loosingMoney) {
         		if (player.gp.loader.tiles[cornerOne] == player.gp.loader.tiles[9]) {
                     player.gp.loader.numOfTiles[x1][y1] = 10;
-        			coins -= loosingMoney;
+                    player.gp.coins -= loosingMoney;
         		}	
         	}   
-        		else if (coins>0 && coins < loosingMoney) {
+        		else if (player.gp.coins>0 && player.gp.coins < loosingMoney) {
         			if (player.gp.loader.tiles[cornerOne] == player.gp.loader.tiles[9]) {
                         player.gp.loader.numOfTiles[x1][y1] = 10;
-        				coins = 0;
+                        player.gp.coins = 0;
         			}
         		}
         }
@@ -145,10 +142,10 @@ public class CollisionCheck {
     private void pickUpScooter(int x1, int y1, int x2, int y2) {
         int scooterCost = 5;
         //If the player does not have at least the cost of the scooter, it cannot be picked up
-        if (coins>=scooterCost) {
+        if (player.gp.coins>=scooterCost) {
             if (pickUpGeneric(x1, y1, x2, y2, 14)) {
                 powerUpSequence(4, PlayerState.VOI);
-                coins -= scooterCost;
+                player.gp.coins -= scooterCost;
 
             }
         }
@@ -171,7 +168,7 @@ public class CollisionCheck {
      * parameters x1, y1, x2, y2 is the same as pickUpGeneric
      */
     private void pickUpBeer(int x1, int y1, int x2, int y2) {
-    	if(coins >= 100) { //check for winning
+    	if(player.gp.coins >= 100) { //check for winning
             if (pickUpGeneric(x1, y1, x2, y2, 16)) {
                 player.gp.playSoundEffect(4);
                 player.gp.gameState = GameState.WIN_SCREEN; //switches to winning screen
@@ -229,7 +226,7 @@ public class CollisionCheck {
      * This is used to reduce coins by 1. It is used in GamePanel and Time uses it on its gamePanel
      */
     public void reduceCoins() {
-        this.coins --;
+        this.player.gp.coins --;
     }
 
     /**
@@ -237,10 +234,10 @@ public class CollisionCheck {
      * This is used to find out how many coins Proggy has
      */
     public int getCoins() {
-        return this.coins;
+        return this.player.gp.coins;
     }
     public void setCoins(int i) {
-        this.coins = i;
+        this.player.gp.coins = i;
     }
 
 
@@ -337,11 +334,7 @@ public class CollisionCheck {
         int enemyTopRow = enemytopworldy / player.gp.tileSize;
         int enemyBottomRow = enemybottomworldy / player.gp.tileSize;
 
-                
-                
-                switch(entityEnemy.direction) {
-                
-                
+        switch(entityEnemy.direction) {
                 case "down":
                     //If Proggy moves in an downwards direction, the two corners that needs to be checked is bottom right and left corners
                 	enemyBottomRow = (enemybottomworldy + entityEnemy.speed) / player.gp.tileSize; //predictiong which tile Proggy tries to go into
@@ -352,28 +345,28 @@ public class CollisionCheck {
                     	entityEnemy.onGround = true;
                     }
                     break;
-                    
+
                 case"enemyLeft":
                 	enemyLeftCol = (enemyleftworldx - entityEnemy.speed) / player.gp.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = player.gp.loader.numOfTiles[enemyLeftCol][enemyTopRow]; // Top left corner
                     enemyCor2 = player.gp.loader.numOfTiles[enemyLeftCol][enemyBottomRow]; // Top right corner
                     if(player.gp.loader.tiles[enemyCor1].collission == true) {
                      	entityEnemy.colliding = true;
-                     	
+
                     }
                     break;
-                    
+
                 case"enemyRight":
                 	enemyRightCol = (enemyrightworldx - entityEnemy.speed) / player.gp.tileSize; //predictiong which tile Enemy tries to go into
                     enemyCor1 = player.gp.loader.numOfTiles[enemyRightCol][enemyTopRow]; // Top left corner
                     enemyCor2 = player.gp.loader.numOfTiles[enemyRightCol][enemyBottomRow]; // Top right corner
                     if(player.gp.loader.tiles[enemyCor1].collission == true) {
                      	entityEnemy.colliding = true;
-                     	
+
                     }
                     break;
  
-               }
+        }
     }
 
 }

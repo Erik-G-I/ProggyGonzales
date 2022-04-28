@@ -41,6 +41,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //private PlayerState playerState;
 
+    public int coins = 0;
 
     //Map
     public InputStream is;
