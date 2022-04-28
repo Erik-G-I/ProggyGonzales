@@ -13,7 +13,6 @@ public class Main{
         window.setTitle("Proggy Gonzales");
         
         GamePanel gamePanel = new GamePanel("/maps/emptyMap.txt"); // må endres når vi lager nytt map
-        ReadFromFile reader = new ReadFromFile();
         
         window.add(gamePanel);
         

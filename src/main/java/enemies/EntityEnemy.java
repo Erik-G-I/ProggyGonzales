@@ -27,7 +27,6 @@ public class EntityEnemy {
     public Rectangle enemySolid;
     public boolean colliding = false;
     public boolean onGround = false;
-    private int gravity = 3;
     public int weight = 8;
 
     public EntityEnemy[] allEnemies ;
@@ -89,7 +88,6 @@ public class EntityEnemy {
     		onGround = true;
     		worldY = ((worldY + speed)/gp.tileSize) * gp.tileSize;
     		direction = originalDir;
-    		gravity = weight;
     		
     	}
     }
