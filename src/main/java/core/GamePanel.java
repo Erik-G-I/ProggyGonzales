@@ -10,7 +10,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 
 import enemies.EnemySetter;
-import enemies.Hobo;
+import enemies.Unicef;
 import enemies.EntityEnemy;
 import entity.Background;
 import entity.Player;
@@ -68,7 +68,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     public Player player;
-    public EntityEnemy hobo[] = new EntityEnemy[50];
+    public EntityEnemy unicef[];
     public Background bg;
     public TileLoader loader;
     public EnemySetter eSetter = new EnemySetter(this);
@@ -146,7 +146,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public LanguageScreen lS;
-    private WinScreen2 wS2;
+    public WinScreen2 wS2;
     private WinScreen wS;
     
     public void setGame() {
@@ -159,7 +159,7 @@ public class GamePanel extends JPanel implements Runnable{
     	
     	//get the language chosen by player
     	lang = getLang();
-    	
+    	unicef = new EntityEnemy[50];
     	timerDisplay = new TimerDisplay(this);
     	score =  new Score(this);
     	gO = new GameOver(this);
@@ -172,7 +172,7 @@ public class GamePanel extends JPanel implements Runnable{
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
         collisionChecker = new CollisionCheck(this);
-        eSetter.setHobo();
+        eSetter.setUnicef();
 
 
     }
@@ -241,6 +241,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void setMap(String mapPath) {
+    	this.mapPath = mapPath;
     	is = getClass().getResourceAsStream(mapPath);
     }
     
@@ -308,9 +309,9 @@ public class GamePanel extends JPanel implements Runnable{
         	timerDisplay.update();
         }
         
-        for(int i = 0; i < hobo.length; i++) {
-        	if(hobo[i] != null) {
-        		hobo[i].update();
+        for(int i = 0; i < unicef.length; i++) {
+        	if(unicef[i] != null) {
+        		unicef[i].update();
         	}
         }
 
@@ -323,9 +324,9 @@ public class GamePanel extends JPanel implements Runnable{
     }
     public void fall() {
     	player.fall();
-    	for(int i = 0; i < hobo.length; i++) {
-        	if(hobo[i] != null) {
-        		hobo[i].fall(); 
+    	for(int i = 0; i < unicef.length; i++) {
+        	if(unicef[i] != null) {
+        		unicef[i].fall(); 
         	}
         }
 
@@ -345,9 +346,9 @@ public class GamePanel extends JPanel implements Runnable{
 			this.player.getPlayerImage();
         }
         
-        for(int i = 0; i < hobo.length; i++) {
-        	if(hobo[i] != null) {
-        		hobo[i].draw(g2); 
+        for(int i = 0; i < unicef.length; i++) {
+        	if(unicef[i] != null) {
+        		unicef[i].draw(g2); 
         	}
         }
 

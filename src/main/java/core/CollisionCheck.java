@@ -77,12 +77,12 @@ public class CollisionCheck {
     }
     
   //Enemy collission
-    public boolean looseMoney(Player player, EntityEnemy[] enemy) {
+    public boolean unicefLooseMoney(Player player, EntityEnemy[] enemy) {
 			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
     			for (int i = 0; i < enemy.length; i++) {
     				if(enemy[i] != null) {
     	    			if(gp.player.worldY == enemy[i].worldY) {
-    	    				if(gp.player.worldX <= enemy[i].worldX + 20 && gp.player.worldX >= enemy[i].worldX - 20) {
+    	    				if(gp.player.worldX <= enemy[i].worldX + 10 && gp.player.worldX >= enemy[i].worldX - 10) {
         	    				coins --;
         	    				if(coins < 0) {
         	    					   coins = 0;
@@ -95,6 +95,26 @@ public class CollisionCheck {
 			}
 			
 			return false;
+    }
+
+    private void homelessLooseMoney(int x1, int y1, int x2, int y2) {
+      
+    	gp.getPlayerState();
+        int loosingMoney = 15;
+        if (gp.getPlayerState() != PlayerState.INVISIBLE) {
+        	if (coins >= loosingMoney) {
+        		if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+        			gp.loader.numOfTiles[x1][y1] = 10;
+        			coins -= loosingMoney;
+        		}	
+        	}   
+        		else if (coins>0 && coins < loosingMoney) {
+        			if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
+        				gp.loader.numOfTiles[x1][y1] = 10;
+        				coins = 0;
+        			}
+        		}
+        }
     }
 
 
@@ -164,7 +184,8 @@ public class CollisionCheck {
         pickUpMoney(x1, y1, x2, y2);
         pickUpMask(x1, y1, x2, y2);
         pickUpShoes(x1, y1, x2, y2);
-        looseMoney(gp.player, gp.hobo);
+        unicefLooseMoney(gp.player, gp.unicef);
+        homelessLooseMoney(x1, y1, x2, y2);
         pickUpScooter(x1, y1, x2, y2);
         pickUpBeer(x1, y1, x2, y2);
     }
