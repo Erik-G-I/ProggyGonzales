@@ -37,22 +37,6 @@ public class Player extends Entity{
         getPlayerImage();
     }
 
-    public void setPlayerName() {
-        String name = null;
-        while (!isValidName(name)) {
-            name = JOptionPane.showInputDialog("Type in your name");
-            this.playerName = name;
-        }
-    }
-    public String getPlayerName() {
-        return this.playerName;
-    }
-
-    public static boolean isValidName(String name) {
-		return name != null && !name.isBlank() && !name.contains(",");
-	}
-    
-
     public void setDefaultValues() {
     	worldX = 64;
         //jo mindre y, jo høyere opp

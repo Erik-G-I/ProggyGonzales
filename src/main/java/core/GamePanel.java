@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.io.InputStream;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import enemies.EnemySetter;
@@ -56,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable{
     public InputStream is;
     
     //Highscore list
-    public ArrayList<Integer> highscores;
+    public Table highscores;
 
     // FPS
     int FPS = 60;
@@ -71,7 +72,8 @@ public class GamePanel extends JPanel implements Runnable{
     public TileLoader loader;
     public EnemySetter eSetter = new EnemySetter(this);
 
-
+    //Player Name
+    String playerName;
     
     //audio
     private Sound music = new Sound();
@@ -184,7 +186,7 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
-        highscores = new ArrayList<Integer>();
+        highscores = new Table();
         gameState = GameState.LANGUAGE_MENU;
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
@@ -216,12 +218,19 @@ public class GamePanel extends JPanel implements Runnable{
      * Sets player name in Player and can be recieved from GamePanel
      */
     public void setPlayerName() {
-        this.player.setPlayerName();
+        String name = null;
+        while (!isValidName(name)) {
+            name = JOptionPane.showInputDialog("Type in your name");
+            this.playerName = name;
+        }
+    }
+    public String getPlayerName() {
+        return this.playerName;
     }
 
-    public String getPlayerName() {
-        return this.player.getPlayerName();
-    }
+    public static boolean isValidName(String name) {
+		return name != null && !name.isBlank() && !name.contains(",");
+	}
 
     public void startGameThread() {  
         gameThread = new Thread(this);

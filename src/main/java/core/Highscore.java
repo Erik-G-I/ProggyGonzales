@@ -1,6 +1,7 @@
 package core;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Highscore {
 	
@@ -34,16 +35,20 @@ public class Highscore {
 	}
 	
 	private void compareScores(String fileName, int i) {
-		ArrayList<Integer> list = gp.highscores;
-		for(int j: list) {
+		Table hsTable = gp.highscores;
+		LinkedList<Integer> hsScores = hsTable.getScores();
+		int index = 0;
+		for(int j: hsScores) {
 			if(i > j) {
-				list.add(list.indexOf(j), i);
-				list.remove(5);
-				writer.overWriteFile(fileName, list);
+				
+				hsTable.add(gp.getPlayerName(), i, index);
+				hsTable.removeLast();
+				writer.overWriteFile(fileName, hsTable);
 				break;
 			}
+			index++;
 		}
-		gp.highscores = list;
+		gp.highscores = hsTable;
 	}
 	
 	public void updateHighscore(String fileName) {
