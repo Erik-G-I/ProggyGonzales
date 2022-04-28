@@ -10,6 +10,7 @@ public enum GameState {
     PAUSED_GAME,
     GAME_CONTROLS,
     LEVELS_MENU,
+    AFTER_LEVELS,
     WIN_SCREEN,
     WIN_SCREEN2
 }

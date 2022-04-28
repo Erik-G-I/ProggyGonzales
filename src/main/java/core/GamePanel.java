@@ -14,6 +14,7 @@ import entity.Background;
 import entity.Player;
 import entity.PlayerState;
 import entity.Score;
+import gameState.AfterLevels;
 import gameState.GameControls;
 import gameState.GameOver;
 import gameState.GameState;
@@ -146,6 +147,7 @@ public class GamePanel extends JPanel implements Runnable{
     public LanguageScreen lS;
     public WinScreen2 wS2;
     private WinScreen wS;
+    private AfterLevels aL;
     
     public void setGame() {
     	
@@ -169,6 +171,7 @@ public class GamePanel extends JPanel implements Runnable{
     	levels = new LevelsMenu(this);
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
+    	aL = new AfterLevels(this);
         collisionChecker = new CollisionCheck(this);
         eSetter.setUnicef();
 
@@ -374,6 +377,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if (gameState == GameState.WIN_SCREEN2) {
         	wS2.draw(g2);
+        }
+        else if (gameState == GameState.AFTER_LEVELS) {
+        	aL.draw(g2);
         }
         else {
             timerDisplay.draw(g2);
