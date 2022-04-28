@@ -161,7 +161,6 @@ public class CollisionCheck {
     private void pickUpShoes(int x1, int y1, int x2, int y2) {
         if (pickUpGeneric(x1, y1, x2, y2, 11)) {
             powerUpSequence(4, PlayerState.FASTER);
-            System.out.println("Now the player has picked up shoes and should become faster");
 
         }
     }
@@ -208,15 +207,15 @@ public class CollisionCheck {
     }
     
     /**
-     * Checks the collision with water tile number 17
+     * Checks the collision with water tile number 5
      * If there's a collision outOfBounds variable will be true
      * So the player gets game over if the player falls in water
      */
     public void fellInWater() {
-    	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[17]) {
+    	if (gp.loader.tiles[cornerOne] == gp.loader.tiles[5]) {
     		this.outOfBounds = true;
     	}
-    	else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[17]) {
+    	else if (gp.loader.tiles[cornerTwo] == gp.loader.tiles[5]) {
     		this.outOfBounds = true;
     	}
     	else {

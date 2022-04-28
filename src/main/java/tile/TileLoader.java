@@ -20,7 +20,7 @@ public class TileLoader {
 	InputStream is;
 	int mapCols;
 	int mapRows;
-	final private int rowNumber = 17;
+	final private int rowNumber =20;
 	
 	
 	public TileLoader(GamePanel gp, InputStream is) {
@@ -96,14 +96,12 @@ public class TileLoader {
 			tiles[4].collission = true;
 			
 			tiles[5] = new Tile();
-			tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_left.png"));
-			// We want grass corners to be categorized as a solid block
+			tiles[5].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
 			tiles[5].collission = true;
+
 			
-			//Tile with 
 			tiles[6] = new Tile();
-			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
-			tiles[6].collission = true;
+			tiles[6].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water_top.png"));
 
 			tiles[7] = new Tile();
 			tiles[7].image = ImageIO.read(getClass().getResourceAsStream("/graphics/100kr.png"));
@@ -137,12 +135,16 @@ public class TileLoader {
 			tiles[16].image = ImageIO.read(getClass().getResourceAsStream("/graphics/winBeer.png"));
 
 			tiles[17] = new Tile();
-			tiles[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water.png"));
+			tiles[17].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_left.png"));
+			// We want grass corners to be categorized as a solid block
 			tiles[17].collission = true;
-
 			
+			//Tile with 
 			tiles[18] = new Tile();
-			tiles[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/water_top.png"));
+			tiles[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
+			tiles[18].collission = true;
+
+
 
 
 
