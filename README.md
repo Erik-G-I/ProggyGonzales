@@ -9,8 +9,6 @@
 </p>
 
 # Proggy Gonzales
-
-
 Trello: https://trello.com/b/Ar2twdkF/inf112
 
 ## Innholdsfortegnelse
@@ -53,5 +51,8 @@ Skulle det oppstå problemer kan det hjelpe å legge til resource mappen som en 
 
 ## Teste
 For å teste at koden kjører som den skal må du gjøre følgende:
+
+1. Åpne prosjektet i foretrukket IDE
+2. Naviger deg til src/test. Her ligger alle testene fordelt i **_3_** directories og totalt **_6_** klasser
 
 
