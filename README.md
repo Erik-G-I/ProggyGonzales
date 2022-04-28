@@ -1,3 +1,4 @@
+[![Trello](https://trello.com/b/Ar2twdkF/inf112)](https://travis-ci.com/inf112-v20/Kokkene)
 # Proggy Gonzales
 
 Proggy Gonzales har lest hardt i hele år, men i dag skal han på eksamensfest. Han må skyndte seg for å rekke butikken før ølsalget stenger. Han har donert alle pengene sine til Unicef og må løpe gjennom Bergen sentrum og samle penger for å få råd. Unicef-arbeidere prøver å stoppe han og gir seg ikke uansett hvor hardt han sier at han allerede er fadder. Hjemløse ønsker å ta penger fra han dersom han går for nært.
