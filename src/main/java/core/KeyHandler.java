@@ -6,7 +6,7 @@ import gameState.Languages;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-import entity.PlayerState;
+import entity.player.PlayerState;
 
 public class KeyHandler implements KeyListener{
     
@@ -323,9 +323,9 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.PAUSED_GAME) {
-        	pS = gp.player.playerState;
+        	pS = gp.player1.playerState;
         	gp.stopTimer();
-        	gp.player.playerState = PlayerState.INVISIBLE;
+        	gp.player1.playerState = PlayerState.INVISIBLE;
         	if (code == KeyEvent.VK_DOWN) {
         		gp.playSoundEffect(0);
         		gp.pause.cmd++;
@@ -342,7 +342,7 @@ public class KeyHandler implements KeyListener{
         	}
         	if(gp.pause.cmd == 0 && code == KeyEvent.VK_ENTER) {
         		gp.playSoundEffect(0);
-        		gp.player.playerState = pS;
+        		gp.player1.playerState = pS;
         		gp.gameState = GameState.RUNNING_GAME;
         		gp.startTimer();
         	}

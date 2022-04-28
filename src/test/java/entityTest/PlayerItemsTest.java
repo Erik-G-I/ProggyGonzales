@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
 import core.KeyHandler;
-import entity.Player;
+import entity.player.Player;
 import entity.Score;
 
 public class PlayerItemsTest {
@@ -22,7 +22,7 @@ public class PlayerItemsTest {
 	@BeforeEach
 	void beforeEach() {
 		this.p = new Player(gp, keyH);
-		p.setDefaultValues();
+		//p.setDefaultValues();
 	}
 	
 	@Test

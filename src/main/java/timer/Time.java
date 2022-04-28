@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import core.GamePanel;
-import entity.PlayerState;
+import entity.player.PlayerState;
 import gameState.GameState;
 
 public class Time implements ActionListener{
@@ -57,31 +57,46 @@ public class Time implements ActionListener{
 		if(gp.gameState == GameState.RUNNING_GAME) {
 		if(seconds > 0) {
 			if(startPowerUpTimer == true) {
-				if (gp.pickedUpPowerUp() == true) {
+				if (gp.p1pickedUpPowerUp() == true) {
 					powerUpSeconds = 10;
 					System.out.println("updated time");
-					gp.setPickedUpPowerUp(false);
+					gp.setPickedUpPowerUp(false, 1);
+				}
+				if (gp.p2pickedUpPowerUp() == true) {
+					powerUpSeconds = 10;
+					System.out.println("updated time");
+					gp.setPickedUpPowerUp(false, 2);
 				}
 				powerUpSeconds--;
 				// Reduce coins by 1 for each second on a VOI
-				if (gp.player.playerState == PlayerState.VOI) {
+				if (gp.player1.playerState == PlayerState.VOI) {
 					// The coins before deducting
-					int originalCoins = gp.getCoinsInCollisionChecker();
+					int originalCoins = gp.getCoinsInCollisionChecker(1);
 					// Makes sure coins are not negative
 					if (originalCoins>0) {
-						gp.reduceCoinByOne();
+						gp.reduceCoinByOne(1);
 					}
 					// If proggy has no money left, the voi trip ends
-					if (gp.getCoinsInCollisionChecker() <= 0) {
-						gp.player.playerState = PlayerState.NORMAL;
+					if (gp.getCoinsInCollisionChecker(1) <= 0) {
+						gp.player1.playerState = PlayerState.NORMAL;
 					}
-					
-					
+				}
+				if (gp.player2.playerState == PlayerState.VOI) {
+					// The coins before deducting
+					int originalCoins = gp.getCoinsInCollisionChecker(2);
+					// Makes sure coins are not negative
+					if (originalCoins>0) {
+						gp.reduceCoinByOne(2);
+					}
+					// If proggy has no money left, the voi trip ends
+					if (gp.getCoinsInCollisionChecker(2) <= 0) {
+						gp.player1.playerState = PlayerState.NORMAL;
+					}
 				}
 				if(powerUpSeconds == 0) {
 					powerUpSeconds = 10;
 					startPowerUpTimer = false;
-					gp.player.playerState = PlayerState.NORMAL;
+					gp.player1.playerState = PlayerState.NORMAL;
 					gp.playSoundEffect(6);
 					System.out.println("normal speed");
 				}

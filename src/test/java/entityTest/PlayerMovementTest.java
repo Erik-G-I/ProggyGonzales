@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
 import core.KeyHandler;
-import entity.Player;
+import entity.player.Player;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -21,7 +21,7 @@ public class PlayerMovementTest {
 	@BeforeEach
 	void beforeEach() {
 		this.p = new Player(gp, keyH);
-		p.setDefaultValues();
+		//p.setDefaultValues();
 	}
 
 	@Test
@@ -48,7 +48,7 @@ public class PlayerMovementTest {
 		startPos = p.playerY;
 		keyH.upPressed1 = true;
 		p.update();
-		p.jump();
+		p.jumpP1();
 
 		assertTrue(p.worldY < startPos, "Proggy did not jump");
 		assertTrue(p.worldY > 0, "Proggy jumped out of the frame");

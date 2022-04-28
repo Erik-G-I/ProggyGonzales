@@ -1,13 +1,13 @@
 package core;
 
-import enemies.EntityEnemy;
-import entity.Entity;
-import entity.PlayerState;
+import entity.enemies.EntityEnemy;
+import entity.player.PlayerEntity;
+import entity.player.PlayerState;
 import gameState.GameState;
 
 public class CollisionCheck {
     //GamePanel gp;
-    Entity player;
+    PlayerEntity player;
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;
@@ -25,7 +25,7 @@ public class CollisionCheck {
     private boolean pickedUpPowerUp = false;
  
 
-    public CollisionCheck(Entity player) {
+    public CollisionCheck(PlayerEntity player) {
         //this.gp = gp;
         this.player = player;
     }
@@ -126,8 +126,8 @@ public class CollisionCheck {
         player.gp.playSoundEffect(soundEffectNr);
         player.playerState = state;
         player.gp.truePowerUpTimer();
-        player.gp.player.getPlayerImage();
-        player.gp.player2.getPlayerImage();
+        player.gp.player1.getImage();
+        player.gp.player2.getImage();
     }
     /**
      * Picks up mask and sets player state to invisible
@@ -246,10 +246,10 @@ public class CollisionCheck {
 
     public void checkCollisionOnTile() {
         // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
-        int unitLeftSide = player.playerSolid.x + player.worldX;
-        int unitRightSide =  player.playerSolid.width + player.worldX;
-        int unitTopSide = player.playerSolid.y + player.worldY;
-        int unitBottomSide = player.worldY - player.playerSolid.y + player.playerSolid.height;
+        int unitLeftSide = player.solid.x + player.worldX;
+        int unitRightSide =  player.solid.width + player.worldX;
+        int unitTopSide = player.solid.y + player.worldY;
+        int unitBottomSide = player.worldY - player.solid.y + player.solid.height;
 
         // This must be adjusted for tilesize to find the columns and rows they are at
         int unitLeftCol = unitLeftSide / this.player.gp.tileSize;
@@ -326,10 +326,10 @@ public class CollisionCheck {
     
     public void checkEnemyOnTile(EntityEnemy entityEnemy) {
         // Creating the sides of the solid area of Enemy. If these sides hit a solid block, it will create a collision.
-        int enemyleftworldx = entityEnemy.worldX + entityEnemy.enemySolid.x;
-        int enemyrightworldx =  entityEnemy.worldX + entityEnemy.enemySolid.x + entityEnemy.enemySolid.width;
-        int enemytopworldy = entityEnemy.worldY + entityEnemy.enemySolid.y;
-        int enemybottomworldy = entityEnemy.worldY + entityEnemy.enemySolid.y + entityEnemy.enemySolid.height;
+        int enemyleftworldx = entityEnemy.worldX + entityEnemy.solid.x;
+        int enemyrightworldx =  entityEnemy.worldX + entityEnemy.solid.x + entityEnemy.solid.width;
+        int enemytopworldy = entityEnemy.worldY + entityEnemy.solid.y;
+        int enemybottomworldy = entityEnemy.worldY + entityEnemy.solid.y + entityEnemy.solid.height;
 
         // This must be adjusted for tilesize to find the columns and rows they are at
         int enemyLeftCol = enemyleftworldx / player.gp.tileSize;

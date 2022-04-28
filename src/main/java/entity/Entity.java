@@ -2,41 +2,33 @@ package entity;
 
 import core.GamePanel;
 
-import java.awt.image.BufferedImage;
+import java.awt.*;
 
-import java.awt.Rectangle;
+public abstract class Entity {
 
-
-public class Entity {
-
-    public PlayerState playerState;
     public GamePanel gp;
     public int worldX, worldY;
-    public int playerX, playerY;
     public int speed;
-    
-    public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2, bakgrunn;
     public String direction;
-    public String previousDirection;
-    
-    public int jumpStrength;
-    public Rectangle playerSolid;
+
+    /* specifying where on the character it will collide with tiles.
+    We set this to the whole character since it only scrolls vertically */
+    public Rectangle solid;
+
     public boolean colliding = false;
-
     public boolean onGround = true;
+    protected int weight;
 
-    public int gravity;
-
-
-    //brukes til å skape animasjon på spiller og fiender
-    public int spriteCounter = 0;
-    public int spriteNum = 1;
-
-
-    public void setGravity(int gravity) {
-        this.gravity = gravity;
+    public Entity(GamePanel gp) {
+        this.gp = gp;
+        solid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
     }
-    
-    
-}
 
+    public abstract void fall();
+
+    public abstract void draw(Graphics2D g2);
+
+    public abstract void update();
+
+    public abstract void getImage();
+}

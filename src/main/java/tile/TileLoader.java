@@ -166,13 +166,13 @@ public class TileLoader {
 			
 			int WorldX = worldCol * gp.tileSize;
 			int WorldY = worldRow * gp.tileSize;
-			int screenX = WorldX - gp.player.worldX + gp.player.playerX;
-			int screenY = WorldY - gp.player.worldY + gp.player.playerY;
+			int screenX = WorldX - gp.player1.worldX + gp.player1.playerX;
+			int screenY = WorldY - gp.player1.worldY + gp.player1.playerY;
 			
 			
 			g2.drawImage(tiles[tileNum].image, screenX, screenY, gp.tileSize, gp.tileSize, null);
-			if(gp.player.playerX == tiles[5].x) {
-				if(gp.player.playerY == tiles[5].y) {
+			if(gp.player1.playerX == tiles[5].x) {
+				if(gp.player1.playerY == tiles[5].y) {
 					tiles[5] = tiles[0];
 				}
 			}

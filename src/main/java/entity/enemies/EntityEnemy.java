@@ -1,44 +1,27 @@
-package enemies;
+package entity.enemies;
 
 import java.awt.image.BufferedImage;
 
 import core.GamePanel;
-import entity.PlayerState;
+import entity.Entity;
+import entity.player.PlayerState;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
-public class EntityEnemy {
-
+public abstract class EntityEnemy extends Entity {
     
-    public int worldX, worldY;
-    public int playerX, playerY;
-    public int speed;
-    
-    protected BufferedImage unicefLeft;
-	protected BufferedImage unicefRight;
-    public String direction;
-    public String previousDirection;
-
-    public Rectangle playerSolid;
-    public Rectangle enemySolid;
-    public boolean colliding = false;
-    public boolean onGround = false;
-    private int gravity = 3;
-    private int weight = 8;
-
-    public EntityEnemy[] allEnemies ;
-
-    public PlayerState enemyState = PlayerState.NORMAL;
-
-    public int distance;
+    protected BufferedImage unicefLeft, unicefRight;
     public int movementCount = 0;
 
-
-	public void setAction() {
-		
+	public EntityEnemy(GamePanel gp) {
+		super(gp);
+		weight = 8;
 	}
 
+	public abstract void setAction();
+
+	@Override
 	public void update() {
 		setAction();
 		
@@ -61,18 +44,15 @@ public class EntityEnemy {
             	break;
             }
         }
+	}
 
-
+	@Override
+	public void getImage() {
 	}
 
 	GamePanel gp;
-    
-    
-    public EntityEnemy(GamePanel gp) {
-    	this.gp = gp;
-    	
-    }
-    
+
+	@Override
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
@@ -88,22 +68,21 @@ public class EntityEnemy {
     		onGround = true;
     		worldY = ((worldY + speed)/gp.tileSize) * gp.tileSize;
     		direction = originalDir;
-    		gravity = weight;
-    		
     	}
     }
-    
+
+    @Override
     public void draw(Graphics2D g2) {
 		
     	BufferedImage image = null;
 
-    	int screenX = worldX - gp.player.worldX + gp.player.playerX;
-		int screenY = worldY - gp.player.worldY + gp.player.playerY;
+    	int screenX = worldX - gp.player1.worldX + gp.player1.playerX;
+		int screenY = worldY - gp.player1.worldY + gp.player1.playerY;
 		
-		if(worldX + gp.tileSize > gp.player.worldX - gp.player.playerX &&
-		   worldX - gp.tileSize < gp.player.worldX + gp.player.playerX &&
-		   worldY + gp.tileSize > gp.player.worldY - gp.player.playerY &&
-		   worldY - gp.tileSize < gp.player.worldY + gp.player.playerY) {
+		if(worldX + gp.tileSize > gp.player1.worldX - gp.player1.playerX &&
+		   worldX - gp.tileSize < gp.player1.worldX + gp.player1.playerX &&
+		   worldY + gp.tileSize > gp.player1.worldY - gp.player1.playerY &&
+		   worldY - gp.tileSize < gp.player1.worldY + gp.player1.playerY) {
 			
 	        switch(direction) {
 	        case "enemyLeft":
@@ -113,15 +92,12 @@ public class EntityEnemy {
 	        case "enemyRight":
 	        	image = unicefRight;
 	            break;
-	        
+
 	        case "down":
 	        	image = unicefRight;
 	            break;
-	        }       
-			
-		//	if(gp.collisionChecker.looseMoney(gp.player, gp.unicef) == true) {
-		//		image = uteliggerglad;
-		//	}
+	        }
+
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 		}

@@ -2,7 +2,7 @@ package tileTest;
 
 import core.GamePanel;
 import core.KeyHandler;
-import entity.Player;
+import entity.player.Player;
 import entity.Score;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +22,7 @@ public class ScoreTest {
     @BeforeEach
     void beforeEach() {
     	this.p = new Player(gp, keyH);
-        p.setDefaultValues();
+        //p.setDefaultValues();
     }
 
     @Test

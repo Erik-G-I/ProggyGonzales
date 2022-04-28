@@ -1,51 +1,39 @@
-package enemies;
+package entity.enemies;
 
-import java.awt.Graphics2D;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
 
 import core.GamePanel;
-import core.KeyHandler;
-import entity.Entity;
 
 import java.awt.Rectangle;
-import enemies.EntityEnemy;
 
 public class Unicef extends EntityEnemy{
-
-    GamePanel gp;
 	
     public Unicef(GamePanel gp) {
         super(gp);	
         this.gp = gp;
         direction = "down";
         speed = 1;
-        enemySolid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
-        
-        getHoboImage();
+        this.getImage();
     }
-    
-	public void getHoboImage() {
-	        
+
+    @Override
+	public void getImage() {
 	        try {
 	        	unicefRight = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left1.png"));
 	        	unicefLeft = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left2.png"));
 
-	            	  
-	            
-	            
 	        }catch(IOException e) {
 	            e.printStackTrace();
 	        }
 	}
 
+	@Override
 	public void setAction() {
 
 			movementCount ++;
-			
 			//the higher the movementcount, the longer between change of direction
 			if(movementCount == 120) {
 				
@@ -64,12 +52,8 @@ public class Unicef extends EntityEnemy{
 			
 				movementCount = 0;
 			}
-			
-			
-		}
-	
-	
 
+		}
 }
 
 
