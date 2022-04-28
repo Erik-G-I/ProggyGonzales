@@ -2,12 +2,24 @@ package gameState;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+
+import javax.imageio.ImageIO;
+
 import core.GamePanel;
 
 public class LevelsMenu extends GameScreen {
+	
+	private BufferedImage img;
 		
 		public LevelsMenu(GamePanel gp) {
 			this.gp = gp;
+			try {
+				img = ImageIO.read(getClass().getResourceAsStream("/background/flesland.png"));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		public void draw(Graphics g2) {
@@ -23,6 +35,7 @@ public class LevelsMenu extends GameScreen {
 				s5 = "ESC - Back to main menu";
 			}
 			
+			g2.drawImage(img, 0, 0, gp.screenWidth, gp.screenHeight-68, null);
 			Color tranparent = new Color(0, 0, 0, 200);
 			g2.setColor(tranparent);
 			g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
@@ -56,5 +69,3 @@ public class LevelsMenu extends GameScreen {
 			g2.drawString(s5, centerText(s5), gp.tileSize*10);
 		}
 	}
-
-

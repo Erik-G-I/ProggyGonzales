@@ -14,7 +14,7 @@ public class KeyHandler implements KeyListener{
     public float jumpSpeed;
     private GamePanel gp;
     String mapPath;
-    int mapNum;
+    private int mapNum;
     private PlayerState pS;
     
     public KeyHandler(GamePanel gp) {
@@ -404,6 +404,10 @@ public class KeyHandler implements KeyListener{
 		gp.setGame();
 		gp.gameState = GameState.RUNNING_GAME;
 		gp.startTimer();
+    }
+    
+    public int getMapNum() {
+    	return this.mapNum;
     }
 
 }

@@ -10,9 +10,11 @@ import core.GamePanel;
 
 public class Background extends Entity {
 
-    GamePanel gp;
-    KeyHandler keyH;
-    BufferedImage realfag, bakgrunn;
+    private GamePanel gp;
+    private KeyHandler keyH;
+    
+    private BufferedImage startE, startMH, bryggen, fjell, bus, marketsE, marketsMH, end;
+    private int mapNum;
 
     public Background(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -20,6 +22,7 @@ public class Background extends Entity {
 
         setDefaultValues();
         getImage();
+  
     }
 
     public void setDefaultValues() {
@@ -32,15 +35,24 @@ public class Background extends Entity {
     public void getImage() {
 
         try {
-        	realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbygget åpen.png"));
-//            bakgrunn = ImageIO.read(getClass().getResourceAsStream("/graphics/bryggen1.png"));
+        	startE = ImageIO.read(getClass().getResourceAsStream("/background/startE.png"));
+        	startMH = ImageIO.read(getClass().getResourceAsStream("/background/startMH.png"));
+        	bryggen = ImageIO.read(getClass().getResourceAsStream("/background/bryggen.png"));
+        	fjell = ImageIO.read(getClass().getResourceAsStream("/background/fjell.png"));
+        	bus = ImageIO.read(getClass().getResourceAsStream("/background/bus.png"));
+        	marketsE = ImageIO.read(getClass().getResourceAsStream("/background/marketsE.png"));
+        	marketsMH = ImageIO.read(getClass().getResourceAsStream("/background/marketsMH.png"));
+        	end = ImageIO.read(getClass().getResourceAsStream("/background/endE.png"));
 
+        	
         }catch(IOException e) {
             e.printStackTrace();
         }
     }
 
     public void update() {
+        mapNum = gp.getKeyH().getMapNum();
+    	
         if (keyH.leftPressed == true || keyH.rightPressed == true) {
 
             if (keyH.leftPressed == true) {
@@ -63,24 +75,35 @@ public class Background extends Entity {
     			
     			int worldX = worldCol * gp.tileSize;
     			int worldY = worldRow * gp.tileSize;
-    			int screenX = worldX - gp.player.worldX + gp.player.playerX + 63;
-    			int screenY = worldY - gp.player.worldY + gp.player.playerY;
+    			int screenX = worldX - gp.player.worldX;
+    			int screenY = worldY - gp.player.worldY;
     			
-    			g2.drawImage(realfag, screenX, screenY, 600, 800, null);
-    			screenX += 750;
-
-    			while(worldCol < gp.maxWorldRow) {
-//    				g2.drawImage(bakgrunn, screenX, screenY, 1000, 880, null);
-        			screenX += 1050;
-        			worldCol ++;
-        			
+    			if (mapNum == 1) {
+    				firstMap(g2,screenX,screenY);
     			}
     			
-    			
-    			
+    			if (mapNum == 2 || mapNum == 3) {
+    				secondAndThirdMaps(g2,screenX,screenY);
+    			}
     		}
     		
     	}
+    
+    public void firstMap(Graphics2D g2, int screenX, int screenY) {
+    	g2.drawImage(startE, screenX, screenY-790, 2000, 2200, null);	
+    	g2.drawImage(marketsE, screenX+2000, screenY-790, 2000, 2200, null);
+    	g2.drawImage(end, screenX+4000, screenY-790, 2000, 2200, null);
+    }
+    
+    public void secondAndThirdMaps(Graphics2D g2, int screenX, int screenY) {
+    	g2.drawImage(startMH, screenX, screenY-790, 2000, 2200, null);
+		g2.drawImage(bryggen, screenX+2000, screenY-790, 2000, 2200, null);
+		g2.drawImage(fjell, screenX+4000, screenY-790, 2000, 2200, null);
+		g2.drawImage(marketsMH, screenX+6000, screenY-790, 2000, 2200, null);
+		g2.drawImage(end, screenX+8000, screenY-790, 2000, 2200, null);
+		g2.drawImage(bus, screenX+1200, screenY+1200, 200, 200, null);
+		
+    }
     
 
 }
