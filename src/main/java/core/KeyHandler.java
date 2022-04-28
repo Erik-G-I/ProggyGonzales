@@ -277,13 +277,15 @@ public class KeyHandler implements KeyListener{
         		hs.updateHighscore(hsLevel);
         		System.out.println(gp.highscores.getNames().toString());
         		System.out.println(gp.highscores.getScores().toString());
+        		
+        		gp.getTimerDisplay().stopTime();
         		gp.gameState = GameState.WIN_SCREEN2;
         	}
         	code = KeyEvent.KEY_RELEASED;
         }
         
         if (gp.gameState == GameState.WIN_SCREEN2) {
-        	
+        	gp.setPlayerState(PlayerState.INVISIBLE);
         	if (code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
         		gp.wS2.cmd--;
