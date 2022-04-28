@@ -1,6 +1,7 @@
 package entityTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -8,16 +9,17 @@ import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
 import core.KeyHandler;
+import enemies.EntityEnemy;
 import entity.Player;
 import entity.Score;
-import timer.Time;
-import timer.TimerDisplay;
+
 
 public class PlayerItemsTest {
 
 	GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	Player p;
+	EntityEnemy unicef[];
 	int startPos;
 	Score score;
 
@@ -78,9 +80,9 @@ public class PlayerItemsTest {
 		assertEquals(newScore, gp.collisionChecker.getCoins());
 	}
 
+	
 	@Test
-	public void testPlayerLosesMoney() {
-		//TODO: lage når vi implementerer fiender
+	public void playerLosesMoneyHomeless() {
 		gp.collisionChecker.setCoins(100);
 		int money = gp.collisionChecker.getCoins();
 		
@@ -90,9 +92,26 @@ public class PlayerItemsTest {
 		}
 		
 		int newScore = gp.collisionChecker.getCoins();
-		//player.loseMoney / enemy.attackPlayer
-		
+
 		assertTrue(newScore < money);
 		assertEquals(newScore, money + 10 - 15);
+	}
+	
+	@Test
+	public void playerLosesMoneyUnicef() {
+		gp.collisionChecker.setCoins(100);
+		int money = gp.collisionChecker.getCoins();
+		int newScore = 0;
+		
+		for (int i = 0; i < 20; i++) {
+			if(gp.collisionChecker.takenMoney == true) {
+				unicef[i].update();
+				newScore = gp.collisionChecker.getCoins();
+			}
+		
+		}
+
+		assertTrue(newScore < money);
+		
 	}
 }

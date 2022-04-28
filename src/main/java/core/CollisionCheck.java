@@ -16,7 +16,7 @@ public class CollisionCheck {
     int enemyCor1, enemyCor2;
 
     public int coins = 0;
-
+    public boolean takenMoney = false;
     
     // Used to activate gameOver if proggy falls out of bounds
     private boolean outOfBounds = false;
@@ -87,6 +87,7 @@ public class CollisionCheck {
         	    				if(coins < 0) {
         	    					   coins = 0;
         	    					}
+        	    				takenMoney = true;
         	    				return true;
     	    				}
     	   				}

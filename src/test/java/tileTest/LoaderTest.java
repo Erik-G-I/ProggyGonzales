@@ -23,24 +23,23 @@ public class LoaderTest {
         loader.loadMap();
     }
 
+    
     @Test
     public void testLoadTile() {
         assertTrue(loader.numOfTiles[0][7] == 1);
     }
 
+    
     @Test
     public void testPlayerCannotGoThroughTile() {
         KeyHandler keyH = new KeyHandler(gp);
-
-        Player p = new Player(gp, keyH);
-        p.setDefaultValues();
-
-        int startPos = p.worldY;
+    
+        int startPos = gp.player.worldY;
         keyH.upPressed = true;
-        p.update();
-        p.jump();
+        gp.player.update();
+        gp.player.jump();
 
-        assertFalse(p.worldY < (startPos-gp.tileSize), "Proggy should not be able to go through tiles");
+        assertFalse(gp.player.worldY < (startPos-gp.tileSize), "Proggy should not be able to go through tiles");
     }
 }
 

@@ -15,6 +15,7 @@ import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class ScoreTest {
 
     GamePanel gp = new GamePanel("/maps/testingMap.txt");
@@ -28,10 +29,10 @@ public class ScoreTest {
         p.setDefaultValues();
     }
 
+    
     @Test
     void testMoneyDisappears() {
     	score = new Score(gp);
-		int money = gp.collisionChecker.getCoins();
 		
         for(int i = 0; i < 5; i++) {
             keyH.rightPressed = true;

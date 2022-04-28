@@ -120,9 +120,7 @@ public class EntityEnemy {
 	            break;
 	        }       
 			
-		//	if(gp.collisionChecker.looseMoney(gp.player, gp.unicef) == true) {
-		//		image = uteliggerglad;
-		//	}
+		
 			g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 			
 		}
