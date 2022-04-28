@@ -20,7 +20,7 @@ public class TileLoader {
 	InputStream is;
 	int mapCols;
 	int mapRows;
-	final private int rowNumber = 17;
+	final private int rowNumber =20;
 	
 	
 	public TileLoader(GamePanel gp, InputStream is) {
