@@ -20,7 +20,7 @@ Proggy Gonzales er kjent som den beste programmeringsstudenten UiB har sett, og 
 
 
 ## Oppsett
-For å kjøre programmet må du gjøre følgende: \
+For å kjøre programmet må du gjøre følgende: 
 
 Spillet kjøres via en IDE, og du må derfor laste ned en. Vi anbefaler Eclipse eller IntelliJ. Prosjektet clones fra dette git-repositoryet med en SSH- eller HTTPS-nøkkel, og importeres via maven inn i den valgte IDE-en. For å starte spillet må man kjøre main.java, som ligger i src/main/java/core. For å kjøre main-klassen må man høyreklikke på filen og trykke på run.
 Skulle det oppstå problemer kan det hjelpe å legge til resource mappen som en source folder, hvis den ikke allerede er gjenkjent som en source.
