@@ -75,29 +75,36 @@ public class CollisionCheck {
             coins += 20;
         }
     }
-    
-  //Enemy collission
-    public boolean unicefLooseMoney(Player player, EntityEnemy[] enemy) {
-			if (gp.getPlayerState() != PlayerState.INVISIBLE) {
+  
+    /**
+     * 
+     * @param player
+     * @param enemy
+     * Enemy-unicef collission
+     */
+  
+    public void unicefLooseMoney(Player player, EntityEnemy[] enemy) {
+			if (gp.getPlayerState() != PlayerState.INVISIBLE) { // Makes Invisible state work
     			for (int i = 0; i < enemy.length; i++) {
-    				if(enemy[i] != null) {
+    				if(enemy[i] != null) { 						// Only goes through i's that are real enemies
     	    			if(gp.player.worldY == enemy[i].worldY) {
-    	    				if(gp.player.worldX <= enemy[i].worldX + 10 && gp.player.worldX >= enemy[i].worldX - 10) {
+    	    				if(gp.player.worldX <= enemy[i].worldX + 10 && gp.player.worldX >= enemy[i].worldX - 10) { // Sets the enemy-width of which you loose money
         	    				coins --;
-        	    				if(coins < 0) {
+        	    				if(coins < 0) { //money can't go below zero
         	    					   coins = 0;
         	    					}
         	    				takenMoney = true;
-        	    				return true;
     	    				}
     	   				}
     				}
     			}
 			}
 			
-			return false;
     }
 
+    /**Enemy-homeless collission
+     * Works much the same as unicef, only using tiles
+     */
     private void homelessLooseMoney(int x1, int y1, int x2, int y2) {
       
     	gp.getPlayerState();
@@ -105,7 +112,7 @@ public class CollisionCheck {
         if (gp.getPlayerState() != PlayerState.INVISIBLE) {
         	if (coins >= loosingMoney) {
         		if (gp.loader.tiles[cornerOne] == gp.loader.tiles[9]) {
-        			gp.loader.numOfTiles[x1][y1] = 10;
+        			gp.loader.numOfTiles[x1][y1] = 10; //Changes tile so the enemy can only take money 1 time
         			coins -= loosingMoney;
         		}	
         	}   
@@ -120,7 +127,7 @@ public class CollisionCheck {
 
 
     
-    /* Method that is activated for each powerup. Activates the power up, plays sound effect, sets player 
+    /** Method that is activated for each powerup. Activates the power up, plays sound effect, sets player 
     to the state of the belonging power up, starts timer on power up and updates the graphics */
     private void powerUpSequence(int soundEffectNr, PlayerState state) {
         pickedUpPowerUp = true;
@@ -242,7 +249,11 @@ public class CollisionCheck {
         this.coins = i;
     }
 
-
+    /**
+     * Creates sides and corners of player. This makes it possible to make a collision with tiles
+     * Different cases have different corners to check for collision. 
+     * @param unit
+     */
     public void checkCollisionOnTile(Entity unit) {
         // Creating the sides of the solid area of Proggy. If these sides hit a solid block, it will create a collision.
         int unitLeftSide = unit.playerSolid.x + unit.worldX;
@@ -322,6 +333,10 @@ public class CollisionCheck {
         }
     }
     
+    /**
+     * Works much the same as checkCollisionOnTile, but makes it so enemies can't pick up objects 
+     * @param entityEnemy
+     */
     public void checkEnemyOnTile(EntityEnemy entityEnemy) {
         // Creating the sides of the solid area of Enemy. If these sides hit a solid block, it will create a collision.
         int enemyleftworldx = entityEnemy.worldX + entityEnemy.enemySolid.x;

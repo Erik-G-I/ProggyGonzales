@@ -5,12 +5,10 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.awt.Color;
 
 import javax.swing.JPanel;
 
 import enemies.EnemySetter;
-import enemies.Unicef;
 import enemies.EntityEnemy;
 import entity.Background;
 import entity.Player;
@@ -260,7 +258,6 @@ public class GamePanel extends JPanel implements Runnable{
         long lastTime = System.nanoTime();
         long currentTime;
         long timer = 0;
-        int drawCount = 0;
         
         while(gameThread != null) {
             
@@ -280,12 +277,10 @@ public class GamePanel extends JPanel implements Runnable{
                 
 
                 delta--;
-                drawCount++;
             }
             
             //display FPS in console
             if(timer >= 1000000000) {
-                drawCount = 0;
                 timer = 0;
             }
             
