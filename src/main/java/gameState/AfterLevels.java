@@ -38,6 +38,5 @@ public class AfterLevels extends GameScreen{
 		
 	}
 	
-	
 
 }

@@ -11,6 +11,10 @@ import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 
+/**
+ * Class for player 1
+ * Inherits from PLayerEntity
+ */
 public class Player1 extends PlayerEntity {
 
     KeyHandler keyH;
@@ -109,7 +113,8 @@ public class Player1 extends PlayerEntity {
         }
         
     }
-    
+
+
     public void update() {
         if(keyH.upPressed1 == true || keyH.downPressed == true || keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
 				if(keyH.upPressed1 == true ) {
@@ -167,58 +172,18 @@ public class Player1 extends PlayerEntity {
         }
     }
 
-    // gives abilities on player for the different power-ups
-    private void PowerUp() {
-        if (playerState == PlayerState.VOI) {
-            speed=7;
-        }
-        if (playerState == PlayerState.FASTER) {
-            speed=7;
-        }
-        if(playerState == PlayerState.NORMAL) {
-            speed = 5;
-        }
-        if(playerState == PlayerState.INVISIBLE) {
-            speed = 5;
-        }
-    }
-
-    // jump function that makes proggy collide also when jumping	
+    /**
+     * Jump method for player 1
+     */
     public void jumpP1() {
-        // Proggy needs to be on the ground while button is pressed in order to jump
     	if(keyH.upPressed1 == true || (jumpStrength <= 0 && !onGround)) {
     	    super.jump();
     	}
     }
-    
-/*
-    public void fall() {
-    	String originalDir = direction;
-    	direction = "down";
-    	collisionChecker.checkCollisionOnTile();
-    	if(colliding == false || onGround == false) {
-    		onGround = false;
-    		direction = originalDir;
-    		worldY += gravity;
-    		
-    		if(gravity < 18) {
-    			gravity += 1; 
-    		}
-    		
-    		
-    	}
-    	else {
-    		onGround = true;
-    		jumpStrength = 0;
-    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
-    		direction = originalDir;
-    		gravity = weight;
-    		
-    	}
-    }
 
- */
-    
+    /**
+     * Method to make it possible for player 1 to move left or right while in the air
+     */
     private void moveWhileJumping () {
     	String originalDir = previousDirection;
     	int moveInAir = 0;
@@ -242,12 +207,13 @@ public class Player1 extends PlayerEntity {
     	direction = originalDir;
     }
     
-    
+    @Override
     public void draw(Graphics2D g2) {        
         BufferedImage image = choseSprite();
         g2.drawImage(image, playerX, playerY, gp.tileSize, gp.tileSize, null);
     }
-    
+
+    @Override
     public void setGravity(int gravity) {
     	this.gravity = gravity;
     }

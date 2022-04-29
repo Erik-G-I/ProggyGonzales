@@ -10,8 +10,7 @@ public class EnemySetter {
 	public EnemySetter(GamePanel gp) {
 		this.gp = gp;
 	}
-	
-	
+
 	public void setUnicef() {
 		String map = gp.getMapPath();
 		

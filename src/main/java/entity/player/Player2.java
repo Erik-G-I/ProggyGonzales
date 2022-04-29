@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
+/**
+ * Class for player 2
+ */
 public class Player2 extends PlayerEntity {
 
     public KeyHandler keyH;
@@ -73,29 +76,18 @@ public class Player2 extends PlayerEntity {
         }
     }
 
-    private void PowerUp() {
-        if (playerState == PlayerState.VOI) {
-            speed=7;
-        }
-        if (playerState == PlayerState.FASTER) {
-            speed=7;
-        }
-        if(playerState == PlayerState.NORMAL) {
-            speed = 5;
-        }
-        if(playerState == PlayerState.INVISIBLE) {
-            speed = 5;
-        }
-    }
-
-    // jump function that makes proggy collide also when jumping
+    /**
+     * Jump method for player 2
+     */
     public void jumpP2() {
-        // Proggy needs to be on the ground while button is pressed in order to jump
         if(keyH.upPressed2 == true || (jumpStrength <= 0 && !onGround)) {
             super.jump();
         }
     }
 
+    /**
+     * Method to make it possible for player 2 to move left or right while in the air
+     */
     private void moveWhileJumping () {
         String originalDir = previousDirection;
         int moveInAir = 0;
