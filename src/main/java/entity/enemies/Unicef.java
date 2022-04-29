@@ -30,6 +30,9 @@ public class Unicef extends EntityEnemy{
 	        }
 	}
 
+    /**
+     * Makes enemies walk. By using Random, the player can't know for sure where the enemies next move is
+     */
 	@Override
 	public void setAction() {
 			

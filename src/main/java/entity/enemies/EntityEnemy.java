@@ -19,6 +19,10 @@ public abstract class EntityEnemy extends Entity {
 
 	public abstract void setAction();
 
+	/**
+	 * Uses the setAction from Unicef to get the enemies to move 
+	 * Uses collisionChecker so enemy cant go through tiles
+	 */
 	@Override
 	public void update() {
 		setAction();
