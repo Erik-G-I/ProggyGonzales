@@ -128,7 +128,7 @@ public class KeyHandler implements KeyListener{
         	}
         	
         	if (code == KeyEvent.VK_ESCAPE) {
-        		gp.gameState = GameState.START_MENU;
+        		gp.gameState = GameState.MULTIPLAYER_MENU;
         	}
         	
         	if (code == KeyEvent.VK_ENTER) {
