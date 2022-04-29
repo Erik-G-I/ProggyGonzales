@@ -248,7 +248,7 @@ public class KeyHandler implements KeyListener{
         }
         
         //Game over cheks and game over state
-        if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
+        if(gp.getGameOver() || gp.getOutOfBounds()) {
         	gp.gameState = GameState.GAME_OVER;
         	if(code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
@@ -310,7 +310,7 @@ public class KeyHandler implements KeyListener{
 			if (e.getKeyChar() == 'd')
 				rightPressed2 = true;
             
-            if ((gp.getGameOver() == false || gp.getOutOfBounds() == false) && code == KeyEvent.VK_ESCAPE) {
+            if (!(gp.getGameOver() || !gp.getOutOfBounds()) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
         }
