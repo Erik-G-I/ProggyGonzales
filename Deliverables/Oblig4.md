@@ -153,7 +153,7 @@ Det vi har fokusert mest på siden forrige innleveringen er å gjøre det mulig 
 
 ### Utbedring av feil
 Siden forrige innlevering har dette blitt utbedret:
-- **Testkvalitet**: Med flere klasser og implementasjoner, deriblant en ny måte å fikse fiender på, har det blitt laget nye tester til disse, samt nye tester til tidligere ideer og klasser.
+- **Testkvalitet**: Med flere klasser og implementasjoner i spillet, deriblant en ny måte å fikse fiender på, har det blitt laget nye tester til disse, samt nye tester til tidligere ideer og klasser.
 - **MVP-Krav**: Det siste MVP kravet har blitt oppfylt, hvilket er at spillet nå støtter flere spillere samtidig. Alle MVP krav skal derfor være oppfylt.
 - **Andel av kode som brukes**: All kode er gått gjennom. Variabler og funksjoner som har vært repeterende eller stått ubrukt er ryddet bort og oppsett av kode er gjort mer oversiktlig og ryddig.
 - **Single Responsibility Principle**: Vi har siden siste innlevering jobbet med å få alle klasser og funksjoner til å kun ha ansvar for kun en del av spillet, og har da f.eks. laget en felles entity-klasse med alt felles som blir brukt av både players og enemies. Det gjør at koden blir mer oversiktlig og sørger for at man ikke sitter igjen med duplikat/overflødig kode
