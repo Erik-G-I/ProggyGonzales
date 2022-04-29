@@ -32,6 +32,7 @@ public class KeyHandler implements KeyListener{
         
         int code = e.getKeyCode();
         
+        //Language menu
         if (gp.gameState == GameState.LANGUAGE_MENU) {
         	if (code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
@@ -66,6 +67,7 @@ public class KeyHandler implements KeyListener{
         	}
         }
 
+        //Start menu
         if (gp.gameState == GameState.START_MENU) {
             
         	if (code == KeyEvent.VK_DOWN) {
@@ -85,7 +87,7 @@ public class KeyHandler implements KeyListener{
             if (code == KeyEvent.VK_ENTER) {
                 if (gp.menu.cmd == 0) {
                 	gp.playSoundEffect(0);
-                    gp.gameState = GameState.LEVELS_MENU;
+                    gp.gameState = GameState.MULTIPLAYER_MENU;
 					gp.setPlayerName();
                 }
                 
@@ -107,6 +109,7 @@ public class KeyHandler implements KeyListener{
             code = KeyEvent.KEY_RELEASED;
         }
         
+        //Levels menu
         if (gp.gameState == GameState.LEVELS_MENU) {
         	if (code == KeyEvent.VK_DOWN) {
         		gp.playSoundEffect(0);
@@ -146,12 +149,28 @@ public class KeyHandler implements KeyListener{
         			mapNum = 3;
         			selectingMapPath("/maps/hard.txt");
         		}
-        		
+        		if (gp.multiGame) {
+					gp.setPlayerState2(PlayerState.NORMAL);
+        			gp.gameState = GameState.RUNNING_GAME;
+        			gp.startTimer();
+        		}
+        		else {
+        		gp.gameState = GameState.AFTER_LEVELS;
+        		}
         		playMapMusic();
         	}
         	code = KeyEvent.KEY_RELEASED;
         }
+        
+        if (gp.gameState == GameState.AFTER_LEVELS) {
+        	if (code == KeyEvent.VK_ENTER) {
+        		gp.gameState = GameState.RUNNING_GAME;
+        		gp.startTimer();
+        	}
+        	code = KeyEvent.KEY_RELEASED;
+        }
 
+        //Multiplayer menu
 		if (gp.gameState == GameState.MULTIPLAYER_MENU) {
 			if (code == KeyEvent.VK_DOWN) {
 				gp.playSoundEffect(0);
@@ -168,22 +187,22 @@ public class KeyHandler implements KeyListener{
 				}
 			}
 			if (code == KeyEvent.VK_ESCAPE)
-				gp.gameState = GameState.LEVELS_MENU;
+				gp.gameState = GameState.START_MENU;
 
 			if (code == KeyEvent.VK_ENTER) {
 				if (gp.multiMenu.cmd == 0) {
 					gp.multiGame = false;
-					gp.gameState = GameState.RUNNING_GAME;
+					gp.gameState = GameState.LEVELS_MENU;
 					System.out.println("he");
 				}
 				if (gp.multiMenu.cmd == 1) {
+					gp.gameState = GameState.LEVELS_MENU;
 					gp.multiGame = true;
-					gp.setPlayerState2(PlayerState.NORMAL);
-					gp.gameState = GameState.RUNNING_GAME;
 				}
 			}
 		}
-
+		
+		//Info screen
         if (gp.gameState == GameState.INFO_SCREEN) {
             if (code == KeyEvent.VK_RIGHT) {
             	gp.playSoundEffect(0);
@@ -219,7 +238,8 @@ public class KeyHandler implements KeyListener{
 
             }
         }
-        
+        	
+        //Game controls
         if(gp.gameState == GameState.GAME_CONTROLS) {
         	gp.playSoundEffect(0);
         	if(code == KeyEvent.VK_ESCAPE) {
@@ -227,6 +247,7 @@ public class KeyHandler implements KeyListener{
         	}
         }
         
+        //Game over cheks and game over state
         if(gp.getGameOver() == true || gp.getOutOfBounds() == true) {
         	gp.gameState = GameState.GAME_OVER;
         	if(code == KeyEvent.VK_LEFT) {
@@ -252,9 +273,9 @@ public class KeyHandler implements KeyListener{
             	gp.playSoundEffect(0);
             	playMapMusic();
             	this.selectingMapPath(mapPath);
-//            	gp.gameState = GameState.RUNNING_GAME;
             	gp.getGameOverObj().restart();
-//            	gp.startTimer();
+            	this.whenRestart();
+
             }
             
             if (gp.getGameOverObj().cmd == 1 && code == KeyEvent.VK_ENTER) {
@@ -265,7 +286,8 @@ public class KeyHandler implements KeyListener{
                 gp.setGame();   
             }
         }
-
+        
+        //Running game
         if (gp.gameState == GameState.RUNNING_GAME) {
             // Up-arrow or space-button is pressed
 			if (code == KeyEvent.VK_UP || code == KeyEvent.VK_SPACE) {
@@ -395,6 +417,7 @@ public class KeyHandler implements KeyListener{
         	
         	if(gp.pause.cmd == 1 && code == KeyEvent.VK_ENTER) {
         		this.selectingMapPath(this.mapPath);
+        		this.whenRestart();
         	}
         	
         	if(gp.pause.cmd == 2 && code == KeyEvent.VK_ENTER) {
@@ -459,11 +482,14 @@ public class KeyHandler implements KeyListener{
 		gp.setMap(mapPath);
 		gp.resetLoader();
 		gp.setGame();
-//		gp.gameState = GameState.MULTIPLAYER_MENU;
-//		gp.startTimer();
     }
     
     public int getMapNum() {
     	return this.mapNum;
+    }
+    
+    private void whenRestart() {
+    	gp.gameState = GameState.RUNNING_GAME;
+    	gp.startTimer();
     }
 }

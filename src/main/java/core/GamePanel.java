@@ -177,7 +177,6 @@ public class GamePanel extends JPanel implements Runnable{
         collisionChecker1 = player1.collisionChecker;
         collisionChecker2 = player2.collisionChecker;
         eSetter.setUnicef();
-        multiGame = false;
         coins = 0;
     }
 
@@ -195,6 +194,7 @@ public class GamePanel extends JPanel implements Runnable{
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
         setGame();
+        multiGame = false;
     }
     
     
