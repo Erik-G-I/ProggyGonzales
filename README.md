@@ -55,4 +55,28 @@ For å teste at koden kjører som den skal må du gjøre følgende:
 1. Åpne prosjektet i foretrukket IDE
 2. Naviger deg til src/test. Her ligger alle testene fordelt i **_3_** directories og totalt **_6_** klasser
 
+De automatiske testene dekker de aller mest elementære funksjonene.
+Vi har selv testet hele spillet manuelt for bugs, og for funksjoner som ikke like lett kan testes automatisk.
+
+De automatiske testene dekker:
+- Enemy kan:
+	* falle
+	* bevege seg
+	* ikke gå gjennom tiles
+- Player kan:
+	* plukke opp powerups
+	* plukke opp penger
+	* miste penger
+	* bevege seg
+	* hoppe
+- TileLoader kan:
+	* laste inn et map
+	* tile har kollisjon
+- Score kan:
+	* øke/minke	
+- GameOver vises når tiden går ut
+
+Vi har manuelt testet at grafikken vises korrekt og at alle UI-elementene vises der de skal, vi har også prøvet oss frem til en hoppmetode som føles naturlig og god å spille med.
+
+
 
