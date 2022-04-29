@@ -21,7 +21,6 @@ public class Player1ItemsTest {
 	KeyHandler keyH = new KeyHandler(gp);
 	Player1 p;
 	EntityEnemy unicef[];
-	int startPos;
 	Score score;
 
 	@BeforeEach
