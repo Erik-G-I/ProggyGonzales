@@ -21,7 +21,12 @@ public class Player extends Entity{
     String playerName;
     //char playerChar;
 
-    
+    /**
+     * Player constructor
+     * Creates a new player object
+     * @param gp
+     * @param keyH
+     */
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
@@ -251,6 +256,10 @@ public class Player extends Entity{
     }
     
 
+    /**
+     * Fall method to make the player experience gravity
+     * Player will fall while there is no solid tile directly beneath
+     */
     public void fall() {
     	String originalDir = direction;
     	direction = "down";
@@ -276,6 +285,9 @@ public class Player extends Entity{
     	}
     }
     
+    /**
+     * Method to allow movement in the air
+     */
     private void moveWhileJumping () {
     	String originalDir = previousDirection;
     	int moveInAir = 0;

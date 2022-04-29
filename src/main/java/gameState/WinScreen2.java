@@ -19,20 +19,23 @@ public class WinScreen2 extends GameScreen{
 	@Override
 	public void draw(Graphics g2) {
 		
-		String s1, s2, s3, s4, s5, s6, s7, s8;
+		String s1, s2, s3, s4, s5, s6, s7, s8, s9;
 		String coins = Integer.toString(gp.collisionChecker.getCoins());
 		String time = gp.getTimerDisplay().timeLeft();
+		String seconds = Integer.toString(gp.highscores.getScore(0)-gp.collisionChecker.getCoins());
 		
 		
 		if (gp.getLang() == Languages.NORWEGIAN) {
 			s2 = "Du plukket opp "+coins+" kr og hadde "+time+" igjen!";
 			s7 = "Tilbake til hovedmeny";
 			s8 = "Velg et annet level";
+			s9 = "Score: "+coins+" kr + "+seconds+" sekunder igjen"; 
 		}
 		else {
 			s2 = "You picked up "+coins+" kr and had "+time+" left!";
 			s7 = "Back to main menu";
 			s8 = "Choose another level";
+			s9 = "Score: "+coins+" kr + "+seconds+" seconds left"; 
 		}
 
 		this.setGp(gp);
@@ -47,7 +50,13 @@ public class WinScreen2 extends GameScreen{
 		
 		g2.drawString("HighScore", centerText("HighScore"), gp.tileSize*2);
 
+		this.draw(40);
+		g2.setColor(Color.WHITE);
 		g2.drawString(s2, centerText(s2), gp.tileSize*3);
+		g2.drawString(s9, centerText(s9), gp.tileSize*4);
+		
+		this.draw(50);
+		g2.setColor(Color.WHITE);
 		
 		s2 = gp.highscores.getName(0)+ " - " + Integer.toString(gp.highscores.getScore(0));
 
