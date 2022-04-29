@@ -20,20 +20,21 @@ public class WinScreen2 extends GameScreen{
 		String s1, s2, s3, s4, s5, s6, s7, s8, s9;
 		String coins = Integer.toString(gp.coins);
 		String time = gp.getTimerDisplay().timeLeft();
-		String seconds = Integer.toString(gp.highscores.getScore(0)-gp.collisionChecker1.getCoins());
+		String[] timeSplit = time.split(":");
+		int seconds = Integer.valueOf(timeSplit[0])*60 + Integer.valueOf(timeSplit[1]);
 		
 		if (gp.getLang() == Languages.NORWEGIAN) {
 			s2 = "Du plukket opp "+coins+" kr og hadde "+time+" igjen!";
 			s7 = "Tilbake til hovedmeny";
 			s8 = "Velg et annet level";
-			s9 = "Score: "+coins+" kr + "+seconds+" sekunder igjen"; 
+			s9 = "Score: "+coins+" kr + "+Integer.toString(seconds)+" sekunder = " + Integer.toString(seconds+gp.collisionChecker1.getCoins()); 
 
 		}
 		else {
 			s2 = "You picked up "+coins+" kr and had "+time+" left!";
 			s7 = "Back to main menu";
 			s8 = "Choose another level";
-			s9 = "Score: "+coins+" kr + "+seconds+" seconds left"; 
+			s9 = "Score: "+coins+" kr + "+Integer.toString(seconds)+" seconds = " + Integer.toString(seconds+gp.collisionChecker1.getCoins()); 
 		}
 
 		this.setGp(gp);

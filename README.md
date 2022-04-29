@@ -63,7 +63,7 @@ De automatiske testene dekker:
 	* falle
 	* bevege seg
 	* ikke gå gjennom tiles
-- Player kan:
+- Player 1 og player 2 kan:
 	* plukke opp powerups
 	* plukke opp penger
 	* miste penger
@@ -74,7 +74,7 @@ De automatiske testene dekker:
 	* tile har kollisjon
 - Score kan:
 	* øke/minke	
-- GameOver vises når tiden går ut
+- GameOver vises når spiller faller i vannet
 
 Vi har manuelt testet at grafikken vises korrekt og at alle UI-elementene vises der de skal, vi har også prøvet oss frem til en hoppmetode som føles naturlig og god å spille med.
 
