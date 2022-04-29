@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import entity.player.PlayerState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +15,7 @@ import entity.player.Player1;
 import entity.Score;
 
 
-public class PlayerItemsTest {
+public class Player1ItemsTest {
 
 	GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
@@ -59,7 +60,11 @@ public class PlayerItemsTest {
 
 	@Test
 	public void testPlayerCanPickUp() {
-		//TODO: lage når vi implementerer gjenstander
+		for(int i = 0; i < 50; i++) {
+			keyH.rightPressed1 = true;
+			p.update();
+		}
+		assertFalse(p.playerState == PlayerState.NORMAL);
 	}
 
 	@Test
@@ -86,7 +91,7 @@ public class PlayerItemsTest {
 		gp.collisionChecker1.setCoins(100);
 		int money = gp.collisionChecker1.getCoins();
 		
-		for (int i = 0; i < 20; i++) {
+		for (int i = 0; i < 40; i++) {
 			keyH.rightPressed1 = true;
 			p.update();
 		}
@@ -110,7 +115,6 @@ public class PlayerItemsTest {
 			}
 		
 		}
-
 		assertTrue(newScore < money);
 		
 	}
