@@ -74,7 +74,6 @@ public class EnemySetter {
 		}
 		if(map == "/maps/hard.txt") {
 			
-			
 			gp.unicef[10] = new Unicef(gp);
 			gp.unicef[10].worldX = 1856;
 			gp.unicef[10].worldY = 768;
