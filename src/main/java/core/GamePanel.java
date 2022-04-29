@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionCheck collisionChecker1;
     public CollisionCheck collisionChecker2;
 
-    KeyHandler keyH = new KeyHandler(this);
+    private KeyHandler keyH = new KeyHandler(this);
     public Player1 player1;
     public Player2 player2;
     public EntityEnemy unicef[];
@@ -286,6 +286,10 @@ public class GamePanel extends JPanel implements Runnable{
     
 	public void resetLoader() {
     	loader =  new TileLoader(this, is);
+	}
+	
+	public KeyHandler getKeyH() {
+		return this.keyH;
 	}
     
     

@@ -14,8 +14,8 @@ public class KeyHandler implements KeyListener{
     public boolean upPressed1, upPressed2, downPressed, leftPressed1, rightPressed1, leftPressed2, rightPressed2;
     public float jumpSpeed;
     private GamePanel gp;
-    String mapPath;
-    int mapNum;
+    private String mapPath;
+    private int mapNum;
     private PlayerState pS1;
 	private PlayerState pS2;
     
@@ -459,8 +459,11 @@ public class KeyHandler implements KeyListener{
 		gp.setMap(mapPath);
 		gp.resetLoader();
 		gp.setGame();
-		gp.gameState = GameState.MULTIPLAYER_MENU;
-		gp.startTimer();
+//		gp.gameState = GameState.MULTIPLAYER_MENU;
+//		gp.startTimer();
     }
-
+    
+    public int getMapNum() {
+    	return this.mapNum;
+    }
 }
