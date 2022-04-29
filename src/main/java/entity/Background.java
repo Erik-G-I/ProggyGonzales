@@ -16,7 +16,7 @@ public class Background{
     private GamePanel gp;
     private KeyHandler keyH;
     
-    private BufferedImage startE, startMH, bryggen, fjell, bus, marketsE, marketsMH, end;
+    private BufferedImage startE, startMH, bryggen, fjell, bus, marketsE, marketsMH, worm, dirt, end;
     private int mapNum;
 	int worldX = 0;
 	int worldY = 515;
@@ -41,6 +41,8 @@ public class Background{
         	bus = ImageIO.read(getClass().getResourceAsStream("/background/bus.png"));
         	marketsE = ImageIO.read(getClass().getResourceAsStream("/background/marketsE.png"));
         	marketsMH = ImageIO.read(getClass().getResourceAsStream("/background/marketsMH.png"));
+        	worm = ImageIO.read(getClass().getResourceAsStream("/background/under2.png"));
+        	dirt = ImageIO.read(getClass().getResourceAsStream("/background/underDirt.png"));
         	end = ImageIO.read(getClass().getResourceAsStream("/background/endE.png"));
 
         	
@@ -90,6 +92,9 @@ public class Background{
     			
     			if (mapNum == 2 || mapNum == 3) {
     				secondAndThirdMaps(g2,screenX,screenY);
+    				if (mapNum == 2) {
+    					secondMap(g2, screenX, screenY);
+    				}
     			}
     		}
     		
@@ -108,8 +113,11 @@ public class Background{
 		g2.drawImage(marketsMH, screenX+6000, screenY-790, 2000, 2200, null);
 		g2.drawImage(end, screenX+8000, screenY-790, 2000, 2200, null);
 		g2.drawImage(bus, screenX+1200, screenY+1140, 200, 200, null);
-		
     }
     
-
+    public void secondMap(Graphics2D g2, int screenX, int screenY) {
+    	g2.drawImage(dirt, screenX+3610, screenY+1300, 800, 500, null);
+    	g2.drawImage(worm, screenX+3640, screenY+1250, 640, 500, null);
+    }
+    
 }
