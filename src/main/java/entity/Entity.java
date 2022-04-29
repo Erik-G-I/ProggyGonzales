@@ -24,6 +24,10 @@ public abstract class Entity {
         solid = new Rectangle(14 ,2,gp.tileSize-14, gp.tileSize-2);
     }
 
+    /**
+     * Fall method to make the character experience gravity
+     * Player will fall while there is no solid tile directly beneath
+     */
     public abstract void fall();
 
     public abstract void draw(Graphics2D g2);

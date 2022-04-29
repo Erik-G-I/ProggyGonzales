@@ -95,10 +95,22 @@ public abstract class PlayerEntity extends Entity {
         }
     }
 
-    /**
-     * Fall method to make the player experience gravity
-     * Player will fall while there is no solid tile directly beneath
-     */
+    // gives abilities on player for the different power-ups
+    protected void PowerUp() {
+        if (playerState == PlayerState.VOI) {
+            speed=7;
+        }
+        if (playerState == PlayerState.FASTER) {
+            speed=7;
+        }
+        if(playerState == PlayerState.NORMAL) {
+            speed = 5;
+        }
+        if(playerState == PlayerState.INVISIBLE) {
+            speed = 5;
+        }
+    }
+
     @Override
     public void fall() {
         String originalDir = direction;

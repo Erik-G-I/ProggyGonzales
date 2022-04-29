@@ -110,7 +110,8 @@ public class Player1 extends PlayerEntity {
         }
         
     }
-    
+
+    @Override
     public void update() {
         if(keyH.upPressed1 == true || keyH.downPressed == true || keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
 				if(keyH.upPressed1 == true ) {
@@ -168,22 +169,6 @@ public class Player1 extends PlayerEntity {
         }
     }
 
-    // gives abilities on player for the different power-ups
-    private void PowerUp() {
-        if (playerState == PlayerState.VOI) {
-            speed=7;
-        }
-        if (playerState == PlayerState.FASTER) {
-            speed=7;
-        }
-        if(playerState == PlayerState.NORMAL) {
-            speed = 5;
-        }
-        if(playerState == PlayerState.INVISIBLE) {
-            speed = 5;
-        }
-    }
-
     // jump function that makes proggy collide also when jumping	
     public void jumpP1() {
         // Proggy needs to be on the ground while button is pressed in order to jump
@@ -219,12 +204,13 @@ public class Player1 extends PlayerEntity {
     	direction = originalDir;
     }
     
-    
+    @Override
     public void draw(Graphics2D g2) {        
         BufferedImage image = choseSprite();
         g2.drawImage(image, playerX, playerY, gp.tileSize, gp.tileSize, null);
     }
-    
+
+    @Override
     public void setGravity(int gravity) {
     	this.gravity = gravity;
     }
