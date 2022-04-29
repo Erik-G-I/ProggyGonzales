@@ -21,7 +21,7 @@ public class Player2 extends PlayerEntity {
         this.keyH = keyH;
         this.collisionChecker = new CollisionCheck(this);
 
-        playerState = PlayerState.INVISIBLE;
+        playerState = PlayerState.NORMAL;
         worldX = 100;
         setDefaultValues();
         getImage();
