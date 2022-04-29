@@ -29,10 +29,10 @@ public class LevelsMenu extends GameScreen {
 			String s1, s2, s3, s4, s5;
 			
 			if (gp.getLang() == Languages.NORWEGIAN) {
-				s5 = "ESC - Tilbake til hovedmeny";
+				s5 = "ESC - Tilbake til spill meny";
 			}
 			else {
-				s5 = "ESC - Back to main menu";
+				s5 = "ESC - Back to player menu";
 			}
 			
 			g2.drawImage(img, 0, 0, gp.screenWidth, gp.screenHeight-68, null);
