@@ -12,7 +12,6 @@ public class Table {
 	 * creates a new table object
 	 * Table stores two lists
 	 */
-
 	public Table() {
 		names = new LinkedList<String>();
 		scores = new LinkedList<Integer>();
@@ -55,7 +54,6 @@ public class Table {
 	 * Getter for name-list
 	 * @return list of names
 	 */
-
 	public LinkedList<String> getNames(){
 		return names;
 	}

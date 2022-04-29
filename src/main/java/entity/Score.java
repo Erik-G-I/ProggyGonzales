@@ -9,7 +9,6 @@ import gameState.Languages;
 
 public class Score extends DisplayText{
 
-    //public int coins;
     private String showScore;
     GamePanel gp;
 
