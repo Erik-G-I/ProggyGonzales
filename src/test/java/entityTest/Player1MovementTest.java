@@ -10,7 +10,7 @@ import entity.player.Player1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class PlayerMovementTest {
+public class Player1MovementTest {
 
 	GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
@@ -53,8 +53,5 @@ public class PlayerMovementTest {
 		assertTrue(p.worldY < startPos, "Proggy did not jump");
 		assertTrue(p.worldY > 0, "Proggy jumped out of the frame");
 	}
-
-	
-
 
 }
