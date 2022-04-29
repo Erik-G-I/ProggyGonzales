@@ -20,7 +20,7 @@
 		<maven.compiler.release>17</maven.compiler.release>
 		<!-- FIXME - set to app's main class' -->
 		<main.module>src</main.module>
-		<main.class>src.main.Main</main.class>
+		<main.class>core.Main</main.class>
 	</properties>
 
 	<dependencies>
