@@ -14,7 +14,7 @@ public abstract class GameScreen extends DisplayText {
 
     /**
      * Method to draw the screen based on which state the game is in
-     * @param g2
+     * @param g2 graphics
      */
     public abstract void draw(Graphics g2);
 

@@ -8,11 +8,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import core.GamePanel;
 
+/**
+ * Class for the moving background
+ */
 public class Background {
 
     GamePanel gp;
     KeyHandler keyH;
-    BufferedImage realfag, bakgrunn;
+    BufferedImage realfag;
     int x, y;
     int speed;
     String direction;
@@ -25,6 +28,9 @@ public class Background {
         getImage();
     }
 
+    /**
+     * Set the default values for coordinates, speed and direction for the background
+     */
     public void setDefaultValues() {
         x = 0;
         y = 515;
@@ -33,15 +39,17 @@ public class Background {
     }
 
     public void getImage() {
-
         try {
             realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbygget åpen.png"));
 
-        }catch(IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Updates where the screen is drawn based on player 1
+     */
     public void update() {
         if (keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
 
@@ -56,6 +64,10 @@ public class Background {
         }
     }
 
+    /**
+     * Method to draw the screen
+     * @param g2 graphics
+     */
     public void draw(Graphics2D g2) {
 
         int worldCol = 0;

@@ -2,7 +2,6 @@ package entity.enemies;
 
 import core.GamePanel;
 
-
 public class EnemySetter {
 
 	GamePanel gp;
@@ -10,8 +9,7 @@ public class EnemySetter {
 	public EnemySetter(GamePanel gp) {
 		this.gp = gp;
 	}
-	
-	
+
 	public void setUnicef() {
 		String map = gp.getMapPath();
 		

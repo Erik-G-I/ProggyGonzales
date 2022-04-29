@@ -6,19 +6,22 @@ import core.DisplayText;
 import core.GamePanel;
 import gameState.Languages;
 
-
+/**
+ * Class to show score
+ */
 public class Score extends DisplayText{
 
-    //public int coins;
     private String showScore;
     GamePanel gp;
-
 
     public Score(GamePanel gp) {
         this.gp = gp;
         showScore = new String();
     }
 
+    /**
+     * Method to show score on the screen based on which language the game is in
+     */
     public void showScore() {
         int score = gp.coins;
     	if(gp.getLang() == Languages.NORWEGIAN) {
@@ -29,6 +32,10 @@ public class Score extends DisplayText{
     	}
     }
 
+    /**
+     * Method to draw the score on the screen
+     * @param g2 graphics
+     */
     public void draw(Graphics g2) {
     	this.setGraphics(g2);
     	this.draw(40);
