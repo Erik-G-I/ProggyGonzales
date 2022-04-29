@@ -95,6 +95,10 @@ public abstract class PlayerEntity extends Entity {
         }
     }
 
+    /**
+     * Fall method to make the player experience gravity
+     * Player will fall while there is no solid tile directly beneath
+     */
     @Override
     public void fall() {
         String originalDir = direction;
