@@ -4,7 +4,7 @@
 Proggy Gonzales er et 2D-spill der objektet er å samle så mye som mulig penger på veien til butikken, og rekke stengetid.
 
 ### Møtereferater og Trello
-- Link til Møtereferater og Trello under:
+Link til Møtereferater og Trello under:
 - [Møtereferater - Oblig 4](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/Deliverables/M%C3%B8tereferater%20oblig4.md)
 - [Trello Project Board](https://trello.com/b/Ar2twdkF/inf112)
 
