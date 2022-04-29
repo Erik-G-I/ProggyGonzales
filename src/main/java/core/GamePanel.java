@@ -4,11 +4,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.io.InputStream;
-import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
 import entity.enemies.EnemySetter;
 import entity.enemies.EntityEnemy;
 import entity.Background;
@@ -363,15 +360,13 @@ public class GamePanel extends JPanel implements Runnable{
     }
     
     public void paintComponent(Graphics g) {
-
         super.paintComponent(g);
-        
         Graphics2D g2 = (Graphics2D)g;
 
         bg.draw(g2);
-        
         loader.draw(g2, player1.worldX);
         player1.draw(g2);
+        
         if (getPlayerState1() == PlayerState.NORMAL) {
 			this.player1.getImage();
         }
@@ -424,7 +419,7 @@ public class GamePanel extends JPanel implements Runnable{
         g2.dispose();
     }
     
-    
+    //Audio
     public void playMusic(int i) {
     	music.setFile(i);
     	music.play();
