@@ -88,7 +88,6 @@ public class KeyHandler implements KeyListener{
                 if (gp.menu.cmd == 0) {
                 	gp.playSoundEffect(0);
                     gp.gameState = GameState.MULTIPLAYER_MENU;
-					gp.setPlayerName();
                 }
                 
                 if (gp.menu.cmd == 1) {
@@ -111,6 +110,7 @@ public class KeyHandler implements KeyListener{
         
         //Levels menu
         if (gp.gameState == GameState.LEVELS_MENU) {
+			
         	if (code == KeyEvent.VK_DOWN) {
         		gp.playSoundEffect(0);
         		gp.levels.cmd++;
@@ -316,7 +316,12 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.WIN_SCREEN) {
+        	gp.setPlayerState1(PlayerState.INVISIBLE);
+        	gp.setPlayerState2(PlayerState.INVISIBLE);
+        	
         	if (code == KeyEvent.VK_ENTER) {
+    			this.setName();
+    			
         		String hsLevel = "highscore"+Integer.toString(mapNum)+".txt";
         		
         		//reads the highscore file to the corresponding level
@@ -346,8 +351,7 @@ public class KeyHandler implements KeyListener{
         }
         
         if (gp.gameState == GameState.WIN_SCREEN2) {
-        	gp.setPlayerState1(PlayerState.INVISIBLE);
-        	gp.setPlayerState2(PlayerState.INVISIBLE);
+
         	if (code == KeyEvent.VK_LEFT) {
         		gp.playSoundEffect(0);
         		gp.wS2.cmd--;
@@ -491,5 +495,28 @@ public class KeyHandler implements KeyListener{
     private void whenRestart() {
     	gp.gameState = GameState.RUNNING_GAME;
     	gp.startTimer();
+    }
+    
+    private void setName() {
+    	String s1, s2;
+    	if (gp.multiGame) {
+    		if (gp.getLang() == Languages.NORWEGIAN) {
+    			s1 = "Skriv inn lagnavn";
+    		}
+    		else {
+    			s1 = "Type team name";
+    		}
+    	gp.setPlayerName(s1);
+    	}
+    	else {
+    		if (gp.getLang() == Languages.NORWEGIAN) {
+    			s2 = "Skriv inn navn";
+    		}
+    		else {
+    			s2 = "Type your name";
+    		}
+    	gp.setPlayerName(s2);
+    	}
+    	
     }
 }
