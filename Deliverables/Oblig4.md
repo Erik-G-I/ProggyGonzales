@@ -44,58 +44,69 @@ Hovedoppgave: Alexander skal passe på at teamet ikke går i klassiske feller so
 hvordan vi tenker og derfor sørge for at vi ikke er enige fordi vi ikke tør å si i mot gruppen. Han skal og sørge for at alle føler seg \
 verdsatt i teamet og blir hørt på innspillene de kommer med.
 
-#### Prosjektmetodikk
+##### Roller - Retroperspektiv
+Sett i perspektiv av at prosjektet nå er ferdig har vi følgende synspunkter på hvordan rollefordelingen har vært:
+- Oppgavene som hver rolle har innebært har blitt tatt seriøst av hvert enkeltmedlem. 
+- Vi har i stor grad hatt spesialiserte områder innenfor koding som ikke rollebeskrivelsen har fått fram
+- Innføring av grafisk ansvarlig har vært en kjempesuksess
+- 
+- 
+
+### Prosjektmetodikk
 Vi har hatt lite endring på prosjektmetodikken vår gjennom semesteret, men vi har etter hver innlevering \
 evaluert om det vi har brukt fram til da er riktig for oss. Oppsummert har vi ønsket den kontinuerlige \
 progresjonen som Kanban tilbyr, men vi var og motivert for å ha et bedre produkt å vise til for hver innlevering \
-og har dermed i tråd med Scrum kjørt kortere sprinter for å kunne levere mest mulig til kunden. 
+og har dermed i tråd med Scrum kjørt kortere sprinter for å kunne levere mest mulig til kunden. Vi har dermed lent \
+oss i stor grad mot Kanban som prosjektmetodikk. 
+
+Til denne innleveringen har vi beveget oss mer mot Scrum som prosjektmetodikk. Dette var fordi vi ønsket tydeligere \
+sprinter mellom hvert møte, og mer planlegging både før og etter hver sprint. Til hvert møte har vi ønsket å kunne ha noe \
+å vise til, og uten å bruke tid på en release, så skal koden være en tydelig forbedring fra siste møte. Vi har i tillegg \
+ønsket å ha et fokus på at hvert gruppemedlem helst skal ha én tydelig arbeidsoppgave til neste gang, med mulighet om å \
+begynne på en til dersom man ble ferdig. Vi hadde og stort fokus på oversikt hvilke arbeidsoppgaver som til en hver tid \
+trengte å gjøres. På Trello lagde vi i første møtet en stor bunke oppgaver på things that need to be done, og i hvert møte \
+tildelte vi én oppgave per person til current sprint, og la ca. 5 oppgaver til up-next avhengig av hvor stor arbeidsmengde \
+current sprint var. Hvis noen ble ferdige med en oppgave i sprinten kunne man tildele seg en oppgave fra up next. Slik \
+passet vi på at alle alltid hadde noe å gjøre, samt at progresjonen kunne overstige det fastsatte målet for sprinten.
+
+### Retroperspektiv
+Sett i retroperspektiv er det et par ting vi sitter igjen med som vi skulle ønske vi visste da vi startet prosjektet:
+1. Vi skulle ønske vi tidligere jobbet hyppigere med parprogrammering. Parprogrammering opplevde vi som velig positivt av flere grunner:
+    * Arbeidet med komplekse problemer gikk raskere. 
+    * Det er lettere å tenke på flere løsninger rundt komplekse problemstillinger når man kan bygge på andres innspill.
+    * Det er sosialt og skapte dermed sterkere samhold
+2. Vi skulle ønske vi var flinkere til å planlegge hver sprint, og bruke Trello på en smartere måte. 
+    * I starten av prosjektet satt vi ikke tydelige mål for hvor langt vi ønsker å komme til på hver innlevering.
+    * Vi kunne brukt Trello smartere ved å tidligere bruke aktivt "Things that needs to be done" - hvor alle oppgaver for sprinten skal være, "Current sprint" - en oppgave per person og "next up" som er tilleggsoppgaver for hver person. Hvis vi i tillegg delte opp "Done"-fanen til "Done" og "Done - Current Sprint", ville det vært mer oversiktlig å se progresjonen for nåværende sprint, og lettere for gruppeleder å vite hva som er gjort siden sist. 
+    * Vi hadde i tillegg alt for mange mindre oppgaver fordelt på hver person, i stedet for å gjøre oss ferdig med én oppgave for så å gå bevege oss videre.
+    * Oppsummert førte det til mindre progresjon enn vi kanskje kunne klart, og gjorde at vi arbeidet mindre effektivt. 
+3. 
 
 
-Ting vi gjør som tyder på Scrum:
-Jobber relativt i sprints med tanke på obliger
-Bruker tid på å planlegge fram mot neste innlevering og se i retroperspektiv på hva som gikk galt. 
-Releaser hver sprint
-
-Ting vi gjør som tyder på Kanban
-Er fleksible med tanke på arbeidsmengde fram mot hver innlevering. Dersom noe har stanget har vi brukt mye tid på det for å gjøre det ordentlig i stedet for å rushe. Har ikke hatt et fastsatt mål etter hver innlevering om hva vi skal ha klart til neste innlevering. 
-Skal releaser mye oftere, vi pusher mye til master, men vi releaser ikke til en kunde.
-
-Key points:
-Ikke ha alt for mye oppgaver i prosess samtidig. Det gjør at man i større grad kan samarbeide om komplekse oppgaver. 
-Prate om hvordan en sprint har gått og planlegg neste bedre.
-- Vi tok ting litt på sparket, og dersom vi ikke fikk til noe var det ikke krise. Vi ble ikke stresset av at noen ting kunne ta mye tid 
-
-Scrum:
-- Releaser hver sprint
-- Relativt lite på project boardet. Hver utvikler jobber som regel med veldig få oppgaver av gangen
-
-Kanban:
-- Skal release mye oftere, vi pusher mye til master, men vi releaser ikke til en kunde.
-- Har mye på project boardet. Hver utvikler jobber med mye av gangen. Her er det ofte mange blokkerte kort (ting som må vente på at andre oppgaver skal bli ferdige først.)
-
-Our project methodology has been the same throughout the project, with little changes.\
-We feel that we chose correct early on and did quick revisions of our methodology when needed.\
-To summarize how our methodology have evolved; Firstly we started out with Scrum and XP,\
-doing 1 week sprint intervals of what we had on our project board. From that we noticed a\
-need of a quick revision cycle, such that we could easily identify new needs the customer had, or problems.\
-Secondly we made the sprints into 3/4 days cycles. Such that we had a much more even feedback loop.\
-This corresponded well with the meetings we set up, and we personally feel that we got a good development structure.
-
-#### Retrospection
-Vi har vært flinke til å se bakover på en sprint og reflektere rundt hva vi kunne gjort bedre, men vi kunne vært mye \
-flinkere til å sette klare mål for hva vi ønsker å få til før neste sprint. 
+### Møtereferater og Trello
+- Link til Møtereferater og Trello under:
+- [Møtereferater - Oblig 4](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/Deliverables/M%C3%B8tereferater%20oblig4.md)
+- [Trello Project Board](https://trello.com/b/Ar2twdkF/inf112)
 
 
-
-
-
-#### Grafikk
-
+#### Grafikk og inspirasjon
+- Grafiske elementer som tiles, power-ups, players og har alle blitt laget av oss i [Piskel](https://www.piskelapp.com/). Unntaket er skyene til bakgrunnen som er hentet fra [Pinterest](https://no.pinterest.com/pin/530369293614137336/)
+- Font er hentet fra en [database](https://somepx.itch.io/humble-fonts-free) med gratis fonter.
+- Lyder er hentet fra opengameart [Pakke 1](https://opengameart.org/content/5-chiptunes-action) & [Pakke 2](https://opengameart.org/content/512-sound-effects-8-bit-style). Lydeffektene er i pakkene som urlen kobler til. 
 
 
 # Deloppgave 2
 ### Stretch-goal
-Vi har et mål om å kunne spille Proggy Gonzales med to spillere på samme maskin. Når det spilles som multiplayer vil det da være en konkurranse mellom spillerne, der den som kommer fram til mål med nok penger først vinner spillet. Vi ser for oss å dele skjermen vertikalt, og at spillerne spiller på hver sin del av skjermen.
+Vi har i løpet av siste innlevering jobbet med to stretch goals:
+- Multiplayer
+    - Kunne løses på to forskjellige måter:
+    1. Når multiplayer blir valgt vil skjermen bli delt i to, og man spiller på hver sin del. Det vil da være en konkuranse mellom de to spillerene, og den som fullfører først, vinner.
+    2. Når multiplayer blir valgt vil det bli opprettet en til spiller i samme spillverden. Disse to spillerne skal da samarbeide om å klare levelet.
+
+        * Begge ideene hadde utfordringer og problemstillinger som måtte løses. Det var vanskelig å få skjermen til å deles i to, og få to spill til å bli opprettet siden alt fra start til slutt (språk-meny til highscore-side) skjer i samme klasse. Med to spillere i samme verden ble spørmålet om hvilken spiller skjermen skal følge en vanskeilg problemstilling. Ettersom å dele skjermen i to med konkurranse mellom de to spillerne ville føre til alt for stor endring i strukturen til koden endte vi opp med alternativ 2. De opptrer da på samme skjerm, og spillkameraet følger hovedpersonen Proggy. 
+
+- Highscore Database
+    * Vi har satt opp et system som lagrer highscore og kobler det sammen med et navn eller lagnavn som spiller legger inn. Det skiller ikke mellom single- eller multiplayer, men er en highscore-liste per level. Poengsum regnes ut fra antall coins plukket opp + antall sekunder igjen på timer. 
 
 ### MVP-krav
 
@@ -134,11 +145,16 @@ Som spiller vil jeg ha muligheten til å spille mot og med andre slik at det ogs
 
 **MVP-krav oppfylt** 
 
-Det vi har fokusert mest på siden forrige innleveringen er å gjøre det mulig å spille med to spillere, få fiendene til å bevege seg og interagere med terrenget, å få power-ups til å fungere som de skal og å lage en highscore-side som oppdateres hver gang man fullfører et level. Vi var litt usikre på hvordan vi ville at spillet skulle fungere med to spillere. Vi ble fort enige om at det skulle støtte to spillere på samme maskin. Det var to ideer vi sto mellom: 
+Det vi har fokusert mest på siden forrige innleveringen er å gjøre det mulig å spille med to spillere, få fiendene til å bevege seg og interagere med terrenget, å få power-ups til å fungere som de skal og å lage en highscore-side som oppdateres hver gang man fullfører et level. 
 
-- Når multiplayer blir valgt vil skjermen bli delt i to, og man spiller på hver sin del. Det vil da være en konkuranse mellom de to spillerene, og den som fullfører først, vinner.
-- Når multiplayer blir valgt vil det bli opprettet en til spiller i samme spillverden. Disse to spillerne skal da samarbeide om å klare levelet.
+Å få fiendene til å bevege seg og interagere med terrenget var også en utfordring. For å få skjermen til å følge spilleren har vi gjort det slik at spilleren alltid blir tegnet på samme koordinater, og at bakgrunnen beveger seg basert på tast-inputet fra brukeren. Dette gjorde det å få fiendene til å bevege seg fritt, uavhengig av spiller og med bakgrunnen, litt utfordrene. Power-upsene var noe enklere å implementere da de ble lagt til som tiles. Vi brukte collisionCheck til å holde styr på om spiller kolliderte med gjenstandene, og fra det hvilken tilstand spiller skulle være i. Å ha en highscore-side var en av våre stretch-goals, så vi er veldig fornøyd med at vi fikk til dette. Vi valgte å lage tre databaser som holder på highsocrene fra hver av nivåene. Databasene er txt-filer som blir skrevet om hver gang noen fullfører et level og får en poengscore som er blant topp fem. For å kunne skille highscorene valgte vi også å spørre brukeren om navn før hvert spill, slik at hver score blir lagret med penger samlet inn, tid brukt og navn. Det var også flere mindre detaljer som måtte forbedres i spillet, før vi var klare til å si oss ferdige. Vi la blant annet til mye grafikk og flere valg på menyen for å gjøre spillet enda mer intuitivt og estetisk. Vi lagde også tre spillbrett i tre ulike vanskelighetsgrader.
 
-Begge ideene hadde utfordringer og problemstillinger som måtte løses. Det var vanskelig å få skjermen til å deles i to, og få to spill til å bli opprettet siden alt fra start til slutt (språk-meny til highscore-side) skjer i samme klasse. Med to spillere i samme verden ble spørmålet om hvilken spiller skjermen skal følge en vanskeilg problemstilling. Etter litt fram og tilbake endte vi med å ha to spillere i samme verden der skjermen følger spiller 1. 
+# Deloppgave 3
 
-Å få fiendene til å bevege seg og interagere med terrenget var også en utfordring. For å få skjermen til å følge spilleren har vi gjort det slik at spilleren alltid blir tegnet på samme koordinater, og at bakgrunnen beveger seg basert på tast-inputet fra brukeren. Dette gjorde det å få fiendene til å bevege seg fritt, uavhengig av spiller og med bakgrunnen, litt utfordrene. Power-upsene var noe enklere å implementere da de ble lagt til som tiles. Vi brukte collisionCheck til å holde styr på om spiller kolliderte med gjenstandene, og fra det hvilken tilstand spiller skulle være i. Å ha en highscore-side var en av våre stretch-goals, så vi er veldig fornøyd med at vi fikk til dette. Vi valgte å lage tre databaser som holder på highsocrene fra hver av nivåene. Databasene er txt-filer som blir skrevet om hver gang noen fullfører et level og får en poengscore som er blant topp fem. For å kunne skille highscorene valgte vi også å spørre brukeren om navn før hvert spill, slik at hver score blir lagret med penger samlet inn, tid brukt og navn. Det var også flere mindre detaljer som måtte forbedres i spillet, før vi var klare til å si oss ferdige. Vi la blant annet til mye grafikk og flere valg på menyen for å gjøre spillet enda mer intuitivt og estetisk. Vi lagde også tre spillbrett i tre ulike vanskelighetsgrader. 
+### Utbedring av feil
+Siden forrige innlevering har dette blitt utbedret:
+- **Testkvalitet**: Med flere klasser og implementasjoner i spillet, deriblant en ny måte å fikse fiender på, har det blitt laget nye tester til disse, samt nye tester til tidligere ideer og klasser.
+- **MVP-Krav**: Det siste MVP kravet har blitt oppfylt, hvilket er at spillet nå støtter flere spillere samtidig. Alle MVP krav skal derfor være oppfylt.
+- **Andel av kode som brukes**: All kode er gått gjennom. Variabler og funksjoner som har vært repeterende eller stått ubrukt er ryddet bort og oppsett av kode er gjort mer oversiktlig og ryddig.
+- **Single Responsibility Principle**: Vi har siden siste innlevering jobbet med å få alle klasser og funksjoner til å kun ha ansvar for en del av spillet, og har da f.eks. laget en felles entity-klasse som blir brukt av både players og enemies. Det gjør at koden blir mer oversiktlig og sørger for at man ikke sitter igjen med duplikat/overflødig kode
+

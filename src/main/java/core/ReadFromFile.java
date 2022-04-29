@@ -13,7 +13,12 @@ public class ReadFromFile {
 		table = new Table();
 	}
 	
-	
+	/**
+	 * Reads the highscores from a file
+	 * @param fileName - to read from
+	 * @param i - number of lines to read
+	 */
+
 	public void readHighscore(String fileName, int i) {
 		BufferedReader reader;
 		table.clear();

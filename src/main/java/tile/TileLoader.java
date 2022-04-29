@@ -22,7 +22,11 @@ public class TileLoader {
 	int mapRows;
 	final private int rowNumber =20;
 	
-	
+	/**
+	 * Tile loader constructor
+	 * @param gp 
+	 * @param is - path of map
+	 */
 	public TileLoader(GamePanel gp, InputStream is) {
 		// lag variabler som tar utgangspunkt i input stream sin size
 		this.mapCols = 128;
@@ -66,7 +70,9 @@ public class TileLoader {
 		}
 	}
 	
-	
+	/**
+	 * Method to get images for each tile
+	 */
 	public void getTileImage() {
 		
 		try {
@@ -154,7 +160,11 @@ public class TileLoader {
 		
 	}
 	
-	
+	/**
+	 * Draw method for the map. Map is only drawn on screen around the player
+	 * @param g2
+	 * @param x
+	 */
 	public void draw(Graphics2D g2, int x) {
 		
 		int worldCol = 0; //x/gp.maxWorldCol;

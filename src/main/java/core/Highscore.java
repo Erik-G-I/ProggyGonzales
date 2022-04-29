@@ -34,6 +34,12 @@ public class Highscore {
 		return score;
 	}
 	
+	/**
+	 * Compares the given score i to the highscores i the highscore table
+	 * Overwrites the corresponding highscore file if a new highscore is achieved
+	 * @param fileName - 
+	 * @param i - score
+	 */
 	private void compareScores(String fileName, int i) {
 		Table hsTable = gp.highscores;
 		LinkedList<Integer> hsScores = hsTable.getScores();
@@ -51,6 +57,10 @@ public class Highscore {
 		gp.highscores = hsTable;
 	}
 	
+	/**
+	 * Method to check if highscore should be updated with a the score from the current game
+	 * @param fileName
+	 */
 	public void updateHighscore(String fileName) {
 		int currentScore = calculateScore();
 		compareScores(fileName, currentScore);

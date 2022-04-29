@@ -7,7 +7,11 @@ public class Table {
 	private LinkedList<String> names;
 	private LinkedList<Integer> scores;
 	
-	
+	/**
+	 * Table construct
+	 * creates a new table object
+	 * Table stores two lists
+	 */
 	public Table() {
 		names = new LinkedList<String>();
 		scores = new LinkedList<Integer>();
@@ -46,6 +50,10 @@ public class Table {
 		return names.get(index);
 	}
 	
+	/**
+	 * Getter for name-list
+	 * @return list of names
+	 */
 	public LinkedList<String> getNames(){
 		return names;
 	}
@@ -60,15 +68,26 @@ public class Table {
 		return scores.get(index);
 	}
 	
+	/**
+	 * getter for score-list
+	 * @return list of scores
+	 */
 	public LinkedList<Integer> getScores(){
 		return scores;
 	}
 	
+	/**
+	 * removes the last element i the table
+	 * removes from both name and score list
+	 */
 	public void removeLast() {
 		names.removeLast();
 		scores.removeLast();
 	}
 	
+	/**
+	 * erases entire table
+	 */
 	public void clear() {
 		names.clear();
 		scores.clear();

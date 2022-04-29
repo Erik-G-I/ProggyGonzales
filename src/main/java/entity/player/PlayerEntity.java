@@ -7,7 +7,10 @@ import entity.Entity;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-
+/**
+ * Abstract super class for the two players
+ * Inherits from Entity
+ */
 public abstract class PlayerEntity extends Entity {
 
     public PlayerState playerState;
@@ -20,7 +23,6 @@ public abstract class PlayerEntity extends Entity {
 
     public CollisionCheck collisionChecker;
 
-    //brukes til å skape animasjon på spiller og fiender
     public int spriteCounter = 0;
     public int spriteNum = 1;
 
@@ -28,6 +30,9 @@ public abstract class PlayerEntity extends Entity {
         super(gp);
     }
 
+    /**
+     * Set the default values for the players
+     */
     public void setDefaultValues() {
         worldY = 512;
         speed = 5;
@@ -38,12 +43,17 @@ public abstract class PlayerEntity extends Entity {
         gravity = weight;
     }
 
+    /**
+     * Set gravity
+     * @param gravity the gravity to be set
+     */
     public void setGravity(int gravity) {
         this.gravity = gravity;
     }
 
-    public abstract void draw(Graphics2D g2);
-
+    /**
+     * Method that updates sprite number to make it look like player is walking
+     */
     protected void updateSprite() {
         // Updates picture that is used for player
         spriteCounter++;
@@ -58,6 +68,11 @@ public abstract class PlayerEntity extends Entity {
         }
     }
 
+    /**
+     * Method to make player jump
+     * Jumping image is based in what direction player previously had
+     * If player hits his head, he will fall
+     */
     protected void jump() {
         //jump is initialized and depending on the previous direction we need different image sprites
         if(previousDirection == "right") {
@@ -95,6 +110,24 @@ public abstract class PlayerEntity extends Entity {
         }
     }
 
+    /**
+     * Method to set the speed on player for the different power-ups
+     */
+    protected void PowerUp() {
+        if (playerState == PlayerState.VOI) {
+            speed=7;
+        }
+        if (playerState == PlayerState.FASTER) {
+            speed=7;
+        }
+        if(playerState == PlayerState.NORMAL) {
+            speed = 5;
+        }
+        if(playerState == PlayerState.INVISIBLE) {
+            speed = 5;
+        }
+    }
+
     @Override
     public void fall() {
         String originalDir = direction;
@@ -117,6 +150,10 @@ public abstract class PlayerEntity extends Entity {
         }
     }
 
+    /**
+     * Method that chooses which image is to be drawn based on sprite number
+     * @return the image to be drawn
+     */
     protected BufferedImage choseSprite() {
         BufferedImage image = null;
         switch(direction) {

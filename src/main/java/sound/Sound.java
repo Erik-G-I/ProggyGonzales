@@ -6,11 +6,21 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+/**
+ * Sound class
+ * 
+ * Class for playing audio
+ *
+ */
 public class Sound {
 
 	Clip clip;
 	URL soundURL[] = new URL[12];
 	
+	/**
+	 * Sets the audio file
+	 * @param i
+	 */
 	public Sound() {
 		soundURL[0] = getClass().getResource("/audio/menuSelectionClick.wav");
 		soundURL[1] = getClass().getResource("/audio/sfx_coin_single6.wav");
@@ -26,6 +36,10 @@ public class Sound {
 		soundURL[11] = getClass().getResource("/audio/juhani_junkala_game_over.wav");
 	}
 	
+	/**
+	 * Sets the audio file
+	 * @param i
+	 */
 	public void setFile(int i) {
 		try {
 			
@@ -39,14 +53,23 @@ public class Sound {
 		
 	}
 	
+	/**
+	 * Starts audio file
+	 */
 	public void play() {
 		clip.start();
 	}
 	
+	/**
+	 * Loops audio file continuously
+	 */
 	public void loop() {
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 	
+	/**
+	 * Stops the audio file
+	 */
 	public void stop() {
 		clip.stop();
 		
