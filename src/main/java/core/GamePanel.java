@@ -97,6 +97,7 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Timer
     private TimerDisplay timerDisplay = new TimerDisplay(this);
+    
     public TimerDisplay getTimerDisplay() {
     	return timerDisplay;
     }
@@ -320,8 +321,6 @@ public class GamePanel extends JPanel implements Runnable{
             
         }
     }
-    
-    
     
 	public void update() {
         bg.update();
