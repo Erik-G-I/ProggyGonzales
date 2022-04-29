@@ -57,7 +57,7 @@ public class GamePanel extends JPanel implements Runnable{
     public CollisionCheck collisionChecker1;
     public CollisionCheck collisionChecker2;
 
-    KeyHandler keyH = new KeyHandler(this);
+    private KeyHandler keyH = new KeyHandler(this);
     public Player1 player1;
     public Player2 player2;
     public EntityEnemy unicef[];
@@ -148,6 +148,7 @@ public class GamePanel extends JPanel implements Runnable{
     public LanguageScreen lS;
     public WinScreen2 wS2;
     private WinScreen wS;
+    private AfterLevels aL;
     
     public void setGame() {
     	
@@ -171,11 +172,11 @@ public class GamePanel extends JPanel implements Runnable{
     	levels = new LevelsMenu(this);
     	wS = new WinScreen(this);
     	wS2 = new WinScreen2(this);
+    	aL = new AfterLevels(this);
         multiMenu = new MultiplayerMenu(this);
         collisionChecker1 = player1.collisionChecker;
         collisionChecker2 = player2.collisionChecker;
         eSetter.setUnicef();
-        multiGame = false;
         coins = 0;
     }
 
@@ -193,6 +194,7 @@ public class GamePanel extends JPanel implements Runnable{
     	//loader mappet fra en tekstfil
     	loader =  new TileLoader(this, is);
         setGame();
+        multiGame = false;
     }
     
     
@@ -286,6 +288,10 @@ public class GamePanel extends JPanel implements Runnable{
     
 	public void resetLoader() {
     	loader =  new TileLoader(this, is);
+	}
+	
+	public KeyHandler getKeyH() {
+		return this.keyH;
 	}
     
     
@@ -407,6 +413,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if (gameState == GameState.LEVELS_MENU) {
         	levels.draw(g2);
+        }
+        else if (gameState == GameState.AFTER_LEVELS) {
+        	aL.draw(g2);
         }
         else if (gameState == GameState.WIN_SCREEN) {
         	wS.draw(g2);
