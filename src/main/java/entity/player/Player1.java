@@ -11,6 +11,10 @@ import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
 
+/**
+ * Class for player 1
+ * Inherits from PLayerEntity
+ */
 public class Player1 extends PlayerEntity {
 
     KeyHandler keyH;
@@ -169,17 +173,17 @@ public class Player1 extends PlayerEntity {
         }
     }
 
-    // jump function that makes proggy collide also when jumping	
+    /**
+     * Jump method for player 1
+     */
     public void jumpP1() {
-        // Proggy needs to be on the ground while button is pressed in order to jump
-    	if(keyH.upPressed1 == true || (jumpStrength <= 0 && !onGround)) {
-    	    super.jump();
-    	}
+        if(keyH.upPressed1 == true || (jumpStrength <= 0 && !onGround)) {
+            super.jump();
+        }
     }
-    
 
     /**
-     * Method to allow movement in the air
+     * Method to make it possible for player 1 to move left or right while in the air
      */
     private void moveWhileJumping () {
     	String originalDir = previousDirection;

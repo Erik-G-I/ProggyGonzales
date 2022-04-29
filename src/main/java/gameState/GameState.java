@@ -1,5 +1,8 @@
 package gameState;
 
+/**
+ * Enum for the different game states and game screens
+ */
 public enum GameState {
 
 	LANGUAGE_MENU,

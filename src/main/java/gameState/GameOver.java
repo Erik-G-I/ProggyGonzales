@@ -15,7 +15,11 @@ public class GameOver extends GameScreen {
 		this.gp = gp;
 		widthOfScreen = gp.screenWidth;
 	}
-	
+
+	/**
+	 * Method that calls on methods from gamePanel to check if
+	 * the time has run out or one of the players is out of bounds
+	 */
 	public void update() {
 		isGameOver = gp.getGameOver();
 		isOutOfBounds = gp.getOutOfBounds();
@@ -84,16 +88,27 @@ public class GameOver extends GameScreen {
 			}
 		}
 	}
-	
+
+	/**
+	 * @return true if time has run out
+	 */
 	public boolean gameOver() {
 		return isGameOver;
 	}
-	
+
+	/**
+	 * @return true if one of the players is out of bounds
+	 */
 	public boolean gameOverBounds() {
 		return isOutOfBounds;
 	}
-	
+
+	/**
+	 * Turns off game over music
+	 * Is used when player choses to play again after game over
+	 */
 	public void restart() {
 		gameOverMusic = false;
 	}
+
 }
