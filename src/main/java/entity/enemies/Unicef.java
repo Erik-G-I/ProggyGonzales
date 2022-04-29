@@ -30,6 +30,7 @@ public class Unicef extends EntityEnemy{
 	        }
 	}
 
+    
     /**
      * Makes enemies walk. By using Random, the player can't know for sure where the enemies next move is
      */
@@ -53,7 +54,6 @@ public class Unicef extends EntityEnemy{
 				if(onGround = false) {
 					direction = "down";
 				}
-			
 				movementCount = 0;
 			}
 		}
