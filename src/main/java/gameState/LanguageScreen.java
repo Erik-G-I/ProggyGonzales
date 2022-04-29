@@ -24,7 +24,10 @@ public class LanguageScreen extends GameScreen {
 		}
 		
 	}
-	
+
+	/**
+	 * Method to draw animation on the language screen
+	 */
 	public void update() {
 		x += 2;
 		if (x == gp.tileSize*3) {
