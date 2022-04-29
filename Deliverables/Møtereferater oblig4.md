@@ -80,6 +80,15 @@ Chantal viser bakgrunnen til mapsene. Hannah er snart klar til å merge multipla
 
 --- 
 
+## Fredag 29. April 09.00
+#### Til stede: Alle
+Agenda:
+- Merge multiplayer og hindre konflikter
+- Merge bakgrunn
+- Ferdigstille gjenværende oppgaver
+- Levere!
+
+Det har vært en del konflikter knyttet til merging av Multiplayer siden det er en stor endring. Vi jobber sammen for å sørge for at spillerne oppdaterer seg som normalt med alle andre endringer som er gjort siden vi startet å se på multiplayer. 
 
 
 
