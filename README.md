@@ -50,13 +50,37 @@ For å kjøre programmet må du gjøre følgende:
 Skulle det oppstå problemer kan det hjelpe å legge til resource mappen som en source folder, hvis den ikke allerede er gjenkjent som en source.
 
 ## Teste
-For å teste at koden kjører som den skal må du gjøre følgende:
+**Manuelle Tester**
 
+Teste at spillet kan spilles, tid og penger vises når spillet er i gang:
 1. Åpne prosjektet i foretrukket IDE
-2. Naviger deg til src/test. Her ligger alle testene fordelt i **_3_** directories og totalt **_6_** klasser
+2. Naviger deg til src/main/java/core. Her ligger main-klassen vår.
+3. Høyreklikk på klassen, og velg "run Main.main()", koden skal da begynne å kjøre og du vil få en språkmeny på skjermen din.
+4. Velg et av språkene ved å trykke enter. Du vil da komme til spillets meny.
+5. Velg "Start spillet"/"Play game" ved å trykke enter for å starte spillet. Du vil da få et valg mellom å spille med en eller to spillere.
+6. Velg enten en eller to spiller, avhengig av hvor mange som skal spille, ved å trykke enter. Du vil da få et valg mellom tre nivåer å spille, lett, middels og vanskelig. 
+7. Velg det nivået du vil spille ved å trykke enter. Du vil først se en animasjon av Proggy som går ut av realfagsbygget.
+8. Trykk enter eller vent til animasjonen er over for å starte spillet. Spillet er da i gang, og du skal kunne se deg selv, en oversikt over penger samlet inn som viser 0, og en tid som teller ned fra 2:59. 
+
+Teste at game-over-skjerm vises når tiden er ute
+1. La tiden renne ut etter at spillet er i gang. Det vil da dukke opp en skjerm som viser "Game Over", og du vil få et valg mellom å prøve på nytt eller gå tilbake til menyen.
+
+Teste at spillet startes på nytt når "yes"/"ja" er valgt på game-over-skjerm:
+1. Velg "yes"/"ja" etter at du har tapt spillet og er på game-over-skjermen. Spillet skal da starte på nytt, og spiller skal vises på sin startposisjon igjen.
+
+Teste at meny blir vist når "no"/"nei" er valgt på game-over-skjerm:
+1. Velg "nei"/"no" etter at du har tapt spillet og er på game-over-skjermen. Menyen skal da dukke opp på skjermen.
+
+Vi har manuelt testet at grafikken vises korrekt og at alle UI-elementene vises der de skal, vi har også prøvet oss frem til en hoppmetode som føles naturlig og god å spille med.
 
 De automatiske testene dekker de aller mest elementære funksjonene.
 Vi har selv testet hele spillet manuelt for bugs, og for funksjoner som ikke like lett kan testes automatisk.
+
+**Automatiske tester**
+For å teste at koden kjører som den skal må du gjøre følgende:
+
+1. Åpne prosjektet i foretrukket IDE
+2. Naviger deg til src/test. Her ligger alle testene fordelt i **_3_** directories og totalt **_8_** klasser
 
 De automatiske testene dekker:
 - Enemy kan:
@@ -75,8 +99,6 @@ De automatiske testene dekker:
 - Score kan:
 	* øke/minke	
 - GameOver vises når spiller faller i vannet
-
-Vi har manuelt testet at grafikken vises korrekt og at alle UI-elementene vises der de skal, vi har også prøvet oss frem til en hoppmetode som føles naturlig og god å spille med.
 
 
 
