@@ -34,12 +34,12 @@ public class MultiplayerMenu extends GameScreen {
         if (gp.getLang() == Languages.NORWEGIAN) {
             oneP = "En spiller";
             twoP = "To spillere";
-            esc = "ESC - Tilbake til nivåmeny";
+            esc = "ESC - Tilbake til hovedmeny";
         }
         else {
             oneP = "One player";
             twoP = "Two players";
-            esc = "ESC - Back to levels menu";
+            esc = "ESC - Back to main";
         }
         
         if (gp.multiMenu.cmd == 0) {
