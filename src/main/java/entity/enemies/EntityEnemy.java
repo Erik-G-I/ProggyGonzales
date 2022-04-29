@@ -7,6 +7,10 @@ import entity.Entity;
 
 import java.awt.Graphics2D;
 
+/**
+ * Abstract superclass for the moving enemies
+ * Inherits from Entity
+ */
 public abstract class EntityEnemy extends Entity {
     
     protected BufferedImage unicefLeft, unicefRight;
@@ -17,8 +21,15 @@ public abstract class EntityEnemy extends Entity {
 		weight = 8;
 	}
 
+	/**
+	 * Method to make the enemies move by themselves
+	 */
 	public abstract void setAction();
 
+	/**
+	 * Uses the setAction from Unicef to get the enemies to move 
+	 * Uses collisionChecker so enemy cant go through tiles
+	 */
 	@Override
 	public void update() {
 		setAction();

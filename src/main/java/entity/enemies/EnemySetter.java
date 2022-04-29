@@ -11,7 +11,9 @@ public class EnemySetter {
 		this.gp = gp;
 	}
 	
-	
+	/**
+	 * Places out unicef-enemies for each map
+	 */
 	public void setUnicef() {
 		String map = gp.getMapPath();
 		

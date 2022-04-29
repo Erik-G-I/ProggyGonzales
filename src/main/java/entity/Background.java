@@ -8,6 +8,9 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import core.GamePanel;
 
+/**
+ * Class for the moving background
+ */
 public class Background{
 
     private GamePanel gp;
@@ -28,7 +31,6 @@ public class Background{
   
     }
 
-
     public void getImage() {
 
         try {
@@ -47,6 +49,9 @@ public class Background{
         }
     }
 
+    /**
+     * Updates where the screen is drawn based on player 1
+     */
     public void update() {
         mapNum = gp.getKeyH().getMapNum();
     	
@@ -63,6 +68,10 @@ public class Background{
         }
     }
 
+    /**
+     * Method to draw the screen
+     * @param g2 graphics
+     */
     public void draw(Graphics2D g2) {
     		
     		int worldCol = 0;
