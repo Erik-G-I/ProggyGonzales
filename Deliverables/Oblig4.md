@@ -156,3 +156,7 @@ Siden forrige innlevering har dette blitt utbedret:
 - **Andel av kode som brukes**: All kode er gått gjennom. Variabler og funksjoner som har vært repeterende eller stått ubrukt er ryddet bort og oppsett av kode er gjort mer oversiktlig og ryddig.
 - **Single Responsibility Principle**: Vi har siden siste innlevering jobbet med å få alle klasser og funksjoner til å kun ha ansvar for en del av spillet, og har da f.eks. laget en felles entity-klasse som blir brukt av både players og enemies. Det gjør at koden blir mer oversiktlig og sørger for at man ikke sitter igjen med duplikat/overflødig kode
 
+Trykk for lenke til: 
+- [Klassediagram](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/Deliverables/Bilder/ProggyGonzalesFerdig.drawio.png)
+- [README](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/README.md)
+    * I README finnes både generell info om spillet, hvordan kjøre det, samt hvordan kjøre automtiske og manuelle tester
