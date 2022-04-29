@@ -310,7 +310,7 @@ public class KeyHandler implements KeyListener{
 			if (e.getKeyChar() == 'd')
 				rightPressed2 = true;
             
-            if (!(gp.getGameOver() || !gp.getOutOfBounds()) && code == KeyEvent.VK_ESCAPE) {
+            if (!(gp.getGameOver() || gp.getOutOfBounds()) && code == KeyEvent.VK_ESCAPE) {
             	gp.gameState = GameState.PAUSED_GAME;
             }
         }
