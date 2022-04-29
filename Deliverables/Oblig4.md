@@ -73,7 +73,7 @@ passet vi på at alle alltid hadde noe å gjøre, samt at progresjonen kunne ove
 
 ### Retroperspektiv
 Sett i retroperspektiv er det et par ting vi sitter igjen med som vi skulle ønske vi visste da vi startet prosjektet:
-1. Vi skulle ønske vi tidligere jobbet hyppigere med parprogrammering. Parprogrammering opplevde vi som velig positivt av flere grunner:
+1. Vi skulle ønske vi tidligere jobbet hyppigere med parprogrammering. Parprogrammering opplevde vi som veldig positivt av flere grunner:
     * Arbeidet med komplekse problemer gikk raskere. 
     * Det er lettere å tenke på flere løsninger rundt komplekse problemstillinger når man kan bygge på andres innspill.
     * Det er sosialt og skapte dermed sterkere samhold
