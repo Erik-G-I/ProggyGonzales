@@ -56,8 +56,7 @@ public class TimerDisplay extends DisplayText{
 	public void startPowerUpTimerTrue() {
 		time.setStartPowerUpTimer(true);
 	}
-	
-	
+
 	public String timeLeft() {
 		return showTime;
 	}

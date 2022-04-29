@@ -2,7 +2,6 @@ package tileTest;
 
 import core.GamePanel;
 import core.KeyHandler;
-import entity.Player;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import tile.TileLoader;
@@ -34,12 +33,12 @@ public class LoaderTest {
     public void testPlayerCannotGoThroughTile() {
         KeyHandler keyH = new KeyHandler(gp);
     
-        int startPos = gp.player.worldY;
-        keyH.upPressed = true;
-        gp.player.update();
-        gp.player.jump();
+        int startPos = gp.player1.worldY;
+        keyH.upPressed1 = true;
+        gp.player1.update();
+        gp.player1.jumpP1();
 
-        assertFalse(gp.player.worldY < (startPos-gp.tileSize), "Proggy should not be able to go through tiles");
+        assertFalse(gp.player1.worldY < (startPos-gp.tileSize), "Proggy should not be able to go through tiles");
     }
 }
 

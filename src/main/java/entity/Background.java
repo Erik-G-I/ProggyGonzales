@@ -8,11 +8,14 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import core.GamePanel;
 
-public class Background extends Entity {
+public class Background {
 
     GamePanel gp;
     KeyHandler keyH;
     BufferedImage realfag, bakgrunn;
+    int x, y;
+    int speed;
+    String direction;
 
     public Background(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -23,8 +26,8 @@ public class Background extends Entity {
     }
 
     public void setDefaultValues() {
-    	worldX = 0;
-    	worldY = 515;
+        x = 0;
+        y = 515;
         speed = 3;
         direction = "down";
     }
@@ -32,7 +35,7 @@ public class Background extends Entity {
     public void getImage() {
 
         try {
-        	realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbygget åpen.png"));
+            realfag = ImageIO.read(getClass().getResourceAsStream("/graphics/realfagbygget åpen.png"));
 
         }catch(IOException e) {
             e.printStackTrace();
@@ -40,45 +43,39 @@ public class Background extends Entity {
     }
 
     public void update() {
-        if (keyH.leftPressed == true || keyH.rightPressed == true) {
+        if (keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
 
-            if (keyH.leftPressed == true) {
+            if (keyH.leftPressed1 == true) {
                 direction = "left";
-                worldX += speed;
-            } else if (keyH.rightPressed == true) {
+                x += speed;
+            } else if (keyH.rightPressed1 == true) {
                 direction = "right";
-                worldX -= speed;
+                x -= speed;
             }
 
         }
     }
 
     public void draw(Graphics2D g2) {
-    		
-    		int worldCol = 0;
-    		int worldRow = 0;
-    		
-    		if(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
-    			
-    			int worldX = worldCol * gp.tileSize;
-    			int worldY = worldRow * gp.tileSize;
-    			int screenX = worldX - gp.player.worldX + gp.player.playerX + 63;
-    			int screenY = worldY - gp.player.worldY + gp.player.playerY;
-    			
-    			g2.drawImage(realfag, screenX, screenY, 600, 800, null);
-    			screenX += 750;
 
-    			while(worldCol < gp.maxWorldRow) {
-        			screenX += 1050;
-        			worldCol ++;
-        			
-    			}
-    			
-    			
-    			
-    		}
-    		
-    	}
-    
+        int worldCol = 0;
+        int worldRow = 0;
 
+        if(worldCol < gp.maxWorldCol && worldRow < gp.maxWorldRow) {
+
+            int worldX = worldCol * gp.tileSize;
+            int worldY = worldRow * gp.tileSize;
+            int screenX = worldX - gp.player1.worldX + gp.player1.playerX + 63;
+            int screenY = worldY - gp.player1.worldY + gp.player1.playerY;
+
+            g2.drawImage(realfag, screenX, screenY, 600, 800, null);
+            screenX += 750;
+
+            while(worldCol < gp.maxWorldRow) {
+                screenX += 1050;
+                worldCol ++;
+
+            }
+        }
+    }
 }
