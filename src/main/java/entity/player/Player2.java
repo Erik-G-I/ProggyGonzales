@@ -73,21 +73,6 @@ public class Player2 extends PlayerEntity {
         }
     }
 
-    private void PowerUp() {
-        if (playerState == PlayerState.VOI) {
-            speed=7;
-        }
-        if (playerState == PlayerState.FASTER) {
-            speed=7;
-        }
-        if(playerState == PlayerState.NORMAL) {
-            speed = 5;
-        }
-        if(playerState == PlayerState.INVISIBLE) {
-            speed = 5;
-        }
-    }
-
     // jump function that makes proggy collide also when jumping
     public void jumpP2() {
         // Proggy needs to be on the ground while button is pressed in order to jump
