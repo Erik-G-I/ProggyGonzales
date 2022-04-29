@@ -66,7 +66,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EnemySetter eSetter = new EnemySetter(this);
 
     //Player Name
-    String playerName;
+    private String playerName;
 
     //audio
     private Sound music = new Sound();
@@ -236,10 +236,10 @@ public class GamePanel extends JPanel implements Runnable{
     /**
      * Sets player name in Player and can be recieved from GamePanel
      */
-    public void setPlayerName() {
+    public void setPlayerName(String text) {
         String name = null;
         while (!isValidName(name)) {
-            name = JOptionPane.showInputDialog("Type in your name");
+            name = JOptionPane.showInputDialog(text);
             this.playerName = name;
         }
     }
