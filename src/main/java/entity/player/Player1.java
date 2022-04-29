@@ -17,6 +17,7 @@ public class Player1 extends PlayerEntity {
     String playerName;
     public int playerX, playerY;
     
+    
     public Player1(GamePanel gp, KeyHandler keyH) {
         super(gp);
         this.keyH = keyH;
@@ -191,34 +192,10 @@ public class Player1 extends PlayerEntity {
     	}
     }
     
-/*
-    public void fall() {
-    	String originalDir = direction;
-    	direction = "down";
-    	collisionChecker.checkCollisionOnTile();
-    	if(colliding == false || onGround == false) {
-    		onGround = false;
-    		direction = originalDir;
-    		worldY += gravity;
-    		
-    		if(gravity < 18) {
-    			gravity += 1; 
-    		}
-    		
-    		
-    	}
-    	else {
-    		onGround = true;
-    		jumpStrength = 0;
-    		worldY = ((worldY + speed)/gp.tileSize) *gp.tileSize;
-    		direction = originalDir;
-    		gravity = weight;
-    		
-    	}
-    }
 
- */
-    
+    /**
+     * Method to allow movement in the air
+     */
     private void moveWhileJumping () {
     	String originalDir = previousDirection;
     	int moveInAir = 0;

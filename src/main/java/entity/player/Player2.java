@@ -96,6 +96,9 @@ public class Player2 extends PlayerEntity {
         }
     }
 
+    /**
+     * Method to allow movement in the air
+     */
     private void moveWhileJumping () {
         String originalDir = previousDirection;
         int moveInAir = 0;

@@ -15,6 +15,7 @@ public class WriteToFile {
 		
 	}
 	/**
+	 * Writes to the end of the spesified file
 	 * @param fileName - Name of file to write to, ex. "example.txt"
 	 * @param text - What to write in the file
 	 */
@@ -33,6 +34,11 @@ public class WriteToFile {
 		}
 	}
 	
+	/**
+	 * Used to rewrite the highscore file when a new highscore is achieved
+	 * @param fileName
+	 * @param table
+	 */
 	public void overWriteFile(String fileName, Table table) {
 		try {
 			fw = new FileWriter(new File(this.getClass().getResource("/highscoreDB/"+fileName).getPath()), false);

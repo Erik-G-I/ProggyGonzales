@@ -185,7 +185,6 @@ public class GamePanel extends JPanel implements Runnable{
     	//setter mappet som skal spilles
     	setMap(mapPath);
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
-        //this.setBackground(Color.DARK_GRAY);
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);

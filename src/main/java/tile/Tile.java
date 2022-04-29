@@ -5,6 +5,12 @@ import java.awt.image.BufferedImage;
 
 import core.GamePanel;
 
+/**
+ * Tile class
+ * Stores x and y values for a tile,
+ * as well as a buffered image
+ *
+ */
 public class Tile {
 
 	GamePanel gp;
