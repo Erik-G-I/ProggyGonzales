@@ -22,9 +22,11 @@ public class LanguageScreen extends GameScreen {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
 	}
-	
+
+	/**
+	 * Method to draw animation on the language screen
+	 */
 	public void update() {
 		x += 2;
 		if (x == gp.tileSize*3) {

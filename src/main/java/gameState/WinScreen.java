@@ -9,7 +9,6 @@ import core.GamePanel;
 
 public class WinScreen extends GameScreen{
 
-	GamePanel gp;
 	Image image;
 	
 	public WinScreen(GamePanel gp) {

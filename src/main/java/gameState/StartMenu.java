@@ -10,9 +10,8 @@ import javax.imageio.ImageIO;
 import core.GamePanel;
 
 public class StartMenu extends GameScreen {
-	
+
 	BufferedImage img;
-	int y = 0;
 
     public StartMenu(GamePanel gp) {
         this.gp = gp;
@@ -21,7 +20,6 @@ public class StartMenu extends GameScreen {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
     }
     
     @Override

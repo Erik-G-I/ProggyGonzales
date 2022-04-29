@@ -7,13 +7,9 @@ import core.GamePanel;
 
 
 public class WinScreen2 extends GameScreen{
-	
-	GamePanel gp;
-	
-	
+
 	public WinScreen2(GamePanel gp) {
 		this.gp = gp;
-		
 	}
 
 	@Override
