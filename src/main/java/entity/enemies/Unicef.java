@@ -22,15 +22,13 @@ public class Unicef extends EntityEnemy{
 	public void getImage() {
 	        
 	        try {
-	        	unicefRight = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left1.png"));
-	        	unicefLeft = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left2.png"));
+	        	unicefPic = ImageIO.read(getClass().getResourceAsStream("/enemies/Unicef_left2.png"));
 
 	        }catch(IOException e) {
 	            e.printStackTrace();
 	        }
 	}
 
-    
     /**
      * Makes enemies walk. By using Random, the player can't know for sure where the enemies next move is
      */

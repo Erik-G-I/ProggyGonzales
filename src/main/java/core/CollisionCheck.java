@@ -74,9 +74,8 @@ public class CollisionCheck {
     }
   
     /**
-     *
-     * @param enemy
      * Enemy-unicef collission
+     * @param enemy
      */
   
     public void unicefLooseMoney(EntityEnemy[] enemy) {
@@ -110,7 +109,7 @@ public class CollisionCheck {
                     player.gp.coins -= loosingMoney;
                 }
             }
-            else if (player.gp.coins>0 && player.gp.coins < loosingMoney) {
+            else if (player.gp.coins > 0 && player.gp.coins < loosingMoney) {
                 if (player.gp.loader.tiles[cornerOne] == player.gp.loader.tiles[9]) {
                     player.gp.loader.numOfTiles[x1][y1] = 10;
                     player.gp.coins = 0;

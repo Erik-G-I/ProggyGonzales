@@ -13,7 +13,7 @@ import java.awt.Graphics2D;
  */
 public abstract class EntityEnemy extends Entity {
     
-    protected BufferedImage unicefLeft, unicefRight;
+    protected BufferedImage unicefPic;
     public int movementCount = 0;
 
 	public EntityEnemy(GamePanel gp) {
@@ -78,7 +78,7 @@ public abstract class EntityEnemy extends Entity {
     @Override
     public void draw(Graphics2D g2) {
 		
-    	BufferedImage image = unicefLeft;
+    	BufferedImage image = unicefPic;
 
     	int screenX = worldX - gp.player1.worldX + gp.player1.playerX;
 		int screenY = worldY - gp.player1.worldY + gp.player1.playerY ;
@@ -93,6 +93,5 @@ public abstract class EntityEnemy extends Entity {
 		}
     }
 
-	
 }
 

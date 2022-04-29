@@ -23,7 +23,6 @@ public class UserInterfaceTest {
 	@Test
 	public void timerDrawn() {
 		// start game --> check that timer method is called
-		
 	}
 	
 	@Test

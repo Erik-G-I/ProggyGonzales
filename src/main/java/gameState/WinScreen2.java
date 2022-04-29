@@ -23,7 +23,6 @@ public class WinScreen2 extends GameScreen{
 		String coins = Integer.toString(gp.coins);
 		String time = gp.getTimerDisplay().timeLeft();
 		String seconds = Integer.toString(gp.highscores.getScore(0)-gp.collisionChecker1.getCoins());
-
 		
 		if (gp.getLang() == Languages.NORWEGIAN) {
 			s2 = "Du plukket opp "+coins+" kr og hadde "+time+" igjen!";
