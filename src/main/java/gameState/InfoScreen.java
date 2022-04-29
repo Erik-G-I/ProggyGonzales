@@ -59,8 +59,8 @@ public class InfoScreen extends GameScreen {
             line9 = "derfor holde seg unna de om han skal ha råd til øl.";
             line10 = "For å gjøre oppdraget lettere, finnes det flere ulike powerups i Bergen. Hver powerup har";
             line11 = "en tidsgrense på 10 sekunder. Det finnes sparkesykler som øker Proggys hastighet. Det";
-            line12 = "koster 15kr å kjøre en sparkesykkel, så han må passe på at han har nok";
-            line13 = "penger igjen til å kjøpe øl etterpå. En annen måte Proggy kan øke hastigheten sin på er";
+            line12 = "koster 5kr fastpris + 1kr per sekund å kjøre en sparkesykkel, så han må passe på at han har";
+            line13 = "nok penger igjen til å kjøpe øl etterpå. En annen måte Proggy kan øke hastigheten sin på er";
             line14 = "ved å ta på seg gullsko. De er noe vanskeligere å finne, men koster ingenting å bruke!";
             line15 = "Det er også noen masker som ligger rundt om i gatene. Når Proggy tar på en slik maske,";
             line16 = "blir han usynlig for uteliggere og Unicef-arbeidere, så han kan gå rett forbi dem uten å";
@@ -80,12 +80,12 @@ public class InfoScreen extends GameScreen {
         	line9 = "say no when they ask him, so he has to avoid them if he's going to afford any beer.";
         	line10 = "To make things easier, there are luckily several power ups to be found in Bergen. Each";
         	line11 = "power up has a time limit of 10 seconds. There are scooters that boosts Proggy's speed";
-            line12 = "and helps him save time. It costs 15kr to ride, so he has to make sure he has enough";
-            line13 = "money to buy beer afterwards. Another way Proggy can boost his speed is by putting on";
-            line14 = "gold shoes. They are a little bit harder to find, but won't cost Proggy anything to";
-            line15 = "pick up! There are also a few masks lying on the street. When put on, Proggy becomes";
-            line16 = "invisible for charity workers and beggars, so he can walk right past them without";
-            line17 = "loosing any money!";
+            line12 = "and helps him save time. It costs 5kr to start a ride + 1 coin per second, so he has to";
+            line13 = "make sure he has enough money to buy beer afterwards. Another way Proggy can boost his";
+            line14 = "speed is by putting on gold shoes. They are a little bit harder to find, but won't cost";
+            line15 = "Proggy anything to pick up! There are also a few masks lying on the street. When put on,";
+            line16 = "Proggy becomes invisible for charity workers and homeless, so he can walk right past them";
+            line17 = "without loosing any money!";
 
         }
 
