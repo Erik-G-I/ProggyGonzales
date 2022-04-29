@@ -6,10 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import core.GamePanel;
 import core.KeyHandler;
-import entity.Player;
-import tile.TileLoader;
-
-import java.io.InputStream;
+import entity.player.Player1;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,20 +14,20 @@ public class PlayerMovementTest {
 
 	GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
-	Player p;
+	Player1 p;
 	int startPos;
 	Score score;
 
 	@BeforeEach
 	void beforeEach() {
-		this.p = new Player(gp, keyH);
+		this.p = new Player1(gp, keyH);
 		p.setDefaultValues();
 	}
 
 	@Test
 	public void testMoveRigtht() {
 		startPos = p.worldX;
-		keyH.rightPressed = true;
+		keyH.rightPressed1 = true;
 		p.update();
 
 		assertEquals(startPos+p.speed, p.worldX);
@@ -40,7 +37,7 @@ public class PlayerMovementTest {
 	@Test
 	public void testMoveLeft() {
 		startPos = p.worldX;
-		keyH.leftPressed = true;
+		keyH.leftPressed1 = true;
 		p.update();
 
 		assertEquals(startPos-p.speed, p.worldX);
@@ -49,9 +46,9 @@ public class PlayerMovementTest {
 	@Test
 	public void testPlayerJump() {
 		startPos = p.worldY;
-		keyH.upPressed = true;
+		keyH.upPressed1 = true;
 		p.update();
-		p.jump();
+		p.jumpP1();
 
 		assertTrue(p.worldY < startPos, "Proggy did not jump");
 		assertTrue(p.worldY > 0, "Proggy jumped out of the frame");

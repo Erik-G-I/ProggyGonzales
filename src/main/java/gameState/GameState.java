@@ -11,5 +11,6 @@ public enum GameState {
     GAME_CONTROLS,
     LEVELS_MENU,
     WIN_SCREEN,
-    WIN_SCREEN2
+    WIN_SCREEN2,
+    MULTIPLAYER_MENU
 }

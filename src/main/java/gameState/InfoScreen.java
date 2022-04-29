@@ -27,9 +27,9 @@ public class InfoScreen extends GameScreen {
             shoes = ImageIO.read(getClass().getResourceAsStream("/graphics/goldshoes_powerup.png"));
             voi = ImageIO.read(getClass().getResourceAsStream("/graphics/voi.png"));
             mask = ImageIO.read(getClass().getResourceAsStream("/graphics/mask_powerup.png"));
-            proggyMask = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_mask_default1.png"));
-            proggyShoes = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_gold_default1.png"));
-            proggyVoi = ImageIO.read(getClass().getResourceAsStream("/player/Proggy_voi_default1.png"));
+            proggyMask = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_mask_default1.png"));
+            proggyShoes = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_gold_default1.png"));
+            proggyVoi = ImageIO.read(getClass().getResourceAsStream("/player1/Proggy_voi_default1.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }

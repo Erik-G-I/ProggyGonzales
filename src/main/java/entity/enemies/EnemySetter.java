@@ -1,10 +1,6 @@
-package enemies;
-
-import java.util.ArrayList;
+package entity.enemies;
 
 import core.GamePanel;
-import entity.PlayerState;
-import entity.Entity;
 
 
 public class EnemySetter {

@@ -5,19 +5,20 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 
 import core.GamePanel;
-import entity.PlayerState;
+import entity.player.PlayerState;
 import gameState.GameState;
 
 public class Time implements ActionListener{
 	
-	private int seconds;
-	private int minutes;
+	public int seconds;
+	public int minutes;
 	private String showTime; //timer will be a String
 	private GamePanel gp;
 	private Timer timer;
 	private boolean gameOver;
 	private boolean startPowerUpTimer;
-	private int powerUpSeconds = 10;
+	private int powerUpSeconds1 = 10;
+	private int powerUpSeconds2 = 10;
 	
 	public Time(int seconds, int minutes, String showTime, GamePanel gp) {
 		this.seconds=seconds;
@@ -58,30 +59,53 @@ public class Time implements ActionListener{
 		
 		if(gp.gameState == GameState.RUNNING_GAME) {
 			if(startPowerUpTimer == true && seconds > 0) {
-				if (gp.pickedUpPowerUp() == true) {
-					powerUpSeconds = 10;
-					gp.setPickedUpPowerUp(false);
+				if (gp.p1pickedUpPowerUp() == true) {
+					powerUpSeconds1 = 10;
+					gp.setPickedUpPowerUp(1, false);
 				}
-				powerUpSeconds--;
+				if (gp.p2pickedUpPowerUp() == true) {
+					powerUpSeconds2 = 10;
+					gp.setPickedUpPowerUp(2, false);
+				}
+				powerUpSeconds1--;
+				powerUpSeconds2--;
 					
 				// Reduce coins by 1 for each second on a VOI
-				if (gp.getPlayerState() == PlayerState.VOI) {
+				if (gp.getPlayerState1() == PlayerState.VOI) {
 					// The coins before deducting
-					int originalCoins = gp.getCoinsInCollisionChecker();
+					int originalCoins = gp.getCoinsInCollisionChecker(1);
 					// Makes sure coins are not negative
 					if (originalCoins>0) {
-						gp.reduceCoinByOne();
+						gp.reduceCoinByOne(1);
 					}
 					// If proggy has no money left, the voi trip ends
-					if (gp.getCoinsInCollisionChecker() <= 0) {
-						gp.setPlayerState(PlayerState.NORMAL);
+					if (gp.getCoinsInCollisionChecker(1) <= 0) {
+						gp.setPlayerState1(PlayerState.NORMAL);
+					}
+				}
+				if (gp.getPlayerState2() == PlayerState.VOI) {
+					// The coins before deducting
+					int originalCoins = gp.getCoinsInCollisionChecker(2);
+					// Makes sure coins are not negative
+					if (originalCoins > 0) {
+						gp.reduceCoinByOne(2);
+					}
+					// If proggy has no money left, the voi trip ends
+					if (gp.getCoinsInCollisionChecker(2) <= 0) {
+						gp.setPlayerState2(PlayerState.NORMAL);
 					}
 				}
 					
-				if(powerUpSeconds == 0) {
-					powerUpSeconds = 10;
+				if(powerUpSeconds1 == 0) {
+					powerUpSeconds1 = 10;
 					startPowerUpTimer = false;
-					gp.setPlayerState(PlayerState.NORMAL);
+					gp.setPlayerState1(PlayerState.NORMAL);
+					gp.playSoundEffect(6);
+				}
+				if (powerUpSeconds2 == 0) {
+					powerUpSeconds2 = 10;
+					startPowerUpTimer = false;
+					gp.setPlayerState2(PlayerState.NORMAL);
 					gp.playSoundEffect(6);
 				}
 			}

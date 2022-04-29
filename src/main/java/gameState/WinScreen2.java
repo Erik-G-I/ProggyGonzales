@@ -20,7 +20,7 @@ public class WinScreen2 extends GameScreen{
 	public void draw(Graphics g2) {
 		
 		String s1, s2, s3, s4, s5, s6, s7, s8;
-		String coins = Integer.toString(gp.collisionChecker.getCoins());
+		String coins = Integer.toString(gp.coins);
 		String time = gp.getTimerDisplay().timeLeft();
 		
 		
