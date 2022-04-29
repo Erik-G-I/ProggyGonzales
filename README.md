@@ -77,6 +77,7 @@ De automatiske testene dekker de aller mest elementære funksjonene.
 Vi har selv testet hele spillet manuelt for bugs, og for funksjoner som ikke like lett kan testes automatisk.
 
 **Automatiske tester**
+
 For å teste at koden kjører som den skal må du gjøre følgende:
 
 1. Åpne prosjektet i foretrukket IDE
