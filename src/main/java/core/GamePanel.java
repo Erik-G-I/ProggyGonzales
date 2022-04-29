@@ -42,8 +42,6 @@ public class GamePanel extends JPanel implements Runnable{
     public final int worldHeight = tileSize * maxWorldRow;
 
 
-    public int coins;
-
     //Map
     public InputStream is;
     
@@ -64,6 +62,25 @@ public class GamePanel extends JPanel implements Runnable{
     public Background bg;
     public TileLoader loader;
     public EnemySetter eSetter = new EnemySetter(this);
+    public int coins;
+
+    //Game State
+    public GameState gameState;
+    
+    //Screens and menus
+    public StartMenu menu;
+    public InfoScreen info;
+    public GameControls ctrls;
+    public Paused pause;
+    public LevelsMenu levels;
+    public LanguageScreen lS;
+    public WinScreen2 wS2;
+    private WinScreen wS;
+    private AfterLevels aL;
+
+    //Multiplayer menu
+    public MultiplayerMenu multiMenu;
+    public boolean multiGame;
 
     //Player Name
     private String playerName;
@@ -74,6 +91,9 @@ public class GamePanel extends JPanel implements Runnable{
     
     //Game Thread
     private Thread gameThread;
+    
+    //Score
+    private Score score;
     
     //Timer
     private TimerDisplay timerDisplay = new TimerDisplay(this);
@@ -93,32 +113,7 @@ public class GamePanel extends JPanel implements Runnable{
     	timerDisplay.startPowerUpTimerTrue();
     }
    
-    //Score
-    private Score score;
-
-    //Game State
-    public GameState gameState;
-
-    //Start menu
-    public StartMenu menu;
-
-    //Info screen
-    public InfoScreen info;
-    
-    //Pause menu
-    public Paused pause;
-    
-    //Levels menu
-    public LevelsMenu levels;
-    
-    //Show controls
-    public GameControls ctrls;
-
-    //Multiplayer menu
-    public MultiplayerMenu multiMenu;
-
-    public boolean multiGame;
-    
+   
     //Game Over if there is no time left
     private GameOver gO;
     //get GameOver object
@@ -136,6 +131,7 @@ public class GamePanel extends JPanel implements Runnable{
         return out1||out2;
     }
     
+    //Languages
     private Languages lang;
     public Languages getLang() {
     	return lang;
@@ -144,11 +140,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setLang(Languages lang) {
     	this.lang = lang;
     }
-    
-    public LanguageScreen lS;
-    public WinScreen2 wS2;
-    private WinScreen wS;
-    private AfterLevels aL;
+
     
     public void setGame() {
     	
