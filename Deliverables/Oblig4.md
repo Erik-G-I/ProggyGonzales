@@ -3,6 +3,11 @@
 ## Proggy Gonzales
 Proggy Gonzales er et 2D-spill der objektet er å samle så mye som mulig penger på veien til butikken, og rekke stengetid.
 
+### Møtereferater og Trello
+- Link til Møtereferater og Trello under:
+- [Møtereferater - Oblig 4](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/Deliverables/M%C3%B8tereferater%20oblig4.md)
+- [Trello Project Board](https://trello.com/b/Ar2twdkF/inf112)
+
 ### Team og Prosjekt
 Gjennom prosjektet har vi evaluert om vi ønsket å beholde rollene vi tilegnet i starten. Disse rollene har fungert \
 svært godt og vi har endret lite på de. Det var derimot vanskelig i starten å vite hvilke områder vi trengte at medlemmer \
@@ -12,45 +17,45 @@ har spesifisert et ekstra ansvar utover kodearbeidet. Vi har hatt en flat strukt
 og Hannah og Erik H sine roller som Teamlead og nestlead har i størst grad gått i å følge ekstra opp på krav til \
 oppgaven og sørget for at disse ble gjennomført.
 
-#### Team roller
-##### Hannah Mørken
+### Team roller
+#### Hannah Mørken
 Rolle: Teamlead \
 Hovedoppgave: Hannah skal sørge for at tidsfrister blir overholdt og inkludere alle når \
 beslutninger skal tas. Hun skal sammen med Erik H ha et ekstra ansvar for å oppdatere Trello.
 
 
-##### Erik Harto
+#### Erik Harto
 Rolle: Team nestlead \
 Hovedoppgave: Sammen med Hannah sørge for at progresjonen til prosjektet \ 
 følger planen, og at prosjektet møter kravene oppgaven krever.
 
 
-##### Erik Gunnaleite Ingebrigtsen  
+#### Erik Gunnaleite Ingebrigtsen  
 Rolle: Teknisk ansvarlig \
 Hovedoppgave: Erik I har et ekstra ansvar for å sørge for at koden alltid kan kjøres, samt være en \
 støttespiller når andre lurer på noe knyttet til GIT eller andre programmer vi benytter.
 
 
-##### Chantal H. Bakar
+#### Chantal H. Bakar
 Rolle: Grafisk ansvarlig og Kundekontakt
 Hovedoppgave: Chantal har et ekstra ansvar for å gjøre spillet så estetisk vakkert som mulig. Det innebærer å lage bakgrunner og menyer \
 Hun skal og delegere arbeid knyttet til dette videre. Hun skal og ta i mot tilbakemeldinger fra kunden slik at vi kan bruke det til å \
 forbedre produktet.
 
 
-##### Alexander Klemeyer Smith
+#### Alexander Klemeyer Smith
 Rolle: Kommunikasjonsansvarlig \
 Hovedoppgave: Alexander skal passe på at teamet ikke går i klassiske feller som å bli konforme. Han har et ekstra ansvar med å utfordre \
 hvordan vi tenker og derfor sørge for at vi ikke er enige fordi vi ikke tør å si i mot gruppen. Han skal og sørge for at alle føler seg \
 verdsatt i teamet og blir hørt på innspillene de kommer med.
 
-##### Roller - Retroperspektiv
+
+#### Roller - Retroperspektiv
 Sett i perspektiv av at prosjektet nå er ferdig har vi følgende synspunkter på hvordan rollefordelingen har vært:
 - Oppgavene som hver rolle har innebært har blitt tatt seriøst av hvert enkeltmedlem. 
-- Vi har i stor grad hatt spesialiserte områder innenfor koding som ikke rollebeskrivelsen har fått fram
+- Ettersom vi er studenter i samme klasse er det naturlig at hierkien er veldig flat. Underveis i semesteret har vi merket at rollene blir mer hvisket ut siden arbeidsoppgavene til den enkelte overlapper så mange områder at alle til en viss grad har ansvar for alt.
+- Vi har i stor grad hatt spesialiserte områder innenfor koding som ikke rollebeskrivelsen har fått fram.
 - Innføring av grafisk ansvarlig har vært en kjempesuksess
-- 
-- 
 
 ### Prosjektmetodikk
 Vi har hatt lite endring på prosjektmetodikken vår gjennom semesteret, men vi har etter hver innlevering \
@@ -80,16 +85,12 @@ Sett i retroperspektiv er det et par ting vi sitter igjen med som vi skulle øns
     * Vi kunne brukt Trello smartere ved å tidligere bruke aktivt "Things that needs to be done" - hvor alle oppgaver for sprinten skal være, "Current sprint" - en oppgave per person og "next up" som er tilleggsoppgaver for hver person. Hvis vi i tillegg delte opp "Done"-fanen til "Done" og "Done - Current Sprint", ville det vært mer oversiktlig å se progresjonen for nåværende sprint, og lettere for gruppeleder å vite hva som er gjort siden sist. 
     * Vi hadde i tillegg alt for mange mindre oppgaver fordelt på hver person, i stedet for å gjøre oss ferdig med én oppgave for så å gå bevege oss videre.
     * Oppsummert førte det til mindre progresjon enn vi kanskje kunne klart, og gjorde at vi arbeidet mindre effektivt. 
-3. 
+
+### Kommunikasjon og samarbeid
+Ettersom prosjektet nå snart er ferdig er det hensiktsmessig å evaluere kommunikasjonen og samarbeidet i gruppen. Her er det enighet om at dette har gått veldig bra for seg. Vi har vært 5 gruppemedlemmer som innehar stor grad av ydmykhet og vært resultatorientert heller enn egen gevinst. Det har ført til at alle har bidratt godt, og at konstruktiv kritikk har vært velkommen. Utover semesteret har alle blitt mye bedre kjent med koden og alle har dermed klart å ta på seg tunge programmeringsoppgaver. Vi har nesten ikke hatt møter der noen ikke har møtt opp. Dette tror vi er et resultat av at alle har synes det har vært morsomt å arbeide med oppgaven samt følt ansvarsfølelse for produktet. Vi har og særlig satt pris arbeidsøktene vi har hatt som team der vi har luftet ulike bugs og samlet jobbet for å fikse de, samt parprogrammeringsøktene. Det har gitt økt læringsutbytte for samtlige. Dersom det kan virke som at det er ujevnt antall commits fra Git fraviker det sterkt fra virkeligheten. Det er et resultat av hvordan de ulike gruppemedlemmene forholder seg til commits og størrelsen på hver commit.
 
 
-### Møtereferater og Trello
-- Link til Møtereferater og Trello under:
-- [Møtereferater - Oblig 4](https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales/-/blob/master/Deliverables/M%C3%B8tereferater%20oblig4.md)
-- [Trello Project Board](https://trello.com/b/Ar2twdkF/inf112)
-
-
-#### Grafikk og inspirasjon
+### Grafikk og inspirasjon
 - Grafiske elementer som tiles, power-ups, players og har alle blitt laget av oss i [Piskel](https://www.piskelapp.com/). Unntaket er skyene til bakgrunnen som er hentet fra [Pinterest](https://no.pinterest.com/pin/530369293614137336/)
 - Font er hentet fra en [database](https://somepx.itch.io/humble-fonts-free) med gratis fonter.
 - Lyder er hentet fra opengameart [Pakke 1](https://opengameart.org/content/5-chiptunes-action) & [Pakke 2](https://opengameart.org/content/512-sound-effects-8-bit-style). Lydeffektene er i pakkene som urlen kobler til. 
