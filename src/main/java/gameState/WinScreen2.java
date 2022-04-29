@@ -5,7 +5,6 @@ import java.awt.Graphics;
 
 import core.GamePanel;
 
-
 public class WinScreen2 extends GameScreen{
 	
 	GamePanel gp;
@@ -13,7 +12,6 @@ public class WinScreen2 extends GameScreen{
 	
 	public WinScreen2(GamePanel gp) {
 		this.gp = gp;
-		
 	}
 
 	@Override

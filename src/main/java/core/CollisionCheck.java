@@ -79,7 +79,7 @@ public class CollisionCheck {
      */
   
     public void unicefLooseMoney(EntityEnemy[] enemy) {
-        if (this.player.playerState != PlayerState.INVISIBLE || this.player.playerState != PlayerState.INVISIBLE) {
+        if (this.player.playerState != PlayerState.INVISIBLE) {
             for (int i = 0; i < enemy.length; i++) {
                 if(enemy[i] != null) {
                     if(player.worldY == enemy[i].worldY) {
