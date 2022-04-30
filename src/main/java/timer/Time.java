@@ -16,7 +16,8 @@ public class Time implements ActionListener{
 	private GamePanel gp;
 	private Timer timer;
 	private boolean gameOver;
-	private boolean startPowerUpTimer;
+	private boolean startPowerUpTimer1;
+	private boolean startPowerUpTimer2;
 	private int powerUpSeconds1 = 10;
 	private int powerUpSeconds2 = 10;
 	
@@ -58,17 +59,12 @@ public class Time implements ActionListener{
 		}
 		
 		if(gp.gameState == GameState.RUNNING_GAME) {
-			if(startPowerUpTimer == true && seconds > 0) {
-				if (gp.p1pickedUpPowerUp() == true) {
+			if(startPowerUpTimer1 && seconds > 0) {
+				if (gp.p1pickedUpPowerUp()) {
 					powerUpSeconds1 = 10;
-					gp.setPickedUpPowerUp(1, false);
-				}
-				if (gp.p2pickedUpPowerUp() == true) {
-					powerUpSeconds2 = 10;
-					gp.setPickedUpPowerUp(2, false);
+					gp.setPickedUpPowerUp(1,false);
 				}
 				powerUpSeconds1--;
-				powerUpSeconds2--;
 					
 				// Reduce coins by 1 for each second on a VOI
 				if (gp.getPlayerState1() == PlayerState.VOI) {
@@ -83,11 +79,28 @@ public class Time implements ActionListener{
 						gp.setPlayerState1(PlayerState.NORMAL);
 					}
 				}
+					
+				if(powerUpSeconds1 == 0) {
+					powerUpSeconds1 = 10;
+					startPowerUpTimer1 = false;
+					gp.setPlayerState1(PlayerState.NORMAL);
+					gp.playSoundEffect(6);
+				}
+			}
+			
+			if(startPowerUpTimer2 && seconds > 0) {
+				if (gp.p2pickedUpPowerUp()) {
+					powerUpSeconds2 = 10;
+					gp.setPickedUpPowerUp(2,false);
+				}
+				powerUpSeconds2--;
+				
+				// Reduce coins by 1 for each second on a VOI
 				if (gp.getPlayerState2() == PlayerState.VOI) {
 					// The coins before deducting
 					int originalCoins = gp.getCoinsInCollisionChecker(2);
 					// Makes sure coins are not negative
-					if (originalCoins > 0) {
+					if (originalCoins>0) {
 						gp.reduceCoinByOne(2);
 					}
 					// If proggy has no money left, the voi trip ends
@@ -95,34 +108,38 @@ public class Time implements ActionListener{
 						gp.setPlayerState2(PlayerState.NORMAL);
 					}
 				}
-					
-				if(powerUpSeconds1 == 0) {
-					powerUpSeconds1 = 10;
-					startPowerUpTimer = false;
-					gp.setPlayerState1(PlayerState.NORMAL);
-					gp.playSoundEffect(6);
-				}
-				if (powerUpSeconds2 == 0) {
+				
+				if(powerUpSeconds2 == 0) {
 					powerUpSeconds2 = 10;
-					startPowerUpTimer = false;
+					startPowerUpTimer2 = false;
 					gp.setPlayerState2(PlayerState.NORMAL);
 					gp.playSoundEffect(6);
 				}
 			}
+			
+			
 		}
 		else {
-			setStartPowerUpTimer(false);
+			setStartPowerUpTimer1(false);
+			setStartPowerUpTimer1(false);
 		}
+
+		
+		
 	}
-	
 	
 	public boolean getGameOver() {
 		return gameOver;
 	}
 	
-	protected void setStartPowerUpTimer(boolean startPowerUpTimer) {
-		this.startPowerUpTimer = startPowerUpTimer;
+	protected void setStartPowerUpTimer1(boolean startPowerUpTimer1) {
+		this.startPowerUpTimer1 = startPowerUpTimer1;
 	}
+	
+	protected void setStartPowerUpTimer2(boolean startPowerUpTimer2) {
+		this.startPowerUpTimer2 = startPowerUpTimer2;
+	}
+	
 	
 	protected int getSeconds() {
 		return seconds;

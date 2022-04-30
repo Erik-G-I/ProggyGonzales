@@ -3,10 +3,7 @@ package entity.player;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
-import javax.swing.JOptionPane;
-
 import core.CollisionCheck;
 import core.GamePanel;
 import core.KeyHandler;
@@ -22,6 +19,7 @@ public class Player1 extends PlayerEntity {
     public int playerX, playerY;
     
     
+    
     public Player1(GamePanel gp, KeyHandler keyH) {
         super(gp);
         this.keyH = keyH;
@@ -32,22 +30,8 @@ public class Player1 extends PlayerEntity {
         playerState = PlayerState.NORMAL;
         setDefaultValues();
         getImage();
+        this.playerNum = 1;
     }
-
-    public void setPlayerName() {
-        String name = null;
-        while (!isValidName(name)) {
-            name = JOptionPane.showInputDialog("Type in your name");
-            this.playerName = name;
-        }
-    }
-    public String getPlayerName() {
-        return this.playerName;
-    }
-
-    public static boolean isValidName(String name) {
-		return name != null && !name.isBlank() && !name.contains(",");
-	}
 
     @Override
     public void getImage() {
@@ -117,23 +101,23 @@ public class Player1 extends PlayerEntity {
 
     @Override
     public void update() {
-        if(keyH.upPressed1 == true || keyH.downPressed == true || keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
-				if(keyH.upPressed1 == true ) {
+        if(keyH.upPressed1 || keyH.downPressed || keyH.leftPressed1 || keyH.rightPressed1) {
+				if(keyH.upPressed1) {
 					previousDirection = direction;
 					direction = "up";
 
 	            }
-	            else if(keyH.downPressed == true) {
+	            else if(keyH.downPressed) {
 	            	previousDirection = direction;
 	                direction = "down";
 
 	            }
-	            else if(keyH.leftPressed1 == true) {
+	            else if(keyH.leftPressed1) {
 	            	previousDirection = direction;
 	                direction = "left";
 
 	            }
-	            else if(keyH.rightPressed1 == true) {
+	            else if(keyH.rightPressed1) {
 	            	previousDirection = direction;
 	                direction = "right";
 	            }
@@ -148,7 +132,7 @@ public class Player1 extends PlayerEntity {
                 PowerUp();
 
                 // If collision is false, player moves. else: direction stops. 
-                if (colliding == false) {
+                if (!colliding) {
                     switch(direction) {
                     case "up":
                     jumpP1();
@@ -177,7 +161,7 @@ public class Player1 extends PlayerEntity {
      * Jump method for player 1
      */
     public void jumpP1() {
-        if(keyH.upPressed1 == true || (jumpStrength <= 0 && !onGround)) {
+        if(keyH.upPressed1 || (jumpStrength <= 0 && !onGround)) {
             super.jump();
         }
     }
@@ -188,20 +172,20 @@ public class Player1 extends PlayerEntity {
     private void moveWhileJumping () {
     	String originalDir = previousDirection;
     	int moveInAir = 0;
-    	if(keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
+    	if(keyH.leftPressed1 || keyH.rightPressed1) {
     		
-			if(keyH.leftPressed1 == true ) {
+			if(keyH.leftPressed1) {
 				originalDir = direction;
 				direction = "left";
 				moveInAir = -speed;
 			}
-			if(keyH.rightPressed1 == true ) {
+			if(keyH.rightPressed1) {
 				originalDir = direction;
 				direction = "right";
 				moveInAir = speed;
 			}
 			collisionChecker.checkCollisionOnTile();
-			if(colliding == false) {
+			if(!colliding) {
 				worldX += moveInAir;
 			}
 		}

@@ -126,7 +126,7 @@ public class CollisionCheck {
         pickedUpPowerUp = true;
         player.gp.playSoundEffect(soundEffectNr);
         player.playerState = state;
-        player.gp.truePowerUpTimer();
+        player.gp.truePowerUpTimer(player.getPlayerNum());
         player.getImage();
     }
     /**

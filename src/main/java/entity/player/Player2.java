@@ -25,6 +25,7 @@ public class Player2 extends PlayerEntity {
         worldX = 100;
         setDefaultValues();
         getImage();
+        this.playerNum = 2;
     }
 
     @Override
@@ -80,7 +81,7 @@ public class Player2 extends PlayerEntity {
      * Jump method for player 2
      */
     public void jumpP2() {
-        if(keyH.upPressed2 == true || (jumpStrength <= 0 && !onGround)) {
+        if(keyH.upPressed2 || (jumpStrength <= 0 && !onGround)) {
             super.jump();
         }
     }
@@ -92,20 +93,20 @@ public class Player2 extends PlayerEntity {
     private void moveWhileJumping () {
         String originalDir = previousDirection;
         int moveInAir = 0;
-        if(keyH.leftPressed2 == true || keyH.rightPressed2 == true) {
+        if(keyH.leftPressed2 || keyH.rightPressed2) {
 
-            if(keyH.leftPressed2 == true ) {
+            if(keyH.leftPressed2) {
                 originalDir = direction;
                 direction = "left";
                 moveInAir = -speed;
             }
-            if(keyH.rightPressed2 == true ) {
+            if(keyH.rightPressed2) {
                 originalDir = direction;
                 direction = "right";
                 moveInAir = speed;
             }
             collisionChecker.checkCollisionOnTile();
-            if(colliding == false) {
+            if(!colliding) {
                 worldX += moveInAir;
             }
         }
