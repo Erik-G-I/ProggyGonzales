@@ -9,14 +9,14 @@ import java.awt.*;
  */
 public abstract class Entity {
 
-    public GamePanel gp;
+    public final GamePanel gp;
     public int worldX, worldY;
     public int speed;
     public String direction;
 
     /* specifying where on the character it will collide with tiles.
     We set this to the whole character since it only scrolls vertically */
-    public Rectangle solid;
+    public final Rectangle solid;
 
     public boolean colliding = false;
     public boolean onGround = true;

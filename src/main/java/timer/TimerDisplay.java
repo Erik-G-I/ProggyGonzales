@@ -10,12 +10,12 @@ import java.awt.Color;
 
 public class TimerDisplay extends DisplayText{
 	
-	private int widthOfScreen;
-	private int seconds;
-	private int minutes;
+	private final int widthOfScreen;
+	private final int seconds;
+	private final int minutes;
 	private String showTime;
-	private Timer timer;
-	private Time time;
+	private final Timer timer;
+	private final Time time;
 	private int timerSeconds, timerMinutes;
 	
 	public TimerDisplay(GamePanel gp) {

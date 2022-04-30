@@ -1,12 +1,11 @@
 package core;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Highscore {
 	
-	GamePanel gp;
-	WriteToFile writer;
+	final GamePanel gp;
+	final WriteToFile writer;
 	
 	public Highscore(GamePanel gp) {
 		this.gp = gp;
@@ -15,14 +14,14 @@ public class Highscore {
 	
 	/**
 	 * Calculates the score based on coins and time left
-	 * @return
+	 * @return score
 	 */
 	private int calculateScore() {
 		int score = gp.collisionChecker1.getCoins();
 		String[] strArr = gp.getTimerDisplay().timeLeft().split(":");
 		boolean minutesDone = false;
 		for(String s: strArr) {
-			if (minutesDone == false) {
+			if (!minutesDone) {
 				score += Integer.parseInt(s)*60; //regner minutter til sekunder
 				minutesDone = true;
 			}
@@ -59,7 +58,7 @@ public class Highscore {
 	
 	/**
 	 * Method to check if highscore should be updated with a the score from the current game
-	 * @param fileName
+	 * @param fileName which highscoreDB to be updated
 	 */
 	public void updateHighscore(String fileName) {
 		int currentScore = calculateScore();

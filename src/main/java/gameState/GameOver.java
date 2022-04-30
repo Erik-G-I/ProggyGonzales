@@ -6,7 +6,7 @@ import core.GamePanel;
 
 public class GameOver extends GameScreen {
 
-	int widthOfScreen;
+	final int widthOfScreen;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
 	boolean gameOverMusic = false;
@@ -45,9 +45,9 @@ public class GameOver extends GameScreen {
 		}
 		
 		this.draw(200);
-		if (isGameOver == true || isOutOfBounds == true) {
+		if (isGameOver || isOutOfBounds) {
 			gp.gameState = GameState.GAME_OVER;
-			if(gameOverMusic == false) {
+			if(!gameOverMusic) {
 				gp.stopMusic();
 				gp.playSoundEffect(5);
 				gp.playMusic(11);

@@ -13,10 +13,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Player2ItemsTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
-    KeyHandler keyH = new KeyHandler(gp);
+    final GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    final KeyHandler keyH = new KeyHandler(gp);
     Player2 p;
-    EntityEnemy unicef[];
+    EntityEnemy[] unicef;
     int startPos;
     Score score;
 
@@ -60,7 +60,7 @@ public class Player2ItemsTest {
             keyH.rightPressed2 = true;
             p.update();
         }
-        assertFalse(p.playerState == PlayerState.NORMAL);
+        assertNotSame(p.playerState, PlayerState.NORMAL);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class Player2ItemsTest {
 
         int newScore = money + 10;
 
-        assertTrue(gp.loader.numOfTiles[8][1] == 0);
+        assertEquals(0, gp.loader.numOfTiles[8][1]);
         assertEquals(newScore, gp.collisionChecker2.getCoins());
     }
 
@@ -105,7 +105,7 @@ public class Player2ItemsTest {
         int newScore = 0;
 
         for (int i = 0; i < 20; i++) {
-            if(gp.collisionChecker2.takenMoney == true) {
+            if(gp.collisionChecker2.takenMoney) {
                 unicef[i].update();
                 newScore = gp.collisionChecker2.getCoins();
             }

@@ -12,9 +12,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoaderTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    final GamePanel gp = new GamePanel("/maps/testingMap.txt");
     TileLoader loader;
-    InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
+    final InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
 
     @BeforeEach
     void beforeEach() {
@@ -25,7 +25,7 @@ public class LoaderTest {
     
     @Test
     public void testLoadTile() {
-        assertTrue(loader.numOfTiles[0][7] == 1);
+        assertEquals(1, loader.numOfTiles[0][7]);
     }
 
     

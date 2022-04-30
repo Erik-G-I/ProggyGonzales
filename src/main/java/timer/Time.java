@@ -13,7 +13,7 @@ public class Time implements ActionListener{
 	public int seconds;
 	public int minutes;
 	private String showTime; //timer will be a String
-	private GamePanel gp;
+	private final GamePanel gp;
 	private Timer timer;
 	private boolean gameOver;
 	private boolean startPowerUpTimer1;

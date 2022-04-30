@@ -15,14 +15,14 @@ import core.GamePanel;
  */
 public class Background{
 
-    private GamePanel gp;
-    private KeyHandler keyH;
+    private final GamePanel gp;
+    private final KeyHandler keyH;
     
     private BufferedImage startE, startMH, bryggen, fjell, bus, marketsE, marketsMH, worm, dirt, end;
     private int mapNum;
 	int worldX = 0;
 	int worldY = 515;
-    int speed = 3;
+    final int speed = 3;
     String direction = "down";
 
     public Background(GamePanel gp, KeyHandler keyH) {

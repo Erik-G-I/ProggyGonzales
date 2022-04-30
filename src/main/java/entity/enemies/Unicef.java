@@ -7,8 +7,6 @@ import javax.imageio.ImageIO;
 
 import core.GamePanel;
 
-import java.awt.Rectangle;
-
 public class Unicef extends EntityEnemy{
 	
     public Unicef(GamePanel gp) {
@@ -50,7 +48,7 @@ public class Unicef extends EntityEnemy{
 				if(i > 50) {
 					direction = "enemyRight";
 				}
-				if(onGround = false) {
+				if(onGround == false) {
 					direction = "down";
 				}
 				movementCount = 0;

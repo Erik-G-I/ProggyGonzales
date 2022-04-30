@@ -3,11 +3,10 @@ package core;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class ReadFromFile {
 
-	public Table table;
+	public final Table table;
 	
 	public ReadFromFile() {
 		table = new Table();

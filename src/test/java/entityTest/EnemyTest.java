@@ -1,7 +1,6 @@
 package entityTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
@@ -12,7 +11,7 @@ import entity.Score;
 
 public class EnemyTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	final GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	int startPos;
 	Score score;

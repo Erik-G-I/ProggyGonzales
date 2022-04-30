@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Table highscores;
 
     // FPS
-    int FPS = 60;
+    final int FPS = 60;
 
     //CollisionCheck 
     public CollisionCheck collisionChecker1;
@@ -55,10 +55,10 @@ public class GamePanel extends JPanel implements Runnable{
     private KeyHandler keyH = new KeyHandler(this);
     public Player1 player1;
     public Player2 player2;
-    public EntityEnemy unicef[];
+    public EntityEnemy[] unicef;
     public Background bg;
     public TileLoader loader;
-    public EnemySetter eSetter = new EnemySetter(this);
+    public final EnemySetter eSetter = new EnemySetter(this);
     public int coins;
 
     //Game State
@@ -126,8 +126,7 @@ public class GamePanel extends JPanel implements Runnable{
     }
 
     public boolean getGameOver() {
-    	boolean gameO = this.timerDisplay.getTime().getGameOver();
-    	return gameO;
+        return this.timerDisplay.getTime().getGameOver();
     }
     public boolean getOutOfBounds() {
         boolean out1 = collisionChecker1.isOutOfBounds();
@@ -195,16 +194,10 @@ public class GamePanel extends JPanel implements Runnable{
     
     // Will trigger a countdown of 10 seconds that makes the powerUp disappear when it ends
     public boolean p1pickedUpPowerUp() {
-    	if (collisionChecker1.getPickedUpPowerUp()) {
-    		return true;
-    	}
-    	return false;
+        return collisionChecker1.getPickedUpPowerUp();
     }
     public boolean p2pickedUpPowerUp() {
-        if (collisionChecker2.getPickedUpPowerUp()) {
-            return true;
-        }
-        return false;
+        return collisionChecker2.getPickedUpPowerUp();
     }
 
 
@@ -343,11 +336,11 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
         }
-        
-        for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].update();
-        	}
+
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.update();
+            }
         }
     }
     
@@ -358,10 +351,10 @@ public class GamePanel extends JPanel implements Runnable{
     public void fall() {
     	player1.fall();
         player2.fall();
-    	for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].fall(); 
-        	}
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.fall();
+            }
         }
 
     }
@@ -382,11 +375,11 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if (multiGame)
             player2.draw(g2);
-        
-        for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].draw(g2); 
-        	}
+
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.draw(g2);
+            }
         }
 
         if (gameState == GameState.START_MENU)

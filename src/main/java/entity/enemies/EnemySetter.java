@@ -5,7 +5,7 @@ import core.GamePanel;
 
 public class EnemySetter {
 
-	GamePanel gp;
+	final GamePanel gp;
 	
 	public EnemySetter(GamePanel gp) {
 		this.gp = gp;

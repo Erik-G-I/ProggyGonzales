@@ -1,9 +1,5 @@
 package entityTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import entity.player.PlayerState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,13 +10,15 @@ import entity.enemies.EntityEnemy;
 import entity.player.Player1;
 import entity.Score;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class Player1ItemsTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
-	KeyHandler keyH = new KeyHandler(gp);
+	final GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	final KeyHandler keyH = new KeyHandler(gp);
 	Player1 p;
-	EntityEnemy unicef[];
+	EntityEnemy[] unicef;
 	Score score;
 
 	@BeforeEach
@@ -63,7 +61,7 @@ public class Player1ItemsTest {
 			keyH.rightPressed1 = true;
 			p.update();
 		}
-		assertFalse(p.playerState == PlayerState.NORMAL);
+		assertNotSame(p.playerState, PlayerState.NORMAL);
 	}
 
 	@Test
@@ -80,7 +78,7 @@ public class Player1ItemsTest {
 
 		int newScore = money + 10;
 
-		assertTrue(gp.loader.numOfTiles[8][1] == 0);
+		assertEquals(0, gp.loader.numOfTiles[8][1]);
 		assertEquals(newScore, gp.collisionChecker1.getCoins());
 	}
 
@@ -108,7 +106,7 @@ public class Player1ItemsTest {
 		int newScore = 0;
 
 		for (int i = 0; i < 20; i++) {
-			if(gp.collisionChecker1.takenMoney == true) {
+			if(gp.collisionChecker1.takenMoney) {
 				unicef[i].update();
 				newScore = gp.collisionChecker1.getCoins();
 			}

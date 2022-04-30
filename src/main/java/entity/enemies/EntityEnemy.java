@@ -38,7 +38,7 @@ public abstract class EntityEnemy extends Entity {
 		gp.collisionChecker1.checkEnemyOnTile(this);
 		gp.collisionChecker2.checkEnemyOnTile(this);
 
-		if (colliding == false) {
+		if (!colliding) {
             switch(direction) {
             case "enemyLeft":
             worldX -= speed;
@@ -61,7 +61,7 @@ public abstract class EntityEnemy extends Entity {
     	direction = "down";
     	gp.collisionChecker1.checkEnemyOnTile(this);
 		gp.collisionChecker2.checkEnemyOnTile(this);
-    	if(colliding == false || onGround == false) {
+    	if(!colliding || !onGround) {
     		onGround = false;
     		direction = originalDir;
     		worldY += weight;
