@@ -59,12 +59,12 @@ public class Background{
     public void update() {
         mapNum = gp.getKeyH().getMapNum();
     	
-        if (keyH.leftPressed1 == true || keyH.rightPressed1 == true) {
+        if (keyH.leftPressed1 || keyH.rightPressed1) {
 
-            if (keyH.leftPressed1 == true) {
+            if (keyH.leftPressed1) {
                 direction = "left";
                 worldX += speed;
-            } else if (keyH.rightPressed1 == true) {
+            } else if (keyH.rightPressed1) {
                 direction = "right";
                 worldX -= speed;
             }

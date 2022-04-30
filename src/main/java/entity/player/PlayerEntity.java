@@ -25,6 +25,8 @@ public abstract class PlayerEntity extends Entity {
 
     public int spriteCounter = 0;
     public int spriteNum = 1;
+    
+    protected int playerNum;
 
     public PlayerEntity(GamePanel gp) {
         super(gp);
@@ -198,6 +200,9 @@ public abstract class PlayerEntity extends Entity {
         return image;
     }
 
+    public int getPlayerNum() {
+    	return playerNum;
+    }
 
 }
 

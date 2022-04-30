@@ -107,8 +107,14 @@ public class GamePanel extends JPanel implements Runnable{
     	timerDisplay.stopTime();
     }
     
-    public void truePowerUpTimer() {
-    	timerDisplay.startPowerUpTimerTrue();
+    public void truePowerUpTimer(int playerNum) {
+    	if (playerNum == 1) {
+    		timerDisplay.startPowerUpTimerTrue1();
+    	}
+    	if (playerNum == 2) {
+    		timerDisplay.startPowerUpTimerTrue2();
+    	}
+    	
     }
    
    
@@ -205,8 +211,9 @@ public class GamePanel extends JPanel implements Runnable{
     public void setPickedUpPowerUp(int playerNum, boolean pickedUpPowerUp) {
         if (playerNum == 1)
             this.collisionChecker1.setPickedUpPowerUp(pickedUpPowerUp);
-        else
+        if (playerNum == 2) {
             this.collisionChecker2.setPickedUpPowerUp(pickedUpPowerUp);
+        }
     }
     // Gets coins from CollisionChecker and is in this class so that it can be used in Time.java
     public int getCoinsInCollisionChecker(int playerNum) {
