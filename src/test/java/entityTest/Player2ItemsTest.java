@@ -60,7 +60,7 @@ public class Player2ItemsTest {
             keyH.rightPressed2 = true;
             p.update();
         }
-        assertFalse(p.playerState == PlayerState.NORMAL);
+        assertNotSame(p.playerState, PlayerState.NORMAL);
     }
 
     @Test
@@ -77,7 +77,7 @@ public class Player2ItemsTest {
 
         int newScore = money + 10;
 
-        assertTrue(gp.loader.numOfTiles[8][1] == 0);
+        assertEquals(0, gp.loader.numOfTiles[8][1]);
         assertEquals(newScore, gp.collisionChecker2.getCoins());
     }
 

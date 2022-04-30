@@ -14,7 +14,7 @@ public class Highscore {
 	
 	/**
 	 * Calculates the score based on coins and time left
-	 * @return
+	 * @return score
 	 */
 	private int calculateScore() {
 		int score = gp.collisionChecker1.getCoins();
@@ -58,7 +58,7 @@ public class Highscore {
 	
 	/**
 	 * Method to check if highscore should be updated with a the score from the current game
-	 * @param fileName
+	 * @param fileName which highscoreDB to be updated
 	 */
 	public void updateHighscore(String fileName) {
 		int currentScore = calculateScore();

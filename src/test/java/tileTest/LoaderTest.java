@@ -25,7 +25,7 @@ public class LoaderTest {
     
     @Test
     public void testLoadTile() {
-        assertTrue(loader.numOfTiles[0][7] == 1);
+        assertEquals(1, loader.numOfTiles[0][7]);
     }
 
     

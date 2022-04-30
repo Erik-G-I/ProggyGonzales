@@ -75,9 +75,8 @@ public class CollisionCheck {
   
     /**
      * Enemy-unicef collission
-     * @param enemy
+     * @param enemy unicef-worker
      */
-  
     public void unicefLooseMoney(EntityEnemy[] enemy) {
         if (this.player.playerState != PlayerState.INVISIBLE) {
             for (EntityEnemy entityEnemy : enemy) {
@@ -322,7 +321,7 @@ public class CollisionCheck {
     
     /**
      * Works much the same as checkCollisionOnTile, but makes it so enemies can't pick up objects 
-     * @param entityEnemy
+     * @param entityEnemy the enimy that is not allowed to pick up objects
      */
     public void checkEnemyOnTile(EntityEnemy entityEnemy) {
         // Creating the sides of the solid area of Enemy. If these sides hit a solid block, it will create a collision.

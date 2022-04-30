@@ -1,9 +1,5 @@
 package entityTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import entity.player.PlayerState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +9,8 @@ import core.KeyHandler;
 import entity.enemies.EntityEnemy;
 import entity.player.Player1;
 import entity.Score;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class Player1ItemsTest {
@@ -63,7 +61,7 @@ public class Player1ItemsTest {
 			keyH.rightPressed1 = true;
 			p.update();
 		}
-		assertFalse(p.playerState == PlayerState.NORMAL);
+		assertNotSame(p.playerState, PlayerState.NORMAL);
 	}
 
 	@Test
@@ -80,7 +78,7 @@ public class Player1ItemsTest {
 
 		int newScore = money + 10;
 
-		assertTrue(gp.loader.numOfTiles[8][1] == 0);
+		assertEquals(0, gp.loader.numOfTiles[8][1]);
 		assertEquals(newScore, gp.collisionChecker1.getCoins());
 	}
 
