@@ -85,8 +85,8 @@ public abstract class PlayerEntity extends Entity {
         }
 
         collisionChecker.checkCollisionOnTile();
-        if(colliding == false) {
-            if(onGround == true) {
+        if(!colliding) {
+            if(onGround) {
                 gp.playSoundEffect(3);
                 // How fast the jump is upwards
                 jumpStrength = 15;
@@ -95,13 +95,13 @@ public abstract class PlayerEntity extends Entity {
                 onGround = false;
 
             }
-            else if(onGround == false && jumpStrength > 0) {
+            else if(!onGround && jumpStrength > 0) {
                 worldY -= jumpStrength;
                 jumpStrength -= 1;
             }
 
             collisionChecker.checkCollisionOnTile();
-            if(jumpStrength <=0 || colliding == true) {
+            if(jumpStrength <=0 || colliding) {
                 // setting jumpStrengt to 0 if you hit your head, so you dont keep going up
                 jumpStrength = 0;
 
@@ -135,7 +135,7 @@ public abstract class PlayerEntity extends Entity {
         String originalDir = direction;
         direction = "down";
         collisionChecker.checkCollisionOnTile();
-        if(colliding == false || onGround == false) {
+        if(!colliding || !onGround) {
             onGround = false;
             direction = originalDir;
             worldY += gravity;

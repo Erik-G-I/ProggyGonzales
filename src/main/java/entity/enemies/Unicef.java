@@ -50,7 +50,7 @@ public class Unicef extends EntityEnemy{
 				if(i > 50) {
 					direction = "enemyRight";
 				}
-				if(onGround = false) {
+				if(onGround == false) {
 					direction = "down";
 				}
 				movementCount = 0;

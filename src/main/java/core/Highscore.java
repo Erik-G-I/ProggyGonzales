@@ -22,7 +22,7 @@ public class Highscore {
 		String[] strArr = gp.getTimerDisplay().timeLeft().split(":");
 		boolean minutesDone = false;
 		for(String s: strArr) {
-			if (minutesDone == false) {
+			if (!minutesDone) {
 				score += Integer.parseInt(s)*60; //regner minutter til sekunder
 				minutesDone = true;
 			}

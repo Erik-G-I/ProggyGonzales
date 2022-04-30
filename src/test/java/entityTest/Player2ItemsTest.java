@@ -16,7 +16,7 @@ public class Player2ItemsTest {
     GamePanel gp = new GamePanel("/maps/testingMap.txt");
     KeyHandler keyH = new KeyHandler(gp);
     Player2 p;
-    EntityEnemy unicef[];
+    EntityEnemy[] unicef;
     int startPos;
     Score score;
 
@@ -105,7 +105,7 @@ public class Player2ItemsTest {
         int newScore = 0;
 
         for (int i = 0; i < 20; i++) {
-            if(gp.collisionChecker2.takenMoney == true) {
+            if(gp.collisionChecker2.takenMoney) {
                 unicef[i].update();
                 newScore = gp.collisionChecker2.getCoins();
             }

@@ -52,7 +52,7 @@ public class Player2 extends PlayerEntity {
 
             PowerUp();
 
-            if (colliding == false) {
+            if (!colliding) {
                 switch(direction) {
                     case "up":
                         jumpP2();

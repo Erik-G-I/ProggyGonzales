@@ -15,7 +15,7 @@ public class TileLoader {
 	GamePanel gp;
 	public Tile[] tiles;
 	Tile[][] loadedMap;
-	public int numOfTiles[][];
+	public int[][] numOfTiles;
 
 	InputStream is;
 	int mapCols;
