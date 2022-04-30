@@ -15,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ScoreTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
-    KeyHandler keyH = new KeyHandler(gp);
+    final GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    final KeyHandler keyH = new KeyHandler(gp);
     InputStream is = getClass().getResourceAsStream("/maps/testingMap.txt");
     Player1 p;
     Score score;

@@ -7,7 +7,7 @@ import gameState.GameState;
 
 public class CollisionCheck {
 
-    PlayerEntity player;
+    final PlayerEntity player;
 
     // The two corners of proggy to be checked for collision for each case
     int cornerOne, cornerTwo;

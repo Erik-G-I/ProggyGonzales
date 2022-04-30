@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class ReadFromFile {
 
-	public Table table;
+	public final Table table;
 	
 	public ReadFromFile() {
 		table = new Table();

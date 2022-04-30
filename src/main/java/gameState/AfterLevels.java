@@ -10,8 +10,8 @@ import core.GamePanel;
 
 public class AfterLevels extends GameScreen{
 	
-	private GamePanel gp;
-	private Image image;
+	private final GamePanel gp;
+	private final Image image;
 	
 	public AfterLevels(GamePanel gp) {
 		this.gp = gp;

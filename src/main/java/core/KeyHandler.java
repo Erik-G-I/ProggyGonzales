@@ -13,7 +13,7 @@ public class KeyHandler implements KeyListener{
     
     public boolean upPressed1, upPressed2, downPressed, leftPressed1, rightPressed1, leftPressed2, rightPressed2;
     public float jumpSpeed;
-    private GamePanel gp;
+    private final GamePanel gp;
     private String mapPath;
     private int mapNum;
     private PlayerState pS1;

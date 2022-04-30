@@ -5,8 +5,8 @@ import java.util.LinkedList;
 
 public class Highscore {
 	
-	GamePanel gp;
-	WriteToFile writer;
+	final GamePanel gp;
+	final WriteToFile writer;
 	
 	public Highscore(GamePanel gp) {
 		this.gp = gp;

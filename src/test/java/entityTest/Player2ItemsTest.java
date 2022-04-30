@@ -13,8 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class Player2ItemsTest {
 
-    GamePanel gp = new GamePanel("/maps/testingMap.txt");
-    KeyHandler keyH = new KeyHandler(gp);
+    final GamePanel gp = new GamePanel("/maps/testingMap.txt");
+    final KeyHandler keyH = new KeyHandler(gp);
     Player2 p;
     EntityEnemy[] unicef;
     int startPos;

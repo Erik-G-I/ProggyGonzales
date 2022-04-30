@@ -12,14 +12,14 @@ import core.GamePanel;
 
 public class TileLoader {
 	
-	GamePanel gp;
-	public Tile[] tiles;
+	final GamePanel gp;
+	public final Tile[] tiles;
 	Tile[][] loadedMap;
-	public int[][] numOfTiles;
+	public final int[][] numOfTiles;
 
-	InputStream is;
-	int mapCols;
-	int mapRows;
+	final InputStream is;
+	final int mapCols;
+	final int mapRows;
 	final private int rowNumber =20;
 	
 	/**
@@ -44,6 +44,7 @@ public class TileLoader {
 		return this.rowNumber;
 	}
 
+	@SuppressWarnings("CatchMayIgnoreException")
 	public void loadMap() {
 		BufferedReader reader;
 		
@@ -73,6 +74,7 @@ public class TileLoader {
 	/**
 	 * Method to get images for each tile
 	 */
+	@SuppressWarnings("CatchMayIgnoreException")
 	public void getTileImage() {
 		
 		try {
@@ -149,12 +151,6 @@ public class TileLoader {
 			tiles[18] = new Tile();
 			tiles[18].image = ImageIO.read(getClass().getResourceAsStream("/tiles/grass_right.png"));
 			tiles[18].collission = true;
-
-
-
-
-
-
 		} catch (Exception e) {
 		}
 		

@@ -15,7 +15,7 @@ import javax.sound.sampled.Clip;
 public class Sound {
 
 	Clip clip;
-	URL[] soundURL = new URL[12];
+	final URL[] soundURL = new URL[12];
 	
 	/**
 	 * Sets the audio file

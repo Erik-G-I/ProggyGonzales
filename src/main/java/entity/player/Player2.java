@@ -14,7 +14,7 @@ import java.io.IOException;
  */
 public class Player2 extends PlayerEntity {
 
-    public KeyHandler keyH;
+    public final KeyHandler keyH;
 
     public Player2(GamePanel gp, KeyHandler keyH) {
         super(gp);

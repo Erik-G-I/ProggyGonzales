@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Table highscores;
 
     // FPS
-    int FPS = 60;
+    final int FPS = 60;
 
     //CollisionCheck 
     public CollisionCheck collisionChecker1;
@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
     public EntityEnemy[] unicef;
     public Background bg;
     public TileLoader loader;
-    public EnemySetter eSetter = new EnemySetter(this);
+    public final EnemySetter eSetter = new EnemySetter(this);
     public int coins;
 
     //Game State

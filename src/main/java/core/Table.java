@@ -4,8 +4,8 @@ import java.util.LinkedList;
 
 public class Table {
 
-	private LinkedList<String> names;
-	private LinkedList<Integer> scores;
+	private final LinkedList<String> names;
+	private final LinkedList<Integer> scores;
 	
 	/**
 	 * Table construct

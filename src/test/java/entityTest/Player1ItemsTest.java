@@ -17,8 +17,8 @@ import entity.Score;
 
 public class Player1ItemsTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
-	KeyHandler keyH = new KeyHandler(gp);
+	final GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	final KeyHandler keyH = new KeyHandler(gp);
 	Player1 p;
 	EntityEnemy[] unicef;
 	Score score;

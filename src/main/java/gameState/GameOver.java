@@ -6,7 +6,7 @@ import core.GamePanel;
 
 public class GameOver extends GameScreen {
 
-	int widthOfScreen;
+	final int widthOfScreen;
 	boolean isGameOver = false;
 	boolean isOutOfBounds = false;
 	boolean gameOverMusic = false;

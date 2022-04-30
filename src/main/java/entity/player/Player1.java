@@ -14,9 +14,10 @@ import core.KeyHandler;
  */
 public class Player1 extends PlayerEntity {
 
-    KeyHandler keyH;
+    final KeyHandler keyH;
     String playerName;
-    public int playerX, playerY;
+    public final int playerX;
+    public final int playerY;
     
     
     

@@ -12,7 +12,7 @@ import entity.Score;
 
 public class EnemyTest {
 
-	GamePanel gp = new GamePanel("/maps/testingMap.txt");
+	final GamePanel gp = new GamePanel("/maps/testingMap.txt");
 	KeyHandler keyH = new KeyHandler(gp);
 	int startPos;
 	Score score;

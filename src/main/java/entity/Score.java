@@ -13,7 +13,7 @@ import gameState.Languages;
 public class Score extends DisplayText{
 
     private String showScore;
-    GamePanel gp;
+    final GamePanel gp;
 
     public Score(GamePanel gp) {
         this.gp = gp;
