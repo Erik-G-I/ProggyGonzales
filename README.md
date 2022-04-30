@@ -1,10 +1,10 @@
-<h1 align="center">
+<h1>
   <a href="https://git.app.uib.no/Erik.Ingebrigtsen/inf112.proggy-gonzales">
     Proggy Gonzales
   </a>
 </h1>
 
-<p align="center">
+<p>
   <strong>Et 2D-spill utviklet av Hannah Mørken, Erik Ingebrigtsen, Alexander Smith, Chantal Bakar og Erik Harto</strong><br>
 </p>
 
