@@ -7,8 +7,6 @@ import javax.imageio.ImageIO;
 
 import core.GamePanel;
 
-import java.awt.Rectangle;
-
 public class Unicef extends EntityEnemy{
 	
     public Unicef(GamePanel gp) {

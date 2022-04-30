@@ -336,11 +336,11 @@ public class GamePanel extends JPanel implements Runnable{
         if(!gO.gameOverBounds()) {
         	timerDisplay.update();
         }
-        
-        for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].update();
-        	}
+
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.update();
+            }
         }
     }
     
@@ -351,10 +351,10 @@ public class GamePanel extends JPanel implements Runnable{
     public void fall() {
     	player1.fall();
         player2.fall();
-    	for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].fall(); 
-        	}
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.fall();
+            }
         }
 
     }
@@ -375,11 +375,11 @@ public class GamePanel extends JPanel implements Runnable{
         }
         if (multiGame)
             player2.draw(g2);
-        
-        for(int i = 0; i < unicef.length; i++) {
-        	if(unicef[i] != null) {
-        		unicef[i].draw(g2); 
-        	}
+
+        for (EntityEnemy entityEnemy : unicef) {
+            if (entityEnemy != null) {
+                entityEnemy.draw(g2);
+            }
         }
 
         if (gameState == GameState.START_MENU)

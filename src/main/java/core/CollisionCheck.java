@@ -80,12 +80,12 @@ public class CollisionCheck {
   
     public void unicefLooseMoney(EntityEnemy[] enemy) {
         if (this.player.playerState != PlayerState.INVISIBLE) {
-            for (int i = 0; i < enemy.length; i++) {
-                if(enemy[i] != null) {
-                    if(player.worldY == enemy[i].worldY) {
-                        if(player.worldX <= enemy[i].worldX + 10 && player.worldX >= enemy[i].worldX - 10) {
-                            player.gp.coins --;
-                            if(player.gp.coins < 0) {
+            for (EntityEnemy entityEnemy : enemy) {
+                if (entityEnemy != null) {
+                    if (player.worldY == entityEnemy.worldY) {
+                        if (player.worldX <= entityEnemy.worldX + 10 && player.worldX >= entityEnemy.worldX - 10) {
+                            player.gp.coins--;
+                            if (player.gp.coins < 0) {
                                 player.gp.coins = 0;
                             }
                             takenMoney = true;

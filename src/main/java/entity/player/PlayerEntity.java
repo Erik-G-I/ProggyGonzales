@@ -4,7 +4,6 @@ import core.CollisionCheck;
 import core.GamePanel;
 import entity.Entity;
 
-import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
