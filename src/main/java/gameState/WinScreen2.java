@@ -17,7 +17,7 @@ public class WinScreen2 extends GameScreen{
 	@Override
 	public void draw(Graphics g2) {
 		
-		String s1, s2, s3, s4, s5, s6, s7, s8, s9;
+		String s2, s3, s4, s5, s6, s7, s8, s9;
 		String coins = Integer.toString(gp.coins);
 		String time = gp.getTimerDisplay().timeLeft();
 		String[] timeSplit = time.split(":");
