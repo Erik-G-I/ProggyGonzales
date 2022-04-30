@@ -5,7 +5,6 @@ import gameState.Languages;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.LinkedList;
 
 import entity.player.PlayerState;
 
@@ -328,7 +327,6 @@ public class KeyHandler implements KeyListener{
         		ReadFromFile reader = new ReadFromFile();
                 reader.readHighscore(hsLevel,5);
                 gp.highscores.clear();
-                LinkedList<Integer> scoreList = reader.table.getScores();
                 
                 for(int i=0; i<5; i++) {
                 	
